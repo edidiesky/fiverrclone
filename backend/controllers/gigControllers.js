@@ -19,27 +19,27 @@ const GetAllGig = asyncHandler(async (req, res) => {
 
   // search
   if (search) {
-    queryObject.title = { $regex: search, options: 'i' }
+    queryObject.title = { $regex: search, options: "i" };
   }
   // minimum price
   if (minprice) {
-    queryObject.price = { $gt: minprice }
+    queryObject.price = { $gt: minprice };
   }
   // maxprice
   if (maxprice) {
-    queryObject.price = { $gt: maxprice }
+    queryObject.price = { $gt: maxprice };
   }
   // user
   if (user) {
-    queryObject.user = user
+    queryObject.user = user;
   }
   // category
   if (category) {
-    queryObject.category = category
+    queryObject.category = category;
   }
 
-  const limit = req.query.limit || 12
-  const page = req.query.page
+  const limit = req.query.limit || 12;
+  const page = req.query.page;
   const skip = (page - 1) * limit;
 
   let result = Gig.find(queryObject).skip(skip).limit(limit);
@@ -54,13 +54,10 @@ const GetAllGig = asyncHandler(async (req, res) => {
 
   // console.log(queryObject)
 
-
-
-
-  const totalGig = await Gig.countDocuments({})
+  const totalGig = await Gig.countDocuments({});
   const noOfPages = Math.ceil(totalGig / limit);
 
-  const gig = await result
+  const gig = await result;
   res.status(200).json({ gig, totalGig, noOfPages });
 });
 //
@@ -69,7 +66,10 @@ const GetAllGig = asyncHandler(async (req, res) => {
 const GetSingleGig = asyncHandler(async (req, res) => {
   const { id } = req.params;
   // find the Gig
-  const gig = await Gig.findById({ _id: id }).populate("user", "username name image country role level");
+  const gig = await Gig.findById({ _id: id }).populate(
+    "user",
+    "username name image country role level"
+  );
   if (!gig) {
     res.status(404);
     throw new Error("Gig not found");
@@ -113,13 +113,10 @@ const CreateSingleGig = asyncHandler(async (req, res) => {
     type,
     deliveryDays,
     user: userId,
+    category,
+    subInfo,
   });
 
-  if (gig) {
-    category && !gig.category.includes(category) && gig.category.push(category);
-
-    subInfo && !gig.subInfo.includes(subInfo) && gig.subInfo.push(subInfo);
-  }
   res.status(200).json({ gig });
 });
 
@@ -153,18 +150,18 @@ const UpdateGig = asyncHandler(async (req, res) => {
     const data = {
       user: userId,
       title,
+      tags,
       image,
+      type,
       description,
       price,
       countInStock,
       shortDescription,
       deliveryDays,
+      category,
+      subInfo,
     };
     // check for empty values and repeated values
-    subInfo && !gig.subInfo.includes(subInfo) && gig.subInfo.push(subInfo);
-    tags && !gig.tags.includes(tags) && gig.tags.push(tags);
-    category && !gig.category.includes(category) && gig.category.push(category);
-    await gig.save();
 
     const updatedGig = await Gig.findByIdAndUpdate(
       { _id: req.params.id },
@@ -201,53 +198,6 @@ const DeleteGig = asyncHandler(async (req, res) => {
     throw new Error("You are not authorized to perform this action");
   }
 });
-
-// //Public/
-// // user and admin
-// const ReviewGig = asyncHandler(async (req, res) => {
-//   // instantiate the request parameters
-//   const { userId, isAdmin, firstname, lastname } = req.user;
-//   const { userrating, comment } = req.body;
-//   const { id } = req.params;
-//   // Find the Gig
-//   const Gig = await Gig.findById({ _id: id });
-//   if (!Gig) {
-//     res.status(404);
-//     throw new Error("Gig not found");
-//   }
-//   // Check if the user has already reviewed the Gig
-//   const alreadyReviewed = Gig.reviews.find(
-//     (x) => x.user.toString() === userId.toString()
-//   );
-//   if (alreadyReviewed) {
-//     res.status(404);
-//     throw new Error("Gig has already been reviewed by you");
-//   } else {
-//     // if not, add a review
-//     const reviewData = {
-//       userrating: userrating,
-//       comment,
-//       firstname,
-//       lastname,
-//       user: userId,
-//     };
-//     // push the required data into the review array
-//     Gig.reviews.push(reviewData);
-//     // // get the number of reviews from the length, and get the ratings from ratio of
-//     Gig.numReviews = Gig.reviews.length;
-//     const TotalRating = Gig.reviews.reduce(
-//       (acc, item) => item.userrating + acc,
-//       0
-//     );
-//     // // Total rating
-//     Gig.rating = Math.ceil(TotalRating / Gig.reviews.length);
-//     // // saving the doc
-//     await Gig.save();
-//     res
-//       .status(200)
-//       .json({ message: "The Gig has been successfully reviewed" });
-//   }
-// });
 
 const GetTopRatedGig = asyncHandler(async (req, res) => {
   // get the Gig but based on the rating and then send 4 Gig
