@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "server": "nodemon server.js --ignore ../frontend",
-    "client": "npm run dev --prefix ../frontend",
+    "server": "node server.js",
+    "client": "npm run dev --prefix ../frontend/dist",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "data:import": "node seeder",
     "data:destroy": "node seeder -d"
