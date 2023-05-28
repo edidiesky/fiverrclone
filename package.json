@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "vite",
-    "build": "cd ../frontend && npm install --legacy-peer-deps && vite build",
+    "build": "cd frontend && npm install --legacy-peer-deps && vite build",
     "start": "cd backend && npm install && npm start",
     "preview": "vite preview"
   },
