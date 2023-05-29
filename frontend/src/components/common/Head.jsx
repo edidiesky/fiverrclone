@@ -35,7 +35,7 @@ export default function Head({ text, subtext, para }) {
 const HeadWrapper = styled.div`
   h3 {
     color: var(--dark-1);
-    font-size: 30px;
+    font-size: 36px;
     line-height: 1.2;
     @media (max-width: 780px) {
       font-size: 24px;

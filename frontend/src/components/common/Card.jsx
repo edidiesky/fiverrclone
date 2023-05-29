@@ -5,13 +5,16 @@ import { BiChevronLeft, BiChevronRight, BiHeart, BiStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 const CardLoading = () => {
   return (
-    <CardLoadingContent className="w-100 flex column gap-3 back-white">
+    <CardLoadingContent className="w-100 flex column gap-1 back-white">
       <div className="top w-100"></div>
-      <div className="center w-90 auto flex item-center justify-space">
+      <div className="center w-90 auto flex gap-1 item-center justify-space">
         <div className="topCenter skeleton"></div>
         <div className="bottomCenter skeleton"></div>
       </div>
-      <div className="w-90 auto flex column gap-2 item-start">
+      <div
+        className="w-90 auto flex column item-start"
+        style={{ gap: ".5rem" }}
+      >
         <div className="w-100 h-6 duration1 skeleton"></div>
         <div className="w-50 h-6 duration2 skeleton"></div>
       </div>
@@ -19,124 +22,164 @@ const CardLoading = () => {
   );
 };
 
-export default function Card({ x, index }) {
-  const { gigsIsLoading, gigsIsError } = useSelector((store) => store.gigs);
-  let isLoading = true;
+export default function Card({ x, index, type }) {
+  const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
+  // const gigsIsLoading = false;
+  if (type === "features") {
+    return (
+      <>
+        {gigsIsLoading ? (
+          <CardLoading />
+        ) : (
+          <Link
+            to={`gigs/${x?._id}`}
+            className="w-100 MainCard flex column"
+            key={x?._id}
+          >
+            <div className="w-100 card">
+              <img src={x?.image[0]} alt="" className="w-100" />
+              {/* <div className="backdrop"></div> */}
+            </div>
+            <div className="bottom w-100 back-white py-2 flex item-center gap-1">
+              <img
+                src={x?.user?.image}
+                alt=""
+                className="image"
+                style={{
+                  width: "5rem",
+                  height: "5rem",
+                  borderRadius: "50%",
+                }}
+              />
+              <div className="flex column">
+                <h4 className="fs-14 family1 text-dark text-extra-bold">
+                  {x?.category[0]}
+                </h4>
+                <h5 className="fs-14 text-light text-grey">
+                  by {x?.user?.username}
+                </h5>
+              </div>
+            </div>
+          </Link>
+        )}
+      </>
+    );
+  }
 
   return (
-    // <>
-    //   {isLoading ? (
-    //     <CardLoading />
-    //   ) : (
-    //     <CardContent>
-    //       <Link
-    //         to={"/gigs/2535"}
-    //         className="w-100 cards flex column"
-    //         key={x.id}
-    //       >
-    //         <div className="w-100 card">
-    //           <img src={x.images} alt="" className="w-100" />
-    //           <div className="backdrop"></div>
-    //           <div className="icon left">
-    //             <BiChevronLeft />
-    //           </div>
-    //           <div className="icon right">
-    //             <BiChevronRight />
-    //           </div>
-    //         </div>
-    //         <div className="bottom w-100 back-white py-2 flex item-center gap-1">
-    //           <img
-    //             src={x.autoImage}
-    //             alt=""
-    //             className="images"
-    //             style={{
-    //               width: "3.5rem",
-    //               height: "3.5rem",
-    //               borderRadius: "50%",
-    //             }}
-    //           />
-    //           <div className="flex column">
-    //             <Link
-    //               to={"/"}
-    //               className="fs-16 a family1 text-extra-bold text-dark"
-    //             >
-    //               {x.authorName}
-    //             </Link>
-    //             <h4 className="fs-14 text-grey text-light">{x.level}</h4>
-    //           </div>
-    //         </div>
-    //         <p className="bottom desc w-90 fs-18 text-dark text-light">
-    //           {x.taskDescription}
-    //         </p>
-    //         <div className="w-100 border gap-1 flex text-grey2 family1 px-2 text-bold item-center fs-14">
-    //           <BiStar className="text-secondary fs-16" />
-    //           <div className="flex item-center text-secondary fs-14">
-    //             {x.rating}
-    //             <span className="text-grey2">({x.reviews})</span>
-    //           </div>
-    //         </div>
-    //         <div className="bottom w-100 flex item-center justify-space">
-    //           <BiHeart className="fs-20 text-grey" />
-    //           <div className="fs-14 uppercase text-light text-grey">
-    //             Starting at <span className="fs-20 text-dark">${x.price}</span>
-    //           </div>
-    //         </div>
-    //       </Link>
-    //     </CardContent>
-    //   )}
-    // </>
-    <CardContent>
-      <Link to={"/gigs/2535"} className="w-100 cards flex column" key={x.id}>
-        <div className="w-100 card">
-          <img src={x.images} alt="" className="w-100" />
-          <div className="backdrop"></div>
-          <div className="icon left">
-            <BiChevronLeft />
-          </div>
-          <div className="icon right">
-            <BiChevronRight />
-          </div>
-        </div>
-        <div className="bottom w-100 back-white py-2 flex item-center gap-1">
-          <img
-            src={x.autoImage}
-            alt=""
-            className="images"
-            style={{
-              width: "3.5rem",
-              height: "3.5rem",
-              borderRadius: "50%",
-            }}
-          />
-          <div className="flex column">
-            <Link
-              to={"/"}
-              className="fs-16 a family1 text-extra-bold text-dark"
-            >
-              {x.authorName}
-            </Link>
-            <h4 className="fs-14 text-grey text-light">{x.level}</h4>
-          </div>
-        </div>
-        <p className="bottom desc w-90 fs-18 text-dark text-light">
-          {x.taskDescription}
-        </p>
-        <div className="w-100 border gap-1 flex text-grey2 family1 px-2 text-bold item-center fs-14">
-          <BiStar className="text-secondary fs-16" />
-          <div className="flex item-center text-secondary fs-14">
-            {x.rating}
-            <span className="text-grey2">({x.reviews})</span>
-          </div>
-        </div>
-        <div className="bottom w-100 flex item-center justify-space">
-          <BiHeart className="fs-20 text-grey" />
-          <div className="fs-14 uppercase text-light text-grey">
-            Starting at <span className="fs-20 text-dark">${x.price}</span>
-          </div>
-          
-        </div>
-      </Link>
-    </CardContent>
+    <>
+      {gigsIsLoading ? (
+        <CardLoading />
+      ) : (
+        <CardContent>
+          <Link
+            to={"/gigs/2535"}
+            className="w-100 cards flex column"
+            key={x.id}
+          >
+            <div className="w-100 card">
+              <img src={x.images} alt="" className="w-100" />
+              <div className="backdrop"></div>
+              <div className="icon left">
+                <BiChevronLeft />
+              </div>
+              <div className="icon right">
+                <BiChevronRight />
+              </div>
+            </div>
+            <div className="bottom w-100 back-white py-2 flex item-center gap-1">
+              <img
+                src={x.autoImage}
+                alt=""
+                className="images"
+                style={{
+                  width: "3.5rem",
+                  height: "3.5rem",
+                  borderRadius: "50%",
+                }}
+              />
+              <div className="flex column">
+                <Link
+                  to={"/"}
+                  className="fs-16 a family1 text-extra-bold text-dark"
+                >
+                  {x.authorName}
+                </Link>
+                <h4 className="fs-14 text-grey text-light">{x.level}</h4>
+              </div>
+            </div>
+            <p className="bottom desc w-90 fs-18 text-dark text-light">
+              {x.taskDescription}
+            </p>
+            <div className="w-100 border gap-1 flex text-grey2 family1 px-2 text-bold item-center fs-14">
+              <BiStar className="text-secondary fs-16" />
+              <div className="flex item-center text-secondary fs-14">
+                {x.rating}
+                <span className="text-grey2">({x.reviews})</span>
+              </div>
+            </div>
+            <div className="bottom w-100 flex item-center justify-space">
+              <BiHeart className="fs-20 text-grey" />
+              <div className="fs-14 uppercase text-light text-grey">
+                Starting at <span className="fs-20 text-dark">${x.price}</span>
+              </div>
+            </div>
+          </Link>
+        </CardContent>
+      )}
+    </>
+    // <CardContent>
+    //   <Link to={"/gigs/2535"} className="w-100 cards flex column" key={x.id}>
+    //     <div className="w-100 card">
+    //       <img src={x.images} alt="" className="w-100" />
+    //       <div className="backdrop"></div>
+    //       <div className="icon left">
+    //         <BiChevronLeft />
+    //       </div>
+    //       <div className="icon right">
+    //         <BiChevronRight />
+    //       </div>
+    //     </div>
+    //     <div className="bottom w-100 back-white py-2 flex item-center gap-1">
+    //       <img
+    //         src={x.autoImage}
+    //         alt=""
+    //         className="images"
+    //         style={{
+    //           width: "3.5rem",
+    //           height: "3.5rem",
+    //           borderRadius: "50%",
+    //         }}
+    //       />
+    //       <div className="flex column">
+    //         <Link
+    //           to={"/"}
+    //           className="fs-16 a family1 text-extra-bold text-dark"
+    //         >
+    //           {x.authorName}
+    //         </Link>
+    //         <h4 className="fs-14 text-grey text-light">{x.level}</h4>
+    //       </div>
+    //     </div>
+    //     <p className="bottom desc w-90 fs-18 text-dark text-light">
+    //       {x.taskDescription}
+    //     </p>
+    //     <div className="w-100 border gap-1 flex text-grey2 family1 px-2 text-bold item-center fs-14">
+    //       <BiStar className="text-secondary fs-16" />
+    //       <div className="flex item-center text-secondary fs-14">
+    //         {x.rating}
+    //         <span className="text-grey2">({x.reviews})</span>
+    //       </div>
+    //     </div>
+    //     <div className="bottom w-100 flex item-center justify-space">
+    //       <BiHeart className="fs-20 text-grey" />
+    //       <div className="fs-14 uppercase text-light text-grey">
+    //         Starting at <span className="fs-20 text-dark">${x.price}</span>
+    //       </div>
+
+    //     </div>
+    //   </Link>
+    // </CardContent>
   );
 }
 
@@ -234,18 +277,20 @@ const CardLoadingContent = styled.div`
     animation: card-loading 1s infinite alternate;
   }
   .top {
-    min-height: 20rem;
+    height: 20rem;
+    opacity: 0.4;
+    animation: card-loading 2s infinite alternate;
   }
   .bottomCenter {
-    height: 6rem;
+    height: 4rem;
     flex: 1;
   }
   .h-6 {
-    height: 6rem;
+    height: 2rem;
   }
   .topCenter {
-    width: 6rem;
-    height: 6rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
   }
   .period1 {

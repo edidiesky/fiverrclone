@@ -42,7 +42,10 @@ const GetAllGig = asyncHandler(async (req, res) => {
   const page = req.query.page;
   const skip = (page - 1) * limit;
 
-  let result = Gig.find(queryObject).skip(skip).limit(limit);
+  let result = Gig.find(queryObject)
+    .skip(skip)
+    .limit(limit)
+    .populate("user", "image username level");
 
   // perform sorting operation
   if (sort === "latest") {

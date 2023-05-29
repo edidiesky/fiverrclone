@@ -33,6 +33,7 @@ const UserSchema = new mongoose.Schema(
     },
     level: {
       type: String,
+      default:"level 1 seller",
       enum: ["level 1 seller", "level 2 seller", "level 3 seller"],
     },
   },

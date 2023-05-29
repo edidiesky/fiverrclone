@@ -16,6 +16,8 @@ const initialState = {
   gigsIsError: false,
   gigsIsLoading: false,
   totalGigs: 0,
+  Gigs:null,
+  GigsDetails:null,
 
   // alert states
   showAlert: false,

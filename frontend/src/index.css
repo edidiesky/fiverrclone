@@ -12,6 +12,10 @@
 button {
   font-family: inherit;
 }
+.owl-carousel .owl-stage-outer {
+  overflow: auto;
+  min-height: 360px;
+}
 
 body {
   margin: 0;

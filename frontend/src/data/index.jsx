@@ -1,133 +1,283 @@
 export const projectData = [
+  // writing
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 1,
-    level: "Level 2 Seller",
-    rating: 5,
-    reviews: 550,
+    shortDescription: "EDIT AND REWRITE COVER LETTER ONLY.",
+    title: "I will provide resume, cv, and cover letter writing",
+    countInStock: 10,
     price: 50,
-    authorName: "Eveyln",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/27bdb82e27e444fe2b27aa7b3083cee8-1591694084918/f79ede47-da5f-440a-bf23-57ed9ef7d363.png",
-    images:
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/276867625/original/62855580cf8556a9f66e161afbc3bb9492bdb824.jpg",
+    user: "641d5b096713d2f3203602bd",
+    deliveryDays: 5,
+    description:
+      "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
+    username: "mathias_gr",
+    category: ["Writing & Translation", "Resume Writing"],
+    subInfo: ["HQ audio file (WAV format)"],
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/134896101/original/5e7108dee74aee877f72fc638de97cd111b5d904/write-edit-design-a-resume-cv-cover-letter-or-linkedin.jpg",
+    ],
   },
+  // 3d modelling user2
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 2,
-    level: "Flyer Design",
-    rating: 5,
-    reviews: 550,
-    price: 50,
-    authorName: "Fernado",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/22711136/original/fiverr_profile.jpg",
-    images:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_270,dpr_1.0/v1/attachments/generic_asset/asset/aa2ff6a65708e858cd563bedbc1f9e48-1617004762616/spickex.jpeg",
+    shortDescription: "One animation per character [Humanoid]",
+    title: "I will make animation for 3d game character",
+    countInStock: 10,
+    price: 70,
+    user: "641d5b096713d2f3203602a5",
+    deliveryDays: 5,
+    description:
+      "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
+    username: "horvatnikola95",
+    category: ["Video Animation", "Character Animation"],
+    subInfo: ["Project file delivery"],
+    image: [
+      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615082/christophbrandl.png",
+      "https://fiverr-res.cloudinary.com/videos/t_main1,q_auto,f_auto/bii3wyoohgahurdsujct/make-animation-for-game-character.png",
+    ],
   },
+  // Social Media Design
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 3,
-    level: "Top rated seller",
-    rating: 5,
-    reviews: 550,
-    price: 50,
-    authorName: "mumerislam",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/c2b2455ba7a5cfd9a43680525af0c136-1632603893359/baa87d91-9761-49fc-b6cf-f6badd36b67c.png",
-    images:
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/143974554/original/7212acc02b40a55be3d78b94b064ea893399fa87.jpg",
+    shortDescription: "Choose this option if you want to release a basic track",
+    title: "I will design top notch social media content",
+    countInStock: 10,
+    price: 20,
+    user: "641d5b096713d2f3203602a5",
+    deliveryDays: 5,
+    description:
+      "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
+    username: "horvatnikola95",
+    category: ["Social Media Design", "Graphics & Design"],
+    subInfo: ["Project file delivery"],
+    image: [
+      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615084/fernandobengua.png",
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/176241231/original/b1af0a69350dc78bdb9b66a2604f1aebfa98b314/design-amazing-social-media-content-for-your-business.jpg",
+    ],
   },
+  // Book Design
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 4,
-    level: "Level 2 Seller",
-    rating: 5,
-    reviews: 550,
-    price: 50,
-    authorName: "ayesha_aahmad",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/56c15d03b633514d6c884d80bca8771d-1645256480587/87f56619-ffb5-4a8d-bb90-5193ea2d1efb.jpeg",
-    images:
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/142042620/original/c4c5fd5fabae56ac74960aa47825b6b30bd8a1f3.jpg",
+    shortDescription: "15 pages print Book or E-book",
+    title: "I will format your book ebook magazine and pdf",
+    countInStock: 10,
+    price: 350,
+    user: "641d5b096713d2f3203602a7",
+    deliveryDays: 5,
+    description:
+      "From this gig, creator such as YouTubers, Instagrammers, photographers, and many more start their earnings by selling their content to their fans and followers. The working model is similar to only fans and Patreon sites..",
+    username: "thriftysworld",
+    category: ["Book Design", "Book Layout Design & Typesetting"],
+    subInfo: ["Up to 15 interior pages"],
+    image: [
+      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615063/annapietrangeli.jpeg",
+    ],
   },
+  // business seller4
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 5,
-    level: "Level 2 Seller",
-    rating: 5,
-    reviews: 550,
-    price: 50,
-    authorName: "Fernado",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/5b53404232efeec4fbc049d050b2f3a9-1650896006779/cdc94d85-39e6-4282-bfce-9e1a69c24f11.jpg",
-    images:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_270,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615063/bruno_malagrino.png",
+    shortDescription: "EIN in a text file",
+    title: "I will get your USA ein now for tax purposes",
+    countInStock: 10,
+    price: 150,
+    user: "641d5b096713d2f3203602a9",
+    deliveryDays: 5,
+    description:
+      "Welcome!!! I am Francis and my calling are to help businesses with their Tax, trademark, legal and raise some funds. I have been doing pretty well in the cooperate world, so I am here to see how to provide superb business planning, tax, legal, trademark and consultation services. Drop a message if you feel you would want to onboard me on your project. ONWARD FOREVER Till we exceed billions.",
+    username: "thriftysworld",
+    category: ["Business", "Financial Consulting"],
+    subInfo: ["Project file delivery"],
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/128384497/original/77daa62c6c001d26822ef90758767bc75b62b713/get-your-usa-ein-now-for-tax-purposes.jpg",
+    ],
   },
+  // OnLine tutoring seller4
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 6,
-    level: "Level 2 Seller",
-    rating: 5,
-    reviews: 550,
-    price: 50,
-    authorName: "khalidakram50",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/0065d4caebaef1802d1b4efd3974f7b0-1651937346175/cb647538-fc1f-4771-9b7b-50d1acc838b7.jpg",
-    images:
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/111026210/original/dd9f64207fe2ec9f880d7b66761c8a5fc9550aad.jpg",
+    shortDescription: 'Send me a message before you click on "Continue"',
+    title: "I will be your professional spanish teacher",
+    countInStock: 10,
+    price: 150,
+    user: "641d5b096713d2f3203602ab",
+    deliveryDays: 5,
+    description:
+      "I become a passionate person when it comes to teach a language. I like to develop each part of a language with the purpose of developing a deep, complete, and advanced level in my students: ",
+    username: "thriftysworld",
+    category: ["Lifestyle", "Online Tutoring"],
+    subInfo: ["Project file delivery", "30 minutes"],
+    image: [
+      "https://fiverr-res.cloudinary.com/videos/so_21.973307,t_main1,q_auto,f_auto/o8gowzcplt5yktwwupt6/teach-you-spanish-and-english.png",
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/137214199/original/4c74d6735c6ac06a28c61837fc18d12f020cf0a2/teach-you-spanish-and-english.png",
+    ],
   },
+  // data entry seller5
+  // {
+  //   shortDescription: "5 Pages (about 1000 words)",
+  //   title:
+  //     "I will type arabic handwritten manuscript, book, and notes into ms word",
+  //   countInStock: 10,
+  //   price: 150,
+  //   user: "641d5b096713d2f3203602ab",
+  //   deliveryDays: 5,
+  //   description:
+  //     "I offer Arabic handwritten, manuscript, book, and note-typing services in MS Word. I am an Arabic speaker with experience in typing and transcribing. I offer fast turnaround times and professional work with the ability to make revisions.",
+  //   category: ["Data", "Data Entry"],
+  //   image: [
+  //     "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/272923109/original/7b220b637895f52038a091ea8ab6b3880ac113df/type-arabic-handwritten-manuscript-book-notes-to-ms-word.png",
+  //     "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs2/272923109/original/8177eef5fdeb511c44daea3eda85e5c860855212/type-arabic-handwritten-manuscript-book-notes-to-ms-word.png",
+  //   ],
+  // },
+  // Photogharphy seller6
+  {
+    shortDescription:
+      "4 high end product images This package includes the creation of 4 product images",
+    title: "I will create high end product photography",
+    countInStock: 10,
+    price: 450,
+    user: "641d5b096713d2f3203602ad",
+    deliveryDays: 5,
+    description:
+      "I will create professional product photography on a white or solid color background of your products.",
+    username: "thriftysworld",
+    category: ["Photography", "Product Photographers"],
+    image: [
+      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615069/noneyn.png",
+    ],
+  },
+  // video editing seller8
+  {
+    title: "I will make a professional video with vfx",
+    countInStock: 10,
+    price: 45,
+    user: "641d5b096713d2f3203602af",
+    deliveryDays: 5,
+    description:
+      "Many of you already know about me because i've been doing this for quite some time now with 250 plus 5⭐ reviews! ( Check my profile ) but for the people Who don't i'll line up a brief run down!        ",
+    username: "super_gx",
+    category: ["Photography", "Product Photographers"],
+    image: [
+      "https://fiverr-res.cloudinary.com/videos/so_19.834244,t_main1,q_auto,f_auto/eomkzz6tyksjpmzizbak/make-a-professional-video-with-vfx.png",
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/297038214/original/ed4e01ee79e836e176e21e57b5c0b3c3a82edf0a/make-a-professional-video-with-vfx.png",
+    ],
+  },
+  // Voice over
+  {
+    shortDescription:
+      "1 STANDARD QUALITY IMAGE from ONE PROMPT. Custom aspect ratio.",
+    title: "I will do a french voice over, be your french voice",
+    countInStock: 10,
+    price: 50,
+    user: "641d5b096713d2f3203602bd",
+    deliveryDays: 5,
+    description:
+      "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
+    username: "mathias_gr",
+    category: ["Video & Animation", "Voice Over"],
+    subInfo: ["HQ audio file (WAV format)"],
+    image: [
+      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615096/passionshake.jpeg"
+    ],
+  },
+  // programming tech website
+  {
+    shortDescription:
+      "One Page Business website I will create full fledged ONE page responsive & mobile friendly website with admin panel for you.",
+    title: "I will design responsive website in 15 hours",
+    user: "641d5b096713d2f3203602b7",
+    countInStock: 10,
+    price: 50,
+    deliveryDays: 5,
+    category: ["Programming & Tech", "Website Development"],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
-  {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 7,
-    level: "Top rated seller",
-    rating: 5,
-    reviews: 550,
-    price: 50,
-    authorName: "khoaleearch",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/760cc01596a4985f4f4e0a5e583fe6ba-1656444575383/88292e91-bb66-4197-8cc6-ed16e7a271e1.jpg",
-    images:
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/97576277/original/3ee5b041b97aeb07b08d80b40e4686b3026a1f2e.jpg",
+    subInfo: [
+      "3 renderings",
+      "Logo transparency",
+      "Vector file",
+      "1 page/screen",
+      "Responsive design",
+    ],
+    image: [
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/252312428/original/8b23c4397d934b6fcee0f9c52590bfde439465e4.png"
+     ],
   },
+  // programming tech website
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 8,
-    level: "Level 1 Seller",
-    rating: 5,
-    reviews: 550,
+    shortDescription:
+      "Silver Include 5 pages, SEO optimized, Portfolio, Landing page, Responsive website.",
+    title: "I will do professional wix website design",
+    user: "641d5b096713d2f3203602b3",
+    countInStock: 350,
     price: 50,
-    authorName: "karar_shihan",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/5f0475e0b156149a29d3bd93b3921fc7-1504117765687/67c0b89b-a36c-4a5b-9d57-06c95c495bd7.jpg",
-    images:
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/123724366/original/1c54d75612662bf8b88b9691e70ba40d2d85c41c.jpg",
+    category: ["Programming & Tech", "Website Development"],
+    deliveryDays: 2,
+    subInfo: [
+      "3 renderings",
+      "Prototype",
+      "Content upload",
+      "Vector file",
+      "Printable file",
+      "Include 3D mockup",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+    username: "willllli",
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/89030431/original/0272a30137eee42234b9facb859744af240197f7/design-a-professional-wix-website.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs2/89030431/original/5952e2fbe7b6ecb903acde5bf78db47a6bf5a3b7/design-a-professional-wix-website.png",
+    ],
   },
+  // Design website
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 8,
-    level: "Level 2 Seller",
-    rating: 5,
-    reviews: 550,
-    price: 50,
-    authorName: "mafestoo",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/profile/photos/5743447/original/nwq.jpg",
-    images:
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/6391413/original/1f6d61882949cf993d547729665b20eb32f82ad7.jpg",
+    shortDescription: "BASIC 1 Professional Logo concept + Jpeg + PNG",
+    title: "I will create modern minimalist logo design for your business",
+    category: ["Graphics & Design", "Logo Design"],
+    countInStock: 10,
+    price: 25,
+    user: "641d5b096713d2f3203602ad",
+    deliveryDays: 5,
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+    username: "designlord43",
+    subInfo: [
+      "3 renderings",
+      "Logo transparency",
+      "Vector file",
+      "Printable file",
+      "Include 3D mockup",
+    ],
+    image: [
+      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/d51cf66f8a7026eb56a8c8e6b6793b24-1617027896306/lamonastudio-img.png"
+    ],
   },
+  // social media
   {
-    taskDescription: "I will create a modern minimalistic luxury Logo",
-    id: 6,
-    level: "Level 2 Seller",
-    rating: 5,
-    reviews: 550,
-    price: 50,
-    authorName: "cnsyucel",
-    autoImage:
-      "https://fiverr-res.cloudinary.com/t_profile_thumb,q_auto,f_auto/attachments/profile/photo/38865f4a00170427f32a881633cd6016-1606032002040/998ee4d1-238d-4007-9ea5-472b29ee14e5.jpg",
-    images:
-      "https://fiverr-res.cloudinary.com/video/upload/so_0.00,t_gig_cards_web/tsllv66sjxfsmlz9nmmv.png",
+    shortDescription:
+      "SMALL Axonometric drawing of a room or a simple building with small details",
+    title: "I will be your committed social media manager",
+    user: "641d5b096713d2f3203602a9",
+    countInStock: 10,
+    price: 10,
+    category: ["Digital Marketing", "Social Media Marketing"],
+    deliveryDays: 2,
+    description:
+      "My name Is Ani and I am professional social media manager and content creator with 5 years+ of experience. I work along with a young and energetic team of experts giving end to end social media management and graphic design. We can develop effective social media post design to drive brand engagement and awareness in the long run for your business. The platforms included are Facebook, Instagram, Twitter, Pinterest and LinkedIn. I am open to work on any gig plus new offers. Let’s make it happen!",
+    username: "elhiheb",
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/104920492/original/8762f75c97d03e6ac2efa7a99a964e7b1815905e/be-your-professional-social-media-manager.png",
+    ],
+  },
+  // Design website
+  {
+    shortDescription:
+      "A basic quality custom made website based on your requirements.",
+    title: "I will build responsive wordpress website design",
+    user: "641d5b096713d2f3203602a3",
+    countInStock: 3,
+    category: ["Graphics & Design", "Website Design"],
+    price: 250,
+    deliveryDays: 12,
+    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+    username: "peterfrog",
+    image: [
+      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/d51cf66f8a7026eb56a8c8e6b6793b24-1617027896306/lamonastudio-img.png"
+    ],
   },
 ];

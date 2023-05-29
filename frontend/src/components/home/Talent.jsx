@@ -11,9 +11,7 @@ export default function Talent() {
         />
         <header className="auto flex column gap-3">
           <h2>
-            Find the <span className="span">talent</span> needed to
-            <br />
-            get your business <span className="span">growing.</span>
+          Suddenly it's all so <span className="span">growing.</span>
           </h2>
           <div className="flex py-2">
             <button className="btn py-1 px-3">Get Started</button>
@@ -55,13 +53,13 @@ const TalentWrappper = styled.div`
       background-color: var(--green);
       color: #fff;
       padding: 1.4rem 3rem;
-      font-weight: 600;
+      font-weight: 500;
       border-radius: 3px;
       font-size: 18px;
     }
     h2 {
       color: #fff;
-      font-size: 4.5rem;
+      font-size: 6rem;
       @media (max-width:780px) {
         font-size: 3.5rem;
       }
