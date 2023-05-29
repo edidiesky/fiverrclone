@@ -9,16 +9,24 @@ import { BiChevronRight } from "react-icons/bi";
 import { Slider } from "../../common";
 
 const options2 = {
-  items: 5,
+  items: 4,
   nav: true,
   dots: false,
   margin: 30,
   navText: ["<", ">"],
+  width: "100%",
+  slideBy: 4,
   responsive: {
     0: {
+      items: 3,
+    },
+    460: {
       items: 2,
     },
-    600: {
+    760: {
+      items: 2,
+    },
+    1024: {
       items: 5,
     },
   },
@@ -84,7 +92,7 @@ export default function ServicesIndex() {
                   to={"/gigs"}
                   className="w-100 flex column"
                   key={x.id}
-                  style={{ position:"relative" }}
+                  style={{ position: "relative" }}
                 >
                   <div className="w-100 card">
                     <img src={x.image} alt="" className="w-100" />
@@ -95,8 +103,7 @@ export default function ServicesIndex() {
                       <h5 className="fs-16 family1 text-extra-bold text-white">
                         {x.authorName}
                       </h5>
-                      <h4
-                      h4  className="fs-20 family1 text-white">
+                      <h4 h4 className="fs-20 family1 text-white">
                         {x.category}
                       </h4>
                     </div>
@@ -120,7 +127,7 @@ const ServicesIndexContainer = styled.div`
     top: 35%;
     width: 100%;
     z-index: 10;
-    background-color: #fff; 
+    background-color: #fff;
     &.disabled {
       display: none;
     }
@@ -210,7 +217,7 @@ const ServicesIndexContainer = styled.div`
   .card {
     position: relative;
     overflow: hidden;
-    height:40rem;
+    height: 40rem;
 
     &:hover {
       .backdrop {

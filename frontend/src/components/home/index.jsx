@@ -14,15 +14,15 @@ export default function HomeIndex() {
   return (
     <HomeIndexContainer className="flex column ">
       <HeroIndex />
-      <GigsIndex/>
-      <ServicesIndex/>
+      <GigsIndex />
+      <ServicesIndex />
       <BestSeller />
       <Design1Index />
       <Arrivals />
-      <Banner1Index/>
+      <Banner1Index />
       <Features1Index />
       <Features2Index />
-      <Talent/>
+      <Talent />
     </HomeIndexContainer>
   );
 }

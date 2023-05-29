@@ -6,16 +6,16 @@ import Card from "../../common/Card";
 
 const options2 = {
   items: 5,
-  loop: true,
   stagePadding: 10,
   nav: true,
   dots: false,
   margin: 20,
   navText: ["<", ">"],
   width: "100%",
+  slideBy: 4,
   responsive: {
     0: {
-      items: 2,
+      items: 3,
     },
     460: {
       items: 2,
