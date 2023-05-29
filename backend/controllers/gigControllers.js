@@ -45,7 +45,7 @@ const GetAllGig = asyncHandler(async (req, res) => {
   let result = Gig.find(queryObject)
     .skip(skip)
     .limit(limit)
-    .populate("user", "image username level");
+    .populate("user", "image username level about")
 
   // perform sorting operation
   if (sort === "latest") {
@@ -71,7 +71,7 @@ const GetSingleGig = asyncHandler(async (req, res) => {
   // find the Gig
   const gig = await Gig.findById({ _id: id }).populate(
     "user",
-    "username name image country role level"
+    "username name image country role level about"
   );
   if (!gig) {
     res.status(404);

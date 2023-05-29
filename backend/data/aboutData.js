@@ -1,5 +1,3 @@
-import bcrypt from "bcryptjs";
-
 const userData = [
   // 2
   {
@@ -142,53 +140,7 @@ const userData = [
     ],
     description: "AI Artist",
   },
-  // 13
-  // {
-  //   username: "mathias_gr",
-  //   image:
-  //     "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/bb296ca4fdc1df2d28bc50c245af4434-1633946117131/13cf2c87-97e9-4bbb-aa92-6cd0c4016815.jpg",
-  //   email: "Mathias@gmail.com",
-  //   phone: "599 831 5120",
-  //   name: "Mathias",
-  //   country: "Spain",
-  //   createdAt: "1/20/2023",
-  //   password: bcrypt.hashSync("eAdg145%1", 10),
-  //   role: "seller",
-  //   about: {
-  //     from: "Spain",
-  //     languages: ["English", "French"],
-  //     education: ["M.A. - Graphic Arts"],
-  //     shortDesc: "Give chance to taste the expertise",
-  //     skills: ["Voice over"],
-  //     description:
-  //       "Hi, I am Mat, French Voice Over Artist since 2010. I will do a deep french voice over. New on fiverr, I worked untill now through the conventionnal VO artist path, in studios. I have been trusted by many internationnal brands such as Orange, Renault, Peugeot, Dacia, Ouest France, Royal Air Maroc and a lot of local companies (Banks, industrials, telecoms,...) Being an audio engineer as well working in Audio Post Production for movies, I will guarantee you a clean and broadcast ready Voice Over, recorded in a treated dry room, running through quality mic and preamp and cleanly edited",
-  //   },
-  // },
-  // {
-  //   username: "",
-  //   image:
-  //     "https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/7b4f3ed4e37de318b40d5667b2268b67-1540850076927/feb2a4e4-9d72-486d-b2d3-dfc42bafb31a.png",
-  //   email: "anisocialmarket@gmail.com",
-  //   phone: "599 831 5120",
-  //   name: "anisocialmarket",
-  //   country: "Spain",
-  //   createdAt: "1/20/2023",
-  //   password: bcrypt.hashSync("eAdg145%1", 10),
-  //   role: "seller",
-  //   about: {
-  //     from: "Spain",
-  //     languages: ["English", "French"],
-  //     education: ["M.A. - Graphic Arts"],
-  //     shortDesc: "Give chance to taste the expertise",
-  //     skills: [
-  //       "Social media management",
-  //       "Facebook cover design",
-  //       "Social media design",
-  //     ],
-  //     description:
-  //       "My name Is Ani and I am professional social media manager and content creator with 5 years+ of experience. I work along with a young and energetic team of experts giving end to end social media management and graphic design. We can develop effective social media post design to drive brand engagement and awareness in the long run for your business. The platforms included are Facebook, Instagram, Twitter, Pinterest and LinkedIn. I am open to work on any gig plus new offers. Let’s make it happen!",
-  //   },
-  // },
+ 
 ];
 
 export default userData;

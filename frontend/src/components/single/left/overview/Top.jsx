@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { BiChevronRight, BiChevronLeft } from "react-icons/bi";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function DetailsTopLeft() {
   const [tabindex, setTabIndex] = useState(0);
-  const images = [
-    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/216347287/original/3572653636c7de29b871dae4881bb84eb4b735ac/do-realistic-interior-rendering.jpg",
-    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/122589667/original/2f6145ffefac45434041b65bb86ccf79baead7c3/design-a-stunning-label-and-packaging.png",
-    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/216347287/original/3572653636c7de29b871dae4881bb84eb4b735ac/do-realistic-interior-rendering.jpg",
-    "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/216347287/original/3572653636c7de29b871dae4881bb84eb4b735ac/do-realistic-interior-rendering.jpg",
-    "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/024fc251a11de621daa8aebc05419a23-1672302183/concept/design-a-stunning-label-and-packaging.png",
-  ];
-
-  // const { productDetails } = useSelector((store) => store.product);
+  const { GigsDetails } = useSelector((store) => store.gigs);
 
   const handleImagePosition = (position) => {
     if (position === "left") {
-      setTabIndex(tabindex < 0 ? images?.length - 1 : tabindex - 1);
+      setTabIndex(tabindex < 0 ? GigsDetails?.image?.length - 1 : tabindex - 1);
     }
     if (position === "right") {
-      setTabIndex(tabindex >= images?.length - 1 ? 0 : tabindex + 1);
+      setTabIndex(
+        tabindex >= GigsDetails?.image?.length - 1 ? 0 : tabindex + 1
+      );
     }
   };
 
@@ -40,7 +34,7 @@ export default function DetailsTopLeft() {
           <BiChevronRight />
         </div>
         <div className="detailsImageWrapper">
-          {images?.map((x, index) => {
+          {GigsDetails?.image?.map((x, index) => {
             return (
               <div
                 className="imagesWrapper"
@@ -55,7 +49,7 @@ export default function DetailsTopLeft() {
       </div>
 
       <div className="imageOptions">
-        {images?.map((x, index) => {
+        {GigsDetails?.image?.map((x, index) => {
           return (
             <div
               className="imageWrapper"

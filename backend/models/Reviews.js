@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// a structure of the user
+// a structure of the review
 const ReviewSchema = new mongoose.Schema(
   {
     username: {

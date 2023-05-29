@@ -24,6 +24,14 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "PLease add a password value"],
     },
+    about: {
+      from: { type: String },
+      language: { type: Array, default: [] },
+      description: { type: String },
+      skills: { type: Array, default: [] },
+      accounts: { type: Array, default: [] },
+      information: { type: String },
+    },
     country: {
       type: String,
     },
@@ -33,7 +41,7 @@ const UserSchema = new mongoose.Schema(
     },
     level: {
       type: String,
-      default:"level 1 seller",
+      default: "level 1 seller",
       enum: ["level 1 seller", "level 2 seller", "level 3 seller"],
     },
   },

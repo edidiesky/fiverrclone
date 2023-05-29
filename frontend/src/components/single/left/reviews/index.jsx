@@ -12,11 +12,21 @@ export default function ReviewsInfo() {
       <div className="w-100 column gap-2 flex py-4">
         <h3 className="fs-20 text-bold text-dark">Related Tags</h3>
         <div className="w-100 linkwrapper flex item-center gap-2">
-          <Link to={'/'} className='a family1'>Custom Logo</Link>
-          <Link to={'/'} className='a family1'>Logo Design</Link>
-          <Link to={'/'} className='a family1'>design Logo</Link>
-          <Link to={'/'} className='a family1'>real estate</Link>
-          <Link to={'/'} className='a family1'>luxury</Link>
+          <Link to={"/"} className="a family1">
+            Custom Logo
+          </Link>
+          <Link to={"/"} className="a family1">
+            Logo Design
+          </Link>
+          <Link to={"/"} className="a family1">
+            design Logo
+          </Link>
+          <Link to={"/"} className="a family1">
+            real estate
+          </Link>
+          <Link to={"/"} className="a family1">
+            luxury
+          </Link>
         </div>
       </div>
     </ReviewsInfoContent>
@@ -24,15 +34,15 @@ export default function ReviewsInfo() {
 }
 
 const ReviewsInfoContent = styled.div`
-.linkwrapper {
-  flex-wrap: wrap;
-}
+  .linkwrapper {
+    flex-wrap: wrap;
+  }
   a {
-    padding: .7rem 2rem;
-    border: 1px solid rgba(0,0,0,.08);
+    padding: 0.7rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     font-size: 1.4rem;
     font-weight: 600;
     color: var(--grey-1);
     border-radius: 4px;
   }
-`
+`;

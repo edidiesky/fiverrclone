@@ -65,6 +65,10 @@ const Features1IndexContainer = styled.div`
   .MainCard {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
+  .owl-carousel .owl-stage-outer {
+  overflow: auto;
+  min-height: 360px !important;
+}
   .owl-nav {
     position: absolute;
     top: 35%;

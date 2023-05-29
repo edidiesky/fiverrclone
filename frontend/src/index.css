@@ -14,7 +14,6 @@ button {
 }
 .owl-carousel .owl-stage-outer {
   overflow: auto;
-  min-height: 360px;
 }
 
 body {
