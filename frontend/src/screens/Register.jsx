@@ -1,39 +1,31 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Header, Meta } from "../components/common";
 import Input from "../components/forms/Input";
-import { loginCustomer } from "../Features/user/userReducer";
+import { registerCustomer } from "../Features/user/userReducer";
 import styled from "styled-components";
+import { clearUserAlertError } from "../Features";
+import { useSelector } from "react-redux";
+import Message from "../components/modals/Message";
+import LoaderIndex from "../components/loaders";
 
 export default function Register() {
   const [formdata, setFormData] = useState({
-    firstname: "",
-    lastname: "",
+    username: "",
     email: "",
     password: "",
     password2: "",
   });
-  const { firstname, lastname, email, password, password2 } = formdata;
+  const { username, email, password, password2 } = formdata;
   const inputData = [
     {
       id: 1,
-      name: "firstname",
+      name: "username",
       placeholder: "John",
       type: "text",
       text: "First name",
       errorMessage:
-        "firstname should be 3-16 characters and should not contain any special Characters",
-      required: true,
-      pattern: "^[a-zA-Z]{3,}( {1,2}[a-zA-Z]{3,}){0,}$",
-    },
-    {
-      id: 2,
-      name: "lastname",
-      placeholder: "Doe",
-      type: "text",
-      text: "Last name",
-      errorMessage:
-        "lastname should be 3-16 characters and should not contain any special Characters",
+        "username should be 3-16 characters and should not contain any special Characters",
       required: true,
       pattern: "^[a-zA-Z]{3,}( {1,2}[a-zA-Z]{3,}){0,}$",
     },
@@ -73,14 +65,37 @@ export default function Register() {
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
   };
+
+  const { isSuccess, alertText, alertType, isLoading } = useSelector(
+    (store) => store.user
+  );
+
+  const navigate = useNavigate();
   // performing form submission to backend
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginCustomer(formdata));
+    // dispatch(registerCustomer(formdata));
+    console.log(formdata);
   };
+
+  useEffect(() => {
+    setFormData({
+      email: "edidie@gmail.com",
+      password: "eAdg145%1",
+      username: "peterfrog",
+      password2: "eAdg145%1",
+    });
+    if (isSuccess) {
+      setTimeout(() => {
+        clearUserAlertError();
+        navigate(`/join/login`);
+      }, 3000);
+    }
+  }, [setFormData, navigate, isSuccess]);
+
   return (
     <>
-      <Meta title="Sign up for a Fiverr Account - Join Fiverr Today" />
+      <Meta title="Sign In for a Fiverr Account - Join Fiverr Today" />
       <Header />
       <AuthForm className="w-100 py-6">
         <div className="w-90 auto py-3 flex wrapper item-start">
@@ -93,10 +108,8 @@ export default function Register() {
           </div>
           <div className="right flex-1 h-100">
             <div className="w-85 auto py-3 flex column rightwrapper justify-space h-100">
-              <form
-                className="authContentFormWrapper flex column gap-1"
-                onSubmit={handleSubmit}
-              >
+              <form className="authContentFormWrapper flex column gap-1">
+                <Message alertType={alertType} alertText={alertText} />
                 <h3 className="fs-24 py-2 family1">Continue with your email</h3>
                 {inputData.map((input) => {
                   return (
@@ -117,17 +130,17 @@ export default function Register() {
                 })}
                 <div className="w-100 flex gap-2 py-2 column">
                   <button
+                    onClick={handleSubmit}
                     disabled={
-                      !firstname ||
-                      !lastname ||
+                      !username ||
                       !email ||
                       !password ||
-                      !password2
+                      (!password2 && isLoading)
                     }
                     className="btn fs-16 w-100 active py-2 family1 px-4 text-white text-bold"
                     style={{ padding: "1.4rem 4rem" }}
                   >
-                    Continue
+                    {isLoading ? <LoaderIndex type={"small"} /> : " Continue"}
                   </button>
                   <p className="fs-14 text-light text-grey">
                     Not yet a member?{" "}

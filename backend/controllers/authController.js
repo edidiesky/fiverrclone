@@ -6,9 +6,9 @@ import User from "../models/User.js";
 //register user
 // Not Private
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, name, email, password, phone, country, role } = req.body;
+  const { username, email, password, phone, country, role } = req.body;
   //
-  if (!username || !name || !email || !password) {
+  if (!username || !email || !password) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
   }
@@ -24,7 +24,6 @@ const registerUser = asyncHandler(async (req, res) => {
   const Tempuser = {
     email,
     username,
-    name,
     password: hashedpassword,
     phone,
     country,
@@ -36,8 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
     {
       userId: user._id,
       role: user.role,
-      username: name.username,
-      name: user.name,
+      username: user.username,
     },
     process.env.JWT_CODE,
     { expiresIn: "2d" }
@@ -82,8 +80,4 @@ const LoginUser = asyncHandler(async (req, res) => {
   res.status(200).json({ user, token });
 });
 
-
-export {
-  registerUser,
-  LoginUser,
-};
+export { registerUser, LoginUser };

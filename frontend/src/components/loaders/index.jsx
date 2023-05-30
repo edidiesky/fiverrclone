@@ -1,13 +1,22 @@
-import React, {useState} from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-
-export default function LoaderIndex({loading}) {
-  const [open, setOpen] = useState(true)
+import React, { useState } from "react";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+export default function LoaderIndex({ loading, type }) {
+  const [open, setOpen] = useState(true);
+  if (type === "small") {
+    return (
+      <Box
+        sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      >
+        <CircularProgress sx={{width:"1rem"}} />
+      </Box>
+    );
+  }
   return (
     <div>
       <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1}}
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
       >
         <CircularProgress color="inherit" />

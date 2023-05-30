@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import Message from "../components/modals/Message";
 import { clearUserAlertError } from "../Features";
+import LoaderIndex from "../components/loaders";
 
 const inputData = [
   {
@@ -65,6 +66,8 @@ export default function Login() {
       }, 3000);
     }
   }, [setFormData, navigate, isSuccess]);
+  
+  
   return (
     <>
       <Meta title="Sign up for a Fiverr Account - Join Fiverr Today" />
@@ -109,7 +112,7 @@ export default function Login() {
                     className="btn fs-16 w-100 py-2 family1 px-4 text-white text-bold"
                     style={{ padding: "1.4rem 4rem" }}
                   >
-                    Continue
+                   {isLoading? <LoaderIndex type={'small'}/>:" Continue"}
                   </button>
                   <p className="fs-14 text-light text-grey">
                     Not yet a member?{" "}
