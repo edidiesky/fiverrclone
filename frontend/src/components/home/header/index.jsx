@@ -136,7 +136,7 @@ export default function Header() {
     return (
       <div className="Right flex item-center gap-3">
         <Link
-          to={"/login"}
+          to={"/join/login"}
           className={
             active
               ? "flex links fs-18 text-light text-dark item-center justify-center active"
@@ -146,7 +146,7 @@ export default function Header() {
           Sign In
         </Link>
         <Link
-          to={"/cart"}
+          to={"/join/login"}
           className="flex btn-4 fs-18 text-bold text-dark item-center justify-center"
         >
           Join

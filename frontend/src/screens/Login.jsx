@@ -4,6 +4,7 @@ import { Header, Meta } from "../components/common";
 import Input from "../components/forms/Input";
 import { loginCustomer } from "../Features/user/userReducer";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const inputData = [
   {
@@ -24,8 +25,6 @@ const inputData = [
     errorMessage:
       "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
     required: true,
-    pattern:
-      "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[#$@!%&*?])[a-zA-Z0-9!#$@!%&*]{8,30}$",
   },
 ];
 
@@ -45,6 +44,8 @@ export default function Login() {
     e.preventDefault();
     dispatch(loginCustomer(formdata));
   };
+
+  const { isSuccess, isLoading } = useSelector((store) => store.user);
   return (
     <>
       <Meta title="Sign up for a Fiverr Account - Join Fiverr Today" />
@@ -84,7 +85,7 @@ export default function Login() {
                 })}
                 <div className="w-100 flex gap-2 column">
                   <button
-                    disabled={!email || !password}
+                    disabled={(!email || !password) && !isLoading}
                     className="btn fs-16 w-100 py-2 family1 px-4 text-white text-bold"
                     style={{ padding: "1.4rem 4rem" }}
                   >
