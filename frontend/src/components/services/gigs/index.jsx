@@ -48,7 +48,7 @@ export default function GigsIndex() {
         </div>
       </div>
     </GigsIndexContent>
-  );
+  );  
 }
 
 const GigsIndexContent = styled.div`
