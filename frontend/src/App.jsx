@@ -57,6 +57,10 @@ export default function App() {
             path="categories/:category1/:category2"
             element={<Services />}
           />
+          <Route
+            path="categories/:category1"
+            element={<Services />}
+          />
           <Route path="profile" element={<Profile />} />
           <Route path="explore" element={<Explore />} />
           <Route path="checkout" element={<Checkout />} />

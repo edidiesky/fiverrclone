@@ -13,7 +13,9 @@ export default function GigsIndex() {
     <GigsIndexContent>
       <div className="w-100 flex gap-1 column">
         <div className="w-100 flex item-center justify-space">
-          <h5 className="fs-18 text-grey2">30,260 services available</h5>
+          <h5 className="fs-20 text-grey2 text-light">
+            {Gigs?.length} services available
+          </h5>
           <h5 className="fs-20 flex item-center gap-1 text-light text-grey2">
             Sort By{" "}
             <FilterOptions>
@@ -55,10 +57,10 @@ const GigsIndexContent = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     @media (max-width: 780px) {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: 1fr 1fr;
     }
-    @media (max-width: 450px) {
-      grid-template-columns:1fr;
+    @media (max-width: 380px) {
+      grid-template-columns: 1fr;
     }
   }
 `;

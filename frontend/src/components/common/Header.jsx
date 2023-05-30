@@ -42,6 +42,38 @@ export default function Header({ type }) {
     };
   }, []);
   const HeaderBottom = () => {
+    if (type === "service") {
+      return (
+        <HeaderTopWrapper
+          className={"HeaderBottom flex gap-3 py-1"}
+          style={{
+            borderBottom: "1px solid rgba(0,0,0,.06)",
+            padding: "1.2rem 0",
+          }}
+        >
+          <div
+            className="w-90 auto flex item-center bottom1 justify-space"
+            style={{ flexWrap: "wrap" }}
+          >
+            {headerBottomData.map((x, index) => {
+              return (
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-links fs-18 text-light text-grey active"
+                      : "nav-links fs-18 text-light text-grey"
+                  }
+                  to={`${x}`}
+                  key={index}
+                >
+                  {x}
+                </NavLink>
+              );
+            })}
+          </div>
+        </HeaderTopWrapper>
+      );
+    }
     return (
       <HeaderTopWrapper
         className={
@@ -54,7 +86,10 @@ export default function Header({ type }) {
           padding: "1.2rem 0",
         }}
       >
-        <div className="w-90 auto flex item-center justify-space">
+        <div
+          className="w-90 auto flex item-center justify-space"
+          style={{ flexWrap: "wrap" }}
+        >
           {headerBottomData.map((x, index) => {
             return (
               <NavLink
@@ -195,15 +230,18 @@ export default function Header({ type }) {
           )}
         </div>
       </HeaderTopContainer>
-      {!type === "chat" && <HeaderBottom />}
+      {type !== "chat" && <HeaderBottom />}
     </HeaderWrapper>
   );
 }
 
 const HeaderTopWrapper = styled.div`
   width: 100%;
-  @media (max-width: 480px) {
-    display: none;
+  .bottom1 {
+    @media (max-width: 980px) {
+      justify-content: flex-start;
+      gap: 1.4rem;
+    }
   }
   h5 {
     @media (max-width: 780px) {
@@ -218,6 +256,7 @@ const HeaderTopContainer = styled.div`
   align-items: center;
   background: #fff;
   padding: 1.5rem 0;
+
   .icon {
     width: 3rem;
     height: 3rem;
