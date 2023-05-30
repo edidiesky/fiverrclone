@@ -19,7 +19,7 @@ export default function SingleIndex() {
     <SingleIndexContent>
       <Header />
       <div className="w-90 auto py-4 grid grid-auto grid-gap4">
-        <SingleLeftIndex id={id}/>
+        <SingleLeftIndex id={id} />
         <RightIndex />
       </div>
     </SingleIndexContent>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
-import { HiOutlineBars3 } from "react-icons/hi2";
 import { BiBell, BiHeart, BiMessage, BiSearch } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
 import Profile from "./Profile";
 import Bar from "./svg/Bar";
 import Logo from "./svg/Logo";
+import { HiUser } from "react-icons/hi";
 
 const data = [
   { id: 1, title: "Fiverr Business", path: "/business" },
@@ -31,7 +31,8 @@ const headerBottomData = [
 export default function Header({ type }) {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(false);
-  let userInfo = "";
+  const { userInfo } = useSelector((store) => store.user);
+
   const isActive = () => {
     window.scrollY > 200 ? setActive(false) : setActive(true);
   };
@@ -132,16 +133,19 @@ export default function Header({ type }) {
   };
 
   const HeaderTopRight = () => {
-    if (userInfo === "user") {
+    if (userInfo) {
       return (
         <div className={"headerTopCenter flex item-center gap-2"}>
           <h4 className="family1 fs-16 text-dark">Orders</h4>
           <div className="profile" onClick={() => setProfile(!profile)}>
-            <div
+            {/* <div
               style={{ background: "#25A1B0" }}
               className="avatar text-white fs-18 text-bold uppercase family1 flex item-center justify-center"
             >
               E
+            </div> */}
+            <div className="avatar flex item-center justify-center">
+              <HiUser />
             </div>
             <div className="notification"></div>
             <Profile profile={profile} />
@@ -394,6 +398,23 @@ const HeaderWrapper = styled.div`
   .headerTopContainer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     .headerTopCenter {
+    }
+  }
+  .avatar {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background-color: #adabab;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    &:hover {
+      background-color: #adababa4;
+    }
+
+    svg {
+      color: #fff;
+      font-size: 24px;
     }
   }
   .HeaderBottom {

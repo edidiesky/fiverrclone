@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-const Registerurl = '/auth/register';
-const Loginurl = '/auth/login';
+const Registerurl = '/api/v1/auth/register';
+const Loginurl = '/api/v1/auth/login';
 
 export const registerCustomer = createAsyncThunk(
   'registerUser',
@@ -54,7 +54,7 @@ export const getAllCustomer = createAsyncThunk(
       }
       const { userpage } = state.user
 
-      const { data } = await axios.get(`/auth?page=${userpage}`, config);
+      const { data } = await axios.get(`/api/v1/auth?page=${userpage}`, config);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response && error.response.data.message
@@ -75,7 +75,7 @@ export const getUserStats = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`
         }
       }
-      const { data } = await axios.get(`/auth/stats`, config);
+      const { data } = await axios.get(`/api/v1/auth/stats`, config);
       return data.usersStats;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response && error.response.data.message
@@ -97,7 +97,7 @@ export const getSingleCustomer = createAsyncThunk(
         }
       }
 
-      const { data } = await axios.get(`/auth/admin/profile/${name}`, config);
+      const { data } = await axios.get(`/api/v1/auth/admin/profile/${name}`, config);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response && error.response.data.message
@@ -120,7 +120,7 @@ export const adminUpdateCustomer = createAsyncThunk(
         }
       }
       const { _id } = state.user.userDetails
-      const { data } = await axios.put(`/auth/admin/profile/${_id}`, Userformdata, config);
+      const { data } = await axios.put(`/api/v1/auth/admin/profile/${_id}`, Userformdata, config);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response && error.response.data.message
@@ -143,7 +143,7 @@ export const UpdateProfile = createAsyncThunk(
         }
       }
       const { _id } = state.user.userInfo
-      const { data } = await axios.put(`/auth/profile/${_id}`, profiledata, config);
+      const { data } = await axios.put(`/api/v1/auth/profile/${_id}`, profiledata, config);
       localStorage.setItem('customer', JSON.stringify(data.updatedUser))
       return data;
     } catch (error) {
@@ -166,7 +166,7 @@ export const adminDeleteCustomer = createAsyncThunk(
         }
       }
 
-      const { data } = await axios.delete(`/auth/admin/profile/${name}`, config);
+      const { data } = await axios.delete(`/api/v1/auth/admin/profile/${name}`, config);
       return name;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response && error.response.data.message

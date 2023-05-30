@@ -4,7 +4,7 @@ import { Header, Meta } from "../components/common";
 import Input from "../components/forms/Input";
 import { loginCustomer } from "../Features/user/userReducer";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/modals/Message";
 import { clearUserAlertError } from "../Features";
 import LoaderIndex from "../components/loaders";
@@ -37,6 +37,8 @@ export default function Login() {
     password: "",
   });
 
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const { email, password } = formdata;
@@ -50,7 +52,7 @@ export default function Login() {
     dispatch(loginCustomer(formdata));
   };
 
-  const { isSuccess, isLoading, alertText, alertType } = useSelector(
+  const { isSuccess, isLoading, showAlert, alertText, alertType } = useSelector(
     (store) => store.user
   );
 
@@ -60,14 +62,14 @@ export default function Login() {
       password: "eAdg145%1",
     });
     if (isSuccess) {
+      clearUserAlertError();
       setTimeout(() => {
         clearUserAlertError();
         navigate(`/`);
-      }, 3000);
+      }, 6000);
     }
   }, [setFormData, navigate, isSuccess]);
-  
-  
+
   return (
     <>
       <Meta title="Sign up for a Fiverr Account - Join Fiverr Today" />
@@ -83,7 +85,12 @@ export default function Login() {
           </div>
           <div className="right flex-1 h-100">
             <div className="w-85 auto py-3 flex column rightwrapper justify-space h-100">
-              <Message alertType={alertType} alertText={alertText} />
+              <Message
+                alertType={alertType}
+                showAlert={showAlert}
+                alertText={alertText}
+                handleClearAlert={clearUserAlertError}
+              />
               <form
                 className="authContentFormWrapper flex column gap-2"
                 onSubmit={handleSubmit}
@@ -112,7 +119,7 @@ export default function Login() {
                     className="btn fs-16 w-100 py-2 family1 px-4 text-white text-bold"
                     style={{ padding: "1.4rem 4rem" }}
                   >
-                   {isLoading? <LoaderIndex type={'small'}/>:" Continue"}
+                    {isLoading ? <LoaderIndex type={"small"} /> : " Continue"}
                   </button>
                   <p className="fs-14 text-light text-grey">
                     Not yet a member?{" "}

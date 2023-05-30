@@ -5,6 +5,8 @@ import { BiBell, BiHeart, BiSearch } from "react-icons/bi";
 import Profile from "../../common/Profile";
 import { AiOutlineMail } from "react-icons/ai";
 import Bar from "../../common/svg/Bar";
+import { useSelector } from "react-redux";
+import { HiUser } from "react-icons/hi";
 
 const data = [
   { id: 1, title: "Fiverr Business", path: "/business" },
@@ -27,7 +29,7 @@ const headerBottomData = [
 export default function Header() {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(false);
-  let userInfo = "";
+  const { userInfo } = useSelector((store) => store.user);
   const isActive = () => {
     window.scrollY > 200 ? setActive(false) : setActive(true);
   };
@@ -110,7 +112,7 @@ export default function Header() {
   };
 
   const HeaderTopRight = () => {
-    if (userInfo === "user") {
+    if (userInfo) {
       return (
         <div
           className={
@@ -121,12 +123,16 @@ export default function Header() {
         >
           <h4 className="family1 fs-16">Orders</h4>
           <div className="profile" onClick={() => setProfile(!profile)}>
-            <div
+            {/* <div
               style={{ background: "#25A1B0" }}
               className="avatar text-white fs-18 text-bold uppercase family1 flex item-center justify-center"
             >
               E
+            </div> */}
+            <div className="avatar flex item-center justify-center">
+              <HiUser />
             </div>
+
             <div className="notification"></div>
             <Profile profile={profile} />
           </div>
@@ -224,6 +230,23 @@ const HeaderTopWrapper = styled.div`
   width: 100%;
   @media (max-width: 480px) {
   }
+  .avatar {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    background-color: #adabab;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    &:hover {
+      background-color: #adababa4;
+    }
+
+    svg {
+      color: #fff;
+      font-size: 24px;
+    }
+  }
   .bottom1 {
     @media (max-width: 980px) {
       justify-content: flex-start;
@@ -243,14 +266,37 @@ const HeaderTopContainer = styled.div`
   align-items: center;
   background: #fff;
   padding: 1.5rem 0;
+  .avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #adabab;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    &:hover {
+      background-color: #adababa4;
+    }
+
+    svg {
+      color: #fff;
+      font-size: 24px;
+    }
+  }
   .links {
     &.active {
       color: #fff;
     }
   }
-  .avatar {
-    width: 5rem;
-    height: 5rem;
+  .notification {
+    position: absolute;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: var(--green);
+    bottom: -2%;
+    right: 2%;
   }
   .icon {
     width: 3rem;
@@ -336,6 +382,9 @@ const HeaderTopContainer = styled.div`
         color: #fff;
       }
     }
+  }
+  .profile {
+    position: relative;
   }
 
   .headerTopCenter {

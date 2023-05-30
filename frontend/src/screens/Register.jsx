@@ -5,7 +5,7 @@ import Input from "../components/forms/Input";
 import { registerCustomer } from "../Features/user/userReducer";
 import styled from "styled-components";
 import { clearUserAlertError } from "../Features";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/modals/Message";
 import LoaderIndex from "../components/loaders";
 
@@ -16,6 +16,7 @@ export default function Register() {
     password: "",
     password2: "",
   });
+  const dispatch = useDispatch();
   const { username, email, password, password2 } = formdata;
   const inputData = [
     {
@@ -66,7 +67,7 @@ export default function Register() {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
   };
 
-  const { isSuccess, alertText, alertType, isLoading } = useSelector(
+  const { isSuccess, alertText, showAlert, alertType, isLoading } = useSelector(
     (store) => store.user
   );
 
@@ -74,8 +75,8 @@ export default function Register() {
   // performing form submission to backend
   const handleSubmit = (e) => {
     e.preventDefault();
-    // dispatch(registerCustomer(formdata));
-    console.log(formdata);
+    dispatch(registerCustomer(formdata));
+    // console.log(formdata);
   };
 
   useEffect(() => {
@@ -87,7 +88,6 @@ export default function Register() {
     });
     if (isSuccess) {
       setTimeout(() => {
-        clearUserAlertError();
         navigate(`/join/login`);
       }, 3000);
     }
@@ -109,7 +109,12 @@ export default function Register() {
           <div className="right flex-1 h-100">
             <div className="w-85 auto py-3 flex column rightwrapper justify-space h-100">
               <form className="authContentFormWrapper flex column gap-1">
-                <Message alertType={alertType} alertText={alertText} />
+                <Message
+                  alertType={alertType}
+                  showAlert={showAlert}
+                  handleClearAlert={clearUserAlertError}
+                  alertText={alertText}
+                />
                 <h3 className="fs-24 py-2 family1">Continue with your email</h3>
                 {inputData.map((input) => {
                   return (
@@ -208,6 +213,7 @@ const AuthForm = styled.div`
   .wrapper {
     width: 70%;
     margin: 0 auto;
+    overflow: hidden;
     @media (max-width: 780px) {
       flex-direction: column-reverse;
 
