@@ -8,6 +8,8 @@ import Explore from "./Explore";
 import Error from "./Error";
 import Checkout from "./Checkout";
 import Chat from './Chat'
+import Login from './Login'
+import Register from './Register'
 import SellerPage1 from './seller/Page1'
 import SellerPage2 from './seller/Page2'
 import Personal1 from './seller/Personal1'
@@ -28,5 +30,7 @@ export {
   SellerPage2,
   SellerLayout,
   Personal1,
-  Professional
+  Professional,
+  Login,
+  Register
 };

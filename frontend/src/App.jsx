@@ -19,6 +19,8 @@ import {
   SellerLayout,
   Personal1,
   Professional,
+  Login,
+  Register,
 } from "./screens";
 
 import {
@@ -57,11 +59,10 @@ export default function App() {
             path="categories/:category1/:category2"
             element={<Services />}
           />
-          <Route
-            path="categories/:category1"
-            element={<Services />}
-          />
+          <Route path="categories/:category1" element={<Services />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="join/login" element={<Login />} />
+          <Route path="join/register" element={<Register />} />
           <Route path="explore" element={<Explore />} />
           <Route path="checkout" element={<Checkout />} />
         </Route>

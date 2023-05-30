@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Meta } from "../components/common";
-import Banner1 from "../components/common/Banner1";
+import { Header, Meta } from "../components/common";
 import Input from "../components/forms/Input";
 import { loginCustomer } from "../Features/user/userReducer";
+import styled from "styled-components";
 
 const inputData = [
   {
@@ -35,6 +35,8 @@ export default function Login() {
     password: "",
   });
 
+  const { email, password } = formdata;
+
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
   };
@@ -45,56 +47,114 @@ export default function Login() {
   };
   return (
     <>
-      <Meta title="Login - Retail" />
-      <Banner1 />
-      <div className="w-100 py-6">
-        <div
-          className="w-90 auto py-3 flex column gap-2 item-start"
-          style={{ border: "1px solid rgba(0,0,0,.1)", padding: "3rem" }}
-        >
-          <h2
-            className="py-2 fs-40 text-bold text-dark"
-            style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
-          >
-            Login
-          </h2>
-          <div className="w-100 py-3">
-            <form
-              className="authContentFormWrapper flex column gap-2"
-              onSubmit={handleSubmit}
-            >
-              {inputData.map((input) => {
-                return (
-                  <Input
-                    id={input.text}
-                    onChange={onChange}
-                    placeholder={input.placeholder}
-                    type={input.type}
-                    name={input.name}
-                    value={formdata[input.name]}
-                    input={input}
-                    key={input.id}
-                    required={input.required}
-                    pattern={input.pattern}
-                    errorMessage={input.errorMessage}
-                  />
-                );
-              })}
-              <div className="w-100 flex gap-2">
-                <button
-                  className="btn fs-16 py-2 px-4 radius4 text-white text-bold"
-                  style={{ padding: "1.4rem 4rem" }}
-                >
-                  SignUp with Avanda
-                </button>
-              </div>
-              <p className="fs-14 text-bold text-grey">
-                Not yet a Member? <Link to={"/register"}>Register Now</Link>
-              </p>
-            </form>
+      <Meta title="Sign up for a Fiverr Account - Join Fiverr Today" />
+      <Header />
+      <AuthForm className="w-100 py-6">
+        <div className="w-90 auto py-3 flex wrapper item-center">
+          <div className="left flex-1">
+            <img
+              src="https://npm-assets.fiverrcdn.com/assets/@fiverr-private/user_session/standard.7691fcf.png"
+              alt=""
+              className="w-100"
+            />
+          </div>
+          <div className="right flex-1 h-100">
+            <div className="w-85 auto py-3 flex column rightwrapper justify-space h-100">
+              <form
+                className="authContentFormWrapper flex column gap-2"
+                onSubmit={handleSubmit}
+              >
+                <h3 className="fs-24 family1">Continue with your email</h3>
+                {inputData.map((input) => {
+                  return (
+                    <Input
+                      id={input.text}
+                      onChange={onChange}
+                      placeholder={input.placeholder}
+                      type={input.type}
+                      name={input.name}
+                      value={formdata[input.name]}
+                      input={input}
+                      key={input.id}
+                      required={input.required}
+                      pattern={input.pattern}
+                      errorMessage={input.errorMessage}
+                    />
+                  );
+                })}
+                <div className="w-100 flex gap-2 column">
+                  <button
+                    disabled={!email || !password}
+                    className="btn fs-16 w-100 py-2 family1 px-4 text-white text-bold"
+                    style={{ padding: "1.4rem 4rem" }}
+                  >
+                    Continue
+                  </button>
+                  <p className="fs-14 text-light text-grey">
+                    Not yet a member?{" "}
+                    <Link
+                      to={"/join/register"}
+                      style={{ textDecoration: "underline" }}
+                    >
+                      Register Now
+                    </Link>
+                  </p>
+                </div>
+              </form>
+              <h5 className="fs-14 text-grey text-light">
+                By joining, you agree to the Fiverr Terms of Service and to
+                occasionally receive emails from us. Please read our Privacy
+                Policy to learn how we use your personal data.
+              </h5>
+            </div>
           </div>
         </div>
-      </div>
+      </AuthForm>
     </>
   );
 }
+
+const AuthForm = styled.div`
+  width: 100%;
+  background-color: #f7f7f7;
+
+  .flex-1 {
+    flex: 1;
+  }
+  .btn:disabled {
+    background-color: #f7f7f7;
+    /* z-index: -1; */
+    color: #777;
+    cursor: not-allowed;
+  }
+  img {
+    object-fit: cover;
+    height: 100%;
+    position: absolute;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .left,
+  .right {
+    min-height: 60rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .rightwrapper {
+    min-height: 60rem;
+    padding: 3rem 0;
+  }
+  .right {
+    background-color: #fff;
+    display: flex;
+    align-items: flex-start;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .wrapper {
+    width: 70%;
+    margin: 0 auto;
+  }
+`;

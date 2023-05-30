@@ -95,11 +95,10 @@ html {
 }
 
 .btn {
-  background-color: var(--primary);
+  background-color: var(--dark-1);
   border: none;
   outline: none;
   cursor: pointer;
-  font-family: "Roboto Condensed", sans-serif;
 }
 .contactBtn,
 .cartBtn {
@@ -153,8 +152,7 @@ button {
   font-family: inherit;
   background-color: transparent;
 }
-input:hover {
-}
+
 .text-primary {
   color: var(--primary);
 }
@@ -461,9 +459,9 @@ p {
     margin: 0 auto;
   }
 @media (max-width: 980px) {
-  html {
+  /* html {
     font-size: 50%;
-  }
+  } */
   p {
     width: 100%;
   }
