@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import { BiBell, BiHeart, BiSearch } from "react-icons/bi";
 import Profile from "../../common/Profile";
@@ -28,7 +27,7 @@ const headerBottomData = [
 export default function Header() {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(false);
-  let userInfo = "user";
+  let userInfo = "";
   const isActive = () => {
     window.scrollY > 200 ? setActive(false) : setActive(true);
   };
@@ -49,16 +48,22 @@ export default function Header() {
         style={{
           borderBottom: "1px solid rgba(0,0,0,.06)",
           padding: "1.2rem 0",
+          flexWrap: "wrap",
         }}
       >
-        <div className="w-90 auto flex item-center justify-space">
+        <div
+          className="w-90 auto flex bottom1 item-center justify-space"
+          style={{
+            flexWrap: "wrap",
+          }}
+        >
           {headerBottomData.map((x, index) => {
             return (
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "nav-links fs-18 text-light text-grey active"
-                    : "nav-links fs-18 text-light text-grey"
+                    ? "nav-links fs-18 text-light text-grey text-center active"
+                    : "nav-links fs-18 text-light text-grey text-center"
                 }
                 to={`${x}`}
                 key={index}
@@ -104,28 +109,6 @@ export default function Header() {
     );
   };
 
-  // const HeaderTopRight = () => {
-  //   return (
-  //     <div className="Right flex item-center gap-3">
-  //       <Link
-  //         to={"/login"}
-  //         className={
-  //           active
-  //             ? "flex links fs-18 text-light text-dark item-center justify-center active"
-  //             : "flex links fs-18 text-light text-dark item-center justify-center"
-  //         }
-  //       >
-  //         Sign In
-  //       </Link>
-  //       <Link
-  //         to={"/cart"}
-  //         className="flex btn-4 fs-18 text-bold text-dark item-center justify-center"
-  //       >
-  //         Join
-  //       </Link>
-  //     </div>
-  //   );
-  // };
   const HeaderTopRight = () => {
     if (userInfo === "user") {
       return (
@@ -171,28 +154,6 @@ export default function Header() {
       </div>
     );
   };
-
-  // const HeaderTopCenter = () => {
-  //   return (
-  //     <div className={active ? "headerTopCenter active" : "headerTopCenter"}>
-  //       {data.map((x) => {
-  //         return (
-  //           <NavLink
-  //             className={({ isActive }) =>
-  //               isActive
-  //                 ? "nav-link fs-18 text-bold active"
-  //                 : "nav-link fs-18 text-bold"
-  //             }
-  //             to={`${x.path}`}
-  //             key={x.id}
-  //           >
-  //             {x.title}
-  //           </NavLink>
-  //         );
-  //       })}
-  //     </div>
-  //   );
-  // };
   const HeaderTopCenter = () => {
     if (userInfo === "user") {
       return (
@@ -262,7 +223,12 @@ export default function Header() {
 const HeaderTopWrapper = styled.div`
   width: 100%;
   @media (max-width: 480px) {
-    display: none;
+  }
+  .bottom1 {
+    @media (max-width: 980px) {
+      justify-content: flex-start;
+      gap: 1.4rem;
+    }
   }
   h5 {
     @media (max-width: 780px) {

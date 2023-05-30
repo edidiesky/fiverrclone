@@ -1,164 +1,215 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 // fetching all Gigs
 export const getAllGigs = createAsyncThunk(
-  '/fetch/allGigs',
-  async (name, thunkAPI) => {
+  "/fetch/allGigs",
+  async ({category,price,time}, thunkAPI) => {
     try {
-      let GigsUrl = `/api/v1/gig`
+      const {
+        page,
+        search,
+        sort,
+        limit,
+      } = thunkAPI.getState().gigs;
+      let GigsUrl = `/api/v1/gig`;
+            //   productUrl = productUrl + `?page=${page}`
+      // }
+      // if (category) {
+      //   productUrl = productUrl + `?category=${category}`
+      // }
+      // if (sort) {
+      //   productUrl = productUrl + `?sort=${sort}`
+      // }
+      if (category) {
+        GigsUrl = GigsUrl + `?category=${category}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      }
+      // if (limit) {
+      //   productUrl = productUrl + `?limit=${limit}`
+      // }
+      // if (search) {
+      //   productUrl = productUrl + `&search=${search}`
+      // }
       const { data } = await axios.get(GigsUrl);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 // fetching single Gigs based on its id
 export const getSingleGigsDetails = createAsyncThunk(
-  'Gigs/getGigsDetails',
+  "Gigs/getGigsDetails",
   async (name, thunkAPI) => {
     try {
       const { data } = await axios.get(`/api/v1/gig/${name}`);
 
       return data.gig;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 // fetching single Gigs based on its id
 export const CreateSingleGig = createAsyncThunk(
-  'Gigs/createGigs',
+  "Gigs/createGigs",
   async (GigsData, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
       const config = {
         headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
       const { data } = await axios.post(`/api/v1/gig`, GigsData, config);
 
       return data.gig;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
-
 // Update a single Gigs for the admin
 export const UpdateGig = createAsyncThunk(
-  '/updateGig',
+  "/updateGig",
   async (GigsData, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
       const config = {
         headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-      const { _id } = state.Gigs.GigsDetails
-      const { data } = await axios.put(`/api/v1/gig/admin/${_id}`, GigsData, config);
-      localStorage.setItem('Gigss', JSON.stringify(data.updatedGigs))
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      const { _id } = state.Gigs.GigsDetails;
+      const { data } = await axios.put(
+        `/api/v1/gig/admin/${_id}`,
+        GigsData,
+        config
+      );
+      localStorage.setItem("Gigss", JSON.stringify(data.updatedGigs));
       return data.updatedGigs;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 // Delete a single Gigs for the admin
 export const DeleteGig = createAsyncThunk(
-  '/admin/deleteGig',
+  "/admin/deleteGig",
   async (Gigsid, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
       const config = {
         headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-      const { data } = await axios.delete(`/api/v1/gig/admin/${Gigsid}`, config);
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      const { data } = await axios.delete(
+        `/api/v1/gig/admin/${Gigsid}`,
+        config
+      );
       return Gigsid;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
 
 // Create a review access point for the user
 export const createReviewGigs = createAsyncThunk(
-  '/user/reviewGigs/',
+  "/user/reviewGigs/",
   async ({ Reviewdata, id }, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
       const config = {
         headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
-      const { data } = await axios.post(`/api/v1/gig/review/${id}`, Reviewdata, config);
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      const { data } = await axios.post(
+        `/api/v1/gig/review/${id}`,
+        Reviewdata,
+        config
+      );
       return data.message;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
-
-
 
 // Get al toprated Gigs for the user
 export const getTopRatedGigs = createAsyncThunk(
-  '/get/topRatedGigs',
+  "/get/topRatedGigs",
   async (name, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
       const config = {
         headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
       const { data } = await axios.get(`/api/v1/gig/rated`, config);
       return data.toprated;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
-
 
 // Get al toprated Gigs for the user
 export const getGigsStats = createAsyncThunk(
-  '/get/getGigsStats',
+  "/get/getGigsStats",
   async (name, thunkAPI) => {
-    const state = thunkAPI.getState()
+    const state = thunkAPI.getState();
     try {
       const config = {
         headers: {
-          authorization: `Bearer ${state.user.token}`
-        }
-      }
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
       const { data } = await axios.get(`/api/v1/gig/stats`, config);
       return data.stats;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response && error.response.data.message
-        ? error.response.data.message : error.message);
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
     }
   }
 );
-
-
-

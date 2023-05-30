@@ -7,7 +7,7 @@ const CardLoading = () => {
   return (
     <CardLoadingContent className="w-100 flex column gap-1 back-white">
       <div className="top w-100"></div>
-      <div className="center w-90 auto flex gap-1 item-center justify-space">
+      <div className="center w-90 auto flex gap-1 item-center">
         <div className="topCenter skeleton"></div>
         <div className="bottomCenter skeleton"></div>
       </div>
@@ -24,7 +24,7 @@ const CardLoading = () => {
 
 export default function Card({ x, index, type }) {
   const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
-  // const gigsIsLoading = false;
+  // const gigsIsLoading = true;
   if (type === "features") {
     return (
       <>
@@ -32,7 +32,7 @@ export default function Card({ x, index, type }) {
           <CardLoading />
         ) : (
           <Link
-            to={`gigs/${x?._id}`}
+            to={`/gigs/${x?._id}`}
             className="w-100 MainCard flex column"
             key={x?._id}
           >
@@ -73,12 +73,12 @@ export default function Card({ x, index, type }) {
       ) : (
         <CardContent>
           <Link
-            to={"/gigs/2535"}
+            to={`/gigs/${x?._id}`}
             className="w-100 cards flex column"
-            key={x.id}
+            key={x?.id}
           >
             <div className="w-100 card">
-              <img src={x.images} alt="" className="w-100" />
+              <img src={x?.image[0]} alt="" className="w-100" />
               <div className="backdrop"></div>
               <div className="icon left">
                 <BiChevronLeft />
@@ -89,7 +89,7 @@ export default function Card({ x, index, type }) {
             </div>
             <div className="bottom w-100 back-white py-2 flex item-center gap-1">
               <img
-                src={x.autoImage}
+                src={x?.user?.image}
                 alt=""
                 className="images"
                 style={{
@@ -103,83 +103,31 @@ export default function Card({ x, index, type }) {
                   to={"/"}
                   className="fs-16 a family1 text-extra-bold text-dark"
                 >
-                  {x.authorName}
+                  {x?.user?.username}
                 </Link>
-                <h4 className="fs-14 text-grey text-light">{x.level}</h4>
+                <h4 className="fs-14 text-grey text-light">{x?.user?.level}</h4>
               </div>
             </div>
             <p className="bottom desc w-90 fs-18 text-dark text-light">
-              {x.taskDescription}
+              {x?.title.substring(0, 44)}....
             </p>
             <div className="w-100 border gap-1 flex text-grey2 family1 px-2 text-bold item-center fs-14">
               <BiStar className="text-secondary fs-16" />
               <div className="flex item-center text-secondary fs-14">
-                {x.rating}
-                <span className="text-grey2">({x.reviews})</span>
+                {x?.rating}
+                <span className="text-grey2">({x?.reviews})</span>
               </div>
             </div>
             <div className="bottom w-100 flex item-center justify-space">
               <BiHeart className="fs-20 text-grey" />
               <div className="fs-14 uppercase text-light text-grey">
-                Starting at <span className="fs-20 text-dark">${x.price}</span>
+                Starting at <span className="fs-20 text-dark">${x?.price}</span>
               </div>
             </div>
           </Link>
         </CardContent>
       )}
     </>
-    // <CardContent>
-    //   <Link to={"/gigs/2535"} className="w-100 cards flex column" key={x.id}>
-    //     <div className="w-100 card">
-    //       <img src={x.images} alt="" className="w-100" />
-    //       <div className="backdrop"></div>
-    //       <div className="icon left">
-    //         <BiChevronLeft />
-    //       </div>
-    //       <div className="icon right">
-    //         <BiChevronRight />
-    //       </div>
-    //     </div>
-    //     <div className="bottom w-100 back-white py-2 flex item-center gap-1">
-    //       <img
-    //         src={x.autoImage}
-    //         alt=""
-    //         className="images"
-    //         style={{
-    //           width: "3.5rem",
-    //           height: "3.5rem",
-    //           borderRadius: "50%",
-    //         }}
-    //       />
-    //       <div className="flex column">
-    //         <Link
-    //           to={"/"}
-    //           className="fs-16 a family1 text-extra-bold text-dark"
-    //         >
-    //           {x.authorName}
-    //         </Link>
-    //         <h4 className="fs-14 text-grey text-light">{x.level}</h4>
-    //       </div>
-    //     </div>
-    //     <p className="bottom desc w-90 fs-18 text-dark text-light">
-    //       {x.taskDescription}
-    //     </p>
-    //     <div className="w-100 border gap-1 flex text-grey2 family1 px-2 text-bold item-center fs-14">
-    //       <BiStar className="text-secondary fs-16" />
-    //       <div className="flex item-center text-secondary fs-14">
-    //         {x.rating}
-    //         <span className="text-grey2">({x.reviews})</span>
-    //       </div>
-    //     </div>
-    //     <div className="bottom w-100 flex item-center justify-space">
-    //       <BiHeart className="fs-20 text-grey" />
-    //       <div className="fs-14 uppercase text-light text-grey">
-    //         Starting at <span className="fs-20 text-dark">${x.price}</span>
-    //       </div>
-
-    //     </div>
-    //   </Link>
-    // </CardContent>
   );
 }
 
@@ -210,9 +158,9 @@ const CardContent = styled.div`
     color: var(--yellow);
   }
   .card {
-    height: 13rem;
+    min-height: 15rem;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     .icon {
       position: absolute;
       width: 2.7rem;
@@ -257,13 +205,13 @@ const CardContent = styled.div`
       position: absolute;
       transition: all 0.4s;
       width: 100%;
-      height: 100%;
+      height: 15rem;
     }
     img {
       position: absolute;
       transition: all 0.4s;
       width: 100%;
-      height: 100%;
+      height: 15rem;
       object-fit: cover;
     }
   }
@@ -272,6 +220,8 @@ const CardContent = styled.div`
 const CardLoadingContent = styled.div`
   min-height: 35rem;
   min-width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #fff;
   .skeleton {
     opacity: 0.7;
     animation: card-loading 1s infinite alternate;
@@ -282,11 +232,11 @@ const CardLoadingContent = styled.div`
     animation: card-loading 2s infinite alternate;
   }
   .bottomCenter {
-    height: 4rem;
-    flex: 1;
+    height: 1rem;
+    flex: 0.3;
   }
   .h-6 {
-    height: 2rem;
+    height: 1rem;
   }
   .topCenter {
     width: 4rem;

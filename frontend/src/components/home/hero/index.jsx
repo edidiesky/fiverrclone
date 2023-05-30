@@ -1,5 +1,6 @@
 import React from "react";
 import { BiSearch } from "react-icons/bi";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function HeroIndex() {
@@ -31,20 +32,45 @@ export default function HeroIndex() {
               </div>
             </form>
             <div
-              className="w-100 flex item-center gap-1 fs-16 family1 text-white"
+              className="w-100 flex item-center gap-1 text-white fs-16 family1 text-white"
               style={{ flexWrap: "wrap" }}
             >
-              Popular: <div className="links fs-12 family1">Website Design</div>
-              <div className="links fs-12 family1">Wordpress</div>
-              <div className="links fs-12 family1">Logo Design</div>
-              <div className="links fs-12 family1">AI Services</div>
+              Popular:{" "}
+              <Link
+                to={"/categories/graphics-design/Website Design"}
+                className="links fs-12 family1"
+              >
+                Website Design
+              </Link>
+              <Link
+                to={"/categories/programming-tech/WordPress"}
+                className="links fs-12 family1"
+              >
+                WordPress
+              </Link>
+              <Link
+                to={"/categories/cp/ai-services"}
+                className="links fs-12 family1"
+              >
+                AI Services
+              </Link>
+              <Link
+                to={"/categories/graphics-design/Logo Design"}
+                className="links fs-12 family1"
+              >
+                Logo Design
+              </Link>
             </div>
           </div>
         </div>
       </HeroIndexContent>
       <div
         className="bottom w-100 flex gap-3 py-3 item-center justify-center"
-        style={{ background: "var(--light-grey)", padding: "2rem 0" }}
+        style={{
+          background: "var(--light-grey)",
+          padding: "2rem 0",
+          flexWrap: "wrap",
+        }}
       >
         <div className="fs-20 text-grey2">Trusted by :</div>
         <img
@@ -98,7 +124,6 @@ const HeroIndexContent = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
   .header {
     position: relative;

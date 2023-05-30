@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { sellerReview } from "../../../../data/Reviews";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-import { Link } from "react-router-dom";
 import Rating from "../../../common/Rating";
 import { Slider } from "../../../common";
+import { useSelector } from "react-redux";
 
 const options = {
   items: 1,
@@ -23,83 +22,96 @@ const options = {
 };
 
 export default function Criticism() {
+  const { reviews } = useSelector((store) => store.reviews);
   return (
     <CriticismWrapper>
-      <div className="w-100 flex column gap-2">
-        {/* reviews top */}
-        <div className="comment flex w-100 item-center justify-space">
-          <h3 className="fs-20 text-bold text-dark">
-            What people loved about this seller
-          </h3>
-          {/* <Link
-              to={""}
-              className="fs-16 text-light text-blue flex item-center gap-1"
-            >
-              See all Reviews <BiChevronRight />
-            </Link> */}
-        </div>
-        {/* reviews bottom */}
-        <CriticismCard
-          className=" radius1 w-100"
+      {reviews?.length === 0 ? (
+        <h4
+          className="fs-16 text-dark family1"
           style={{
             border: "1px solid rgba(0,0,0,.08)",
+            padding:"1.5rem"
           }}
         >
-          <div className="carousel-container">
-            <Slider options={options}>
-              {sellerReview.map((x) => {
-                return (
-                  <div className="flex item-start gap-2 w-100">
-                    {/* name */}
-                    <div className="flex w-100 item-start gap-2 w-100">
-                      <div
-                        className="avatar flex item-center back-grey text-grey justify-center"
-                        style={{ fontSize: "16px" }}
-                      >
-                        C
-                      </div>
-                      {/* left */}
-                      <div className="flex flex-1 gap-1 column">
-                        {/* top */}
-                        <div className="comment flex item-center gap-1">
-                          {/* name */}
-                          <h4 className="fs-16 text-dark text-bold">
-                            {x.name}
-                          </h4>
-                          {/* country */}
-                          <h4 className="fs-16 text-grey text-bold">
-                            {x.country}
-                          </h4>
-                          <div
-                            className="flex item-center gap-1 fs-14"
-                            style={{
-                              paddingLeft: "1rem",
-                              borderLeft: "1px solid #777",
-                            }}
-                          >
-                            <Rating value={x.rating} />
-                            <h4 className="fs-16 text-grey text-bold">
-                              {x.rating}
-                            </h4>
-                          </div>
+          No Reviews yet
+        </h4>
+      ) : (
+        <div className="w-100 flex column gap-2">
+          {/* reviews top */}
+          <div className="comment flex w-100 item-center justify-space">
+            <h3 className="fs-20 text-bold text-dark">
+              What people loved about this seller
+            </h3>
+            {/* <Link
+            to={""}
+            className="fs-16 text-light text-blue flex item-center gap-1"
+          >
+            See all Reviews <BiChevronRight />
+          </Link> */}
+          </div>
+          {/* reviews bottom */}
+          <CriticismCard
+            className=" radius1 w-100"
+            style={{
+              border: "1px solid rgba(0,0,0,.08)",
+            }}
+          >
+            <div className="carousel-container">
+              <Slider options={options}>
+                {sellerReview.map((x) => {
+                  return (
+                    <div className="flex item-start gap-2 w-100">
+                      {/* name */}
+                      <div className="flex w-100 item-start gap-2 w-100">
+                        <div
+                          className="avatar flex item-center back-grey text-grey justify-center"
+                          style={{ fontSize: "16px" }}
+                        >
+                          C
                         </div>
-                        {/* comment */}
-                        <p className="text-grey fs-16 text-light">
-                          {x.comment}
-                        </p>
-                        {/* time */}
-                        <h4 className="fs-16 text-grey2 text-light">
-                          {x.createdAt}
-                        </h4>
+                        {/* left */}
+                        <div className="flex flex-1 gap-1 column">
+                          {/* top */}
+                          <div className="comment flex item-center gap-1">
+                            {/* name */}
+                            <h4 className="fs-16 text-dark text-bold">
+                              {x.name}
+                            </h4>
+                            {/* country */}
+                            <h4 className="fs-16 text-grey text-bold">
+                              {x.country}
+                            </h4>
+                            <div
+                              className="flex item-center gap-1 fs-14"
+                              style={{
+                                paddingLeft: "1rem",
+                                borderLeft: "1px solid #777",
+                              }}
+                            >
+                              <Rating value={x.rating} />
+                              <h4 className="fs-16 text-grey text-bold">
+                                {x.rating}
+                              </h4>
+                            </div>
+                          </div>
+                          {/* comment */}
+                          <p className="text-grey fs-16 text-light">
+                            {x.comment}
+                          </p>
+                          {/* time */}
+                          <h4 className="fs-16 text-grey2 text-light">
+                            {x.createdAt}
+                          </h4>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
-            </Slider>
-          </div>
-        </CriticismCard>
-      </div>
+                  );
+                })}
+              </Slider>
+            </div>
+          </CriticismCard>
+        </div>
+      )}
     </CriticismWrapper>
   );
 }
@@ -110,12 +122,12 @@ const CriticismWrapper = styled.div`
   .carousel-container {
     max-width: 600px;
   }
-    .owl-nav {
+  .owl-nav {
     position: absolute;
     top: 35%;
     width: 100%;
     z-index: 10;
-    background-color: #fff; 
+    background-color: #fff;
     &.disabled {
       display: none;
     }
@@ -178,7 +190,7 @@ const CriticismCard = styled.div`
   position: relative;
   width: 100%;
   padding: 2rem;
- width: clamp(45%,650px, 100%);
+  width: clamp(45%, 650px, 100%);
   @media (max-width: 480px) {
     padding: 1.5rem 1.2rem;
   }
@@ -189,8 +201,8 @@ const CriticismCard = styled.div`
     }
   }
   .avatar {
-  width:4.5rem;
-  height:4.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 
   .btnArrow {

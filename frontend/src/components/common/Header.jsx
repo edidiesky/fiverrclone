@@ -31,7 +31,7 @@ const headerBottomData = [
 export default function Header({ type }) {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(false);
-  let userInfo = "user";
+  let userInfo = "";
   const isActive = () => {
     window.scrollY > 200 ? setActive(false) : setActive(true);
   };

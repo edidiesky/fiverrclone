@@ -4,40 +4,43 @@ import styled from "styled-components";
 import { projectData } from "../../../data";
 import Card from "../../common/Card";
 import FilterTypes from "../top/FilterTypes";
+import { useSelector } from "react-redux";
 
 export default function GigsIndex() {
   const [delivertime, setDeliveryTime] = useState(false);
+  const { Gigs } = useSelector((store) => store.gigs);
   return (
     <GigsIndexContent>
       <div className="w-100 flex gap-1 column">
         <div className="w-100 flex item-center justify-space">
-          <h5 className="fs-18 text-grey2">
-            30,260 services available
-          </h5>
-          <h5 className="fs-18 flex item-center gap-1 text-light text-grey2">
+          <h5 className="fs-18 text-grey2">30,260 services available</h5>
+          <h5 className="fs-20 flex item-center gap-1 text-light text-grey2">
             Sort By{" "}
             <FilterOptions>
               <div
-                className="w-100 fs-18 flex item-center gap-1 text-extra-bold text-dark text-center"
+                className="w-100 fs-20 flex item-center gap-1 text-extra-bold text-dark text-center"
                 onClick={() => setDeliveryTime(!delivertime)}
               >
                 Best selling{" "}
                 {delivertime ? (
-                  <BiChevronUp className="fs-18" />
+                  <BiChevronUp className="fs-20" />
                 ) : (
-                  <BiChevronDown className="fs-18" />
+                  <BiChevronDown className="fs-20" />
                 )}
               </div>
               {delivertime && (
                 <div className="w-100 filters">
-                  <FilterTypes type={"selling"} setDeliveryTime={setDeliveryTime}/>
+                  <FilterTypes
+                    type={"selling"}
+                    setDeliveryTime={setDeliveryTime}
+                  />
                 </div>
               )}
             </FilterOptions>
           </h5>
         </div>
         <div className="w-100 projectwrapper">
-          {projectData.map((x, index) => {
+          {Gigs?.map((x, index) => {
             return <Card x={x} index={index} />;
           })}
         </div>
@@ -49,8 +52,11 @@ export default function GigsIndex() {
 const GigsIndexContent = styled.div`
   .projectwrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
+    @media (max-width: 780px) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
   }
 `;
 
@@ -63,11 +69,11 @@ const FilterOptions = styled.div`
   }
   .filters {
     position: absolute;
-    min-width: 270px;
+    min-width: 230px;
     top: 120%;
     max-height: 400px;
     z-index: 30000;
-    left: -100%;
+    left: -50%;
     border-radius: 6px;
     padding: 2rem 2rem;
     background-color: #fff;
@@ -78,7 +84,7 @@ const FilterOptions = styled.div`
   }
   label {
     border-radius: 5px;
-    padding:1rem;
+    padding: 1rem;
     &:hover {
       background-color: rgba(0, 0, 0, 0.06);
     }

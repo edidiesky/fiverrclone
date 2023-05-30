@@ -17,9 +17,9 @@ export default function FilterTypes({ type, setDeliveryTime }) {
     return (
       <div>
         <div className="flex w-100 item-center justify-center gap-1">
-          <div className="w-100 flex column gap-1">
+          <div className="w-100 flex column">
             <label
-              className="fs-14 flex w-100 py-1 gap-1 item-center text-dark"
+              className="fs-18 flex w-100 py-1 gap-1 item-center text-dark"
               htmlFor="min"
               onClick={() => handleBestSelling(0)}
             >
@@ -44,7 +44,7 @@ export default function FilterTypes({ type, setDeliveryTime }) {
               Recommended
             </label>
             <label
-              className="fs-14 flex w-100 py-1 gap-1 item-center text-dark"
+              className="fs-18 flex w-100 py-1 gap-1 item-center text-dark"
               htmlFor="min"
               onClick={() => handleBestSelling(1)}
             >
@@ -69,7 +69,7 @@ export default function FilterTypes({ type, setDeliveryTime }) {
               Best Selling
             </label>
             <label
-              className="fs-14 flex w-100 py-1 gap-1 item-center text-dark"
+              className="fs-18 flex w-100 py-1 gap-1 item-center text-dark"
               htmlFor="min"
               onClick={() => handleBestSelling(2)}
             >

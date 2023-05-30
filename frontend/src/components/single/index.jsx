@@ -15,13 +15,11 @@ export default function SingleIndex() {
     dispatch(getSingleGigsDetails(id));
   }, [id, dispatch]);
 
-  
-
   return (
     <SingleIndexContent>
       <Header />
       <div className="w-90 auto py-4 grid grid-auto grid-gap4">
-        <SingleLeftIndex />
+        <SingleLeftIndex id={id}/>
         <RightIndex />
       </div>
     </SingleIndexContent>

@@ -18,7 +18,7 @@ import {
   SellerPage2,
   SellerLayout,
   Personal1,
-  Professional
+  Professional,
 } from "./screens";
 
 import {
@@ -29,7 +29,7 @@ import {
   // Customers,
   // EditUser,
   CreateProductIndex,
-} from './screens/Dashboard/pages'
+} from "./screens/Dashboard/pages";
 
 export default function App() {
   useEffect(() => {
@@ -53,6 +53,10 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="gigs/:id" element={<Single />} />
           <Route path="gigs" element={<Services />} />
+          <Route
+            path="categories/:category1/:category2"
+            element={<Services />}
+          />
           <Route path="profile" element={<Profile />} />
           <Route path="explore" element={<Explore />} />
           <Route path="checkout" element={<Checkout />} />
@@ -68,7 +72,6 @@ export default function App() {
         <Route exact path={"/dashboard/"} element={<LayoutList />}>
           <Route exact path="profile" element={<ProfileList />} />
           <Route exact path="create-product" element={<CreateProductIndex />} />
-          
         </Route>
       </Routes>
     </div>

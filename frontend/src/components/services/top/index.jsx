@@ -3,14 +3,14 @@ import styled from "styled-components";
 import FilterTypes from "./FilterTypes";
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 
-export default function TopHeader() {
+export default function TopHeader({title}) {
   const [delivertime, setDeliveryTime] = useState(false);
   const [budget, setBudget] = useState(false);
   return (
     <div>
       <div className="w-100 flex column gap-1">
         {/* title */}
-        <h2 className="fs-35 family1 text-dark">3D Modeling & Rendering</h2>
+        <h2 className="fs-35 family1 text-dark">{title}</h2>
         <h5 className="fs-18 text-light text-grey2">
           Visualize your ideas with realistic 3D Modeling & Rendering
         </h5>
@@ -43,7 +43,7 @@ export default function TopHeader() {
           {/* budget */}
           <FilterOptions>
             <div
-              className="w-100 fs-16 flex item-center gap-1 family1 text-dark text-center"
+              className="w-100 fs-16 flex item-center text-bold gap-1 family1 text-dark text-center"
               onClick={() => setBudget(!budget)}
             >
               Budget {budget? <BiChevronUp className="fs-18"/>:<BiChevronDown className="fs-18"/>}

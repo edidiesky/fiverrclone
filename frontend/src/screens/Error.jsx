@@ -11,7 +11,7 @@ export default function Error() {
       <ErrorContent>
         {/* headeer */}
         <img
-          src="https://fiverr-res.cloudinary.com/image/upload/f_png,q_auto/v1/attachments/generic_asset/asset/2b2e0abb8a29000a31dc910da53530c3-1644931333078/404%20page%20-%204.svg"
+          src="https: //fiverr-res.cloudinary.com/image/upload/f_png,q_auto/v1/attachments/generic_asset/asset/2b2e0abb8a29000a31dc910da53530c3-1644931333078/404%20page%20-%204.svg"
           alt=""
           className="image"
         />

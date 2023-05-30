@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { projectData } from "../../../data";
 import { Head, Slider } from "../../common";
 import Card from "../../common/Card";
+import { useSelector } from "react-redux";
 
 const options2 = {
   items: 5,
@@ -30,6 +31,7 @@ const options2 = {
 };
 
 export default function GigsIndex() {
+  const { Gigs, gigsIsLoading } = useSelector((store) => store.gigs);
   return (
     <GigsIndexContainer>
       <div className="w-90 auto py-6  flex column gap-2">
@@ -39,7 +41,7 @@ export default function GigsIndex() {
         <div className="w-100 project">
           <div className="w-100">
             <Slider className="owl-theme" options={options2}>
-              {projectData.map((x, index) => {
+              {Gigs?.map((x, index) => {
                 return <Card x={x} index={index} />;
               })}
             </Slider>
@@ -61,7 +63,7 @@ const GigsIndexContainer = styled.div`
     top: 35%;
     width: 100%;
     z-index: 10;
-    background-color: #fff; 
+    background-color: #fff;
     &.disabled {
       display: none;
     }

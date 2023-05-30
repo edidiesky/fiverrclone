@@ -21,7 +21,7 @@ export default function HomeIndex() {
   return (
     <HomeIndexContainer className="flex column ">
       <HeroIndex />
-      {/* <GigsIndex /> */}
+      <GigsIndex />
       <ServicesIndex />
       <BestSeller />
       <Design1Index />

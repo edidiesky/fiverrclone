@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Details from "./Details";
 import Summary from "./Summary";
+import { useDispatch, useSelector } from "react-redux";
+import { getSellerReviews } from "../../../../Features";
 
-export default function ReviewsInfo() {
+export default function ReviewsInfo({ id }) {
+  const dispatch = useDispatch();
+  // console.log(id);
+  useEffect(() => {
+    dispatch(getSellerReviews(id));
+  }, [id, dispatch]);
+  const { GigsDetails } = useSelector((store) => store.gigs);
   return (
     <ReviewsInfoContent className="flex column gap-2">
       <Details />
@@ -12,21 +20,13 @@ export default function ReviewsInfo() {
       <div className="w-100 column gap-2 flex py-4">
         <h3 className="fs-20 text-bold text-dark">Related Tags</h3>
         <div className="w-100 linkwrapper flex item-center gap-2">
-          <Link to={"/"} className="a family1">
-            Custom Logo
-          </Link>
-          <Link to={"/"} className="a family1">
-            Logo Design
-          </Link>
-          <Link to={"/"} className="a family1">
-            design Logo
-          </Link>
-          <Link to={"/"} className="a family1">
-            real estate
-          </Link>
-          <Link to={"/"} className="a family1">
-            luxury
-          </Link>
+          {GigsDetails?.category?.map((x) => {
+            return (
+              <Link to={"/"} className="a family1">
+                {x}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </ReviewsInfoContent>
