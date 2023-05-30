@@ -4,25 +4,28 @@ import axios from "axios";
 // fetching all Gigs
 export const getAllGigs = createAsyncThunk(
   "/fetch/allGigs",
-  async ({category,price,time}, thunkAPI) => {
+  async ({ category, minprice, time, maxprice }, thunkAPI) => {
     try {
-      const {
-        page,
-        search,
-        sort,
-        limit,
-      } = thunkAPI.getState().gigs;
+      const { page, search, sort, limit } = thunkAPI.getState().gigs;
       let GigsUrl = `/api/v1/gig`;
-            //   productUrl = productUrl + `?page=${page}`
-      // }
-      // if (category) {
-      //   productUrl = productUrl + `?category=${category}`
+      //   productUrl = productUrl + `?page=${page}`
       // }
       // if (sort) {
       //   productUrl = productUrl + `?sort=${sort}`
       // }
       if (category) {
         GigsUrl = GigsUrl + `?category=${category}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      } else if (minprice) {
+        GigsUrl = GigsUrl + `?minprice=${minprice}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      } else if (maxprice) {
+        GigsUrl = GigsUrl + `?maxprice=${maxprice}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      } else {
         const { data } = await axios.get(GigsUrl);
         return data;
       }
@@ -32,8 +35,6 @@ export const getAllGigs = createAsyncThunk(
       // if (search) {
       //   productUrl = productUrl + `&search=${search}`
       // }
-      const { data } = await axios.get(GigsUrl);
-      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message

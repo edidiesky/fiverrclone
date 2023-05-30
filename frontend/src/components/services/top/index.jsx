@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FilterTypes from "./FilterTypes";
-import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
+import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
-export default function TopHeader({title}) {
+export default function TopHeader({ title }) {
   const [delivertime, setDeliveryTime] = useState(false);
   const [budget, setBudget] = useState(false);
   return (
@@ -21,22 +21,16 @@ export default function TopHeader({title}) {
               className="w-100 fs-16 flex item-center gap-1 family1 text-dark text-center"
               onClick={() => setDeliveryTime(!delivertime)}
             >
-              Delivery Time {delivertime? <BiChevronUp className="fs-18"/>:<BiChevronDown className="fs-18"/>}
+              Delivery Time{" "}
+              {delivertime ? (
+                <BiChevronUp className="fs-18" />
+              ) : (
+                <BiChevronDown className="fs-18" />
+              )}
             </div>
             {delivertime && (
               <div className="w-100 filters">
                 <FilterTypes type={"time"} />
-                <div className="bottom py-2 flex item-center gap-2 justify-center">
-                  <div
-                    className="contactBtn py-1 fs-14 family1"
-                    onClick={() => setDeliveryTime(false)}
-                  >
-                    Clear All
-                  </div>
-                  <div className="contactBtn py-1 fs-14 green family1">
-                    Submit
-                  </div>
-                </div>
               </div>
             )}
           </FilterOptions>
@@ -46,22 +40,16 @@ export default function TopHeader({title}) {
               className="w-100 fs-16 flex item-center text-bold gap-1 family1 text-dark text-center"
               onClick={() => setBudget(!budget)}
             >
-              Budget {budget? <BiChevronUp className="fs-18"/>:<BiChevronDown className="fs-18"/>}
+              Budget{" "}
+              {budget ? (
+                <BiChevronUp className="fs-18" />
+              ) : (
+                <BiChevronDown className="fs-18" />
+              )}
             </div>
             {budget && (
               <div className="w-100 filters">
-                <FilterTypes type={"budget"} />
-                <div className="bottom py-2 flex item-center gap-2 justify-center">
-                  <div
-                    className="contactBtn py-1 fs-14 family1"
-                    onClick={() => setBudget(false)}
-                  >
-                    Clear All
-                  </div>
-                  <div className="contactBtn py-1 fs-14 green family1">
-                    Submit
-                  </div>
-                </div>
+                <FilterTypes type={"budget"} setBudget={setBudget} />
               </div>
             )}
           </FilterOptions>

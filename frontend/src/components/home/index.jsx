@@ -11,13 +11,15 @@ import Banner1Index from "./banner1";
 import ServicesIndex from "./services";
 import GigsIndex from "./gigs";
 import { useDispatch } from "react-redux";
-import { getAllGigs } from "../../Features";
+import { clearGigsAlert, getAllGigs } from "../../Features";
+import { clearGigs } from "../../Features/gigs/gigsSlice";
 export default function HomeIndex() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  useEffect(()=> {
-    dispatch(getAllGigs())
-  },[])
+  useEffect(() => {
+    dispatch(clearGigs());
+    dispatch(getAllGigs());
+  }, []);
   return (
     <HomeIndexContainer className="flex column ">
       <HeroIndex />

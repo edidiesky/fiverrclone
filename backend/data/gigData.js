@@ -45,7 +45,7 @@ const gigData = [
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
     username: "horvatnikola95",
-    category: ["Graphics & Design","Social Media Design", ],
+    category: ["Graphics-Design","Social Media Design", ],
     subInfo: ["Project file delivery"],
     image: [
       "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615084/fernandobengua.png",
@@ -164,7 +164,7 @@ const gigData = [
     countInStock: 10,
     price: 50,
     deliveryDays: 5,
-    category: ["Programming & Tech", "Website Development"],
+    category: ["Programming-Tech", "Website-Development"],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
@@ -187,7 +187,7 @@ const gigData = [
     user: "6474d09f1ddaba8bb68f7f44",
     countInStock: 350,
     price: 50,
-    category: ["Programming & Tech", "Website Development"],
+    category: ["Programming-Tech", "Website-Development"],
     deliveryDays: 2,
     subInfo: [
       "3 renderings",
@@ -209,7 +209,7 @@ const gigData = [
   {
     shortDescription: "BASIC 1 Professional Logo concept + Jpeg + PNG",
     title: "I will create modern minimalist logo design for your business",
-    category: ["Graphics & Design", "Logo Design"],
+    category: ["Graphics-Design", "Logo Design"],
     countInStock: 10,
     price: 25,
     user: "6474d09f1ddaba8bb68f7f45",
@@ -252,7 +252,7 @@ const gigData = [
     title: "I will build responsive wordpress website design",
     user: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
-    category: ["Graphics & Design", "Website Design"],
+    category: ["Graphics-Design", "Website Design"],
     price: 250,
     deliveryDays: 12,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -270,7 +270,7 @@ const gigData = [
     title: "I will design fully responsive website",
     user: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
-    category: ["Graphics & Design", "Website Design"],
+    category: ["Graphics-Design", "Website Design"],
     price: 20,
     deliveryDays: 12,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -290,7 +290,7 @@ const gigData = [
       "I will do website UI UX design, mobile app UI UX design, dashboard ux design",
     user: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
-    category: ["Graphics & Design", "Website Design"],
+    category: ["Graphics-Design", "Website Design"],
     price: 15,
     deliveryDays: 12,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -311,7 +311,7 @@ const gigData = [
       "I will do website and landing page UI UX design in figma, xd format",
     user: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
-    category: ["Graphics & Design", "Website Design"],
+    category: ["Graphics-Design", "Website Design"],
     price: 85,
     deliveryDays: 12,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -330,7 +330,7 @@ const gigData = [
     title: "I will design responsive website in 4 hours",
     user: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
-    category: ["Graphics & Design", "Website Design"],
+    category: ["Graphics-Design", "Website Design"],
     price: 35,
     deliveryDays: 1,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -344,14 +344,14 @@ const gigData = [
     ],
   },
 
-  // programming tech Website Development
+  // programming tech Website-Development
   {
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will design clean and responsive wordpress website",
     user: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
-    category: ["Programming & Tech", "Website Development", "WordPress"],
+    category: ["Programming-Tech", "Website-Development", "WordPress"],
     price: 35,
     deliveryDays: 1,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -364,14 +364,14 @@ const gigData = [
       "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/288147914/original/9b4328d362b5d4a36b47dcf96baa913c479bd5cf/design-clean-and-responsive-wordpress-website.png",
     ],
   },
-  // programming tech Website Development
+  // programming tech Website-Development
   {
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will fix elementor issues ,fix wordpress and website building",
     user: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
-    category: ["Programming & Tech", "Website Development", "WordPress"],
+    category: ["Programming-Tech", "Website-Development", "WordPress"],
     price: 15,
     deliveryDays: 1,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -390,7 +390,7 @@ const gigData = [
     title: "I will create a modern minimalist logo design for your business",
     user: "6474d09f1ddaba8bb68f7f3d",
     countInStock: 3,
-    category: ["Graphics & Design", "Logo Design"],
+    category: ["Graphics-Design", "Logo Design"],
     price: 25,
     deliveryDays: 12,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -411,7 +411,7 @@ const gigData = [
     title: "I will create a modern minimalist logo design for your business",
     user: "6474d09f1ddaba8bb68f7f3d",
     countInStock: 3,
-    category: ["Graphics & Design", "Logo Design"],
+    category: ["Graphics-Design", "Logo Design"],
     price: 25,
     deliveryDays: 12,
     subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
@@ -432,7 +432,7 @@ const gigData = [
     title: "I will design or redesign 3d and minimalist business logo design",
     user: "6474d09f1ddaba8bb68f7f3d",
     countInStock: 3,
-    category: ["Graphics & Design", "Logo Design"],
+    category: ["Graphics-Design", "Logo Design"],
     price: 15,
     deliveryDays: 12,
     subInfo: [
@@ -458,7 +458,7 @@ const gigData = [
     title: "I will draw a unique logo for your enterprise",
     user: "6474d09f1ddaba8bb68f7f3d",
     countInStock: 3,
-    category: ["Graphics & Design", "Logo Design"],
+    category: ["Graphics-Design", "Logo Design"],
     price: 15,
     deliveryDays: 12,
     subInfo: [

@@ -1,17 +1,21 @@
 import React, { useState } from "react";
-import { CustomizedCheckbox, Radio } from "../../forms";
+import { Radio } from "../../forms";
 import { BiCheck } from "react-icons/bi";
+import { useDispatch } from "react-redux";
 
-export default function FilterTypes({ type, setDeliveryTime }) {
+export default function FilterTypes({ type, setDeliveryTime, setBudget }) {
   const [time, setTime] = useState("");
   const [tab, setTab] = useState(0);
+  const [minprice, setMinPrice] = useState("");
+  const [maxprice, setMaxPrice] = useState("");
   const handleCheckBox = (e) => {
     setTime(e.target.value);
   };
-  const handleBestSelling = (value)=> {
-    setDeliveryTime(false)
-    setTab(value)
-  }
+  const handleBestSelling = (value) => {
+    setDeliveryTime(false);
+    setTab(value);
+  };
+  const dispatch = useDispatch();
   const list = ["Express 24H", "Up to 3 Days"];
   if (type === "selling") {
     return (
@@ -102,20 +106,25 @@ export default function FilterTypes({ type, setDeliveryTime }) {
     return (
       <div>
         <div className="flex w-100 py-2 item-center justify-center gap-1">
+          {/* min price */}
           <div className="w-100 flex family1 column gap-1">
-            <label className="fs-12 family1 text-grey2" htmlFor="min">
+            <label className="fs-12 family1 text-grey2" htmlFor="minprice">
               Min
             </label>
             <div className="w-100">
               <input
                 type="text"
-                id="min"
+                id="minprice"
                 placeholder="Any"
+                value={minprice}
+                name="minprice"
+                onChange={(e) => setMinPrice(e.target.value)}
                 className="input w-100 fs-14 family1 text-bold"
                 style={{ border: "1px solid rgba(0,0,0,.08)", padding: "1rem" }}
               />
             </div>
           </div>
+          {/* maximumn price */}
           <div className="w-100 flex family1 item-start column gap-1">
             <label className="fs-12 family1 text-grey2" htmlFor="max">
               max
@@ -125,11 +134,23 @@ export default function FilterTypes({ type, setDeliveryTime }) {
                 type="text"
                 id="max"
                 placeholder="Any"
+                value={maxprice}
+                name="maxprice"
+                onChange={(e) => setMaxPrice(e.target.value)}
                 className="input w-100 fs-14 family1 text-bold"
                 style={{ border: "1px solid rgba(0,0,0,.08)", padding: "1rem" }}
               />
             </div>
           </div>
+        </div>
+        <div className="bottom py-2 flex item-center gap-2 justify-center">
+          <div
+            className="contactBtn py-1 fs-14 family1"
+            onClick={() => setBudget(false)}
+          >
+            Clear All
+          </div>
+          <div className="contactBtn py-1 fs-14 green family1">Submit</div>
         </div>
       </div>
     );
@@ -144,6 +165,15 @@ export default function FilterTypes({ type, setDeliveryTime }) {
             value={time}
             option={time}
           />
+          <div className="bottom py-2 flex item-center gap-2 justify-center">
+            <div
+              className="contactBtn py-1 fs-14 family1"
+              onClick={() => setDeliveryTime(false)}
+            >
+              Clear All
+            </div>
+            <div className="contactBtn py-1 fs-14 green family1">Submit</div>
+          </div>
         </div>
       </div>
     );

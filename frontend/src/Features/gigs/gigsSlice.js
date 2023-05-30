@@ -16,8 +16,8 @@ const initialState = {
   gigsIsError: false,
   gigsIsLoading: false,
   totalGigs: 0,
-  Gigs:null,
-  GigsDetails:null,
+  Gigs: null,
+  GigsDetails: null,
 
   // alert states
   showAlert: false,
@@ -30,9 +30,9 @@ const initialState = {
   search: "",
   sort: "",
   limit: "10",
-  user: '',
-  maxprice: '',
-  minprice: '',
+  user: "",
+  maxprice: "",
+  minprice: "",
   page: 1,
 };
 
@@ -72,7 +72,10 @@ const GigsSlice = createSlice({
       state.GigsAlert = false;
     },
     clearGigsDetails: (state, action) => {
-      state.GigsDetails = null
+      state.GigsDetails = null;
+    },
+    clearGigs: (state, action) => {
+      state.Gigs = null;
     },
     clearPage: (state, action) => {
       state.page = 1;
@@ -136,7 +139,7 @@ const GigsSlice = createSlice({
       state.alertType = "danger";
     },
 
-    // update the gig 
+    // update the gig
     [UpdateGig.pending]: (state) => {
       state.gigsIsLoading = true;
     },
@@ -203,7 +206,8 @@ export const {
   clearPage,
   getSearch,
   getGigs,
-  clearGigsDetails
+  clearGigsDetails,
+  clearGigs
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;
