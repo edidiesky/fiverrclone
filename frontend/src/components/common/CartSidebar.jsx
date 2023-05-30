@@ -12,8 +12,13 @@ export default function CartSidebar() {
   // get the cart content
   // const { isLoading, isError, bag } = useSelector((store) => store.bag);
   const { cartsidebar } = useSelector((store) => store.toggle);
+  const { GigsDetails } = useSelector((store) => store.gigs);
   return (
     <CartSidebarContainer className={cartsidebar ? "active" : ""}>
+      <div
+        className="backdrop"
+        onClick={() => dispatch(offCartSidebar())}
+      ></div>
       <div className="cartSidebarWrapper">
         <div className="cartSidebarTop flex item-center justify-space w-100">
           <h4 className="fs-16 family1 ">Order options</h4>
@@ -29,11 +34,14 @@ export default function CartSidebar() {
           >
             {/* price and gig info */}
             <h4 className="flex family1 w-100 justify-space item-center fs-18 text-">
-              Basic <span className="text-light text-grey2">$5</span>
+              Basic{" "}
+              <span className="text-light text-grey2">
+                ${GigsDetails?.price}
+              </span>
             </h4>
-            <h5 className="text-dark text-light fs-18">
-              <strong className="text-bold">Basic</strong> I will build sketchup
-              revit 3d model and make realistic render
+            <h5 className="text-grey text-light fs-16">
+              <strong className="text-bold">Basic</strong>{" "}
+              {GigsDetails?.shortDescription}
             </h5>
             <div className="py-1 borderBottom"></div>
             {/* gig qty start */}
@@ -88,22 +96,22 @@ export default function CartSidebar() {
                 Basic Package
               </h5>
               <h5 className="flex gap-1 fs-18 text-grey text-light item-center">
-                <BiTime className="fs-24 text-dark"/> 2-day delivery
+                <BiTime className="fs-24 text-dark" /> {GigsDetails?.deliveryDays} delivery
               </h5>
               <h5 className="flex gap-1 fs-18 text-grey text-light item-center">
-                <BiRevision className="fs-24 text-dark"/>3 revisions
+                <BiRevision className="fs-24 text-dark" />3 revisions
               </h5>
             </div>
           </div>
         </div>
         <div className="cartSidebarBottom flex column gap-1">
-          <div className="w-85 auto column item-center gap-1 justify-center flex">
+          <div className="w-100 auto column item-center gap-1 justify-center flex">
             <Link
               to={"/checkout"}
               onClick={() => dispatch(offCartSidebar())}
-              className={"cartBtn py-1 green fs-16 family1"}
+              className={"cartBtn py-1 fs-16 family1"}
             >
-              View Cart
+              Continue (${GigsDetails?.price})
             </Link>
             <h5 className="fs-14 center text-dark text-light">
               You won’t be charged yet
@@ -122,7 +130,7 @@ const CartSidebarContainer = styled.div`
   width: 100vw;
   height: 100vh;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
-  background-color: #99999999;
+
   z-index: 5000;
   display: flex;
   justify-content: flex-end;
@@ -130,6 +138,12 @@ const CartSidebarContainer = styled.div`
   visibility: hidden;
   transition: all 0.6s;
   right: -100%;
+  .backdrop {
+    background-color: #99999999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
   &.active {
     opacity: 1;
     visibility: visible;
@@ -154,7 +168,7 @@ const CartSidebarContainer = styled.div`
     width: 100%;
     padding: 1rem;
     display: flex;
-    width: 400px;
+    width: 420px;
     height: 100vh;
     align-items: flex-start;
     flex-direction: column;
@@ -167,8 +181,9 @@ const CartSidebarContainer = styled.div`
       gap: 1.5rem;
       overflow-y: auto;
       width: 100%;
-      max-height: 60%;
+      max-height: 100vh;
       padding-bottom: 3rem;
+      justify-content: space-around;
       &::-webkit-scrollbar {
         width: 7px;
         height: 7px;
@@ -185,7 +200,7 @@ const CartSidebarContainer = styled.div`
       }
     }
     .cartSidebarTop {
-      padding: 1.6rem 2rem;
+      padding: 1.6rem;
       display: flex;
       align-items: center;
       width: 100%;
@@ -226,7 +241,6 @@ const CartSidebarContainer = styled.div`
       position: absolute;
       background-color: #fff;
       bottom: 0;
-      padding: 3rem 0;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
       @media (max-width: 780px) {
         flex-direction: column;
