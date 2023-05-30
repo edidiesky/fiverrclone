@@ -55,7 +55,10 @@ const GigsIndexContent = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     @media (max-width: 780px) {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    @media (max-width: 450px) {
+      grid-template-columns:1fr;
     }
   }
 `;
