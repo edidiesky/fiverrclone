@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Header, Meta } from "../components/common";
 import Input from "../components/forms/Input";
 import { loginCustomer } from "../Features/user/userReducer";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import Message from "../components/modals/Message";
+import { clearUserAlertError } from "../Features";
 
 const inputData = [
   {
@@ -34,6 +36,8 @@ export default function Login() {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const { email, password } = formdata;
 
   const onChange = (e) => {
@@ -45,7 +49,22 @@ export default function Login() {
     dispatch(loginCustomer(formdata));
   };
 
-  const { isSuccess, isLoading } = useSelector((store) => store.user);
+  const { isSuccess, isLoading, alertText, alertType } = useSelector(
+    (store) => store.user
+  );
+
+  useEffect(() => {
+    setFormData({
+      email: "edidie@gmail.com",
+      password: "eAdg145%1",
+    });
+    if (isSuccess) {
+      setTimeout(() => {
+        clearUserAlertError();
+        navigate(`/`);
+      }, 3000);
+    }
+  }, [setFormData, navigate, isSuccess]);
   return (
     <>
       <Meta title="Sign up for a Fiverr Account - Join Fiverr Today" />
@@ -61,6 +80,7 @@ export default function Login() {
           </div>
           <div className="right flex-1 h-100">
             <div className="w-85 auto py-3 flex column rightwrapper justify-space h-100">
+              <Message alertType={alertType} alertText={alertText} />
               <form
                 className="authContentFormWrapper flex column gap-2"
                 onSubmit={handleSubmit}
@@ -145,6 +165,7 @@ const AuthForm = styled.div`
   .rightwrapper {
     min-height: 60rem;
     padding: 3rem 0;
+    overflow: hidden;
   }
   .right {
     background-color: #fff;

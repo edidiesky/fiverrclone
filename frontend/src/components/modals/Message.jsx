@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { RxCross1 } from "react-icons/rx";
 import { CgDanger } from "react-icons/cg";
 export default function Message({
@@ -34,15 +34,19 @@ export default function Message({
 const MessageContent = styled.div`
   min-width: 350px;
   padding: 1.2rem 2rem;
-  background-color: #fff;
+  background-color: #f7f7f7;
   font-size: 15px;
   font-weight: 700;
-  color: var(--dark-1);
+  color: #333;
   transition: all 0.6s;
-  /* transform: translate3d(0, -100px, 0); */
-  top: -100px;
+  transform: translate3d(0, -1000px, 0);
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
   &.active {
-    top: 20px;
+    transform: translate3d(0, 0px, 0);
+    visibility: visible;
+    opacity: 1;
   }
   &.danger {
     background-color: var(--red);
