@@ -45,7 +45,7 @@ const gigData = [
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
     username: "horvatnikola95",
-    category: ["Graphics-Design","Social Media Design", ],
+    category: ["Graphics-Design", "Social Media Design"],
     subInfo: ["Project file delivery"],
     image: [
       "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615084/fernandobengua.png",
@@ -461,9 +461,7 @@ const gigData = [
     category: ["Graphics-Design", "Logo Design"],
     price: 15,
     deliveryDays: 12,
-    subInfo: [
-      "Logo transparency",
-    ],
+    subInfo: ["Logo transparency"],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 

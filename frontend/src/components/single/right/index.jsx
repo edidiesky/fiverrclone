@@ -7,6 +7,7 @@ import { onCartSidebar } from "../../../Features";
 
 export default function RightIndex() {
   const dispatch = useDispatch();
+  const { GigsDetails } = useSelector((store) => store.gigs);
   return (
     <RightIndexContent className="w-100">
       <div className="Right flex gap-1 column">
@@ -18,33 +19,39 @@ export default function RightIndex() {
           <div className="w-100 flex column gap-2 p2">
             {/* price */}
             <div className="w-100 flex item-center justify-space">
-              <h4 className="fs-18 text-grey text-light">INITIAL PACKAGE</h4>
+              <h4 className="fs-18 text-dark text-bold">INITIAL PACKAGE</h4>
               {/* price */}
-              <h4 className="fs-18 text-grey text-light">$28</h4>
+              <h4 className="fs-24 text-dark text-light">
+                ${GigsDetails?.price}
+              </h4>
             </div>
             {/* work desc */}
-            <h4 className="fs-16 text-grey text-light">
-              1 Professional Logo concept + Jpeg + PNG
+            <h4 className="fs-18 text-grey text-light">
+              {GigsDetails?.shortDescription}
             </h4>
             {/* basic info */}
             <ul className="flex column gap-1">
-              <div className="w-100 flex item-center gap-1 fs-16 text-grey">
-                <FaClock />5 Days Delivery
+              <div className="w-100 flex item-center gap-1 fs-16 text-dark">
+                <FaClock />
+                {GigsDetails?.deliveryDays} Days Delivery
               </div>
-              <li className="flex item-center gap-1 fs-16 text-grey2">
-                <FaCheck /> 1 concept included
-              </li>
-              <li className="flex item-center text-light gap-1 fs-16 text-grey2">
-                <FaCheck /> Logo transparency
-              </li>
-              <li className="flex item-center text-light gap-1 fs-16 text-grey2">
-                <FaCheck /> Vector file
-              </li>
-              <li className="flex item-center text-light gap-1 fs-16 text-grey2">
-                <FaCheck /> Printable file
-              </li>
+              {GigsDetails?.subInfo.map((x, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="flex item-center text-bold gap-1 fs-16 text-grey"
+                  >
+                    <FaCheck /> {x}
+                  </li>
+                );
+              })}
             </ul>
-            <div className="contactBtn family1 fs-16 green" onClick={()=> dispatch(onCartSidebar())}>Continue</div>
+            <div
+              className="contactBtn family1 fs-16 green"
+              onClick={() => dispatch(onCartSidebar())}
+            >
+              Continue
+            </div>
           </div>
         </div>
         {/* contact button */}
