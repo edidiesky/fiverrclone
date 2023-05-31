@@ -142,8 +142,8 @@ export default function Register() {
                       !password ||
                       (!password2 && isLoading)
                     }
-                    className="btn fs-16 w-100 active py-2 family1 px-4 text-white text-bold"
-                    style={{ padding: "1.4rem 4rem" }}
+                    className="btn fs-16 w-100 active py-2 family1 px-4 text-white text-light"
+                    style={{ padding: "1.7rem 4rem" }}
                   >
                     {isLoading ? <LoaderIndex type={"small"} /> : " Continue"}
                   </button>

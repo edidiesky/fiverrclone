@@ -1,27 +1,29 @@
+import moment from "moment";
 import React from "react";
 import { BiSearch } from "react-icons/bi";
 import styled from "styled-components";
 import Rating from "./Rating";
 export default function ReviewCard({ x }) {
+  let createddate = moment(x?.createdAt);
+  createddate = createddate.format("MMMM Do YYYY");
   return (
     <div className="flex column gap-2">
       {/* reviews card */}
       <CriticismCard className="flex item-start gap-1 w-100">
         {/* name */}
-        <div
-          className="avatar flex item-center back-grey text-grey justify-center"
-          style={{ fontSize: "20px" }}
-        >
-          C
-        </div>
+        <img src={x?.reviewuser?.image} alt="" className="avatar" />
         {/* left */}
         <div className="flex flex-1 column">
           {/* top */}
           <div className=" flex column item-start">
             {/* name */}
-            <h4 className="fs-18 text-dark text-bold">{x.name}</h4>
+            <h4 className="fs-18 text-dark text-bold">
+              {x?.reviewuser?.username}
+            </h4>
             {/* country */}
-            <h4 className="fs-16 text-grey text-light">{x.country}</h4>
+            <h4 className="fs-16 text-grey text-light">
+              {x?.reviewuser?.country}
+            </h4>
             <div className="flex item-center py-2 gap-1 fs-14">
               <Rating value={x.rating} />
               <h4
@@ -33,11 +35,11 @@ export default function ReviewCard({ x }) {
               >
                 {x.rating}
               </h4>
-              <h4 className="fs-16 text-grey text-light">{x.createdAt}</h4>
+              <h4 className="fs-16 text-grey text-light">{createddate}</h4>
             </div>
           </div>
           {/* comment */}
-          <p className="text-dark fs-18 text-light">{x.comment}</p>
+          <p className="text-dark fs-18 text-light">{x.description}</p>
         </div>
       </CriticismCard>
     </div>

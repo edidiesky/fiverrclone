@@ -8,15 +8,13 @@ import Reviews from "../models/Reviews.js";
 const createReviews = asyncHandler(async (req, res) => {
   const { userId, role, name, username } = req.user;
   const { id } = req.params;
-  // find the reviews
-  const reviews = await Reviews.findOne({ _id: req.params.id });
-  // check if the user id is include in the gig related to the seller
+
   // send an error to prevent the user from reviewing twice
   // get the body parameter
   const { description, rating } = req.body;
   // get the gig for reviews
   const gig = await Gig.findById({ _id: req.params.id });
-  // locate the gig
+  // // locate the gig
   if (!gig) {
     res.status(404);
     throw new Error("Gig not found");
@@ -33,11 +31,14 @@ const createReviews = asyncHandler(async (req, res) => {
     };
 
     // check if the user has alraedy review the gig
-    const reviewed = await Reviews.findOne({ gig: gig._id, user: userId });
+    const reviewed = await Reviews.findOne({
+      gig: gig._id,
+      reviewuser: userId,
+    });
     // send an error
     if (reviewed) {
       res.status(404);
-      throw new Error("You can't review twice");
+      throw new Error("You can't review this gig/service twice");
     }
     // destructure the data and then create it
     const review = await Reviews.create({ ...data });
@@ -66,7 +67,7 @@ const getSellerReviews = asyncHandler(async (req, res) => {
 
   // find the Gig
   const reviews = await result
-    .populate("reviewuser", "country email username")
+    .populate("reviewuser", "country email username image")
     .populate("sellerId", "username");
   if (!reviews) {
     res.status(404);
