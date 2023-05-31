@@ -29,10 +29,10 @@ const initialState = {
   category: "",
   search: "",
   sort: "",
-  limit: "10",
+  limit: 10,
   user: "",
-  maxprice: "",
-  minprice: "",
+  maxprice: 0,
+  minprice: 0,
   page: 1,
 };
 
@@ -54,6 +54,9 @@ const GigsSlice = createSlice({
     getCategory: (state, action) => {
       state.category = action.payload;
     },
+    cleargetCategory: (state, action) => {
+      state.category = null;
+    },
     getSort: (state, action) => {
       state.sort = action.payload;
     },
@@ -70,7 +73,9 @@ const GigsSlice = createSlice({
       state.alertType = "";
       state.gigsIsSuccess = false;
       state.gigsIsError = false;
-      state.category = "";
+      state.category = null;
+      state.minprice = 0;
+      state.maxprice = 0;
       state.search = "";
       state.GigsAlert = false;
     },
@@ -220,6 +225,7 @@ export const {
   getCategory,
   getMinPrice,
   getMaxPrice,
+  cleargetCategory,
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

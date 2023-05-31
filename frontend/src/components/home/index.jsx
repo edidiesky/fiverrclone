@@ -17,7 +17,7 @@ export default function HomeIndex() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(clearGigs());
+    dispatch(clearGigsAlert());
     dispatch(getAllGigs());
   }, []);
   return (

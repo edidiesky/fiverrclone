@@ -20,23 +20,21 @@ export const getAllGigs = createAsyncThunk(
       if (sort) {
         productUrl = productUrl + `?sort=${sort}`;
       }
-      if (category) {
-        GigsUrl = GigsUrl + `?category=${category}`;
+      // if (category) {
+      //   GigsUrl = GigsUrl + `?category=${category}`;
+      //   const { data } = await axios.get(GigsUrl);
+      //   return data;
+      // }
+      if (category || minprice) {
+        GigsUrl = GigsUrl + `?categories=${category}&minprice=${minprice}`;
         const { data } = await axios.get(GigsUrl);
         return data;
       }
-      // if (minprice) {
-      //   GigsUrl = GigsUrl + `?category=${category}?minprice=${minprice}`;
-      //   const { data } = await axios.get(GigsUrl);
-      //   return data;
-      // }
-      // if (maxprice) {
-      //   GigsUrl =
-      //     GigsUrl +
-      //     `?category=${category}?minprice=${minprice}?maxprice=${maxprice}`;
-      //   const { data } = await axios.get(GigsUrl);
-      //   return data;
-      // }
+      if (category || minprice || maxprice) {
+        GigsUrl = GigsUrl + `?categories=${category}&minprice=${minprice}&maxprice=${maxprice}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      }
       const { data } = await axios.get(GigsUrl);
       return data;
     } catch (error) {
