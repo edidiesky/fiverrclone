@@ -4,8 +4,9 @@
   "description": "",
   "scripts": {
     "dev": "vite",
-    "install-frontend": "cd ../frontend && npm install",
-    "setup-production": "npm run install frontend && vite build && npm install",
+    "build-client": "cd frontend && vite build",
+    "install-frontend": "cd frontend && npm install",
+    "setup-production": "npm run install-frontend && npm run build-client && npm install",
     "preview": "vite preview",
     "server": "nodemon ../backend/server.js"
   },
