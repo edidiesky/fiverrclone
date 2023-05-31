@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite",
     "install-frontend": "cd ../frontend && npm install",
-    "setup-production": "npm run install-frontend && vite build && npm install",
+    "setup-production": "npm run install frontend && vite build && npm install",
     "preview": "vite preview",
     "server": "nodemon ../backend/server.js"
   },
