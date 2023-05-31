@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { FaLocationArrow, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Rating from "../../../common/Rating";
+import { useSelector } from "react-redux";
 
 export default function UserBottomInfo() {
+  const { userInfo } = useSelector((store) => store.user);
   const [desc, setDec] = useState(false);
   const [language, setLanguage] = useState(false);
   const [skill, setSkill] = useState(false);
