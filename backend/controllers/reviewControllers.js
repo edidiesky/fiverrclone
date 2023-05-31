@@ -7,11 +7,15 @@ import Reviews from "../models/Reviews.js";
 //  Public
 const createReviews = asyncHandler(async (req, res) => {
   const { userId, role, name, username } = req.user;
-  const { id } = req.params;
 
   // send an error to prevent the user from reviewing twice
   // get the body parameter
   const { description, rating } = req.body;
+  if (!description || !rating) {
+    res.status(404);
+    throw new Error("The review form should be completely filled");
+  }
+
   // get the gig for reviews
   const gig = await Gig.findById({ _id: req.params.id });
   // // locate the gig

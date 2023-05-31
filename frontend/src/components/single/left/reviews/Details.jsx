@@ -17,7 +17,9 @@ export default function Details() {
         <div className="flex column gap-1">
           <h3 className="fs-24 text-dark family1">Reviews</h3>
           <div className="flex fs-18 text-blue item-center gap-2">
-            <h4 className="fs-20 text-grey">94 reviews for this Gig</h4>
+            <h4 className="fs-20 text-grey">
+              {reviews?.length} reviews for this Gig
+            </h4>
             <Rating value={5} />
           </div>
           {/* // search section */}
@@ -112,6 +114,8 @@ const DetailsWrapper = styled.div`
       height: 100%;
       padding: 1rem 2rem;
       font-size: 1.8rem;
+      border: none;
+      box-shadow: none;
     }
     .button {
       height: 4rem;

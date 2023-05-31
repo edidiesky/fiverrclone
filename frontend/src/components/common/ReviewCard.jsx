@@ -11,7 +11,20 @@ export default function ReviewCard({ x }) {
       {/* reviews card */}
       <CriticismCard className="flex item-start gap-1 w-100">
         {/* name */}
-        <img src={x?.reviewuser?.image} alt="" className="avatar" />
+        {x?.reviewuser?.image ? (
+          <img
+            src={x?.reviewuser?.image}
+            alt=""
+            className="avatar flex item-center justify-center"
+          />
+        ) : (
+          // <div className="avatar">E</div> ull
+          <img
+            src={x?.reviewuser?.image}
+            alt=""
+            className="avatar flex item-center justify-center"
+          />
+        )}
         {/* left */}
         <div className="flex flex-1 column">
           {/* top */}
@@ -22,9 +35,9 @@ export default function ReviewCard({ x }) {
             </h4>
             {/* country */}
             <h4 className="fs-16 text-grey text-light">
-              {x?.reviewuser?.country}
+              {x?.reviewuser?.country ? x?.reviewuser?.country : null}
             </h4>
-            <div className="flex item-center py-2 gap-1 fs-14">
+            <div className="flex item-center py-1 gap-1 fs-14">
               <Rating value={x.rating} />
               <h4
                 className="fs-16 text-grey text-bold"

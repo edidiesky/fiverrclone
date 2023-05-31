@@ -72,6 +72,7 @@ const Form = ({ id }) => {
             placeholder="Send a message"
             name="description"
             onChange={handleForm}
+            required
           />
         </label>
         <div className="flex wrapper w-100 gap-1 item-center">
