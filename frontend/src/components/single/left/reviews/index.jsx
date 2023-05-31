@@ -5,6 +5,7 @@ import Details from "./Details";
 import Summary from "./Summary";
 import { useDispatch, useSelector } from "react-redux";
 import { getSellerReviews } from "../../../../Features";
+import Form from "./Form";
 
 export default function ReviewsInfo({ id }) {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ export default function ReviewsInfo({ id }) {
     <ReviewsInfoContent className="flex column gap-2">
       <Details />
       <Summary />
+      <Form/>
       <div className="w-100 column gap-2 flex py-4">
         <h3 className="fs-20 text-bold text-dark">Related Tags</h3>
         <div className="w-100 linkwrapper flex item-center gap-2">

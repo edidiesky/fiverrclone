@@ -13,7 +13,7 @@ const createReviews = asyncHandler(async (req, res) => {
   // check if the user id is include in the gig related to the seller
   // send an error to prevent the user from reviewing twice
   // get the body parameter
-  const { description, image, country, rating } = req.body;
+  const { description, rating } = req.body;
   // get the gig for reviews
   const gig = await Gig.findById({ _id: req.params.id });
   // locate the gig
@@ -27,8 +27,6 @@ const createReviews = asyncHandler(async (req, res) => {
     const data = {
       sellerId: gig.user,
       description,
-      image,
-      country,
       rating,
       gig: gig._id,
       reviewuser: userId,
@@ -43,7 +41,6 @@ const createReviews = asyncHandler(async (req, res) => {
     }
     // destructure the data and then create it
     const review = await Reviews.create({ ...data });
-
 
     res.status(200).json({ review });
   } else {
@@ -61,10 +58,10 @@ const getSellerReviews = asyncHandler(async (req, res) => {
   const search = req.query.search;
   const sort = req.query.sort;
   const queryObject = { gig: id };
-  let result = Reviews.find(queryObject)
+  let result = Reviews.find(queryObject);
   // search
   if (search) {
-    queryObject.title = { $regex: search, options: 'i' }
+    queryObject.title = { $regex: search, options: "i" };
   }
 
   // find the Gig
@@ -80,8 +77,6 @@ const getSellerReviews = asyncHandler(async (req, res) => {
 
   res.status(200).json({ reviews });
 });
-
-
 
 // GET All Gig
 //  Public
