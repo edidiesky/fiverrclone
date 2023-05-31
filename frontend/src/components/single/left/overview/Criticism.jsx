@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { sellerReview } from "../../../../data/Reviews";
+import moment from "moment";
 import Rating from "../../../common/Rating";
 import { Slider } from "../../../common";
 import { useSelector } from "react-redux";
@@ -30,7 +30,7 @@ export default function Criticism() {
           className="fs-16 text-dark family1"
           style={{
             border: "1px solid rgba(0,0,0,.08)",
-            padding:"1.5rem"
+            padding: "1.5rem",
           }}
         >
           No Reviews yet
@@ -58,28 +58,31 @@ export default function Criticism() {
           >
             <div className="carousel-container">
               <Slider options={options}>
-                {sellerReview.map((x) => {
+                {reviews?.map((x, index) => {
+                  let createddate = moment(x?.createdAt);
+                  createddate = createddate.format("MMMM Do YYYY");
                   return (
-                    <div className="flex item-start gap-2 w-100">
+                    <div key={index} className="flex item-start gap-2 w-100">
                       {/* name */}
                       <div className="flex w-100 item-start gap-2 w-100">
-                        <div
-                          className="avatar flex item-center back-grey text-grey justify-center"
-                          style={{ fontSize: "16px" }}
-                        >
-                          C
-                        </div>
+                        <img
+                          src={x?.reviewuser?.image}
+                          alt=""
+                          className="avatar flex item-center justify-center"
+                        />
                         {/* left */}
                         <div className="flex flex-1 gap-1 column">
                           {/* top */}
                           <div className="comment flex item-center gap-1">
                             {/* name */}
                             <h4 className="fs-16 text-dark text-bold">
-                              {x.name}
+                              {x?.reviewuser?.username}
                             </h4>
                             {/* country */}
                             <h4 className="fs-16 text-grey text-bold">
-                              {x.country}
+                              {x?.reviewuser?.country
+                                ? x?.reviewuser?.country
+                                : null}
                             </h4>
                             <div
                               className="flex item-center gap-1 fs-14"
@@ -96,11 +99,11 @@ export default function Criticism() {
                           </div>
                           {/* comment */}
                           <p className="text-grey fs-16 text-light">
-                            {x.comment}
+                            {x.description}
                           </p>
                           {/* time */}
                           <h4 className="fs-16 text-grey2 text-light">
-                            {x.createdAt}
+                            {createddate}
                           </h4>
                         </div>
                       </div>
@@ -119,6 +122,10 @@ export default function Criticism() {
 const CriticismWrapper = styled.div`
   max-width: 100%;
   width: 100%;
+  .owl-carousel .owl-item img {
+    display: block;
+    width: 4rem !important;
+  }
   .carousel-container {
     max-width: 600px;
   }

@@ -87,11 +87,11 @@ const DetailsTopLeftContainer = styled.div`
     padding-top: 2rem;
     grid-gap: 1.6rem;
     @media (max-width: 680px) {
-      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      grid-template-columns: repeat(5, 1fr);
       width: 100%;
     }
     @media (max-width: 350px) {
-      grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+      grid-template-columns: 1fr 1fr;
       width: 280px;
     }
     .imageWrapper {
@@ -135,7 +135,9 @@ const DetailsTopLeftContainer = styled.div`
       border-radius: 50%;
       transition: all 0.4s;
       cursor: pointer;
-
+      /* @media (max-width: 780px) {
+        display: none;
+      } */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       &:hover {
       }
@@ -163,6 +165,9 @@ const DetailsTopLeftContainer = styled.div`
       overflow: hidden;
       height: 50rem;
       background: #f5f5f5;
+      @media (max-width: 780px) {
+        height: 100%;
+      }
       .imagesWrapper {
         width: 100%;
         position: relative;
