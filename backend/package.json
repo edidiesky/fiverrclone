@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    
     "server": "nodemon backend/server.js",
     "client": "npm run dev --prefix ../frontend",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",

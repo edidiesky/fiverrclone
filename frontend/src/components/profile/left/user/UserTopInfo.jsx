@@ -21,8 +21,8 @@ export default function UserTopInfo() {
             <div className="image dark flex item-center justify-center">
               <Camera />
             </div>
-            <div className="image grey fs-35 text-grey flex item-center justify-center">
-              E
+            <div className="image grey fs-40 text-grey flex item-center justify-center">
+              {userInfo?.username.charAt(0)}
             </div>
           </div>
         )}

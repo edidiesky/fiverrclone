@@ -147,9 +147,8 @@ button {
 .input {
   border-radius: 6px;
   background: #fff;
-  padding: 2.4rem;
+  padding: 1.4rem;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   outline: none;
   font-size: 1.7rem;
   font-weight: 400;
@@ -157,6 +156,10 @@ button {
   font-family: inherit;
   color: var(--dark-1);
 }
+.inputs {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .textarea {
   height: 10rem;
   border-radius: 6px;
@@ -181,11 +184,10 @@ button {
 }
 
 .select {
-  height: 6rem;
   border-radius: 6px;
   background: #fff;
   width: 100%;
-  padding: 0 1.5rem;
+  padding: 1.5rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
   outline: none;
   font-size: 1.6rem;
@@ -196,6 +198,8 @@ button {
 }
 .select option {
   padding: 1.5rem 0;
+  font-size: 1.8rem;
+  margin: 1rem 0;
 }
 
 .text-primary {

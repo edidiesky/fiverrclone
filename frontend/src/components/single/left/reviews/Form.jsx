@@ -83,7 +83,7 @@ const Form = ({ id }) => {
             Name
             <input
               id="name"
-              className="input family1"
+              className="input inputs family1"
               type="text"
               name="username"
               onChange={handleForm}
@@ -98,7 +98,7 @@ const Form = ({ id }) => {
             Email
             <input
               id="email"
-              className="input family1"
+              className="input inputs family1"
               type="text"
               placeholder="Email (required)"
               name="email"

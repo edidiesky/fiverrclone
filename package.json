@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "vite",
-    "build": "cd frontend && npm install --legacy-peer-deps && vite build",
-    "start": "cd backend && npm install && npm start",
+    "install-frontend": "cd ../frontend && npm install",
+    "setup-production": "npm run install-frontend && vite build && npm install",
     "preview": "vite preview"
   },
   "author": "",
