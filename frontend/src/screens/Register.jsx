@@ -80,18 +80,12 @@ export default function Register() {
   };
 
   useEffect(() => {
-    setFormData({
-      email: "edidie@gmail.com",
-      password: "eAdg145%1",
-      username: "peterfrog",
-      password2: "eAdg145%1",
-    });
     if (isSuccess) {
       setTimeout(() => {
         navigate(`/join/login`);
       }, 3000);
     }
-  }, [setFormData, navigate, isSuccess]);
+  }, [navigate, isSuccess]);
 
   return (
     <>

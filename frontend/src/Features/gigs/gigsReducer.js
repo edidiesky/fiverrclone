@@ -26,12 +26,14 @@ export const getAllGigs = createAsyncThunk(
       //   return data;
       // }
       if (category || minprice) {
-        GigsUrl = GigsUrl + `?categories=${category}&minprice=${minprice}`;
+        GigsUrl = GigsUrl + `?category=${category}&minprice=${minprice}`;
         const { data } = await axios.get(GigsUrl);
         return data;
       }
       if (category || minprice || maxprice) {
-        GigsUrl = GigsUrl + `?categories=${category}&minprice=${minprice}&maxprice=${maxprice}`;
+        GigsUrl =
+          GigsUrl +
+          `?category=${category}&minprice=${minprice}&maxprice=${maxprice}`;
         const { data } = await axios.get(GigsUrl);
         return data;
       }

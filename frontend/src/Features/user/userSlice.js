@@ -36,6 +36,7 @@ const initialState = {
   totalUser: 0,
   userStats: null,
   userAlert: false,
+  loginSuccess:false
 };
 
 const userSlice = createSlice({
@@ -63,8 +64,8 @@ const userSlice = createSlice({
       state.showAlert = false;
       state.alertText = "";
       state.alertType = "";
-      state.isError = false;
       state.isSuccess = false;
+      state.isLoading = false;
       state.isError = false;
       state.userAlert = false;
     },
@@ -119,13 +120,12 @@ const userSlice = createSlice({
     [loginCustomer.fulfilled]: (state, action) => {
       //
       state.isLoading = false;
-      state.isSuccess = true;
+      state.loginSuccess = true;
       state.userInfo = action.payload.user;
       state.token = action.payload.token;
       state.showAlert = true;
       state.alertText = "Login successfull. ...Redirecting soon!";
       state.alertType = "success";
-      state.isSuccess = true;
     },
     [loginCustomer.rejected]: (state, action) => {
       state.isLoading = false;

@@ -52,23 +52,26 @@ export default function Login() {
     dispatch(loginCustomer(formdata));
   };
 
-  const { isSuccess, isLoading, showAlert, alertText, alertType } = useSelector(
-    (store) => store.user
-  );
+  const {
+    loginSuccess,
+    isLoading,
+    showAlert,
+    alertText,
+    alertType,
+  } = useSelector((store) => store.user);
 
   useEffect(() => {
     setFormData({
       email: "edidie@gmail.com",
       password: "eAdg145%1",
     });
-    if (isSuccess) {
-      clearUserAlertError();
+    dispatch(clearUserAlertError());
+    if (loginSuccess) {
       setTimeout(() => {
-        clearUserAlertError();
         navigate(`/`);
       }, 6000);
     }
-  }, [setFormData, navigate, isSuccess]);
+  }, [setFormData, navigate, loginSuccess]);
 
   return (
     <>

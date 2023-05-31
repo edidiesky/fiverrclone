@@ -16,10 +16,10 @@ export default function Message({
     <MessageContent
       className={
         showAlert
-          ? "family1 gap-1 flex item-center justify-space active"
+          ? "gap-1 flex item-center justify-space active"
           : alertType === "danger"
-          ? "family1 gap-1 flex item-center danger justify-space"
-          : "family1 gap-1 flex item-center justify-space"
+          ? "gap-1 flex item-center danger justify-space"
+          : "gap-1 flex item-center justify-space"
       }
     >
       {alertType === "danger" && <CgDanger className="fs-24" />}
@@ -35,23 +35,24 @@ const MessageContent = styled.div`
   min-width: 350px;
   padding: 1.2rem 2rem;
   background-color: #f7f7f7;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 500;
   color: #333;
   transition: all 0.6s;
   transform: translate3d(0, -1000px, 0);
   opacity: 0;
   visibility: hidden;
   position: relative;
+  display: none;
   &.active {
     transform: translate3d(0, 0px, 0);
     visibility: visible;
     opacity: 1;
+    display: flex;
   }
   &.danger {
     background-color: var(--red);
     color: #fff;
-    top: 20px;
     border-left: 4px solid var(--red);
   }
   @media (max-width: 780px) {

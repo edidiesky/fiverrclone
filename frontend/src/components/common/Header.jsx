@@ -176,7 +176,7 @@ export default function Header({ type }) {
   };
 
   const HeaderTopCenter = () => {
-    if (userInfo === "user") {
+    if (userInfo) {
       return (
         <div className={"headerTopCenter flex item-center gap-2"}>
           <div className="icon">
@@ -244,7 +244,7 @@ const HeaderTopWrapper = styled.div`
   .bottom1 {
     @media (max-width: 980px) {
       justify-content: flex-start;
-      gap: 1.4rem;
+      gap: 3rem;
     }
   }
   h5 {

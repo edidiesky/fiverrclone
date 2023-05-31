@@ -10,15 +10,17 @@ import Form from "./Form";
 export default function ReviewsInfo({ id }) {
   const dispatch = useDispatch();
   // console.log(id);
+  const { reviewSuccess } = useSelector((store) => store.reviews);
+
   useEffect(() => {
     dispatch(getSellerReviews(id));
-  }, [id, dispatch]);
+  }, [id, dispatch, reviewSuccess]);
   const { GigsDetails } = useSelector((store) => store.gigs);
   return (
     <ReviewsInfoContent className="flex column gap-2">
       <Details />
       <Summary />
-      <Form/>
+      <Form id={id} />
       <div className="w-100 column gap-2 flex py-4">
         <h3 className="fs-20 text-bold text-dark">Related Tags</h3>
         <div className="w-100 linkwrapper flex item-center gap-2">

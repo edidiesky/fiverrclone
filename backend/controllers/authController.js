@@ -6,7 +6,7 @@ import User from "../models/User.js";
 //register user
 // Not Private
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, password, phone, country, role } = req.body;
+  const { username, email, password, phone, country } = req.body;
   //
   if (!username || !email || !password) {
     res.status(404);
@@ -27,7 +27,6 @@ const registerUser = asyncHandler(async (req, res) => {
     password: hashedpassword,
     phone,
     country,
-    role,
   };
   const user = await User.create(Tempuser);
   //

@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { ClearBagData } from "../../Features/bag/bagSlice";
+import { ClearUserInfo, ClearauthInfo } from "../../Features";
 
 const data2 = [
   { id: 1, title: "Profile", path: "/profile" },
@@ -14,9 +17,15 @@ const data2 = [
   { id: 9, title: "$USD", path: "/" },
 
   { id: 8, title: "Help and Support", path: "/" },
-  { id: 9, title: "Logout", path: "/" },
 ];
 export default function Profile({ profile }) {
+  const dispatch = useDispatch();
+  const handleLogOut = () => {
+    dispatch(ClearBagData());
+    dispatch(ClearUserInfo());
+    dispatch(ClearauthInfo());
+    window.location.reload();
+  };
   return (
     <List
       className={
@@ -28,12 +37,15 @@ export default function Profile({ profile }) {
       {data2.map((x) => {
         return (
           <div key={x.id}>
-            <Link className="family1" to={`${x.path}`}>
+            <Link className="family1 link" to={`${x.path}`}>
               {x.title}
             </Link>
           </div>
         );
       })}
+      <div className="family1 link" onClick={handleLogOut}>
+        Logout
+      </div>
     </List>
   );
 }
@@ -70,14 +82,15 @@ const List = styled.div`
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     background-color: #fff;
   }
+  .link {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--grey-1);
+    cursor: pointer;
+  }
   div {
     color: var(--grey-1);
     padding: 0.6rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    a {
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--grey-1);
-    }
   }
 `;

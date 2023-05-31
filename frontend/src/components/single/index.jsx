@@ -4,12 +4,13 @@ import RightIndex from "./right";
 import styled from "styled-components";
 import { Header } from "../common";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getSingleGigsDetails } from "../../Features";
 
 export default function SingleIndex() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const { reviewSuccess } = useSelector((store) => store.reviews);
 
   useEffect(() => {
     dispatch(getSingleGigsDetails(id));
