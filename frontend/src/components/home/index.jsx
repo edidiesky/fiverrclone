@@ -17,6 +17,7 @@ export default function HomeIndex() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // clear provious fetch actions and then fetch new gigs
     dispatch(clearGigsAlert());
     dispatch(getAllGigs());
   }, []);

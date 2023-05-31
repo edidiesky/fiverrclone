@@ -23,9 +23,9 @@ export default function Servicesindex() {
     <div>
       <Header type={"service"} />
       <div className="w-90 auto flex column gap-2 py-6">
-        <TopHeader title={category2} />
+        <TopHeader title={category2 ? category2 : category1} />
         <GigsIndex />
-        <PaginationIndex />
+        {/* <PaginationIndex /> */}
       </div>
     </div>
   );
