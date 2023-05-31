@@ -1,49 +1,38 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GoThreeBars } from "react-icons/go";
-import { BiChevronRight, BiSearch } from "react-icons/bi";
+import { BiChevronRight } from "react-icons/bi";
 
-const data = [
-  { id: 1, title: "Fiverr Business", path: "/business" },
-  { id: 2, title: "Explore", path: "/explore" },
-  { id: 3, title: "English", path: "/product" },
-  { id: 5, title: "Become a Seller", path: "/seller" },
-];
-
-const headerBottomData = [
-  "Graphics & Design",
-  "Digital Marketing",
-  "Writing & Translation",
-  "Video & Animation",
-  "Music & Audio",
-  "Programming & Tech",
-  "Business",
-  "Lifestyle",
-  "AI Services",
-];
 export default function Header() {
   const HeaderTopLeft = () => {
     return (
-      <div className="headerTopLeft flex item-center gap-4">
-        <Link to={"/"}>
-          <svg
-            width="89"
-            height="27"
-            viewBox="0 0 89 27"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g className={"fill"}>
-              <path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z"></path>
-            </g>
-            <g fill="#1dbf73">
-              <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path>
-            </g>
-          </svg>
-        </Link>
-        <div className="w-100 flex item-center gap-1">
+      <div className="headerTopLeft flex item-center gap-1">
+        <div className="flex item-center gap-1">
+          <div className="icons">
+            <GoThreeBars fontSize={"24px"} />
+          </div>
+          <Link to={"/"}>
+            <svg
+              width="89"
+              height="27"
+              viewBox="0 0 89 27"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g className={"fill"}>
+                <path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z"></path>
+              </g>
+              <g fill="#1dbf73">
+                <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path>
+              </g>
+            </svg>
+          </Link>
+        </div>
+        <div
+          className="w-100 flex item-center gap-1"
+          style={{ flexWrap: "wrap" }}
+        >
           <div className="flex fs-16 family1 text-green item-center gap-1">
             <div className="avatar flex item-center justify-center fs-18 text-white">
               <BiChevronRight className="fs-24" />
@@ -73,9 +62,6 @@ export default function Header() {
     <HeaderWrapper>
       <HeaderTopContainer className={"w-100 headerTopContainer"}>
         <div className="headerTopWrapperContainer flex item-center w-90 auto">
-          <div className="icons">
-            <GoThreeBars />
-          </div>
           <HeaderTopLeft />
         </div>
       </HeaderTopContainer>
@@ -90,6 +76,7 @@ const HeaderTopContainer = styled.div`
   align-items: center;
   background: #fff;
   padding: 1.5rem 0;
+  gap: 3rem;
   .links {
   }
   .fill {
@@ -97,19 +84,18 @@ const HeaderTopContainer = styled.div`
   }
 
   .icons {
-    width: 4rem;
-    height: 4rem;
-    display: grid;
-    place-items: center;
     @media (min-width: 1080px) {
       display: none;
-    }
-    svg {
-      font-size: 20px;
     }
   }
   .headerTopLeft {
     flex: 1;
+    gap: 3rem;
+    @media (max-width: 780px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
   }
   .Right {
     .btn-4 {

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { Radio } from "../../forms";
 import { BiCheck } from "react-icons/bi";
 import { useDispatch } from "react-redux";
+import { getAllGigs } from "../../../Features";
+import { getMaxPrice, getMinPrice } from "../../../Features/gigs/gigsSlice";
 
 export default function FilterTypes({ type, setDeliveryTime, setBudget }) {
   const [time, setTime] = useState("");
   const [tab, setTab] = useState(0);
   const [minprice, setMinPrice] = useState("");
   const [maxprice, setMaxPrice] = useState("");
+
   const handleCheckBox = (e) => {
     setTime(e.target.value);
   };
@@ -17,6 +20,11 @@ export default function FilterTypes({ type, setDeliveryTime, setBudget }) {
   };
   const dispatch = useDispatch();
   const list = ["Express 24H", "Up to 3 Days"];
+
+  const handlePrice = () => {
+    dispatch(getMaxPrice(parseInt(maxprice)));
+    dispatch(getMinPrice(parseInt(minprice)));
+  };
   if (type === "selling") {
     return (
       <div>
@@ -113,7 +121,7 @@ export default function FilterTypes({ type, setDeliveryTime, setBudget }) {
             </label>
             <div className="w-100">
               <input
-                type="text"
+                type="number"
                 id="minprice"
                 placeholder="Any"
                 value={minprice}
@@ -131,7 +139,7 @@ export default function FilterTypes({ type, setDeliveryTime, setBudget }) {
             </label>
             <div className="w-100">
               <input
-                type="text"
+                type="number"
                 id="max"
                 placeholder="Any"
                 value={maxprice}
@@ -150,7 +158,7 @@ export default function FilterTypes({ type, setDeliveryTime, setBudget }) {
           >
             Clear All
           </div>
-          <div className="contactBtn py-1 fs-14 green family1">Submit</div>
+          <div className="contactBtn py-1 fs-14 green family1" onClick={handlePrice}>Submit</div>
         </div>
       </div>
     );

@@ -56,6 +56,7 @@ const GigsIndexContent = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
+    place-items: start;
     @media (max-width: 780px) {
       grid-template-columns: 1fr 1fr;
     }

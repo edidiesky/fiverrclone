@@ -19,8 +19,8 @@ export default function CheckoutLeft() {
               <div className={"cartBtn py-1 fs-16 family1"}>Add Details</div>
             </div>
           </div>
-          <div className="w-100 flex column gap-1">
-            <h4 className="fs-18 text-grey text-light">{userInfo?.username}</h4>
+          <div className="w-100 flex column">
+            <h4 className="fs-20 text-grey text-bold">{userInfo?.username}</h4>
             <h4 className="fs-18 text-grey text-light">
               {userInfo?.country ? userInfo?.country : userInfo?.email}
             </h4>
@@ -45,6 +45,9 @@ const CheckoutLeftContent = styled.div`
   background-color: #fff;
   flex-direction: column;
   gap: 5rem;
+  .cartBtn {
+    width: 75%;
+  }
   .wrapper {
     border: 1px solid rgba(0, 0, 0, 0.1);
   }

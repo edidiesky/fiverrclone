@@ -7,7 +7,7 @@ export default function CheckoutIndex() {
   return (
     <div>
       <div className="w-100">
-        <Header/>
+        <Header />
       </div>
       <CheckoutIndexContent className="w-90 auto grid-auto">
         <CheckoutLeft />
@@ -20,17 +20,17 @@ export default function CheckoutIndex() {
 const CheckoutIndexContent = styled.div`
   &.grid-auto {
     display: grid;
-    padding:4rem 0;
-    grid-template-columns:1fr 30vw;
+    padding: 4rem 0;
+    grid-template-columns: 1fr 26vw;
     place-items: start;
-    grid-gap: 7rem;
-    @media (min-width:1500px) {
-      grid-template-columns:1fr 30vw;
+    grid-gap: 10rem;
+    @media (min-width: 1500px) {
+      grid-template-columns: 1fr 26vw;
     }
     @media (max-width: 980px) {
       grid-template-columns: 1fr;
       display: flex;
       flex-direction: column-reverse;
     }
-}
+  }
 `;

@@ -51,6 +51,7 @@ export default function App() {
         <Route path="*" element={<Error />}></Route>
         <Route path="inbox" element={<Chat />}></Route>
         <Route path="/business" element={<Business />}></Route>
+        <Route path="/checkout" element={<Checkout />}></Route>
         <Route path={"/"} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="gigs/:id" element={<Single />} />
@@ -64,7 +65,6 @@ export default function App() {
           <Route path="join/login" element={<Login />} />
           <Route path="join/register" element={<Register />} />
           <Route path="explore" element={<Explore />} />
-          <Route path="checkout" element={<Checkout />} />
         </Route>
 
         <Route path={"/seller_onboarding"} element={<SellerLayout />}>

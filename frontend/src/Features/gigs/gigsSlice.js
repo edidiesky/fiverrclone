@@ -51,6 +51,9 @@ const GigsSlice = createSlice({
     getPage: (state, action) => {
       state.page = action.payload;
     },
+    getCategory: (state, action) => {
+      state.category = action.payload;
+    },
     getSort: (state, action) => {
       state.sort = action.payload;
     },
@@ -79,6 +82,12 @@ const GigsSlice = createSlice({
     },
     clearPage: (state, action) => {
       state.page = 1;
+    },
+    getMaxPrice: (state, action) => {
+      state.maxprice = action.payload;
+    },
+    getMinPrice: (state, action) => {
+      state.minprice = action.payload;
     },
   },
 
@@ -207,7 +216,10 @@ export const {
   getSearch,
   getGigs,
   clearGigsDetails,
-  clearGigs
+  clearGigs,
+  getCategory,
+  getMinPrice,
+  getMaxPrice,
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

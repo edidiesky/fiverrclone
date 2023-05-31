@@ -74,12 +74,12 @@ const GigsIndexContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 55px;
+      height: 55px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
-      font-size: 20px;
+      font-size: 24px;
       color: #777;
       &.disabled {
         display: none;
@@ -97,13 +97,13 @@ const GigsIndexContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 55px;
+      height: 55px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
       color: #777;
-      font-size: 20px;
+      font-size: 24px;
       &.disabled {
         display: none;
       }

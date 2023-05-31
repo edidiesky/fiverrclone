@@ -13,7 +13,7 @@ button {
   font-family: inherit;
 }
 .owl-carousel .owl-stage-outer {
-  overflow: auto;
+  overflow: hidden;
 }
 a {
   color: inherit;

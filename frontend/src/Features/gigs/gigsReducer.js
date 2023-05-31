@@ -4,37 +4,41 @@ import axios from "axios";
 // fetching all Gigs
 export const getAllGigs = createAsyncThunk(
   "/fetch/allGigs",
-  async ({ category, minprice, time, maxprice }, thunkAPI) => {
+  async (name, thunkAPI) => {
     try {
-      const { page, search, sort, limit } = thunkAPI.getState().gigs;
+      const {
+        page,
+        search,
+        sort,
+        limit,
+        category,
+        minprice,
+        time,
+        maxprice,
+      } = thunkAPI.getState().gigs;
       let GigsUrl = `/api/v1/gig`;
-      //   productUrl = productUrl + `?page=${page}`
-      // }
-      // if (sort) {
-      //   productUrl = productUrl + `?sort=${sort}`
-      // }
+      if (sort) {
+        productUrl = productUrl + `?sort=${sort}`;
+      }
       if (category) {
         GigsUrl = GigsUrl + `?category=${category}`;
         const { data } = await axios.get(GigsUrl);
         return data;
-      } else if (minprice) {
-        GigsUrl = GigsUrl + `?minprice=${minprice}`;
-        const { data } = await axios.get(GigsUrl);
-        return data;
-      } else if (maxprice) {
-        GigsUrl = GigsUrl + `?maxprice=${maxprice}`;
-        const { data } = await axios.get(GigsUrl);
-        return data;
-      } else {
-        const { data } = await axios.get(GigsUrl);
-        return data;
       }
-      // if (limit) {
-      //   productUrl = productUrl + `?limit=${limit}`
+      // if (minprice) {
+      //   GigsUrl = GigsUrl + `?category=${category}?minprice=${minprice}`;
+      //   const { data } = await axios.get(GigsUrl);
+      //   return data;
       // }
-      // if (search) {
-      //   productUrl = productUrl + `&search=${search}`
+      // if (maxprice) {
+      //   GigsUrl =
+      //     GigsUrl +
+      //     `?category=${category}?minprice=${minprice}?maxprice=${maxprice}`;
+      //   const { data } = await axios.get(GigsUrl);
+      //   return data;
       // }
+      const { data } = await axios.get(GigsUrl);
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
