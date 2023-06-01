@@ -2,25 +2,17 @@ import mongoose from "mongoose";
 
 const CartSchema = new mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: [true, "PLease add a Cart name"],
-    },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
-    image: {
-      type: Array,
-      required: [true, "PLease add the image for the Cart"],
-    },
-    description: {},
-    price: {
-      type: Number,
+    gigId: {
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref: "Gigs",
     },
-    quantity: {
+    gigQuantity: {
       type: Number,
     },
     subtotal: {
@@ -28,16 +20,6 @@ const CartSchema = new mongoose.Schema(
     },
     tax: {
       type: Number,
-    },
-    package: [],
-    tags: [],
-    types: {
-      type: String,
-      enum: ["Basic", "Standard", "Premium"],
-      default: "Basic",
-    },
-    shortDesc: {
-      type: String,
     },
   },
   { timestamps: true }

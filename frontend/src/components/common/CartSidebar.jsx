@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Message from "../loaders/Message";
 import { BiMinus, BiPlus, BiRevision, BiTime } from "react-icons/bi";
 import { offCartSidebar } from "../../Features";
@@ -13,6 +13,15 @@ export default function CartSidebar() {
   // const { isLoading, isError, bag } = useSelector((store) => store.bag);
   const { cartsidebar } = useSelector((store) => store.toggle);
   const { GigsDetails } = useSelector((store) => store.gigs);
+  const { userInfo } = useSelector((store) => store.user);
+  const navigate = useNavigate()
+
+  // useEffect(()=> {
+  //   if (!userInfo) {
+  //     navigate('/join/login')
+  //     // window.location.reload();
+  //   }
+  // },[userInfo])
   return (
     <CartSidebarContainer className={cartsidebar ? "active" : ""}>
       <div

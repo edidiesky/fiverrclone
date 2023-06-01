@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     
-    "server": "node server.js --ignore ../frontend",
+    "server": "nodemon server.js --ignore ../frontend",
     "client": "npm run dev --prefix ../frontend",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "data:import": "node seeder",

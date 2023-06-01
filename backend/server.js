@@ -20,6 +20,7 @@ import reviewRoute from "./routes/reviewRoutes.js";
 import gigRoute from "./routes/gigRoutes.js";
 import uploadRoute from "./routes/uploadRoute.js";
 import aboutRoute from "./routes/aboutRoute.js";
+import cartRoute from "./routes/cartRoute.js";
 // import orderRoute from './routes/orderRoutes.js';
 
 app.use("/api/v1/auth", authRoute);
@@ -29,7 +30,7 @@ app.use("/api/v1/review", reviewRoute);
 // app.use('/api/v1/order', orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/about", aboutRoute);
-
+app.use("/api/v1/cart", cartRoute);
 app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
@@ -62,23 +63,23 @@ mongoose.connect(
 
 // production mode process
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
-  );
-} else { 
-  app.get("/", (req, res) => {
-    res.send("API is running....");
-  });
-}
+//   app.get("*", (req, res) =>
+//     res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
+//   );
+// } else { 
+//   app.get("/", (req, res) => {
+//     res.send("API is running....");
+//   });
+// }
 
 
 // Middlewares
 app.use(NotFound);
 app.use(errorHandler);
 
-app.listen(4001, () => {
+app.listen(5000, () => {
   console.log("server is listening on port 4000");
 });

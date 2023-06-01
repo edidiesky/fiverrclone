@@ -65,7 +65,6 @@ export default function Login() {
       email: "edidie@gmail.com",
       password: "eAdg145%1",
     });
-    dispatch(clearUserAlertError());
     if (loginSuccess) {
       setTimeout(() => {
         navigate(`/`);
