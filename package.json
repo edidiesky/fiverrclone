@@ -4,11 +4,11 @@
   "description": "",
   "scripts": {
     "dev": "vite",
-    "build-client": "cd frontend && vite build",
-    "install-frontend": "cd frontend && npm install",
-    "setup-production": "npm run install-frontend && npm run build-client && npm install",
+    "build-client": "cd frontend && npm run build",
+    "install-frontend": "cd frontend && npm install --legacy-peer-deps",
+    "setup-production": "npm run install-frontend && npm run build-client && npm install --legacy-peer-deps",
     "preview": "vite preview",
-    "server": "nodemon ../backend/server.js"
+    "server": "node backend/server.js"
   },
   "author": "",
   "license": "ISC"
