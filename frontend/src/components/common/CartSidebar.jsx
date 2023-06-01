@@ -14,7 +14,7 @@ export default function CartSidebar() {
   const { cartsidebar } = useSelector((store) => store.toggle);
   const { GigsDetails } = useSelector((store) => store.gigs);
   const { userInfo } = useSelector((store) => store.user);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   // useEffect(()=> {
   //   if (!userInfo) {
@@ -59,20 +59,14 @@ export default function CartSidebar() {
                 Gig Quantity
               </h4>
               {/* aty btn */}
-              <div className="flex item-center gap-2">
+              <div className="flex item-center gap-1">
                 {/* increase btn */}
-                <button
-                  className="avatar fs-16 flex item-center justify-center"
-                  style={{ border: "1px solid rgba(0,0,0,.2)" }}
-                >
+                <button className="avatar btnCart fs-16 flex item-center justify-center">
                   <BiPlus />
                 </button>
                 <h4 className="fs-20 text-dark">1</h4>
                 {/* descrease btn */}
-                <button
-                  className="avatar fs-16 flex item-center justify-center"
-                  style={{ border: "1px solid rgba(0,0,0,.2)" }}
-                >
+                <button className="avatar btnCart fs-16 flex item-center justify-center">
                   <BiMinus />
                 </button>
               </div>
@@ -105,7 +99,8 @@ export default function CartSidebar() {
                 Basic Package
               </h5>
               <h5 className="flex gap-1 fs-18 text-grey text-light item-center">
-                <BiTime className="fs-24 text-dark" /> {GigsDetails?.deliveryDays} delivery
+                <BiTime className="fs-24 text-dark" />{" "}
+                {GigsDetails?.deliveryDays} delivery
               </h5>
               <h5 className="flex gap-1 fs-18 text-grey text-light item-center">
                 <BiRevision className="fs-24 text-dark" />3 revisions
@@ -152,6 +147,14 @@ const CartSidebarContainer = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+  }
+  .btnCart {
+    border: 1px solid rgba(0,0,0,.2);
+    cursor: pointer;
+    &:hover {
+      border: 1px solid rgba(0,0,0,.7);
+      background-color: transparent;
+    }
   }
   &.active {
     opacity: 1;

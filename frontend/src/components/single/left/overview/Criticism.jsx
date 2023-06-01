@@ -20,7 +20,7 @@ const options = {
     },
   },
 };
-
+// 
 export default function Criticism() {
   const { reviews } = useSelector((store) => store.reviews);
   return (

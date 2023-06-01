@@ -14,6 +14,9 @@ export default function ReviewsInfo({ id }) {
 
   useEffect(() => {
     dispatch(getSellerReviews(id));
+    if(reviewSuccess) {
+      dispatch(getSellerReviews(id));
+    }
   }, [id, dispatch, reviewSuccess]);
   const { GigsDetails } = useSelector((store) => store.gigs);
   return (

@@ -20,16 +20,16 @@ export default function Title() {
             borderBottom: "1px solid rgba(0,0,0,.1)",
           }}
         >
-          <img src={GigsDetails?.user?.image} alt="" className="avatar" />
+          <img src={GigsDetails?.sellerId?.image} alt="" className="avatar" />
           {/* author name */}
           <Link to={"/"}>
             <h4 className="fs-16 text-bold text-dark">
-              {GigsDetails?.user?.username}
+              {GigsDetails?.sellerId?.username}
             </h4>
           </Link>
           {/* level */}
           <div className="flex relative">
-            <h4 className="fs-16 text-grey text-light">{GigsDetails?.user?.level}</h4>
+            <h4 className="fs-16 text-grey text-light">{GigsDetails?.sellerId?.level}</h4>
           </div>
           {/* rating */}
           <div

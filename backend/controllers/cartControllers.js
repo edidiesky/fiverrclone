@@ -6,83 +6,21 @@ import Gig from "../models/Gig.js";
 //  Public
 const GetAllBuyerCart = asyncHandler(async (req, res) => {
   // instantiate the request queries
-  // min and max price
-  // search and userId
-  // category
-  const search = req.query.search;
-  const minprice = req.query.minprice;
-  const category = req.query.category;
-  const maxprice = req.query.maxprice;
-  const user = req.query.user;
-  const sort = req.query.sort;
+  const queryObject = { buyer: req.user.userId };
 
-  const queryObject = {};
-
-  // search
-  if (search) {
-    queryObject.title = { $regex: search, options: "i" };
-  }
-  // minimum price
-  if (minprice) {
-    queryObject.price = { $gt: minprice };
-  }
-  // maxprice
-  if (maxprice) {
-    queryObject.price = { $gt: maxprice };
-  }
-  // user
-  if (user) {
-    queryObject.user = user;
-  }
-  // category
-  if (category) {
-    queryObject.category = category;
-  }
-
-  const limit = req.query.limit || 12;
-  const page = req.query.page;
-  const skip = (page - 1) * limit;
-
-  let result = Cart.find(queryObject)
-    .skip(skip)
-    .limit(limit)
-    .populate("user", "image username level about");
-
-  // perform sorting operation
-  if (sort === "latest") {
-    result = result.sort("-createdAt");
-  }
-  if (sort === "oldest") {
-    result = result.sort("createdAt");
-  }
-
-  // console.log(queryObject)
-
-  const totalGig = await Cart.countDocuments({});
-  const noOfPages = Math.ceil(totalGig / limit);
-
-  const gig = await result;
-  res.status(200).json({ gig, totalGig, noOfPages });
-});
-//
-// GET SINGLE Cart
-// Not Private
-const GetSingleBuyerCart = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  // find the Cart
-  const gig = await Cart.findById({ _id: id }).populate(
-    "user",
-    "username name image country role level about"
+  let result = Cart.find(queryObject).populate(
+    "sellerId",
+    "image username level about"
   );
-  if (!gig) {
-    res.status(404);
-    throw new Error("Cart not found");
-  }
-  res.status(200).json({ gig });
+
+  const totalCart = await Cart.countDocuments({});
+
+  const cart = await result;
+  res.status(200).json({ cart, totalCart });
 });
 
 // GET SINGLE Cart
-// Not Private
+// Private
 // Admin and seller
 const CreateBuyerCart = asyncHandler(async (req, res) => {
   // get the request body parameters
@@ -95,6 +33,16 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
     throw new Error("Gig not found");
   }
   const { userId } = req.user;
+
+  // check if the gig is alrady in the cart
+  const alreadyinCart = await Cart.findOne({
+    gigId: id,
+    buyer: userId,
+  });
+  if (alreadyinCart !== null) {
+    res.status(404);
+    throw new Error("You have added it in cart");
+  }
 
   // "countInStock": 10,
   // checking if the required quantity is greater that the gig countInStock
@@ -113,11 +61,12 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
 
   const cart = await Cart.create({
     gigQuantity,
-    user: req.user.userId,
+    buyer: userId,
     gigId: id,
+    sellerId: gig.sellerId ? gig.sellerId : gig.user,
   });
 
-  res.status(200).json({ cart });
+  res.status(200).json({ alreadyinCart, cart });
 });
 
 //PRIVATE
@@ -211,5 +160,4 @@ export {
   DeleteBuyerCart,
   UpdateBuyerCart,
   GetAllBuyerCart,
-  GetSingleBuyerCart,
 };

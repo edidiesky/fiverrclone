@@ -5,7 +5,7 @@ const gigData = [
     title: "I will provide resume, cv, and cover letter writing",
     countInStock: 10,
     price: 50,
-    user: "64747c2a6c57ba66d735606c",
+    sellerId: "64747c2a6c57ba66d735606c",
     deliveryDays: 5,
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
@@ -22,7 +22,7 @@ const gigData = [
     title: "I will make animation for 3d game character",
     countInStock: 10,
     price: 70,
-    user: "6474d09f1ddaba8bb68f7f3c",
+    sellerId: "6474d09f1ddaba8bb68f7f3c",
     deliveryDays: 5,
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
@@ -40,7 +40,7 @@ const gigData = [
     title: "I will design top notch social media content",
     countInStock: 10,
     price: 20,
-    user: "6474d09f1ddaba8bb68f7f3d",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
     deliveryDays: 5,
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
@@ -58,7 +58,7 @@ const gigData = [
     title: "I will format your book ebook magazine and pdf",
     countInStock: 10,
     price: 350,
-    user: "6474d09f1ddaba8bb68f7f3d",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
     deliveryDays: 5,
     description:
       "From this gig, creator such as YouTubers, Instagrammers, photographers, and many more start their earnings by selling their content to their fans and followers. The working model is similar to only fans and Patreon sites..",
@@ -75,7 +75,7 @@ const gigData = [
     title: "I will get your USA ein now for tax purposes",
     countInStock: 10,
     price: 150,
-    user: "6474d09f1ddaba8bb68f7f3f",
+    sellerId: "6474d09f1ddaba8bb68f7f3f",
     deliveryDays: 5,
     description:
       "Welcome!!! I am Francis and my calling are to help businesses with their Tax, trademark, legal and raise some funds. I have been doing pretty well in the cooperate world, so I am here to see how to provide superb business planning, tax, legal, trademark and consultation services. Drop a message if you feel you would want to onboard me on your project. ONWARD FOREVER Till we exceed billions.",
@@ -92,7 +92,7 @@ const gigData = [
     title: "I will be your professional spanish teacher",
     countInStock: 10,
     price: 150,
-    user: "6474d09f1ddaba8bb68f7f40",
+    sellerId: "6474d09f1ddaba8bb68f7f40",
     deliveryDays: 5,
     description:
       "I become a passionate person when it comes to teach a language. I like to develop each part of a language with the purpose of developing a deep, complete, and advanced level in my students: ",
@@ -111,7 +111,7 @@ const gigData = [
     title: "I will create high end product photography",
     countInStock: 10,
     price: 450,
-    user: "6474d09f1ddaba8bb68f7f41",
+    sellerId: "6474d09f1ddaba8bb68f7f41",
     deliveryDays: 5,
     description:
       "I will create professional product photography on a white or solid color background of your products.",
@@ -126,7 +126,7 @@ const gigData = [
     title: "I will make a professional video with vfx",
     countInStock: 10,
     price: 45,
-    user: "6474d09f1ddaba8bb68f7f42",
+    sellerId: "6474d09f1ddaba8bb68f7f42",
     deliveryDays: 5,
     description:
       "Many of you already know about me because i've been doing this for quite some time now with 250 plus 5⭐ reviews! ( Check my profile ) but for the people Who don't i'll line up a brief run down!        ",
@@ -144,7 +144,7 @@ const gigData = [
     title: "I will do a french voice over, be your french voice",
     countInStock: 10,
     price: 50,
-    user: "6474d09f1ddaba8bb68f7f42",
+    sellerId: "6474d09f1ddaba8bb68f7f42",
     deliveryDays: 5,
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
@@ -160,7 +160,7 @@ const gigData = [
     shortDescription:
       "One Page Business website I will create full fledged ONE page responsive & mobile friendly website with admin panel for you.",
     title: "I will design responsive website in 15 hours",
-    user: "6474d09f1ddaba8bb68f7f43",
+    sellerId: "6474d09f1ddaba8bb68f7f43",
     countInStock: 10,
     price: 50,
     deliveryDays: 5,
@@ -184,7 +184,7 @@ const gigData = [
     shortDescription:
       "Silver Include 5 pages, SEO optimized, Portfolio, Landing page, Responsive website.",
     title: "I will do professional wix website design",
-    user: "6474d09f1ddaba8bb68f7f44",
+    sellerId: "6474d09f1ddaba8bb68f7f44",
     countInStock: 350,
     price: 50,
     category: ["Programming-Tech", "Website-Development"],
@@ -212,7 +212,7 @@ const gigData = [
     category: ["Graphics-Design", "Logo Design"],
     countInStock: 10,
     price: 25,
-    user: "6474d09f1ddaba8bb68f7f45",
+    sellerId: "6474d09f1ddaba8bb68f7f45",
     deliveryDays: 5,
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
@@ -233,7 +233,7 @@ const gigData = [
     shortDescription:
       "SMALL Axonometric drawing of a room or a simple building with small details",
     title: "I will be your committed social media manager",
-    user: "6474d09f1ddaba8bb68f7f47",
+    sellerId: "6474d09f1ddaba8bb68f7f47",
     countInStock: 10,
     price: 10,
     category: ["Digital Marketing", "Social Media Marketing"],
@@ -250,7 +250,7 @@ const gigData = [
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will build responsive wordpress website design",
-    user: "6474d09f1ddaba8bb68f7f48",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 250,
@@ -268,7 +268,7 @@ const gigData = [
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will design fully responsive website",
-    user: "6474d09f1ddaba8bb68f7f48",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 20,
@@ -288,7 +288,7 @@ const gigData = [
       "A basic quality custom made website based on your requirements.",
     title:
       "I will do website UI UX design, mobile app UI UX design, dashboard ux design",
-    user: "6474d09f1ddaba8bb68f7f48",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 15,
@@ -309,7 +309,7 @@ const gigData = [
       "A basic quality custom made website based on your requirements.",
     title:
       "I will do website and landing page UI UX design in figma, xd format",
-    user: "6474d09f1ddaba8bb68f7f48",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 85,
@@ -328,7 +328,7 @@ const gigData = [
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will design responsive website in 4 hours",
-    user: "6474d09f1ddaba8bb68f7f48",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 35,
@@ -349,7 +349,7 @@ const gigData = [
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will design clean and responsive wordpress website",
-    user: "6474d09f1ddaba8bb68f7f48",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
     category: ["Programming-Tech", "Website-Development", "WordPress"],
     price: 35,
@@ -369,7 +369,7 @@ const gigData = [
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will fix elementor issues ,fix wordpress and website building",
-    user: "6474d09f1ddaba8bb68f7f48",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
     countInStock: 3,
     category: ["Programming-Tech", "Website-Development", "WordPress"],
     price: 15,
@@ -388,7 +388,7 @@ const gigData = [
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will create a modern minimalist logo design for your business",
-    user: "6474d09f1ddaba8bb68f7f3d",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 25,
@@ -409,7 +409,7 @@ const gigData = [
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will create a modern minimalist logo design for your business",
-    user: "6474d09f1ddaba8bb68f7f3d",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 25,
@@ -430,7 +430,7 @@ const gigData = [
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will design or redesign 3d and minimalist business logo design",
-    user: "6474d09f1ddaba8bb68f7f3d",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 15,
@@ -456,7 +456,7 @@ const gigData = [
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will draw a unique logo for your enterprise",
-    user: "6474d09f1ddaba8bb68f7f3d",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 15,

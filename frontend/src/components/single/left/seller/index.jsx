@@ -13,13 +13,13 @@ export default function SellerInfo() {
           <h3 className="fs-20 text-bold text-dark">About the Seller</h3>
           <div className="flex item-center gap-2">
             <img
-              src={GigsDetails?.user?.image}
+              src={GigsDetails?.sellerId?.image}
               alt=""
               style={{ width: "10rem", height: "10rem", borderRadius: "50%" }}
             />
             <div className="flex column item-start gap-2">
               <h4 className="fs-16 text-dark text-bold">
-                {GigsDetails?.user?.username}
+                {GigsDetails?.sellerId?.username}
               </h4>
               <div
                 className="flex item-center gap-1 fs-18"
@@ -59,7 +59,7 @@ export default function SellerInfo() {
             className="flex gap-1 text-grey2 fs-18 text-light column"
             style={{ width: "50%" }}
           >
-            From <span className="block text-bold text-grey">{GigsDetails?.user?.about?.from}</span>
+            From <span className="block text-bold text-grey">{GigsDetails?.sellerId?.about?.from}</span>
           </li>
           <li className="flex gap-1 text-grey2 fs-18 text-light column">
             Member since{" "}
@@ -86,7 +86,7 @@ export default function SellerInfo() {
             with your expectations. I strove deeper into the design field and
             took my talent to the field of graphic design as an independent
             contractor. Don't forget to SAVE my gig!! */}
-            {GigsDetails?.user?.about?.description}
+            {GigsDetails?.sellerId?.about?.description}
           </p>
         </div>
       </div>

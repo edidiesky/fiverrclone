@@ -42,7 +42,7 @@ export default function Card({ x, index, type }) {
             </div>
             <div className="bottom w-100 back-white py-2 flex item-center gap-1">
               <img
-                src={x?.user?.image}
+                src={x?.sellerId?.image}
                 alt=""
                 className="image"
                 style={{
@@ -56,7 +56,7 @@ export default function Card({ x, index, type }) {
                   {x?.category[0]}
                 </h4>
                 <h5 className="fs-14 text-light text-grey">
-                  by {x?.user?.username}
+                  by {x?.sellerId?.username}
                 </h5>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function Card({ x, index, type }) {
             </div>
             <div className="bottom w-100 back-white py-2 flex item-center gap-1">
               <img
-                src={x?.user?.image}
+                src={x?.sellerId?.image}
                 alt=""
                 className="images"
                 style={{
@@ -103,9 +103,9 @@ export default function Card({ x, index, type }) {
                   to={"/"}
                   className="fs-16 a family1 text-extra-bold text-dark"
                 >
-                  {x?.user?.username}
+                  {x?.sellerId?.username}
                 </Link>
-                <h4 className="fs-14 text-grey text-light">{x?.user?.level}</h4>
+                <h4 className="fs-14 text-grey text-light">{x?.sellerId?.level}</h4>
               </div>
             </div>
             <p className="bottom desc w-90 fs-18 text-dark text-light">

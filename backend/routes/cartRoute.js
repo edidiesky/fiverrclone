@@ -12,14 +12,12 @@ import {
     DeleteBuyerCart,
     UpdateBuyerCart,
     GetAllBuyerCart,
-    GetSingleBuyerCart,
 } from '../controllers/cartControllers.js'
 
 
 router.route('/:id')
-.get(GetSingleBuyerCart)
 .post(authMiddleware,CreateBuyerCart)
-.get(GetAllBuyerCart)
+.get(authMiddleware,GetAllBuyerCart)
 .put(authMiddleware,UpdateBuyerCart)
 .delete(authMiddleware,DeleteBuyerCart)
 

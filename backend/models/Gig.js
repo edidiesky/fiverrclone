@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const GigSchema = new mongoose.Schema(
   {
-    user: {
+    sellerId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",

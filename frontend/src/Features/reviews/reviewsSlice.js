@@ -15,8 +15,9 @@ const initialState = {
   reviewError: false,
   reviewLoading: false,
   totalreviews: 0,
-  reviews:[],
-  
+  reviews: null,
+  reviewsDetails:null,
+
   // alert states
   showAlert: false,
   alertText: "",
@@ -25,7 +26,7 @@ const initialState = {
 
   // req queries
   search: "",
-  user:'',
+  user: "",
 };
 
 const reviewsSlice = createSlice({
@@ -77,10 +78,10 @@ const reviewsSlice = createSlice({
     },
     [createReviews.fulfilled]: (state, action) => {
       state.reviewLoading = false;
-      state.reviews = action.payload;
+      state.reviewsDetails = action.payload;
       state.reviewSuccess = true;
       state.showAlert = true;
-      state.alertText = `${action.payload.title} has been successfully addded to your reviews data base`;
+      state.alertText = `Your review has been successfully created`;
       state.alertType = "success";
     },
     [createReviews.rejected]: (state, action) => {
@@ -107,7 +108,7 @@ const reviewsSlice = createSlice({
       state.alertType = "danger";
     },
 
-    // update the reviews 
+    // update the reviews
     [UpdateReviews.pending]: (state) => {
       state.reviewLoading = true;
     },
