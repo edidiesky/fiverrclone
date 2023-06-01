@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "vite",
-    "build-client": "cd frontend && npm run build",
+    "build-client": "npm install --legacy-peer-deps && vite build",
     "install-frontend": "cd frontend && npm install --legacy-peer-deps",
     "setup-production": "npm run install-frontend && npm run build-client && npm install --legacy-peer-deps",
     "preview": "vite preview",
