@@ -470,6 +470,11 @@ p {
   width: 100%;
   z-index: 10;
 }
+.owl-theme .owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1;
+  display: inline !important;
+}
 
 /* slider css end */
 .relative {
