@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build-client": "npm install --legacy-peer-deps && vite build",
-    "install-frontend": "cd frontend && npm install --legacy-peer-deps",
-    "setup-production": "npm run install-frontend && npm run build-client && npm install --legacy-peer-deps",
+    "install-frontend": "cd frontend && npm install --legacy-peer-deps && vite build",
+    "setup-production": "npm run install-frontend",
     "preview": "vite preview",
     "start": "cd backend && npm install && npm run server"
   },
