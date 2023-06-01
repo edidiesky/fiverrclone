@@ -8,7 +8,7 @@
     "install-frontend": "cd frontend && npm install --legacy-peer-deps",
     "setup-production": "npm run install-frontend && npm run build-client && npm install --legacy-peer-deps",
     "preview": "vite preview",
-    "server": "node backend/server.js"
+    "start": "cd backend && npm install && npm run server"
   },
   "author": "",
   "license": "ISC"
