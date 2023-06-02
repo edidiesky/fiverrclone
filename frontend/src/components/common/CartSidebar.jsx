@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
-import Message from "../loaders/Message";
 import { BiMinus, BiPlus, BiRevision, BiTime } from "react-icons/bi";
-import { offCartSidebar } from "../../Features";
+import { CreateBuyerCart, offCartSidebar } from "../../Features";
+import Message from "../modals/Message";
+import { clearCartAlert } from "../../Features/bag/bagSlice";
 
 export default function CartSidebar() {
   const dispatch = useDispatch();
@@ -13,15 +14,22 @@ export default function CartSidebar() {
   // const { isLoading, isError, bag } = useSelector((store) => store.bag);
   const { cartsidebar } = useSelector((store) => store.toggle);
   const { GigsDetails } = useSelector((store) => store.gigs);
-  const { userInfo } = useSelector((store) => store.user);
+  const { cartIsLoading, cartIsSuccess, showAlert, alertText } = useSelector(
+    (store) => store.cart
+  );
   const navigate = useNavigate();
+  const handleAddToCart = () => {
+    dispatch(CreateBuyerCart({ gigQuantity: parseInt(1), id: GigsDetails?._id }));
+  };
 
-  // useEffect(()=> {
-  //   if (!userInfo) {
-  //     navigate('/join/login')
-  //     // window.location.reload();
-  //   }
-  // },[userInfo])
+  useEffect(() => {
+    if (cartIsSuccess) {
+      setTimeout(() => {
+        navigate("/checkout");
+      }, 5000);
+    }
+  }, [cartIsSuccess]);
+
   return (
     <CartSidebarContainer className={cartsidebar ? "active" : ""}>
       <div
@@ -75,7 +83,7 @@ export default function CartSidebar() {
           </div>
           <div className="w-100 summary flex column gap-2">
             <h3 className="fs-30 family1 text-dark">
-              $5
+              ${GigsDetails?.price}
               <span className="block text-grey text-light fs-14">
                 Single order
               </span>
@@ -108,15 +116,19 @@ export default function CartSidebar() {
             </div>
           </div>
         </div>
+        <Message
+          alertText={alertText}
+          showAlert={showAlert}
+          handleClearAlert={clearCartAlert}
+        />
         <div className="cartSidebarBottom flex column gap-1">
           <div className="w-100 auto column item-center gap-1 justify-center flex">
-            <Link
-              to={"/checkout"}
-              onClick={() => dispatch(offCartSidebar())}
+            <div
+              onClick={handleAddToCart}
               className={"cartBtn py-1 fs-16 family1"}
             >
               Continue (${GigsDetails?.price})
-            </Link>
+            </div>
             <h5 className="fs-14 center text-dark text-light">
               You won’t be charged yet
             </h5>
@@ -149,10 +161,10 @@ const CartSidebarContainer = styled.div`
     height: 100%;
   }
   .btnCart {
-    border: 1px solid rgba(0,0,0,.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     cursor: pointer;
     &:hover {
-      border: 1px solid rgba(0,0,0,.7);
+      border: 1px solid rgba(0, 0, 0, 0.7);
       background-color: transparent;
     }
   }

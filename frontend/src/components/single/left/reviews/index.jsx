@@ -27,9 +27,9 @@ export default function ReviewsInfo({ id }) {
       <div className="w-100 column gap-2 flex py-4">
         <h3 className="fs-20 text-bold text-dark">Related Tags</h3>
         <div className="w-100 linkwrapper flex item-center gap-2">
-          {GigsDetails?.category?.map((x) => {
+          {GigsDetails?.category?.map((x,index) => {
             return (
-              <Link to={"/"} className="a family1">
+              <Link to={"/"} key={index} className="a family1">
                 {x}
               </Link>
             );

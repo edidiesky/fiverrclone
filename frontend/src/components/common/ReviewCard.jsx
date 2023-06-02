@@ -7,7 +7,7 @@ export default function ReviewCard({ x }) {
   let createddate = moment(x?.createdAt);
   createddate = createddate.format("MMMM Do YYYY");
   return (
-    <div className="flex column gap-2">
+    <div className="flex column gap-2" key={x?._id}>
       {/* reviews card */}
       <CriticismCard className="flex item-start gap-1 w-100">
         {/* name */}

@@ -34,9 +34,9 @@ export default function Profile({ profile }) {
           : "profileList flex column family1"
       }
     >
-      {data2.map((x) => {
+      {data2.map((x,index) => {
         return (
-          <div key={x.id}>
+          <div key={index}>
             <Link className="family1 link" to={`${x.path}`}>
               {x.title}
             </Link>

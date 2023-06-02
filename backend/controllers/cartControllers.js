@@ -53,7 +53,7 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
     );
   }
   // trying to update the sellers's Gig count in stock
-  const updatedGig = await Gig.findByIdAndUpdate(
+  await Gig.findByIdAndUpdate(
     { _id: id },
     { countInStock: gig.countInStock - gigQuantity },
     { new: true }

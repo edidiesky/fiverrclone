@@ -6,8 +6,8 @@ export default function Summary() {
 
   return (
     <div className="hidden">
-      {reviews?.map((x) => {
-        return <ReviewCard x={x} />;
+      {reviews?.map((x,index) => {
+        return <ReviewCard key={index} x={x} />;
       })}
     </div>
   );
