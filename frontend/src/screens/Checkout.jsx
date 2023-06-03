@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import LoaderIndex from "../components/loaders";
 
 export default function Checkout() {
-  const { cartIsLoading } = useSelector((store) => store.cart);
+  const { cartIsLoading } = useSelector((store) => store.cart)
+  
   return (
     <div>
       <Meta title={"Secure Checkout"} />
