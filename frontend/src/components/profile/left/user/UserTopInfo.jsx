@@ -15,7 +15,10 @@ export default function UserTopInfo() {
         {/* images */}
         {/* check if there is any image else seet the image folder */}
         {userInfo?.image ? (
-          <img src={userInfo?.image} alt="" className="image" />
+          <div className="ProfileImage flex item-center justify-center cardImage">
+            <img src={userInfo?.image} alt="" className="image" />
+          </div>
+          
         ) : (
           <div className="w-100 ProfileImage flex item-center justify-center cardImage">
             <div className="image dark flex item-center justify-center">

@@ -25,8 +25,7 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     username,
     password: hashedpassword,
-    phone,
-    country,
+    ...req.body
   };
   const user = await User.create(Tempuser);
   //
@@ -48,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
 const LoginUser = asyncHandler(async (req, res) => {
   // check if the email has been provided
   const { email, password } = req.body;
-  if (!email) {
+  if (!email || !password) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
   }

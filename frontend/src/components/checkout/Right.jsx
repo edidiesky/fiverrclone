@@ -2,48 +2,49 @@ import React from "react";
 import { FaCheck } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import PaymentButton from "./paypal";
 export default function CheckoutRight() {
-  const { GigsDetails } = useSelector((store) => store.gigs);
+  const { cartDetails, cartIsLoading } = useSelector((store) => store.cart);
   return (
     <CheckoutRightContent className="w-100">
       <div className="Right flex gap-2 column">
         {/* box */}
-        <div className="w-100 border top flex column gap-2">
+        <div className="w-85 auto border top flex column gap-2">
           {/* gig image and basic description */}
-          <div className="py-2 p2 border flex item-center gap-2">
+          <div className="py-2 p2 border flex item-center">
             <div className="flex1">
               <img
-                src="https://fiverr-res.cloudinary.com/video/upload/f_auto,q_auto,t_medium5/a3pnweseanfwojjjkdki.png"
+                src={cartDetails?.gigId?.image[0]}
                 alt=""
                 className="w-100 radius1"
               />
             </div>
-            <h4 className="fs-14 flex1 text-dark family1">
-              {GigsDetails?.shortDescription}
+            <h4 className="fs-18 flex1 text-grey">
+              {cartDetails?.gigId?.shortDescription}
             </h4>
           </div>
           {/* basic information */}
           <div className="w-100 flex column gap-2 p2">
             {/* price */}
             <div className="w-100 family1 flex item-center justify-space">
-              <h4 className="fs-16 text-dark">Basic</h4>
+              <h4 className="fs-18 text-light text-dark">Basic</h4>
               {/* price */}
-              <h4 className="fs-16 text-grey text-light">
-                ${GigsDetails?.price}
+              <h4 className="fs-18 text-light text-grey text-light">
+                ${cartDetails?.gigId?.price}
               </h4>
             </div>
             {/* work desc */}
-          
+
             <ul className="flex borderB top column py-1 gap-1">
-              <div className="w-100 flex family1 item-center gap-1 fs-16 text-grey">
+              <div className="w-100 flex item-center gap-1 fs-18 text-light text-grey">
                 <FaCheck className="text-green" />
-                {GigsDetails?.deliveryDays} Days Delivery
+                {cartDetails?.gigId?.deliveryDays} Days Delivery
               </div>
-              {GigsDetails?.subInfo?.map((x, index) => {
+              {cartDetails?.gigId?.subInfo?.map((x, index) => {
                 return (
                   <li
                     key={index}
-                    className="flex item-center family1 gap-1 fs-16 text-grey"
+                    className="flex item-center gap-1 fs-18 text-light text-grey"
                   >
                     <FaCheck className="text-green" /> {x}
                   </li>
@@ -52,21 +53,23 @@ export default function CheckoutRight() {
             </ul>
             {/* total taxes */}
             <ul className="flex column top py-1 borderB gap-2">
-              <li className="flex item-center justify-space w-100 family1 gap-1 fs-16 text-grey">
+              <li className="flex item-center justify-space w-100 gap-1 fs-18 text-light text-grey">
                 <span className="text-light">Service fee</span> $2.28
               </li>
-              <li className="flex item-center justify-space w-100 family1 gap-1 fs-16 text-grey">
-                <span className="text-light">VAT</span> $2.28
+              <li className="flex item-center justify-space w-100 gap-1 fs-18 text-light text-grey">
+                <span className="text-light">VAT</span> $
+                {0.055 * parseInt(cartDetails?.gigId?.price)}
               </li>
             </ul>
             {/* total fee */}
             <ul className="flex column py-1 borderB gap-2">
-              <li className="flex item-center text-light justify-space w-100 family1 gap-1 fs-18 text-grey">
+              <li className="flex item-center text-light justify-space w-100 gap-1 fs-18 text-grey">
                 <span className="text-bold">Total</span> $2.28
               </li>
-              <li className="flex item-center justify-space w-100 family1 gap-1 fs-16 text-grey">
+              <li className="flex item-center justify-space w-100 gap-1 fs-18 text-light text-grey">
                 <span className="text-light">Total delivery time</span> $2.28
               </li>
+              <PaymentButton />
             </ul>
             {/* paypal Checkout */}
           </div>
@@ -79,7 +82,7 @@ export default function CheckoutRight() {
 const CheckoutRightContent = styled.div`
   width: 100%;
   .top {
-    background-color: #FAFAFA;
+    background-color: #fafafa;
   }
   img {
     width: 80%;

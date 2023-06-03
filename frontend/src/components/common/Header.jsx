@@ -144,9 +144,14 @@ export default function Header({ type }) {
             >
               E
             </div> */}
-            <div className="avatar flex item-center justify-center">
-              <HiUser />
-            </div>
+            {userInfo?.image ? (
+              <img src={userInfo?.image} alt="" className="avatar flex item-center justify-center" />
+            ) : (
+              <div className="avatar flex item-center justify-center">
+                <HiUser />
+              </div>
+            )}
+
             <div className="notification"></div>
             <Profile profile={profile} />
           </div>

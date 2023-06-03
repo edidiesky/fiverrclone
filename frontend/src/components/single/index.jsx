@@ -6,23 +6,29 @@ import { Header } from "../common";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleGigsDetails } from "../../Features";
+import LoaderIndex from "../loaders";
 
 export default function SingleIndex() {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { reviewSuccess } = useSelector((store) => store.reviews);
-
+  const { gigsIsLoading } = useSelector((store) => store.gigs);
   useEffect(() => {
     dispatch(getSingleGigsDetails(id));
   }, [id, dispatch]);
 
   return (
     <SingleIndexContent>
-      <Header />
-      <div className="w-90 auto py-4 grid grid-auto grid-gap4">
-        <SingleLeftIndex id={id} />
-        <RightIndex />
-      </div>
+      {gigsIsLoading ? (
+        <LoaderIndex />
+      ) : (
+        <>
+          <Header />
+          <div className="w-90 auto py-4 grid grid-auto grid-gap4">
+            <SingleLeftIndex id={id} />
+            <RightIndex />
+          </div>
+        </>
+      )}
     </SingleIndexContent>
   );
 }

@@ -19,10 +19,33 @@ export const GetAllBuyerCart = createAsyncThunk(
   }
 );
 
+// fetching all cart for the buyer
+export const GetSingleBuyerCart = createAsyncThunk(
+  "/cart/singleBuyerCart",
+  async ({ id }, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const config = {
+      headers: {
+        authorization: `Bearer ${state.user.token}`,
+      },
+    };
+    try {
+      let cartUrl = `/api/v1/cart/buyer/${id}`;
+      const { data } = await axios.get(cartUrl, config);
+      return data.cart;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
 // fetching single cart based on its id
 export const CreateBuyerCart = createAsyncThunk(
   "cart/createBuyerCart",
-  async ({gigQuantity,id}, thunkAPI) => {
+  async ({ qty }, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {
@@ -30,7 +53,11 @@ export const CreateBuyerCart = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.post(`/api/v1/cart/${id}`, gigQuantity, config);
+      const { data } = await axios.post(
+        `/api/v1/cart/${state.gigs.GigsDetails._id}`,
+        { qty },
+        config
+      );
 
       return data.cart;
     } catch (error) {

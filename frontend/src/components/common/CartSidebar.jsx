@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
@@ -10,6 +10,7 @@ import { clearCartAlert } from "../../Features/bag/bagSlice";
 
 export default function CartSidebar() {
   const dispatch = useDispatch();
+  const [qty, setQty] = useState(1);
   // get the cart content
   // const { isLoading, isError, bag } = useSelector((store) => store.bag);
   const { cartsidebar } = useSelector((store) => store.toggle);
@@ -19,13 +20,13 @@ export default function CartSidebar() {
   );
   const navigate = useNavigate();
   const handleAddToCart = () => {
-    dispatch(CreateBuyerCart({ gigQuantity: parseInt(1), id: GigsDetails?._id }));
+    dispatch(CreateBuyerCart({ qty }));
   };
 
   useEffect(() => {
     if (cartIsSuccess) {
       setTimeout(() => {
-        navigate("/checkout");
+        navigate(`/checkout?gigid=${GigsDetails?._id}`);
       }, 5000);
     }
   }, [cartIsSuccess]);
@@ -69,12 +70,20 @@ export default function CartSidebar() {
               {/* aty btn */}
               <div className="flex item-center gap-1">
                 {/* increase btn */}
-                <button className="avatar btnCart fs-16 flex item-center justify-center">
+                <button
+                  disabled={qty >= GigsDetails?.countInStock}
+                  onClick={() => setQty(qty + 1)}
+                  className="avatar btnCart fs-16 flex item-center justify-center"
+                >
                   <BiPlus />
                 </button>
-                <h4 className="fs-20 text-dark">1</h4>
+                <h4 className="fs-20 text-dark">{qty}</h4>
                 {/* descrease btn */}
-                <button className="avatar btnCart fs-16 flex item-center justify-center">
+                <button
+                  disabled={qty <= 1}
+                  onClick={() => setQty(qty - 1)}
+                  className="avatar btnCart fs-16 flex item-center justify-center"
+                >
                   <BiMinus />
                 </button>
               </div>

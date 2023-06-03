@@ -12,11 +12,11 @@ export default function CheckoutLeft() {
         </h3>
         <div className="p2 flex column gap-2">
           <div className="flex w-100 item-center justify-space gap-4">
-            <h4 className="fs-18 text-grey text-light">
+            <h4 className="fs-18 flex-1 text-grey text-light">
               Your invoice will be issued according to the details listed here.
             </h4>
             <div className="flex-1">
-              <div className={"cartBtn py-1 fs-16 family1"}>Add Details</div>
+              <div className={"cartBtn py-1 fs-14 text-dark text-extra-bold family1"}>Add Details</div>
             </div>
           </div>
           <div className="w-100 flex column">
@@ -46,7 +46,7 @@ const CheckoutLeftContent = styled.div`
   flex-direction: column;
   gap: 5rem;
   .cartBtn {
-    width: 75%;
+    width: 45%;
   }
   .wrapper {
     border: 1px solid rgba(0, 0, 0, 0.1);

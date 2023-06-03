@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+// import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import Cart from "../models/Cart.js";
 import Gig from "../models/Gig.js";
@@ -8,10 +8,12 @@ const GetAllBuyerCart = asyncHandler(async (req, res) => {
   // instantiate the request queries
   const queryObject = { buyer: req.user.userId };
 
-  let result = Cart.find(queryObject).populate(
-    "sellerId",
-    "image username level about"
-  );
+  let result = Cart.find(queryObject)
+    .populate("sellerId", "image username")
+    .populate(
+      "gigId",
+      "image title category shortDescription price type deliveryDays"
+    );
 
   const totalCart = await Cart.countDocuments({});
 
@@ -19,12 +21,34 @@ const GetAllBuyerCart = asyncHandler(async (req, res) => {
   res.status(200).json({ cart, totalCart });
 });
 
+// GET SINGLE Gig
+// Not Private
+const GetSingleBuyerCart = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  // find the Gig
+  const cart = await Cart.findOne({ gigId: id })
+    .populate(
+      "gigId",
+      "image title image shortDescription price category subInfo type deliveryDays"
+    )
+    .populate("buyer", "username name image country");
+
+  if (!cart) {
+    res.status(404);
+    throw new Error("Cart Item not found");
+  }
+  res.status(200).json({ cart });
+});
+
 // GET SINGLE Cart
 // Private
 // Admin and seller
 const CreateBuyerCart = asyncHandler(async (req, res) => {
   // get the request body parameters
-  const { gigQuantity } = req.body;
+  const { qty } = req.body;
+
+  // console.log(qty);
+
   // get the request params
   const { id } = req.params;
   const gig = await Gig.findById({ _id: id });
@@ -46,21 +70,26 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
 
   // "countInStock": 10,
   // checking if the required quantity is greater that the gig countInStock
-  if (gigQuantity > gig.countInStock) {
+  if (qty > gig.countInStock) {
     res.status(404);
     throw new Error(
       "The gig/ service is not available for that quantity count"
     );
   }
+  // console.log(qty);
+  // console.log(gig.countInStock);
   // trying to update the sellers's Gig count in stock
   await Gig.findByIdAndUpdate(
     { _id: id },
-    { countInStock: gig.countInStock - gigQuantity },
+    { countInStock: parseInt(gig.countInStock - qty) },
     { new: true }
   );
 
+  // console.log('hello');
+  // console.log(gig.countInStock - qty);
+
   const cart = await Cart.create({
-    gigQuantity,
+    gigQuantity: qty,
     buyer: userId,
     gigId: id,
     sellerId: gig.sellerId ? gig.sellerId : gig.user,
@@ -160,4 +189,5 @@ export {
   DeleteBuyerCart,
   UpdateBuyerCart,
   GetAllBuyerCart,
+  GetSingleBuyerCart,
 };

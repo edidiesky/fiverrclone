@@ -9,7 +9,7 @@ export default function LoaderIndex({ loading, type }) {
       <Box
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       >
-        <CircularProgress sx={{width:"1rem"}} />
+        <CircularProgress sx={{ width: "1rem" }} />
       </Box>
     );
   }

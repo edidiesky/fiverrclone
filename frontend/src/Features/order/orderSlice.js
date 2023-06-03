@@ -10,6 +10,7 @@ import {
   getCustomerOrderStats,
   handleStripeCheckout,
   handleStripeKey,
+  handlePaypalKey
 } from "./orderReducer";
 
 const initialState = {
@@ -31,10 +32,11 @@ const initialState = {
   isStatError: false,
   isStatSuccess: false,
   url: "",
-  stripeKey: "",
+  keys: "",
   orderpage: 1,
   ordernoOfpage: 0,
   totalorder: 0,
+  isloadingPayalKey:false,
 };
 
 const orderSlice = createSlice({
@@ -202,6 +204,24 @@ const orderSlice = createSlice({
     },
     [updateCustomersOrderToIsDelivered.rejected]: (state, action) => {
       state.loadingdelivered = false;
+      state.showAlert = true;
+      state.isError = true;
+      state.alertText = action.payload;
+      state.alertType = "danger";
+    },
+
+
+    
+    // get stripe Key
+    [handlePaypalKey.pending]: (state) => {
+      state.isloadingPayalKey = true;
+    },
+    [handlePaypalKey.fulfilled]: (state, action) => {
+      state.isloadingPayalKey = false;
+      state.keys = action.payload;
+    },
+    [handlePaypalKey.rejected]: (state, action) => {
+      state.isloadingPayalKey = false;
       state.showAlert = true;
       state.isError = true;
       state.alertText = action.payload;

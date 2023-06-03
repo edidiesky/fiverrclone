@@ -19,7 +19,6 @@ import userRoute from "./routes/userRoute.js";
 import reviewRoute from "./routes/reviewRoutes.js";
 import gigRoute from "./routes/gigRoutes.js";
 import uploadRoute from "./routes/uploadRoute.js";
-import aboutRoute from "./routes/aboutRoute.js";
 import cartRoute from "./routes/cartRoute.js";
 // import orderRoute from './routes/orderRoutes.js';
 
@@ -29,9 +28,8 @@ app.use("/api/v1/gig", gigRoute);
 app.use("/api/v1/review", reviewRoute);
 // app.use('/api/v1/order', orderRoute);
 app.use("/api/v1/upload", uploadRoute);
-app.use("/api/v1/about", aboutRoute);
 app.use("/api/v1/cart", cartRoute);
-app.get("/api/config/paypal", (req, res) => {
+app.get("/api/v1/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 

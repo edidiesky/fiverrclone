@@ -4,6 +4,7 @@ import {
   CreateBuyerCart,
   DeleteBuyerCart,
   UpdateBuyerCart,
+  GetSingleBuyerCart
 } from "./cartReducer";
 const initialState = {
   // states
@@ -12,6 +13,7 @@ const initialState = {
   cartIsLoading: false,
   totalcart: 0,
   cart: null,
+  cartDetails:null,
 
   // alert states
   showAlert: false,
@@ -56,16 +58,32 @@ const CartSlice = createSlice({
       state.alertText = action.payload;
       state.alertType = "danger";
     },
+    [GetSingleBuyerCart.pending]: (state) => {
+      state.cartIsLoading = true;
+    },
+    [GetSingleBuyerCart.fulfilled]: (state, action) => {
+      state.cartIsLoading = false;
+      state.cartDetails = action.payload;
+      state.showAlert = true;
+    },
+    // cart
+    [GetSingleBuyerCart.rejected]: (state, action) => {
+      state.cartIsLoading = false;
+      state.showAlert = true;
+      state.cartIsError = true;
+      state.alertText = action.payload;
+      state.alertType = "danger";
+    },
     // create cart action handling
     [CreateBuyerCart.pending]: (state) => {
       state.cartIsLoading = true;
     },
     [CreateBuyerCart.fulfilled]: (state, action) => {
       state.cartIsLoading = false;
-      state.cart = action.payload;
+      state.cartDetails = action.payload;
       state.cartIsSuccess = true;
       state.showAlert = true;
-      state.alertText = `${action.payload.title} has been successfully to your cart`;
+      state.alertText = `Your acrt has been successfully created`;
       state.alertType = "success";
     },
     [CreateBuyerCart.rejected]: (state, action) => {
@@ -76,9 +94,7 @@ const CartSlice = createSlice({
       state.alertType = "danger";
     },
 
-
-
-  // update the gig
+    // update the gig
     [UpdateBuyerCart.pending]: (state) => {
       state.cartIsLoading = true;
     },
@@ -86,7 +102,7 @@ const CartSlice = createSlice({
       state.cartIsLoading = false;
       state.cartIsSuccess = true;
       state.showAlert = true;
-      state.alertText = "cart has been successfully updated";
+      state.alertText = "Your cart has been successfully updated";
     },
     [UpdateBuyerCart.rejected]: (state, action) => {
       state.cartIsLoading = false;
