@@ -1,31 +1,18 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const orderSchema = mongoose.Schema(
-  
   {
-    createdBy: {
+    buyerId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'User',
-      
+      ref: "User",
     },
-    orderItems: [
-      {
-        title: { type: String, required: true },
-        quantity: { type: Number, required: true },
-        image: { type: Array, required: true },
-        price: { type: Number, required: true },
-      },
-    ],
-    shippingAddress: {
-      address: { type: String, required: false },
-      city: { type: String, required: false },
-      postalCode: { type: String, required: false },
-      country: { type: String, required: false },
-      phone:{type:String, required:false},
+    cartId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "Cart",
     },
     paymentMethod: {
-      
       type: String,
       required: true,
     },
@@ -40,7 +27,7 @@ const orderSchema = mongoose.Schema(
       required: true,
       default: 0.0,
     },
-    totalQuantity:{
+    totalQuantity: {
       type: Number,
       default: 0.0,
     },
@@ -62,19 +49,15 @@ const orderSchema = mongoose.Schema(
     paidAt: {
       type: Date,
     },
-    isDelivered: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
-    deliveredAt: {
-      type: Date,
+    status: {
+      type: String,
+      enum: ["Pending", "Delivered", "Not Delivered"],
+      default: "Pending",
     },
   },
   {
     timestamps: true,
   }
-)
+);
 
-
-export default mongoose.model("Order", orderSchema)
+export default mongoose.model("Order", orderSchema);

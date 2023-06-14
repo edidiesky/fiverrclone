@@ -1,19 +1,24 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { ToggleSidebar } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
-import { CgMenuRight } from "react-icons/cg";
-import { HiUser } from "react-icons/hi";
+import { MdNotifications } from "react-icons/md";
+import { AiFillSetting, AiOutlineMail } from "react-icons/ai";
+import { NavLink } from "react-router-dom";
 const HeaderWrapper = styled.div`
-  background: #fff;
+  background: #000000;
   position: sticky;
   top: 0;
   z-index: 11000;
-  height: 86px;
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  width: 100%;
   border-bottom: 1px solid #ccc;
+  padding: 3rem 0;
+  .HeaderTopWrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
 
   .avatar {
     width: 4.5rem;
@@ -25,21 +30,20 @@ const HeaderWrapper = styled.div`
     place-items: center;
     &:hover {
       background-color: #adababa4;
-  }
+    }
 
     svg {
       color: #fff;
       font-size: 24px;
     }
   }
+  .borderBottom {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+  }
 
   .headerContainer {
-    width: 95%;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
 
     .headerLeft {
       display: flex;
@@ -80,31 +84,92 @@ const HeaderWrapper = styled.div`
 `;
 
 export default function Header({ text, subtext }) {
-  const { thememode } = useSelector((store) => store.toggle);
-  const { userInfo } = useSelector((store) => store.user);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    document.documentElement.className = thememode;
-    localStorage.setItem("theme", thememode);
-  }, [thememode]);
+  // const dispatch = useDispatch();
+  const sidebarData = [
+    {
+      title: "My Dashboard",
+      path: "",
+    },
+    {
+      title: "Customers",
+      path: "",
+    },
+    {
+      title: "Merchants",
+      path: "",
+    },
+    {
+      title: "Gigs",
+      path: "",
+    },
+    {
+      title: "Orders",
+      path: "",
+    },
+  ];
   return (
     <HeaderWrapper>
       <div className="headerContainer">
-        <h3 className="family1">
-          {text}
-        </h3>
-
-        <div className="headerLeft">
-          <div className="Icon" onClick={() => dispatch(ToggleSidebar())}>
-            <CgMenuRight />
-          </div>
-          <div className="flex item-center gap-1">
-            {/* <h4 className="family1 fs-14">{userInfo?.email}</h4> */}
-            <h4 className="family1 fs-14">essien@gmail.com</h4>
-            <div className="avatar flex item-center justify-center">
-              <HiUser />
+        {/* <h3 className="family1 text-white">{text}</h3> */}
+        {/* header top */}
+        <div className="headertop w-100 flex item-center borderBottom">
+          <div className="HeaderTopWrapper flex justify-space item-center">
+            <div className="flex flex-1 gap-2 item-center">
+              {/* icon */}
+              <div className="flex item-center gap-3">
+                {sidebarData.map((x, index) => {
+                  return (
+                    <NavLink
+                      exact
+                      className={"nav-link fs-16 text-grey text-light "}
+                      to={`${x.path}`}
+                      key={index}
+                    >
+                      {x.title}
+                    </NavLink>
+                  );
+                })}
+              </div>
             </div>
+            <div className="flex flex-1 item-center justify-end gap-4">
+              <AiFillSetting fontSize={"20px"} color="#fff" />
+              <AiOutlineMail fontSize={"20px"} color="#fff" />
+              <MdNotifications fontSize={"20px"} color="#fff" />
+              <div className="flex item-center gap-1">
+                <img
+                  src="https://images.pexels.com/photos/9869646/pexels-photo-9869646.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  alt=""
+                  className="avatar flex item-center justify-center"
+                />
+                <h4 className="fs-16 text-light text-white">
+                  Edidiong Essien
+                  <span className="block fs-12 text-grey">
+                    Seller for the shop
+                  </span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* header Bottom */}
+        <div className="headerBottom flex item-center justify-space w-100">
+          <div
+            className="HeaderTopWrapper flex justify-space item-center"
+            style={{ paddingTop: "5rem" }}
+          >
+            <div className="flex column gap-1 flex-1">
+              <h2 className="family1 flex-1 text-light fs-46 text-white">
+                Welcome Back, Antonio
+                <span className="block fs-14 text-grey w-85">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Assumenda et voluptates accusamus amet sapiente aut, provident
+                  at minus laudantium necessitatibus!
+                </span>
+              </h2>
+            </div>
+            <span className="justify-end flex  family1 flex-1 fs-16 text-light text-grey">
+              Tuesday, 11 September 2023
+            </span>
           </div>
         </div>
       </div>

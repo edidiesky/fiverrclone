@@ -2,20 +2,24 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BiMinus, BiPlus, BiRevision, BiTime } from "react-icons/bi";
-import { CreateBuyerCart, offCartSidebar } from "../../Features";
-import Message from "../modals/Message";
+import {
+  CreateBuyerCart,
+  createCustomersOrder,
+  offCartSidebar,
+} from "../../Features";
 import { clearCartAlert } from "../../Features/bag/bagSlice";
+import Message from "../loaders/Message";
 
 export default function CartSidebar() {
   const dispatch = useDispatch();
   const [qty, setQty] = useState(1);
-  // get the cart content
-  // const { isLoading, isError, bag } = useSelector((store) => store.bag);
+  // get the cartDetails content
   const { cartsidebar } = useSelector((store) => store.toggle);
   const { GigsDetails } = useSelector((store) => store.gigs);
-  const { cartIsLoading, cartIsSuccess, showAlert, alertText } = useSelector(
+  const { orderisSuccess } = useSelector((store) => store.order);
+  const { cartIsSuccess, showAlert, alertText, cartDetails } = useSelector(
     (store) => store.cart
   );
   const navigate = useNavigate();
@@ -23,12 +27,36 @@ export default function CartSidebar() {
     dispatch(CreateBuyerCart({ qty }));
   };
 
+  let estimatedTax = 0.055 * parseInt(cartDetails?.gigId?.price);
+
+  let ShoppingPrice =
+    parseInt(cartDetails?.gigId.price) * parseInt(cartDetails?.gigQuantity);
+  let shippingPrice = ShoppingPrice > 100 ? 100 : 0;
+  let TotalShoppingPrice =
+    ShoppingPrice + estimatedTax + parseInt(shippingPrice);
+
+  // order data to be created
+  const orderData = {
+    cartId: cartDetails?._id,
+    paymentMethod: "Paypal",
+    TotalShoppingPrice: parseInt(TotalShoppingPrice).toFixed(2),
+    totalQuantity: cartDetails?.gigQuantity,
+    shippingPrice: shippingPrice,
+    estimatedTax: estimatedTax,
+  };
+  console.log(orderData);
+  // if the cartDetails has been added then create the order
+  // if successfull then head to the checkout page
+
   useEffect(() => {
     if (cartIsSuccess) {
-      setTimeout(() => {
-        navigate(`/checkout?gigid=${GigsDetails?._id}`);
-      }, 5000);
+      dispatch(createCustomersOrder({ orderData }));
     }
+    // if (orderisSuccess) {
+    //   setTimeout(() => {
+    //     navigate(`/checkout?gigid=${GigsDetails?._id}`);
+    //   }, 5000);
+    // }
   }, [cartIsSuccess]);
 
   return (

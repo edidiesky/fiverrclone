@@ -58,14 +58,12 @@ const CreateOrder = async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
   const {
-    createdBy,
     orderItems,
-    shippingAddress,
     paymentMethod,
-    paymentResult,
     estimatedTax,
     shippingPrice,
     TotalShoppingPrice,
+    cartId,
   } = req.body;
 
   // Checking if there's an empty orderItem
@@ -74,7 +72,8 @@ const CreateOrder = async (req, res) => {
     throw new Error('Can"t create an order for you with an empty order Item');
   }
   const order = await Order.create({
-    createdBy: userId,
+    buyerId: userId,
+    cartId: cartId,
     orderItems,
     paymentMethod,
     estimatedTax,

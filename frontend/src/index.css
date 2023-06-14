@@ -17,6 +17,10 @@ a {
   color: inherit;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -299,7 +303,7 @@ p {
   font-weight: 600;
 }
 .text-light {
-  font-weight: 400;
+  font-weight: normal;
 }
 .radius1 {
   border-radius: 10px;
@@ -491,11 +495,11 @@ p {
 
 .w-85 {
   width: 85%;
-  max-width: 1600px;
+  max-width: 1260px;
 }
 .w-90 {
   width: 95%;
-  max-width: 1600px;
+  max-width: 1260px;
 }
 .w-100 {
   width: 100%;

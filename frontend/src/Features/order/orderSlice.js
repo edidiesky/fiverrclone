@@ -8,18 +8,15 @@ import {
   getCustomerOrderById,
   updateCustomersOrderToIsDelivered,
   getCustomerOrderStats,
-  handleStripeCheckout,
-  handleStripeKey,
-  handlePaypalKey
+  handlePaypalKey,
 } from "./orderReducer";
 
 const initialState = {
-  isSuccess: false,
-  isError: false,
+  orderisSuccess: false,
+  orderisError: false,
   order: null,
   orders: null,
-  isLoading: false,
-  token: "",
+  orderisLoading: false,
   showAlert: false,
   alertText: "",
   alertType: "",
@@ -31,12 +28,11 @@ const initialState = {
   isStatLoading: false,
   isStatError: false,
   isStatSuccess: false,
-  url: "",
   keys: "",
   orderpage: 1,
   ordernoOfpage: 0,
   totalorder: 0,
-  isloadingPayalKey:false,
+  isloadingPayalKey: false,
 };
 
 const orderSlice = createSlice({
@@ -63,65 +59,33 @@ const orderSlice = createSlice({
   extraReducers: {
     // creating customers order
     [createCustomersOrder.pending]: (state) => {
-      state.isLoading = true;
+      state.orderisLoading = true;
     },
     [createCustomersOrder.fulfilled]: (state, action) => {
-      state.isLoading = false;
+      state.orderisLoading = false;
       state.order = action.payload;
-      state.isSuccess = true;
+      state.orderisSuccess = true;
     },
     [createCustomersOrder.rejected]: (state, action) => {
-      state.isLoading = false;
+      state.orderisLoading = false;
       state.showAlert = true;
-      state.isError = true;
+      state.orderisError = true;
       state.alertText = action.payload;
       state.alertType = "danger";
     },
 
     // getting customers order
     [getCustomerOrderById.pending]: (state) => {
-      state.isLoading = true;
+      state.orderisLoading = true;
     },
     [getCustomerOrderById.fulfilled]: (state, action) => {
-      state.isLoading = false;
+      state.orderisLoading = false;
       state.order = action.payload;
     },
     [getCustomerOrderById.rejected]: (state, action) => {
-      state.isLoading = false;
+      state.orderisLoading = false;
       state.showAlert = true;
-      state.isError = true;
-      state.alertText = action.payload;
-      state.alertType = "danger";
-    },
-
-    // handle stripe checkout order
-    [handleStripeCheckout.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [handleStripeCheckout.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.url = action.payload;
-    },
-    [handleStripeCheckout.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.showAlert = true;
-      state.isError = true;
-      state.alertText = action.payload;
-      state.alertType = "danger";
-    },
-
-    // get stripe Key
-    [handleStripeKey.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [handleStripeKey.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.stripeKey = action.payload;
-    },
-    [handleStripeKey.rejected]: (state, action) => {
-      state.isLoading = false;
-      state.showAlert = true;
-      state.isError = true;
+      state.orderisError = true;
       state.alertText = action.payload;
       state.alertType = "danger";
     },
@@ -210,8 +174,6 @@ const orderSlice = createSlice({
       state.alertType = "danger";
     },
 
-
-    
     // get stripe Key
     [handlePaypalKey.pending]: (state) => {
       state.isloadingPayalKey = true;
@@ -231,7 +193,11 @@ const orderSlice = createSlice({
 });
 
 // console.log(orderSlice);
-export const { clearAlert, orderPayReset, orderDelieveredReset, getOrderPage } =
-  orderSlice.actions;
+export const {
+  clearAlert,
+  orderPayReset,
+  orderDelieveredReset,
+  getOrderPage,
+} = orderSlice.actions;
 
 export default orderSlice.reducer;

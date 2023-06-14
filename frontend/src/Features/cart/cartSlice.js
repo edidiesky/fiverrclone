@@ -83,7 +83,7 @@ const CartSlice = createSlice({
       state.cartDetails = action.payload;
       state.cartIsSuccess = true;
       state.showAlert = true;
-      state.alertText = `Your acrt has been successfully created`;
+      state.alertText = `Added successfully to cart`;
       state.alertType = "success";
     },
     [CreateBuyerCart.rejected]: (state, action) => {

@@ -16,10 +16,10 @@ import {
 } from "../controllers/cartControllers.js";
 
 router.route("/buyer/:id").get(authMiddleware, GetSingleBuyerCart);
+router.route("/").get(authMiddleware, GetAllBuyerCart);
 router
   .route("/:id")
   .post(authMiddleware, CreateBuyerCart)
-  .get(authMiddleware, GetAllBuyerCart)
   .put(authMiddleware, UpdateBuyerCart)
   .delete(authMiddleware, DeleteBuyerCart);
 

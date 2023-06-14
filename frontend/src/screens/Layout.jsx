@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { CartSidebar, Copyright, Footer } from "../components/common";
 import Sidebar from "../components/common/Sidebar";
+import Message from "../components/loaders/Message";
 export default function Layout() {
   const [height, setHeight] = useState(0);
 
@@ -15,6 +16,7 @@ export default function Layout() {
   return (
     <LayoutContainer className="layout" style={{ height }}>
       <Outlet />
+      <Message/>
       <Sidebar/>
       <Footer />
       <CartSidebar/>

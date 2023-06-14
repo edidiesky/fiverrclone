@@ -166,7 +166,7 @@ const DetailsTopLeftContainer = styled.div`
       height: 50rem;
       background: #f5f5f5;
       @media (max-width: 780px) {
-        height: 100%;
+        min-height: 100%;
       }
       .imagesWrapper {
         width: 100%;

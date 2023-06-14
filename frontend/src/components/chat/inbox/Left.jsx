@@ -43,10 +43,10 @@ export default function InboxLeft({toggle}) {
               alt=""
               className="avatar"
             />
-            <h4 className="text-dark family1 fs-14 text-extra-bold">
+            <h4 className="text-dark fs-16 text-extra-bold">
               Logo_56575
               {/* message */}
-              <span className="block">Hi</span>
+              <span className="block text-light family1">Hi</span>
             </h4>
           </div>
           {/* time */}
@@ -64,6 +64,10 @@ const InboxLeftWrapper = styled.div`
   width: 100%;
   height: 100%;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
+  .avatar {
+    width:6rem;
+    height: 6rem;
+  }
   @media (max-width:980px) {
     display: none;
     }

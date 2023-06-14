@@ -20,6 +20,7 @@ import reviewRoute from "./routes/reviewRoutes.js";
 import gigRoute from "./routes/gigRoutes.js";
 import uploadRoute from "./routes/uploadRoute.js";
 import cartRoute from "./routes/cartRoute.js";
+import chatRoute from "./routes/chatRoutes.js";
 // import orderRoute from './routes/orderRoutes.js';
 
 app.use("/api/v1/auth", authRoute);
@@ -29,6 +30,7 @@ app.use("/api/v1/review", reviewRoute);
 // app.use('/api/v1/order', orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/cart", cartRoute);
+app.use("/api/v1/chat", chatRoute);
 app.get("/api/v1/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
@@ -67,12 +69,11 @@ mongoose.connect(
 //   app.get("*", (req, res) =>
 //     res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
 //   );
-// } else { 
+// } else {
 //   app.get("/", (req, res) => {
 //     res.send("API is running....");
 //   });
 // }
-
 
 // Middlewares
 app.use(NotFound);

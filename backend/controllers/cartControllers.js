@@ -95,7 +95,7 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
     sellerId: gig.sellerId ? gig.sellerId : gig.user,
   });
 
-  res.status(200).json({ alreadyinCart, cart });
+  res.status(200).json({ cart });
 });
 
 //PRIVATE

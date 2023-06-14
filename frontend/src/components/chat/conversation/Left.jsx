@@ -8,12 +8,12 @@ const converstionData = [
     senderMessage: [
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "Hi Dear",
       },
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "How was your day",
       },
     ],
@@ -35,12 +35,12 @@ const converstionData = [
     senderMessage: [
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "Hi Dear",
       },
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "How was your day",
       },
     ],
@@ -62,12 +62,12 @@ const converstionData = [
     senderMessage: [
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "Hi Dear",
       },
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "How was your day",
       },
     ],
@@ -89,12 +89,12 @@ const converstionData = [
     senderMessage: [
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "Hi Dear",
       },
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "How was your day",
       },
     ],
@@ -116,12 +116,12 @@ const converstionData = [
     senderMessage: [
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "Hi Dear",
       },
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "How was your day",
       },
     ],
@@ -143,12 +143,12 @@ const converstionData = [
     senderMessage: [
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "Hi Dear",
       },
       {
         image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/678cc3c928a2fa97611b7764764556d5-1679773262712/8abb986f-a894-4f52-a488-600682d8eda0.jpg",
+          "/images/johanna-richardson.jpg",
         text: "How was your day",
       },
     ],

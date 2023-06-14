@@ -86,8 +86,6 @@ import {
   getCustomerOrderById,
   updateCustomersOrderToIsDelivered,
   getCustomerOrderStats,
-  handleStripeCheckout,
-  handleStripeKey,
   handlePaypalKey
 } from './order/orderReducer'
 import {
@@ -164,8 +162,6 @@ export {
   getCustomerOrderById,
   updateCustomersOrderToIsDelivered,
   getCustomerOrderStats,
-  handleStripeCheckout,
-  handleStripeKey,
   orderPayReset,
   orderDelieveredReset,
   getOrderPage,

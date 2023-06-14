@@ -11,50 +11,9 @@ export const createCustomersOrder = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.post("/api/v1/order/", orderData, config);
+      const { data } = await axios.post("/api/v1/order", orderData, config);
 
       return data.order;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
-      );
-    }
-  }
-);
-
-export const handleStripeCheckout = createAsyncThunk(
-  "/stripe",
-  async (orderItems, thunkAPI) => {
-    const state = thunkAPI.getState();
-    try {
-      const { data } = await axios.post("/stripe", orderItems);
-
-      return data.url;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message
-      );
-    }
-  }
-);
-
-export const handleStripeKey = createAsyncThunk(
-  "/order/stripeKey",
-  async (orderItems, thunkAPI) => {
-    const state = thunkAPI.getState();
-    try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
-      const { data } = await axios.get("/stripekey", orderItems, config);
-
-      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
