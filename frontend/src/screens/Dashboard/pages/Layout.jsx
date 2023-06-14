@@ -14,6 +14,9 @@ const LayoutWrapper = styled.div`
     .OutletWrapper {
       width: 100%;
       padding-bottom: 3.5rem;
+      position: relative;
+      z-index: 39000;
+      transform: translateY(-100px);
     }
   }
 `;
@@ -22,7 +25,7 @@ export default function Layout() {
   return (
     <LayoutWrapper>
       {/* <Sidebar /> */}
-      <Header/>
+      <Header />
       <div className="LayoutContainer">
         <div className="OutletWrapper">
           <Outlet />

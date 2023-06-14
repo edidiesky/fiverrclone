@@ -2,72 +2,67 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import {
-  getAllProduct,
-  handleProductSearch,
-  clearProductAlert,
-  clearProductDetails,
-} from "../../../Features";
-import { TableList, Pagination, Header } from "../components";
+// import {
+//   getAllProduct,
+//   handleProductSearch,
+//   clearProductAlert,
+//   clearProductDetails,
+// } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
-import { TableCard, Links, Alert } from "../components";
+// import { TableCard, Links, Alert } from "../components";
 import { Table } from "./styles";
 import Message from "../../../components/loaders/Message";
 import LoaderIndex from "../../../components/loaders/index";
 
 export default function Products() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const {
-    noOfPages,
-    page,
-    product,
-    isLoading,
-    isError,
-    alertText,
-    alertType,
-    isSuccess,
-    showAlert,
-  } = useSelector((store) => store.product);
+  // const {
+  //   noOfPages,
+  //   page,
+  //   product,
+  //   isLoading,
+  //   isError,
+  //   alertText,
+  //   alertType,
+  //   isSuccess,
+  //   showAlert,
+  // } = useSelector((store) => store.product);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    dispatch(getAllProduct());
-  }, [page]);
-
-  // clear the product alert
   // useEffect(() => {
-  // 	if (showAlert) {
-  // 	  setTimeout(() => {
-  // 		dispatch(clearProductAlert());
-  // 	  }, 10000);
-  // 	}
-  //   }, [showAlert]);
+  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  //   dispatch(getAllProduct());
+  // }, [page]);
 
-  // Search functionality
-  const [search, setSearch] = useState("");
+  // // clear the product alert
+  // // useEffect(() => {
+  // // 	if (showAlert) {
+  // // 	  setTimeout(() => {
+  // // 		dispatch(clearProductAlert());
+  // // 	  }, 10000);
+  // // 	}
+  // //   }, [showAlert]);
 
-  useEffect(() => {
-    dispatch(clearProductDetails());
-    dispatch(handleProductSearch(search));
-    if (!search) {
-      dispatch(getAllProduct());
-    }
-  }, [search]);
+  // // Search functionality
+  // const [search, setSearch] = useState("");
+
+  // useEffect(() => {
+  //   dispatch(clearProductDetails());
+  //   dispatch(handleProductSearch(search));
+  //   if (!search) {
+  //     dispatch(getAllProduct());
+  //   }
+  // }, [search]);
 
   return (
     <>
-      <Alert
+      {/* <Alert
         showAlert={showAlert}
         alertText={alertText}
         alertType={alertType}
         handleClearAlert={clearProductAlert}
-      />
+      /> */}
       {isLoading && <LoaderIndex loading={isLoading} />}
-      <Header
-        text={"My Products"}
-        subtext={"Here is what is happening with your products today"}
-      />
       <ProductsContainer>
         <Table>
           {isSuccess && (
@@ -110,13 +105,13 @@ export default function Products() {
                 </tr>
               </thead>
               <tbody>
-                {product?.map((x) => {
+                {/* {product?.map((x) => {
                   return <TableCard x={x} key={x?._id} />;
-                })}
+                })} */}
               </tbody>
             </table>
           </div>
-          {noOfPages > 0 && <Pagination />}
+          {/* {noOfPages > 0 && <Pagination />} */}
         </Table>
       </ProductsContainer>
     </>

@@ -6,8 +6,8 @@ import { AiFillSetting, AiOutlineMail } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 const HeaderWrapper = styled.div`
   background: #000000;
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
   z-index: 11000;
   display: flex;
   align-items: center;
@@ -15,9 +15,15 @@ const HeaderWrapper = styled.div`
   width: 100%;
   border-bottom: 1px solid #ccc;
   padding: 3rem 0;
+  padding-bottom: 15rem;
   .HeaderTopWrapper {
     width: 90%;
     margin: 0 auto;
+    @media (max-width: 880px) {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: flex-start;
+    }
   }
 
   .avatar {
@@ -116,7 +122,10 @@ export default function Header({ text, subtext }) {
           <div className="HeaderTopWrapper flex justify-space item-center">
             <div className="flex flex-1 gap-2 item-center">
               {/* icon */}
-              <div className="flex item-center gap-3">
+              <div
+                className="flex item-center gap-3"
+                style={{ flexWrap: "wrap" }}
+              >
                 {sidebarData.map((x, index) => {
                   return (
                     <NavLink

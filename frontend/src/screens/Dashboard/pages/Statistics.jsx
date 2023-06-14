@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getProductStats,
-  getAllProduct,
-  getAllCustomer,
-  getCustomerOrderStats,
-} from "../../../Features";
+// import {
+//   getProductStats,
+//   getAllProduct,
+//   getAllCustomer,
+//   getCustomerOrderStats,
+// } from "../../../Features";
 import styled from "styled-components";
-import { Widget, Visuals, Header, Chart, Orders, Alert } from "../components";
-import Products from "./Products";
+// import { Widget, Visuals, Header, Chart, Orders, Alert } from "../components";
+import { Widget } from "../components";
+import VisualChart from "../components/Visuals";
+
+// import Products from "./Products";
 
 const StatisticsWrapper = styled.div`
   width: 95%;
@@ -28,30 +31,29 @@ const StatisticsWrapper = styled.div`
 `;
 
 export default function Statistics() {
-  // get all Order statistics and product statistics
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllProduct());
-    dispatch(getAllCustomer());
-    dispatch(getCustomerOrderStats());
-    dispatch(getProductStats());
-  }, []);
-  const { userInfo } = useSelector((store) => store.user);
+  // // get all Order statistics and product statistics
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getAllProduct());
+  //   dispatch(getAllCustomer());
+  //   dispatch(getCustomerOrderStats());
+  //   dispatch(getProductStats());
+  // }, []);
+  // const { userInfo } = useSelector((store) => store.user);
 
   return (
     <>
-      <Alert />
-      <Header
-        subtext={"Here is what is happening with your store today"}
-        text={`Edidiong Essien`}
-      />
+      {/* <Alert /> */}
       <StatisticsWrapper>
         <Widget />
         <div className="chartWrapper">
-          <Chart title="Analytics" />
-          <Visuals />
+          {/* <Chart title="Analytics" />
+          <Visuals /> */}
+          <VisualChart/>
+          <VisualChart/>
+
         </div>
-        <Orders />
+        {/* <Orders /> */}
       </StatisticsWrapper>
     </>
   );
