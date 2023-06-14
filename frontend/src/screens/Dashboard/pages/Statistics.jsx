@@ -22,7 +22,8 @@ const StatisticsWrapper = styled.div`
   gap: 3rem;
 
   .chartWrapper {
-    width: 100%;
+    width: 85%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 2rem;
@@ -49,9 +50,8 @@ export default function Statistics() {
         <div className="chartWrapper">
           {/* <Chart title="Analytics" />
           <Visuals /> */}
-          <VisualChart/>
-          <VisualChart/>
-
+          <VisualChart />
+          <VisualChart />
         </div>
         {/* <Orders /> */}
       </StatisticsWrapper>
