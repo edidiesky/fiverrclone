@@ -10,14 +10,14 @@ import { MdDashboard, MdAddBusiness, MdSettings } from "react-icons/md";
 import { BsCollection } from "react-icons/bs";
 import Logo from "../../../components/common/svg/Logo";
 const SidebarWrapper = styled.div`
-  width: 350px;
-  background: var(--white);
+  width: 270px;
+  background: var(--dark-1);
 
   height: 100vh;
   top: 0%;
   position: sticky;
   border-right: 1px solid #d1d1d1;
-    .fill {
+  .fill {
     fill: #333;
   }
   @media (max-width: 1080px) {
@@ -50,7 +50,7 @@ const SidebarWrapper = styled.div`
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap:.4rem;
+      gap: 0.4rem;
       &.List1 {
         padding-top: 2rem;
         padding-bottom: 0;
@@ -67,12 +67,12 @@ const SidebarWrapper = styled.div`
         text-align: start;
       }
       .nav-link {
-        padding:16px;
-        font-size: 1.4rem;
-        font-weight: 600; 
+        padding: 16px;
+        font-size: 1.2rem;
+        font-weight: 600;
         margin: 0 auto;
         width: 100%;
-        color: var(--dark-1);
+        color: var(--grey-1);
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -81,7 +81,7 @@ const SidebarWrapper = styled.div`
 
         &:hover {
           background: #2363c414;
-          color: var(--blue-2);
+          color: #50fc61;
         }
         svg {
           font-size: 2rem;
@@ -89,7 +89,7 @@ const SidebarWrapper = styled.div`
         &.active {
           background: #2363c414;
           position: relative;
-          color: var(--blue-2);
+          color: #50fc61;
         }
       }
     }
@@ -101,13 +101,13 @@ export const sidebarData = [
     id: 1,
     icon1: <MdDashboard />,
     title: "Dashboard",
-    path: "statistics",
+    path: "",
   },
   {
     id: 2,
     icon1: <HiOutlineShoppingCart />,
     title: "Products",
-    path: "product",
+    path: "gigs",
   },
   {
     id: 3,
@@ -129,16 +129,15 @@ export default function Sidebar() {
     <SidebarWrapper>
       <div className="sidebarContainer">
         <NavLink to={"/"} className="imageWrapper">
-          <Logo color={'#333'}/>
+          <Logo color={"#333"} />
         </NavLink>
         <div className="list">
           {sidebarData.map((x) => {
             return (
               <NavLink
-                className={({ isActive }) =>
-                  isActive ? "nav-link active family1" : "nav-link family1"
-                }
-                to={`${x.path}`}
+                className="nav-link family1 uppercase"
+                activeClassName="active"
+                to={`/dashboard/${x.path}`}
                 key={x.id}
               >
                 {x.icon1}
@@ -151,7 +150,7 @@ export default function Sidebar() {
         <div className="list List1">
           {sidebarData2.map((x) => {
             return (
-              <div className="nav-link" key={x.id}>
+              <div className="nav-link family1" key={x.id}>
                 {x.icon1} {x.title}
               </div>
             );

@@ -9,10 +9,11 @@ import { FaSearch } from "react-icons/fa";
 //   clearProductDetails,
 // } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
-// import { TableCard, Links, Alert } from "../components";
+import { Header, TableCard, Topbar } from "../components";
 import { Table } from "./styles";
 import Message from "../../../components/loaders/Message";
 import LoaderIndex from "../../../components/loaders/index";
+import { projectData } from "../../../data";
 
 export default function Products() {
   // const dispatch = useDispatch();
@@ -62,64 +63,55 @@ export default function Products() {
         alertType={alertType}
         handleClearAlert={clearProductAlert}
       /> */}
-      {isLoading && <LoaderIndex loading={isLoading} />}
-      <ProductsContainer>
-        <Table>
-          {isSuccess && (
+      {/* {isLoading && <LoaderIndex loading={isLoading} />} */}
+      {/* <Header type={"product"} /> */}
+      <Topbar />
+
+      <ProductsContainer className="flex column gap-3 ">
+        <div className="w-100 flex column gap-3">
+          <h2 className="family1 flex-1 fs-30 text-dark">Gigs</h2>
+          <Table>
+            {/* {isSuccess && (
             <Message
               alertText={"Your Customers have been succesfully gotten"}
               alertType={"success"}
             />
-          )}
-          <div className="TableTop">
-            <div className="TableTopRight">
-              <h3>Product List </h3>
-            </div>
-            <div className="TableTopLeft">
-              <form>
-                <FaSearch />
-                <input
-                  type="text"
-                  placeholder="Search for product"
-                  name="search"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </form>
-              <Link to={"create-product"} className="addBtn">
-                Add Product
-              </Link>
-            </div>
-          </div>
-          <div className="TableContainer">
-            <table className="tableWrapper">
-              <thead>
-                <tr>
-                  <th>Product id</th>
-                  <th>Product Image</th>
-                  <th>Product Name</th>
-                  <th>Product Price</th>
-                  <th>Product CountInStock</th>
-                  <th>Product Brand</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* {product?.map((x) => {
+          )} */}
+
+            <div className="TableContainer">
+              <table className="tableWrapper">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    {/* <th>Image</th> */}
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>CountInStock</th>
+                    <th>Brand</th>
+                    <th>Actions</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* {product?.map((x) => {
                   return <TableCard x={x} key={x?._id} />;
                 })} */}
-              </tbody>
-            </table>
-          </div>
-          {/* {noOfPages > 0 && <Pagination />} */}
-        </Table>
+                  {projectData?.slice(0, 3).map((x) => {
+                    return <TableCard x={x} key={x?._id} />;
+                  })}
+                </tbody>
+              </table>
+            </div>
+            {/* {noOfPages > 0 && <Pagination />} */}
+          </Table>
+        </div>
       </ProductsContainer>
     </>
   );
 }
 
 const ProductsContainer = styled.div`
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   padding-top: 3rem;
 `;

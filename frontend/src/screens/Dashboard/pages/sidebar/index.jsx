@@ -7,7 +7,7 @@ import { BiChevronDown } from "react-icons/bi";
 import Dropdown from "./Dropdown";
 
 const SidebarWrapper = styled.div`
-  width: 24rem;
+  width: 18rem;
   background: #fff;
 
   @media (max-width: 780px) {

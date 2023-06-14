@@ -20,6 +20,11 @@ a {
 .justify-end {
   justify-content: flex-end;
 }
+.avatar-large {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
 
 body {
   margin: 0;
@@ -46,6 +51,11 @@ body {
   --yellow: #ffb33e;
   --pink: #ff62ad;
   --red: #ef4444;
+
+  --grey-1: rgba(209, 209, 209, 1);
+  --grey-2: #ccc;
+  --grey-3: #f2f2f2;
+  --grey-4: #e6e4e4;
 }
 
 .text-extra-bold {

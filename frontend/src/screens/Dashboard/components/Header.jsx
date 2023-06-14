@@ -6,31 +6,52 @@ import { AiFillSetting, AiOutlineMail } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 const HeaderWrapper = styled.div`
   background: #000000;
-  /* position: sticky;
-  top: 0; */
-  z-index: 11000;
+
+  /* z-index: 11000; */
   display: flex;
   align-items: center;
   gap: 1.2rem;
   width: 100%;
   border-bottom: 1px solid #ccc;
   padding: 3rem 0;
-  padding-bottom: 15rem;
+  padding-bottom: 12rem;
+  @media (max-width: 980px) {
+    padding: 1rem;
+    padding-bottom: 0;
+    position: sticky;
+    top: 0;
+    height: 8rem;
+  }
   .HeaderTopWrapper {
     width: 90%;
     margin: 0 auto;
-    @media (max-width: 880px) {
+    @media (max-width: 980px) {
       flex-direction: column;
       gap: 2rem;
       align-items: flex-start;
+      display: none;
+      /* z-index: 30000; */
     }
   }
 
+  .headertop {
+    position: fixed;
+    top: 0;
+    z-index: 182730000;
+    background: #000000;
+    display: flex;
+    align-items: center;
+    /* @media (max-width: 980px) {
+      display: none;
+    } */
+  }
+
   .avatar {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 50%;
-    background-color: #adabab;
+    /* background-color: #adabab; */
+    object-fit: cover;
     color: #fff;
     display: grid;
     place-items: center;
@@ -45,7 +66,18 @@ const HeaderWrapper = styled.div`
   }
   .borderBottom {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 2rem;
+    padding: 2rem 0;
+  }
+  .headerBottom {
+    z-index: 3000;
+    padding-top: 4rem;
+  }
+
+  h2 {
+    @media (max-width: 980px) {
+      font-size: 4rem;
+      line-height: 1.2;
+    }
   }
 
   .headerContainer {
@@ -89,7 +121,7 @@ const HeaderWrapper = styled.div`
   }
 `;
 
-export default function Header({ text, subtext }) {
+export default function Header({ text, subtext, type }) {
   // const dispatch = useDispatch();
   const sidebarData = [
     {
@@ -106,13 +138,36 @@ export default function Header({ text, subtext }) {
     },
     {
       title: "Gigs",
-      path: "",
+      path: "gigs",
     },
     {
       title: "Orders",
       path: "",
     },
   ];
+  const HeaderBottom = () => {
+    return (
+      <div className="headerBottom flex item-center justify-space w-100">
+        <div
+          className="HeaderTopWrapper flex justify-space item-center"
+          style={{ paddingTop: "5rem" }}
+        >
+          <div className="flex column gap-1 flex-1">
+            <h2 className="family1 flex-1 text-light fs-46 text-white">
+              {text || 'Edidie Essien'}
+              <span className="block fs-14 text-grey w-85">
+                {subtext ||
+                  " Lorem ipsum dolor sit amet consectetur adipisicing elit  at minus laudantium necessitatibus!"}
+              </span>
+            </h2>
+          </div>
+          <span className="justify-end flex  family1 flex-1 fs-16 text-light text-grey">
+            Tuesday, 11 September 2023
+          </span>
+        </div>
+      </div>
+    );
+  };
   return (
     <HeaderWrapper>
       <div className="headerContainer">
@@ -130,7 +185,9 @@ export default function Header({ text, subtext }) {
                   return (
                     <NavLink
                       exact
-                      className={"nav-link fs-16 text-grey text-light "}
+                      className={
+                        "nav-link uppercase fs-14 text-grey text-light "
+                      }
                       to={`${x.path}`}
                       key={index}
                     >
@@ -146,7 +203,7 @@ export default function Header({ text, subtext }) {
               <MdNotifications fontSize={"20px"} color="#fff" />
               <div className="flex item-center gap-1">
                 <img
-                  src="https://images.pexels.com/photos/9869646/pexels-photo-9869646.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  src="https://i.pinimg.com/236x/93/08/92/93089298c654873799ee88fcd374f293.jpg"
                   alt=""
                   className="avatar flex item-center justify-center"
                 />
@@ -160,27 +217,8 @@ export default function Header({ text, subtext }) {
             </div>
           </div>
         </div>
+        {<HeaderBottom />}
         {/* header Bottom */}
-        <div className="headerBottom flex item-center justify-space w-100">
-          <div
-            className="HeaderTopWrapper flex justify-space item-center"
-            style={{ paddingTop: "5rem" }}
-          >
-            <div className="flex column gap-1 flex-1">
-              <h2 className="family1 flex-1 text-light fs-46 text-white">
-                Welcome Back, Antonio
-                <span className="block fs-14 text-grey w-85">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Assumenda et voluptates accusamus amet sapiente aut, provident
-                  at minus laudantium necessitatibus!
-                </span>
-              </h2>
-            </div>
-            <span className="justify-end flex  family1 flex-1 fs-16 text-light text-grey">
-              Tuesday, 11 September 2023
-            </span>
-          </div>
-        </div>
       </div>
     </HeaderWrapper>
   );

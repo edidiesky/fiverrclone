@@ -83,7 +83,7 @@ const WidgetWrapper = styled.div`
   }
 
   .widgetCard {
-    padding: 3rem 2rem;
+    padding: 2rem;
     background: var(--white);
     display: flex;
     flex-direction: column;
@@ -101,10 +101,13 @@ const WidgetWrapper = styled.div`
     }
 
     h2 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       color: var(--text-color);
       font-weight: 600;
       text-transform: uppercase;
+      @media (max-width:780px) {
+        font-size: 2.5rem;
+      }
       .span1 {
         display: block;
         font-size: 1.6rem;

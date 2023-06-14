@@ -1,23 +1,14 @@
-// import Customers from "./Customers";
-// import AdminProductList from "./Products";
+import Customers from "./Customers";
+import AdminProductList from "./Products";
 
-// import OrderList from "./Order";
+import OrderList from "./Order";
 // import Sidebar from "./Sidebar";
 import Statistics from "./Statistics";
 import LayoutList from "./Layout";
 // import EditUser from "./EditUser";
 import ProfileList from "./Profile";
 import CreateProductIndex from "./createProduct/index";
-// export {
-// 	// AdminProductList,
-// 	// Customers,
-// 	// OrderList,
-// 	Sidebar,
-// 	LayoutList,
-// 	// EditProduct,
-// 	// EditUser,
-// 	// CreateProduct
-// }
+
 
 export {
   LayoutList,
@@ -25,8 +16,10 @@ export {
   // AdminProductList,
   // OrderList,
   ProfileList,
-  // Customers,
+  Customers,
   // EditUser,
+  AdminProductList,
   CreateProductIndex,
-  Statistics
+  Statistics,
+  OrderList
 };

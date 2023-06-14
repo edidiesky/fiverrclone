@@ -4,6 +4,8 @@ import Pagination from './Pagination'
 import TableCard from './TableCard'
 import Links from './Links'
 import Orders from './Orders'
+import Topbar from './Topbar'
+
 import Smallsidebar from './Smallsidebar'
 import Delete from './DeleteModal'
 import Alert from './Message'
@@ -16,5 +18,6 @@ export {
 	Orders,
 	Smallsidebar,
 	Delete,
-	Alert
+	Alert,
+	Topbar
 }

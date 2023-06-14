@@ -9,7 +9,7 @@ export const Table = styled.div`
   flex-direction: column;
   padding-top: 3rem;
   gap: 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* border: 1px solid rgba(0, 0, 0, 0.2); */
   &::-webkit-scrollbar {
     width: 7px;
     height: 7px;
@@ -21,7 +21,7 @@ export const Table = styled.div`
     border-radius: 10px;
     transition: all 0.5s;
     &:hover {
-      background: var(--primary-hover);
+      background: var(--dark-1);
     }
   }
   .TableTop {
@@ -47,7 +47,7 @@ export const Table = styled.div`
         font-size: 2rem;
         color: var(--text-color);
         font-weight: 600;
-        font-family: "Barlow", sans-serif;
+        font-family: "Montserrat", sans-serif;
       }
     }
 
@@ -85,13 +85,13 @@ export const Table = styled.div`
           flex: 1;
           border: none;
           background: inherit;
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           outline: none;
           border: none;
           font-weight: 500;
           color: var(--grey);
           font-family: inherit;
-          font-family: "Barlow", sans-serif;
+          font-family: "Montserrat", sans-serif;
           &::placeholder {
             font-size: 1.4rem;
             font-weight: 400;
@@ -110,7 +110,7 @@ export const Table = styled.div`
         outline: none;
         cursor: pointer;
         border-radius: 40px;
-        font-family: "Barlow", sans-serif;
+        font-family: "Montserrat", sans-serif;
 
         &:hover {
           background: var(--red);
@@ -137,7 +137,7 @@ export const Table = styled.div`
       border-radius: 10px;
       transition: all 0.5s;
       &:hover {
-        background: var(--primary-hover);
+        background: var(--dark-1);
       }
     }
 
@@ -156,7 +156,7 @@ export const Table = styled.div`
         border-radius: 10px;
         transition: all 0.5s;
         &:hover {
-          background: var(--primary-hover);
+          background: var(--dark-1);
         }
       }
 
@@ -164,18 +164,18 @@ export const Table = styled.div`
         tr {
           text-align: start;
           z-index: 200;
-          background: var(--grey-3);
+          /* background: var(--grey-3); */
           text-align: start;
           transition: all 0.3s var(--transition-2);
           &:hover {
             background: rgb(0 0 0 / 13%);
           }
           th {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--blue-3);
             font-weight: 700;
             text-align: start;
-            font-family: "Barlow", sans-serif;
+            font-family: "Montserrat", sans-serif;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 2rem;
             text-transform: uppercase;
@@ -191,18 +191,18 @@ export const Table = styled.div`
           z-index: 200;
 
           &:hover {
-            background: #2364c429;
+            background: #daf2c2;
             td {
               color: var(--blue-3);
             }
           }
           td {
-            font-size: 1.2rem;
-            font-weight: 400;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-align: start;
             padding: 1.5rem 2rem;
-            color: var(--dark-1);
-            font-family: "Barlow", sans-serif;
+            color: #777;
+            font-family: "Montserrat", sans-serif;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             .true {
               color: e72d2d;
@@ -231,30 +231,31 @@ export const Table = styled.div`
             }
             .tablespan {
               display: block;
-              padding: 1rem 1.4rem;
-              font-size: 1.3rem;
+              padding: 1rem;
+              font-size: 1.1rem;
               font-weight: 600;
-              width: 100%;
+              /* width: 100%; */
+              /* display: block; */
               border-radius: 4px;
               color: #333;
-              text-align: center;
+              text-align: start;
               &.true {
                 color: #045235;
-                background: #04523517;
+                /* background: #04523517; */
               }
               &.false {
                 color: #e50b0b;
-                background: #e50b0b12;
+                /* background: #e50b0b12; */
               }
             }
 
             .true {
               color: var(--green);
-              font-size: 1.3rem;
+              font-size: 1.1rem;
             }
             .false {
               color: var(--red);
-              font-size: 1.3rem;
+              font-size: 1.1rem;
             }
 
             .imageGradient {

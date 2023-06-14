@@ -27,12 +27,13 @@ import {
 import {
   LayoutList,
   // Statistics,
-  // AdminProductList,
+  AdminProductList,
   ProfileList,
-  // Customers,
+  Customers,
   // EditUser,
+  OrderList,
   CreateProductIndex,
-  Statistics
+  Statistics,
 } from "./screens/Dashboard/pages";
 import { useDispatch, useSelector } from "react-redux";
 import { handlePaypalKey } from "./Features";
@@ -95,8 +96,13 @@ export default function App() {
               </Route>
 
               <Route exact path={"/dashboard/"} element={<LayoutList />}>
-              <Route index element={<Statistics />} />
+                <Route index element={<Statistics />} />
                 <Route exact path="profile" element={<ProfileList />} />
+                <Route exact path="gigs" element={<AdminProductList />} />
+                <Route exact path="users" element={<Customers />} />
+
+                <Route path="order" element={<OrderList />} />
+
                 <Route
                   exact
                   path="create-product"

@@ -44,7 +44,7 @@ export default function TableCards({ x, type }) {
   if (type === "users") {
     return (
       <>
-        <Delete type="users" />
+        {/* <Delete type="users" /> */}
         <tr key={x?._id}>
           <td>{x?._id}</td>
           <td>{x?.firstname}</td>
@@ -77,72 +77,67 @@ export default function TableCards({ x, type }) {
       <tr key={x?._id}>
         <td>{x?._id}</td>
         <td>{createddate}</td>
-        <td>
+        {/* <td>
           {x?.createdBy?.firstname} {x?.createdBy?.lastname}
+        </td> */}
+        <td>
+          {" "}
+          <div className="flex item-center gap-2">
+            <h5 className="fs-12 text-bold family1">Edidiong</h5>
+            <div className="">
+              {x?.image && (
+                <img
+                  src={x?.image[0]}
+                  alt="images"
+                  className="flex item-center justify-center avatar"
+                />
+              )}
+            </div>
+          </div>
         </td>
 
         <td>${x?.TotalShoppingPrice}</td>
         <td>
-          {x?.isPaid ? (
-            <span className="tablespan true">Paid</span>
-          ) : (
-            <span className="tablespan false">Not Paid</span>
-          )}
-        </td>
-        <td>
-          {x?.isDelivered ? (
-            <span className="tablespan true">Delivered</span>
-          ) : (
-            <span className="tablespan false">Not Delivered</span>
-          )}
-        </td>
-        <td>
-          <div className="action">
-            <h4 className="details" onClick={handleOrderNav}>
-              See Details
-            </h4>
+          <div className="flex item-center">
+            {x?.isPaid ? (
+              <div className="tablespan true">Paid</div>
+            ) : (
+              <div className="tablespan false">Not Paid</div>
+            )}
           </div>
         </td>
+        <td>
+          <div className="flex item-center">
+            {x?.isDelivered ? (
+              <div className="tablespan true">Delivered</div>
+            ) : (
+              <div className="tablespan false">Not Delivered</div>
+            )}
+          </div>
+        </td>
+        <td>50</td>
+        <td>Totals</td>
       </tr>
     );
   }
 
-  if (type === "orders1") {
-    return (
-      <tr key={x?._id}>
-        <td>{x?._id}</td>
-        <td>{createddate}</td>
-        <td>
-          {x?.createdBy?.firstname} {x?.createdBy?.lastname}
-        </td>
-        <td>{x?.createdBy?.email}</td>
-        <td>${x?.TotalShoppingPrice}</td>
-        <td>
-          <div className="action">
-            <h4 className="details" onClick={handleOrderNav}>
-              See Details
-            </h4>
-          </div>
-        </td>
-      </tr>
-    );
-  }
   return (
     <>
-      <Delete />
+      {/* <Delete /> */}
       <tr key={x?._id}>
         <td>{x?._id}</td>
+        <td>12th of Sep</td>
         <td>
           <div className="cartProduct">
             <div className="imageWrapper">
-              {x?.image && <img src={x?.image[0]?.image} alt="images" />}
+              {x?.image && <img src={x?.image[0]} alt="images" />}
             </div>
           </div>
         </td>
         <td>{x?.title}</td>
         <td>${x?.price}</td>
         <td>{x?.countInStock}</td>
-        <td>{x?.brand}</td>
+        {/* <td>{x?.brand}</td> */}
         <td>
           <div className="action">
             <div className="icons" onClick={handleDeleteProduct}>

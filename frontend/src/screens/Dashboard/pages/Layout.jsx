@@ -8,15 +8,15 @@ const LayoutWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
   .LayoutContainer {
     width: 100%;
     .OutletWrapper {
       width: 100%;
       padding-bottom: 3.5rem;
-      position: relative;
-      z-index: 39000;
-      transform: translateY(-100px);
+      @media (max-width: 980px) {
+        transform: translateY(0);
+        z-index: 9000;
+      }
     }
   }
 `;
@@ -24,8 +24,8 @@ const LayoutWrapper = styled.div`
 export default function Layout() {
   return (
     <LayoutWrapper>
-      {/* <Sidebar /> */}
-      <Header />
+      <Sidebar />
+      {/* <Header /> */}
       <div className="LayoutContainer">
         <div className="OutletWrapper">
           <Outlet />
