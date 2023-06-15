@@ -27,7 +27,7 @@ const HeaderWrapper = styled.div`
 
   form {
     padding: 1.2rem 2rem;
-    background-color: var(--grey-3);
+    background-color: var(--grey-4);
     border-radius: 40px;
     @media (max-width: 780px) {
       display: none;
