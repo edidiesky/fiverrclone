@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ToggleSidebar } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
-import { CgMenuRight } from "react-icons/cg";
+import { AiOutlineMenu } from "react-icons/ai";
 import { BiUser, BiSearch } from "react-icons/bi";
 import { MdNotifications } from "react-icons/md";
 import { AiFillSetting, AiOutlineMail } from "react-icons/ai";
@@ -29,6 +29,31 @@ const HeaderWrapper = styled.div`
     padding: 1.2rem 2rem;
     background-color: var(--grey-3);
     border-radius: 40px;
+    @media (max-width: 780px) {
+      display: none;
+    }
+  }
+  .Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 780px) {
+      display: none;
+    }
+    svg {
+      font-size: 3.4rem;
+    }
+  }
+  .headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    justify-content: flex-end;
+    @media (max-width: 980px) {
+      justify-content: space-between;
+      width: 100%;
+    }
   }
   .headerContainer {
     width: 95%;
@@ -38,12 +63,6 @@ const HeaderWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    @media (max-width: 380px) {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1rem;
-      gap: 2rem;
-    }
 
     .headerLeft {
       display: flex;
@@ -51,22 +70,11 @@ const HeaderWrapper = styled.div`
       gap: 2rem;
       flex: 1;
       justify-content: flex-end;
-      @media (max-width: 380px) {
+      @media (max-width: 980px) {
         justify-content: space-between;
         width: 100%;
       }
 
-      .Icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @media (min-width: 780px) {
-          display: none;
-        }
-        svg {
-          font-size: 3.4rem;
-        }
-      }
       .imageIcon {
         width: auto;
         height: 5rem;
@@ -128,6 +136,9 @@ export default function Header({ text, subtext }) {
           {text}
           <span className="span1">{subtext}</span>
         </h3> */}
+        <div className="Icon" onClick={() => dispatch(ToggleSidebar())}>
+          <AiOutlineMenu />
+        </div>
 
         <form className="flex gap-2 item-center">
           <BiSearch fontSize={"20px"} />
@@ -142,10 +153,10 @@ export default function Header({ text, subtext }) {
         </form>
 
         <div className="headerLeft">
-          <div className="flex flex-1 item-center justify-end gap-4">
-            <AiFillSetting fontSize={"20px"} color="#fff" />
-            <AiOutlineMail fontSize={"20px"} color="#fff" />
-            <MdNotifications fontSize={"20px"} color="#fff" />
+          <div className="flex flex-1 item-center justify-end gap-3">
+            <AiFillSetting fontSize={"20px"} color="#333" />
+            {/* <AiOutlineMail fontSize={"20px"} color="#333" />
+            <MdNotifications fontSize={"20px"} color="#333" /> */}
             <div className="flex item-center gap-1">
               <img
                 src="https://i.pinimg.com/236x/93/08/92/93089298c654873799ee88fcd374f293.jpg"
@@ -166,9 +177,6 @@ export default function Header({ text, subtext }) {
               <BiUser fontSize={"26px"} color="var(--dark-1)" />
             </div>
           </div> */}
-          <div className="Icon" onClick={() => dispatch(ToggleSidebar())}>
-            <CgMenuRight />
-          </div>
         </div>
       </div>
     </HeaderWrapper>
