@@ -20,6 +20,9 @@ const LayoutWrapper = styled.div`
     }
   }
   h2 {
+    @media (max-width:1080px) {
+      font-size: 2.8rem;
+    }
     @media (max-width:480px) {
       font-size: 2.4rem;
     }

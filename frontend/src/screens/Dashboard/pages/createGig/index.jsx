@@ -12,7 +12,7 @@ import {
   clearGigsAlert,
   clearGigsDetails,
   getSingleGigsDetails,
-  CreateSingleGig
+  CreateSingleGig,
 } from "../../../../Features";
 import Message from "../../../../components/loaders/Message";
 
@@ -65,10 +65,11 @@ export default function CreateProductIndex() {
   // console.log(GigsData);
   const handleAdminProduct = (e) => {
     e.preventDefault();
-    if(GigsDetails) {
-    dispatch(UpdateGig(GigsData));
+    if (GigsDetails) {
+      dispatch(UpdateGig(GigsData));
+    } else {
+      dispatch(CreateSingleGig(GigsData));
     }
-    dispatch(CreateSingleGig(GigsData));
   };
 
   useEffect(() => {
@@ -78,9 +79,7 @@ export default function CreateProductIndex() {
     if (id) {
       dispatch(getSingleGigsDetails(id));
     }
-  }, [
-    id,
-  ]);
+  }, [id]);
   useEffect(() => {
     if (GigsDetails && id) {
       setFormData1({
@@ -93,21 +92,21 @@ export default function CreateProductIndex() {
       setCategory(GigsDetails.category);
       setSubinfo(GigsDetails.subInfo);
     } else {
-    dispatch(clearGigsDetails());
-    setFormData1({
-      price: "",
-      countInStock: "",
-      deliveryDays: 0,
-    });
-    setFormData2({
-      title: "",
-      brand: "",
-      description: "",
-      shortDescription: "",
-    });
-    setTagData([]);
-    setCategory([]);
-    setSubinfo([]);
+      dispatch(clearGigsDetails());
+      setFormData1({
+        price: "",
+        countInStock: "",
+        deliveryDays: 0,
+      });
+      setFormData2({
+        title: "",
+        brand: "",
+        description: "",
+        shortDescription: "",
+      });
+      setTagData([]);
+      setCategory([]);
+      setSubinfo([]);
     }
   }, [
     GigsDetails,
@@ -116,7 +115,7 @@ export default function CreateProductIndex() {
     setTagData,
     setCategory,
     setSubinfo,
-    id
+    id,
   ]);
   // console.log(GigsDetails,id);
 
@@ -142,7 +141,9 @@ export default function CreateProductIndex() {
                 className="editBtn fs-12 text-bold family1"
                 onClick={handleAdminProduct}
               >
-               {GigsDetails ? "Edit your Gig Collection" : "Create your Gig Collection"} 
+                {GigsDetails
+                  ? "Edit your Gig Collection"
+                  : "Create your Gig Collection"}
               </button>
             </div>
           </div>

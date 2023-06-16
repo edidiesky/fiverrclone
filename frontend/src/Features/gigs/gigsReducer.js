@@ -108,7 +108,7 @@ export const UpdateGig = createAsyncThunk(
         GigsData,
         config
       );
-      localStorage.setItem("Gigss", JSON.stringify(data.updatedGigs));
+      localStorage.setItem("Gigs", JSON.stringify(data.updatedGigs));
       return data.updatedGigs;
     } catch (error) {
       return thunkAPI.rejectWithValue(

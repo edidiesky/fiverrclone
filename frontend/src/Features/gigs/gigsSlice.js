@@ -129,7 +129,7 @@ const GigsSlice = createSlice({
       state.GigsDetails = action.payload;
       state.gigsIsSuccess = true;
       state.showAlert = true;
-      state.alertText = `${action.payload.title} has been successfully addded to your Gigs data base`;
+      state.alertText = `Succesfully created your gig`;
       state.alertType = "success";
     },
     [CreateSingleGig.rejected]: (state, action) => {

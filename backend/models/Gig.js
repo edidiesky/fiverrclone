@@ -4,7 +4,6 @@ const GigSchema = new mongoose.Schema(
   {
     sellerId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
       ref: "User",
     },
     image: {
