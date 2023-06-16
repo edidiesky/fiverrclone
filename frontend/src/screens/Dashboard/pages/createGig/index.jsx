@@ -34,9 +34,8 @@ export default function CreateProductIndex() {
 
   const [formdata1, setFormData1] = useState({
     price: "",
-    discount: "",
     countInStock: "",
-    capacity: 0,
+    deliveryDays: 0,
   });
   const [formdata2, setFormData2] = useState({
     title: "",
@@ -55,22 +54,16 @@ export default function CreateProductIndex() {
   const [uploadimage, setUploadImage] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [tags, setTagData] = useState([]);
-  const [colors, setColors] = useState([]);
-
-  const filterColors = [
-    { id: 1, color: "#222222", title: "black" },
-    { id: 2, color: "#BD162D", title: "red" },
-    { id: 4, color: "#f7f7f7", title: "grey" },
-    { id: 3, color: "#23608c", title: "blue" },
-    { id: 5, color: "#fff", title: "White" },
-  ];
+  const [category, setCategory] = useState([]);
+  const [subInfo, setSubinfo] = useState([]);
 
   const productData = {
     ...formdata1,
     ...formdata2,
     image: uploadimage,
     tags,
-    colors,
+    category,
+    subInfo,
   };
   // console.log(productData);
   const handleAdminProduct = (e) => {
@@ -103,7 +96,7 @@ export default function CreateProductIndex() {
             </div>
           </div>
           <div className="editWrapperContainer flex item-start gap-3">
-            <div className="w-100 flex gap-3 column editwrapper">
+            <div className="w-100 flex gap-1 column editwrapper">
               <ProductInfo
                 onChange2={onChange2}
                 formdata2={formdata2}
@@ -114,17 +107,18 @@ export default function CreateProductIndex() {
                 uploading={uploading}
                 setUploadImage={setUploadImage}
                 setUploading={setUploading}
-                tagdata={tags}
-                setTagData={setTagData}
-                colors={colors}
-                setColors={setColors}
-                filterColors={filterColors}
               />
             </div>
             <div className="editwrapper">
               <OtherInfo
                 onChange1={onChange1}
                 formdata1={formdata1}
+                tagdata={tags}
+                setTagData={setTagData}
+                categorydata={category}
+                setCategory={setCategory}
+                subinfodata={subInfo}
+                setSubinfodata={setSubinfo}
                 setFormData1={setFormData1}
               />
             </div>
@@ -140,6 +134,7 @@ const EditProductContainer = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
+  padding-top: 4rem;
 
   .EditProductWrapper {
     display: flex;
@@ -157,13 +152,18 @@ const EditProductContainer = styled.div`
       align-items: center;
       justify-content: space-between;
       width: 100%;
+      @media (max-width:480px) {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
 
       .btnWrapper {
         /* width: 100%; */
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        padding: 2rem 0;
+        /* padding: 2rem 0; */
       }
 
       .EditProductWrapperTopLeft {

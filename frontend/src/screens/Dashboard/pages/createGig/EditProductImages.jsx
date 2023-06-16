@@ -10,11 +10,6 @@ export default function EditGigImage({
   setUploadImage,
   setUploading,
   uploading,
-  tagdata,
-  setTagData,
-  colors,
-  setColors,
-  filterColors,
 }) {
   const handleFileUpload = async (e) => {
     // get the file
@@ -41,31 +36,10 @@ export default function EditGigImage({
     }
   };
 
-  const [coloractive, setColorActive] = useState(false);
-
   const removeUploadedImage = (id) => {
     const outcome = uploadimage.filter((x, index) => index !== id);
     console.log(outcome);
     setUploadImage(outcome);
-  };
-  const handleTagInput = (e) => {
-    // check if the entetr key is pressed
-    if (e.key !== "Enter") return;
-    // check if the there is emppty value
-    const value = e.target.value;
-    if (!value.trim()) return;
-    // set the list
-    setTagData([...tagdata, value]);
-  };
-  const deleteTagInput = (id) => {
-    const tagFilterResult = tagdata.filter((x, index) => index !== id);
-    setTagData(tagFilterResult);
-  };
-  const handleColors = (color) => {
-    setColors([...colors, color]);
-    if (colors.includes(color)) {
-      setColorActive(true);
-    }
   };
   return (
     <EditGigWrapperCenter>
@@ -96,7 +70,7 @@ export default function EditGigImage({
           <div className="UploadBtnWrapper">
             {uploading && <LoaderIndex type="small" />}
             <label
-              className="fs-15 column gap-2 family1 fs-14 flex gap-1 item-center text-light"
+              className=" column gap-2 family1 flex gap-1 item-center text-light"
               htmlFor="upload"
             >
               <BiUpload fontSize={"18px"} /> Upload Gig image here
@@ -112,30 +86,6 @@ export default function EditGigImage({
             </label>
           </div>
         )}
-      </div>
-      {/* tag upload */}
-      <div className="w-100 flex column gap-1">
-        <h4 className="family1 fs-14 text-bold">Upload Gig Tag</h4>
-        <div className="tagForm item-center">
-          {tagdata.map((x, index) => {
-            return (
-              <div className="tagWrapper family1 text-light fs-14 text-bold flex item-center gap-1">
-                {x}{" "}
-                <RxCross1
-                  onClick={() => deleteTagInput(index)}
-                  fontSize={"16px"}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-            );
-          })}
-          <input
-            type="text"
-            onKeyDown={handleTagInput}
-            className="taginput"
-            placeholder="Add Gig Tags"
-          />
-        </div>
       </div>
     </EditGigWrapperCenter>
   );
@@ -162,34 +112,7 @@ const EditGigWrapperCenter = styled.div`
       border: 2px solid rgba(0, 0, 0, 0.2);
     }
   }
-  .taginput {
-    outline: none;
-    font-size: 1.5rem;
-    font-weight: 400;
-    transition: all 0.2s;
-    font-family: "Barlow", sans-serif;
-    color: var(--dark-1);
-    border: none;
-    height: 100%;
-  }
-  .tagForm {
-    min-height: 5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    &:hover {
-      border: 1px solid rgba(0, 0, 0, 0.4);
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
-    }
-    .tagWrapper {
-      padding: 0.5rem 1rem;
-      background-color: rgba(0, 0, 0, 0.08);
-      border-radius: 40px;
-    }
-  }
+
   .UploadBtnWrapper {
     width: 100%;
     padding: 2rem;
@@ -229,12 +152,13 @@ const EditGigWrapperCenter = styled.div`
       border: 1px solid rgba(0, 0, 0, 0.2);
       padding-left: 1rem;
       position: relative;
+      border-radius: 10px;
       .img {
         width: 12rem;
         min-height: 7rem;
       }
 
-      .uploadLabel {
+      label {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -251,6 +175,26 @@ const EditGigWrapperCenter = styled.div`
           text-decoration: underline;
         }
       }
+    }
+  }
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+    z-index: 50;
+    font-size: 13px;
+    font-weight: 500;
+    width: 100%;
+    svg {
+      font-size: 2rem;
+      color: var(--green);
+    }
+    span {
+      color: #fff;
+      text-decoration: underline;
     }
   }
 `;

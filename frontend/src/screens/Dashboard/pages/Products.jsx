@@ -1,102 +1,70 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
-// import {
-//   getAllProduct,
-//   handleProductSearch,
-//   clearProductAlert,
-//   clearProductDetails,
-// } from "../../../Features";
+import { getAllGigs, clearGigsAlert } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
-import { Header, TableCard, Topbar } from "../components";
+import { TableCard, Topbar } from "../components";
 import { Table } from "./styles";
-import Message from "../../../components/loaders/Message";
 import LoaderIndex from "../../../components/loaders/index";
-import { projectData } from "../../../data";
+import Message from "../../../components/modals/Message";
 
 export default function Products() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const {
-  //   noOfPages,
-  //   page,
-  //   product,
-  //   isLoading,
-  //   isError,
-  //   alertText,
-  //   alertType,
-  //   isSuccess,
-  //   showAlert,
-  // } = useSelector((store) => store.product);
+  const {
+    noOfPages,
+    page,
+    Gigs,
+    gigsisLoading,
+    alertText,
+    alertType,
+    showAlert,
+  } = useSelector((store) => store.gigs);
 
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  //   dispatch(getAllProduct());
-  // }, [page]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    dispatch(getAllGigs());
+  }, [page]);
 
-  // // clear the product alert
-  // // useEffect(() => {
-  // // 	if (showAlert) {
-  // // 	  setTimeout(() => {
-  // // 		dispatch(clearProductAlert());
-  // // 	  }, 10000);
-  // // 	}
-  // //   }, [showAlert]);
+  // clear the gigs alert
+  useEffect(() => {
+    if (showAlert) {
+      setTimeout(() => {
+        dispatch(clearGigsAlert());
+      }, 10000);
+    }
+  }, [showAlert]);
 
   // // Search functionality
-  // const [search, setSearch] = useState("");
-
-  // useEffect(() => {
-  //   dispatch(clearProductDetails());
-  //   dispatch(handleProductSearch(search));
-  //   if (!search) {
-  //     dispatch(getAllProduct());
-  //   }
-  // }, [search]);
+  const [search, setSearch] = useState("");
 
   return (
     <>
-      {/* <Alert
-        showAlert={showAlert}
-        alertText={alertText}
-        alertType={alertType}
-        handleClearAlert={clearProductAlert}
-      /> */}
-      {/* {isLoading && <LoaderIndex loading={isLoading} />} */}
-      {/* <Header type={"product"} /> */}
+      {gigsisLoading && <LoaderIndex loading={gigsisLoading} />}
       <Topbar />
+      <Message
+        alertText={"Your Customers have been succesfully gotten"}
+        alertType={"success"}
+      />
 
       <ProductsContainer className="flex column gap-3 ">
         <div className="w-100 flex column gap-3">
           <h2 className="family1 flex-1 fs-30 text-dark">Gigs</h2>
           <Table>
-            {/* {isSuccess && (
-            <Message
-              alertText={"Your Customers have been succesfully gotten"}
-              alertType={"success"}
-            />
-          )} */}
-
             <div className="TableContainer">
               <table className="tableWrapper">
                 <thead>
                   <tr>
                     <th>No.</th>
                     {/* <th>Image</th> */}
-                    <th>Name</th>
+                    <th>Image</th>
+                    <th>description</th>
                     <th>Price</th>
                     <th>CountInStock</th>
-                    <th>Brand</th>
-                    <th>Actions</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {/* {product?.map((x) => {
-                  return <TableCard x={x} key={x?._id} />;
-                })} */}
-                  {projectData?.slice(0, 3).map((x) => {
+                  {Gigs?.map((x) => {
                     return <TableCard x={x} key={x?._id} />;
                   })}
                 </tbody>

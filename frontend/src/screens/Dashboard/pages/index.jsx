@@ -7,7 +7,7 @@ import Statistics from "./Statistics";
 import LayoutList from "./Layout";
 // import EditUser from "./EditUser";
 import ProfileList from "./Profile";
-import CreateProductIndex from "./createProduct/index";
+import CreateProductIndex from "./createGig/index";
 
 
 export {

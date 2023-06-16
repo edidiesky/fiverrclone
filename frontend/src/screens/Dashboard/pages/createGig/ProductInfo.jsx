@@ -7,16 +7,9 @@ export default function EditGigInfo({ onChange2, formdata2, setFormData2 }) {
     {
       id: 1,
       name: "title",
-      placeholder: "Add your Car name",
+      placeholder: "Add your gig title",
       type: "text",
-      text: "Gig Name",
-    },
-    {
-      id: 2,
-      name: "brand",
-      placeholder: "Add your Car brand",
-      type: "text",
-      text: "Gig Brand",
+      text: "Gig Title",
     },
   ];
 
@@ -46,7 +39,7 @@ export default function EditGigInfo({ onChange2, formdata2, setFormData2 }) {
             <textarea
               type="text"
               className="textarea"
-              placeholder="Place a description on the Car"
+              placeholder="Place a description on the gig"
               name="description"
               value={formdata2.description}
               onChange={onChange2}
@@ -58,20 +51,11 @@ export default function EditGigInfo({ onChange2, formdata2, setFormData2 }) {
             <textarea
               type="text"
               className="textarea"
-              placeholder="Place a shortdescription on the Car"
+              placeholder="Place a shortdescription on the gig"
               name="shortdescription"
               value={formdata2.shortdescription}
               onChange={onChange2}
               id="text"
-            />
-          </label>
-          <label htmlFor="Additional" className="textLabel">
-            Gig Additional Info
-            <textarea
-              className="textarea"
-              type="text"
-              placeholder="Place insert Additional Info on the Car"
-              id="Additional"
             />
           </label>
 

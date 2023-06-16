@@ -31,7 +31,7 @@ export default function TableCards({ x, type }) {
 
   // edit product function
   const handleEditProduct = () => {
-    navigate(`/avada/dashboard/product/${x?._id}`);
+    navigate(`/dashboard/create-gig/${x?._id}`);
   };
 
   // delete user function
@@ -41,7 +41,7 @@ export default function TableCards({ x, type }) {
 
   // edit user function
   const handleEditUser = () => {
-    navigate(`/avada/dashboard/users/${x?._id}`);
+    navigate(`/dashboard/users/${x?._id}`);
   };
 
   if (type === "users") {
@@ -135,7 +135,6 @@ export default function TableCards({ x, type }) {
       </AnimatePresence>
       <tr key={x?._id}>
         <td>{x?._id}</td>
-        <td>12th of Sep</td>
         <td>
           <div className="cartProduct">
             <div className="imageWrapper">

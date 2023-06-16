@@ -42,7 +42,7 @@ import LoaderIndex from "./components/loaders";
 export default function App() {
   const dispatch = useDispatch();
   const { keys, isloadingPayalKey } = useSelector((store) => store.order);
-  console.log(keys);
+  // console.log(keys);
   useEffect(() => {
     dispatch(handlePaypalKey());
     AOS.init();
@@ -103,11 +103,8 @@ export default function App() {
 
                 <Route path="order" element={<OrderList />} />
 
-                <Route
-                  exact
-                  path="create-gig"
-                  element={<CreateProductIndex />}
-                />
+                <Route path="create-gig" element={<CreateProductIndex />} />
+                <Route path="create-gig/:id" element={<CreateProductIndex />} />
               </Route>
             </Routes>
           </div>
