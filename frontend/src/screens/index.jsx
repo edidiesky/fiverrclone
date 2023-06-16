@@ -15,6 +15,7 @@ import SellerPage2 from './seller/Page2'
 import Personal1 from './seller/Personal1'
 import SellerLayout from './seller/Seller'
 import Professional from './seller/Professional'
+import {ProtectRoute} from './ProtectRoute'
 export {
   Layout,
   Home,
@@ -32,5 +33,6 @@ export {
   Personal1,
   Professional,
   Login,
-  Register
+  Register,
+  ProtectRoute
 };

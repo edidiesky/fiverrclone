@@ -14,7 +14,7 @@ export default function Products() {
     noOfPages,
     page,
     Gigs,
-    gigsisLoading,
+    gigsIsLoading,
     alertText,
     alertType,
     showAlert,
@@ -39,7 +39,7 @@ export default function Products() {
 
   return (
     <>
-      {gigsisLoading && <LoaderIndex loading={gigsisLoading} />}
+      {gigsIsLoading && <LoaderIndex loading={gigsIsLoading} />}
       <Topbar />
       <Message
         alertText={"Your Customers have been succesfully gotten"}

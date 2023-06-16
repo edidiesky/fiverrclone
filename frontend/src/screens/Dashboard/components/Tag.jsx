@@ -1,4 +1,5 @@
 import React from "react";
+import { RxCross1 } from "react-icons/rx";
 import styled from "styled-components";
 
 export default function TagInput({

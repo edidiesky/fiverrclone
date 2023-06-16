@@ -62,7 +62,7 @@ export default function Login() {
 
   useEffect(() => {
     setFormData({
-      email: "edidie@gmail.com",
+      email: "admin@gmail.com",
       password: "eAdg145%1",
     });
     if (loginSuccess) {
@@ -118,7 +118,7 @@ export default function Login() {
                 <div className="w-100 flex gap-2 column">
                   <button
                     disabled={(!email || !password) && !isLoading}
-                    className="btn fs-16 w-100 py-2 family1 px-4 text-white text-light"
+                    className="btn fs-12 w-100 py-2 family1 px-4 text-white text-bold"
                     style={{ padding: "1.7rem 4rem" }}
                   >
                     {isLoading ? <LoaderIndex type={"small"} /> : " Continue"}
@@ -166,13 +166,22 @@ const AuthForm = styled.div`
     position: absolute;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    @media (max-width: 780px)  {
+      display: none;
+    }
   }
+ 
   .left,
   .right {
     min-height: 60rem;
     position: relative;
     display: flex;
     align-items: center;
+  }
+  .left {
+    @media (max-width: 780px)  {
+      display: none;
+    }
   }
   .rightwrapper {
     min-height: 60rem;
@@ -190,5 +199,14 @@ const AuthForm = styled.div`
   .wrapper {
     width: 70%;
     margin: 0 auto;
+    overflow: hidden;
+    @media (max-width: 780px) {
+      flex-direction: column-reverse;
+
+      .left,
+      .right {
+        width: 100%;
+      }
+    }
   }
 `;

@@ -22,6 +22,7 @@ import {
   Professional,
   Login,
   Register,
+  ProtectRoute,
 } from "./screens";
 
 import {
@@ -95,7 +96,15 @@ export default function App() {
                 />
               </Route>
 
-              <Route exact path={"/dashboard/"} element={<LayoutList />}>
+              <Route
+                exact
+                path={"/dashboard/"}
+                element={
+                  <ProtectRoute type={'dashboard'}>
+                    <LayoutList />
+                  </ProtectRoute>
+                }
+              >
                 <Route index element={<Statistics />} />
                 <Route exact path="profile" element={<ProfileList />} />
                 <Route exact path="gigs" element={<AdminProductList />} />

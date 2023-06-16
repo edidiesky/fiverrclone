@@ -126,7 +126,7 @@ const GigsSlice = createSlice({
     },
     [CreateSingleGig.fulfilled]: (state, action) => {
       state.gigsIsLoading = false;
-      state.Gigs = action.payload;
+      state.GigsDetails = action.payload;
       state.gigsIsSuccess = true;
       state.showAlert = true;
       state.alertText = `${action.payload.title} has been successfully addded to your Gigs data base`;

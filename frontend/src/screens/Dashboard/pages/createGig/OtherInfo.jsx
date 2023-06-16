@@ -41,24 +41,7 @@ export default function EditOtherInfo({
   return (
     <EditOtherInfoWrapper>
       <div className="EditGigFormTop">
-        {inputData.slice(0, 2).map((input) => {
-          return (
-            <Input
-              id={input.text}
-              onChange={onChange1}
-              placeholder={input.placeholder}
-              type={input.type}
-              name={input.name}
-              value={formdata1[input.name]}
-              input={input}
-              key={input.id}
-              required={input.required}
-              pattern={input.pattern}
-              errorMessage={input.errorMessage}
-            />
-          );
-        })}
-        {inputData.slice(5, 6).map((input) => {
+        {inputData.map((input) => {
           return (
             <Input
               id={input.text}

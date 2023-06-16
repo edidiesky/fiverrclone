@@ -11,6 +11,8 @@ import {
   UpdateGig,
   clearGigsAlert,
   clearGigsDetails,
+  getSingleGigsDetails,
+  CreateSingleGig
 } from "../../../../Features";
 import Message from "../../../../components/loaders/Message";
 
@@ -20,17 +22,11 @@ export default function CreateProductIndex() {
   const { id } = useParams();
   const {
     GigsDetails,
-    gigsisLoading,
+    gigsIsLoading,
     alertText,
     alertType,
     showAlert,
   } = useSelector((store) => store.gigs);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    dispatch(clearGigsDetails());
-    dispatch(clearGigsAlert());
-  }, [dispatch]);
 
   const [formdata1, setFormData1] = useState({
     price: "",
@@ -41,7 +37,7 @@ export default function CreateProductIndex() {
     title: "",
     brand: "",
     description: "",
-    shortdescription: "",
+    shortDescription: "",
   });
 
   const onChange1 = (e) => {
@@ -57,7 +53,7 @@ export default function CreateProductIndex() {
   const [category, setCategory] = useState([]);
   const [subInfo, setSubinfo] = useState([]);
 
-  const productData = {
+  const GigsData = {
     ...formdata1,
     ...formdata2,
     image: uploadimage,
@@ -65,11 +61,64 @@ export default function CreateProductIndex() {
     category,
     subInfo,
   };
-  // console.log(productData);
+
+  // console.log(GigsData);
   const handleAdminProduct = (e) => {
     e.preventDefault();
-    dispatch(clearGigsDetails(productData));
+    if(GigsDetails) {
+    dispatch(UpdateGig(GigsData));
+    }
+    dispatch(CreateSingleGig(GigsData));
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    dispatch(clearGigsDetails());
+    // dispatch(clearGigsAlert());
+    if (id) {
+      dispatch(getSingleGigsDetails(id));
+    }
+  }, [
+    id,
+  ]);
+  useEffect(() => {
+    if (GigsDetails && id) {
+      setFormData1({
+        ...GigsDetails,
+      });
+      setFormData2({
+        ...GigsDetails,
+      });
+      setTagData(GigsDetails.tags);
+      setCategory(GigsDetails.category);
+      setSubinfo(GigsDetails.subInfo);
+    } else {
+    dispatch(clearGigsDetails());
+    setFormData1({
+      price: "",
+      countInStock: "",
+      deliveryDays: 0,
+    });
+    setFormData2({
+      title: "",
+      brand: "",
+      description: "",
+      shortDescription: "",
+    });
+    setTagData([]);
+    setCategory([]);
+    setSubinfo([]);
+    }
+  }, [
+    GigsDetails,
+    setFormData1,
+    setFormData2,
+    setTagData,
+    setCategory,
+    setSubinfo,
+    id
+  ]);
+  // console.log(GigsDetails,id);
 
   return (
     <>
@@ -80,18 +129,20 @@ export default function CreateProductIndex() {
         handleClearAlert={clearGigsAlert}
       />
       <Topbar />
-      {gigsisLoading && <LoaderIndex loading={gigsisLoading} />}
+      {gigsIsLoading && <LoaderIndex loading={gigsIsLoading} />}
       <EditProductContainer>
         <div className="EditProductWrapper">
           <div className="EditProductWrapperTop flex item-center justify-space">
-            <h2 className="family1 flex-1 fs-30 text-dark">Create New Gigs</h2>
+            <h2 className="family1 flex-1 fs-30 text-dark">
+              {GigsDetails ? "Edit Gigs" : "Create New Gigs"}
+            </h2>
 
             <div className="btnWrapper">
               <button
                 className="editBtn fs-12 text-bold family1"
                 onClick={handleAdminProduct}
               >
-                Create your Gig Collection
+               {GigsDetails ? "Edit your Gig Collection" : "Create your Gig Collection"} 
               </button>
             </div>
           </div>
@@ -152,7 +203,7 @@ const EditProductContainer = styled.div`
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      @media (max-width:480px) {
+      @media (max-width: 480px) {
         flex-direction: column;
         gap: 1rem;
         align-items: flex-start;
