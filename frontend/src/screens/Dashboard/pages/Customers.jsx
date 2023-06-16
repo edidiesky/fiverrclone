@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import {
-  Pagination,
-  TableCard,
-  Topbar,
-} from "../components";
+import { Pagination, TableCard, Topbar } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { Table } from "./styles";
-// import {
-//   handleUserSearch,
-//   getAllCustomer,
-//   clearUserAlertError,
-// } from "../../../Features";
+import {
+  handleUserSearch,
+  getAllCustomer,
+  clearUserAlertError,
+} from "../../../Features";
 import Message from "../../../components/loaders/Message";
 import LoaderIndex from "../../../components/loaders/index";
 import userData from "../../../data/userdata";
@@ -19,25 +15,25 @@ import userData from "../../../data/userdata";
 export default function Customers() {
   // getting the userinfo
 
-  // // user's state
-  // const {
-  //   isLoading,
-  //   users,
-  //   isError,
-  //   isSuccess,
-  //   alertType,
-  //   alertText,
-  //   userpage,
-  //   totalUser,
-  //   usernoOfpage,
-  //   showAlert,
-  // } = useSelector((store) => store.user);
-  // const dispatch = useDispatch();
+  // user's state
+  const {
+    isLoading,
+    users,
+    isError,
+    isSuccess,
+    alertType,
+    alertText,
+    userpage,
+    totalUser,
+    usernoOfpage,
+    showAlert,
+  } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  //   dispatch(getAllCustomer());
-  // }, [userpage]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    dispatch(getAllCustomer());
+  }, [userpage]);
 
   // useEffect(() => {
   //   if (showAlert || isError) {
@@ -47,8 +43,8 @@ export default function Customers() {
   //   }
   // }, [showAlert]);
 
-  // // Search functionality
-  // const [search, setSearch] = useState("");
+  // Search functionality
+  const [search, setSearch] = useState("");
 
   // useEffect(() => {
   //   dispatch(handleUserSearch(search));
@@ -59,9 +55,9 @@ export default function Customers() {
 
   return (
     <>
-      {/* {isLoading && <LoaderIndex loading={isLoading} />}
-     */}
-     <Topbar/>
+      {isLoading && <LoaderIndex loading={isLoading} />}
+
+      <Topbar />
       <CustomersContainer className="flex column gap-2">
         {/* {isError && (
           <Message
@@ -70,7 +66,7 @@ export default function Customers() {
             alertType={alertType}
           />
         )} */}
-          <h2 className="family1 flex-1 fs-30 text-dark">Customers</h2>
+        <h2 className="family1 flex-1 fs-30 text-dark">Customers</h2>
 
         <Table>
           {/* <div className="TableTop">
@@ -92,25 +88,24 @@ export default function Customers() {
               <thead>
                 <tr>
                   <th>Customers Id</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
+                  <th>Username</th>
                   <th>Country</th>
                   <th>Phone</th>
-                  <th>isAdmin</th>
+                  <th>Role</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {/* {users?.map((x) => {
-                  return <TableCard x={x} key={x?._id} type="users" />;
-                })} */}
-                 {userData?.slice(0,4).map((x) => {
+                {users?.map((x) => {
                   return <TableCard x={x} key={x?._id} type="users" />;
                 })}
+                {/* {userData?.slice(0,4).map((x) => {
+                  return <TableCard x={x} key={x?._id} type="users" />;
+                })} */}
               </tbody>
             </table>
           </div>
-          {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
+          {usernoOfpage > 0 && <Pagination type="users" />}
         </Table>
       </CustomersContainer>
     </>

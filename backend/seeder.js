@@ -8,10 +8,8 @@ import mongoose from "mongoose"
 
 import Gig from './models/Gig.js'
 import User from './models/User.js'
-import About from './models/About.js'
 import userData from './data/userData.js'
 import gigData from './data/gigData.js'
-import aboutData from './data/aboutData.js'
 
 mongoose.connect(process.env.MONGO_URl, {
   useNewUrlParser: true,

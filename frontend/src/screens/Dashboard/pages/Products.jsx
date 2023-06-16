@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { getAllGigs, clearGigsAlert } from "../../../Features";
 import { useSelector, useDispatch } from "react-redux";
-import { TableCard, Topbar } from "../components";
+import { Pagination, TableCard, Topbar } from "../components";
 import { Table } from "./styles";
 import LoaderIndex from "../../../components/loaders/index";
 import Message from "../../../components/modals/Message";
@@ -70,7 +70,7 @@ export default function Products() {
                 </tbody>
               </table>
             </div>
-            {/* {noOfPages > 0 && <Pagination />} */}
+            {noOfPages > 0 && <Pagination />}
           </Table>
         </div>
       </ProductsContainer>

@@ -53,25 +53,6 @@ export default function CreateProductIndex() {
   const [category, setCategory] = useState([]);
   const [subInfo, setSubinfo] = useState([]);
 
-  const GigsData = {
-    ...formdata1,
-    ...formdata2,
-    image: uploadimage,
-    tags,
-    category,
-    subInfo,
-  };
-
-  // console.log(GigsData);
-  const handleAdminProduct = (e) => {
-    e.preventDefault();
-    if (GigsDetails) {
-      dispatch(UpdateGig(GigsData));
-    } else {
-      dispatch(CreateSingleGig(GigsData));
-    }
-  };
-
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     dispatch(clearGigsDetails());
@@ -82,11 +63,15 @@ export default function CreateProductIndex() {
   }, [id]);
   useEffect(() => {
     if (GigsDetails && id) {
-      setFormData1({
-        ...GigsDetails,
-      });
       setFormData2({
-        ...GigsDetails,
+        title: GigsDetails?.title,
+        description: GigsDetails?.description,
+        shortDescription: GigsDetails?.shortDescription,
+      });
+      setFormData1({
+        price:GigsDetails?.price,
+        countInStock:GigsDetails?.countInStock,
+        deliveryDays :GigsDetails?.deliveryDays,
       });
       setTagData(GigsDetails.tags);
       setCategory(GigsDetails.category);
@@ -118,6 +103,26 @@ export default function CreateProductIndex() {
     id,
   ]);
   // console.log(GigsDetails,id);
+
+  // console.log(GigsData);
+  const GigsData = {
+    ...formdata1,
+    ...formdata2,
+    image: uploadimage,
+    tags,
+    category,
+    subInfo,
+  };
+  const handleAdminProduct = (e) => {
+    e.preventDefault();
+    if (GigsDetails) {
+      dispatch(UpdateGig({ GigsData }));
+    } else {
+      dispatch(CreateSingleGig({ GigsData }));
+    }
+  };
+
+  // console.log(GigsData);
 
   return (
     <>

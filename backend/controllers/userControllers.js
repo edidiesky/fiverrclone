@@ -82,13 +82,13 @@ const DeleteUser = asyncHandler(async (req, res) => {
 
 // PRIVATE/ADMIN
 const GetAllUser = asyncHandler(async (req, res) => {
-  const limit = req.query.limit || 3;
+  const limit = req.query.limit || 5;
   const page = req.query.page || 1;
   const skip = (page - 1) * limit;
 
   const totalUser = await User.countDocuments({});
 
-  const user = await User.find({});
+  const user = await User.find({}).skip(skip).limit(limit);
 
   const noOfPages = Math.ceil(totalUser / limit);
   res.status(200).json({ user, noOfPages, totalUser });

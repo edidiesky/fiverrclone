@@ -10,7 +10,6 @@ export const getAllGigs = createAsyncThunk(
         page,
         search,
         sort,
-        limit,
         category,
         minprice,
         time,
@@ -34,6 +33,13 @@ export const getAllGigs = createAsyncThunk(
         GigsUrl =
           GigsUrl +
           `?category=${category}&minprice=${minprice}&maxprice=${maxprice}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      }
+      if (page) {
+        GigsUrl =
+          GigsUrl +
+          `?page=${page}`;
         const { data } = await axios.get(GigsUrl);
         return data;
       }
@@ -70,7 +76,7 @@ export const getSingleGigsDetails = createAsyncThunk(
 // fetching single Gigs based on its id
 export const CreateSingleGig = createAsyncThunk(
   "Gigs/createGigs",
-  async (GigsData, thunkAPI) => {
+  async ({GigsData}, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {
@@ -94,7 +100,7 @@ export const CreateSingleGig = createAsyncThunk(
 // Update a single Gigs for the admin
 export const UpdateGig = createAsyncThunk(
   "/updateGig",
-  async (GigsData, thunkAPI) => {
+  async ({GigsData}, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {
@@ -102,14 +108,14 @@ export const UpdateGig = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { _id } = state.Gigs.GigsDetails;
+      const { _id } = state.gigs.GigsDetails;
       const { data } = await axios.put(
-        `/api/v1/gig/admin/${_id}`,
+        `/api/v1/gig/${_id}`,
         GigsData,
         config
       );
-      localStorage.setItem("Gigs", JSON.stringify(data.updatedGigs));
-      return data.updatedGigs;
+      // console.log(GigsData)
+      return data.updatedGig;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
@@ -132,7 +138,7 @@ export const DeleteGig = createAsyncThunk(
         },
       };
       const { data } = await axios.delete(
-        `/api/v1/gig/admin/${Gigsid}`,
+        `/api/v1/gig/${Gigsid}`,
         config
       );
       return Gigsid;

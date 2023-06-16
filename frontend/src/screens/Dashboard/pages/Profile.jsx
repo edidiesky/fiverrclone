@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Input } from "../../../components/forms";
-import { Links, Header, Alert } from "../components";
+import { Links, Alert, Topbar } from "../components";
 
 import { useDispatch, useSelector } from "react-redux";
-// import {
-//   UpdateProfile,
-//   getSingleCustomer,
-//   clearUserAlertError,
-// } from "../../../Features";
+import {
+  UpdateProfile,
+  getSingleCustomer,
+  clearUserAlertError,
+} from "../../../Features";
 import Message from "../../../components/loaders/Message";
 import LoaderIndex from "../../../components/loaders/index";
 
@@ -17,21 +17,21 @@ export default function Profile() {
   // getting the userinfo
 
   // // user's state
-  // const {
-  //   userDetails,
-  //   userInfo,
-  //   isLoading,
-  //   isError,
-  //   isSuccess,
-  //   alertType,
-  //   alertText,
-  //   showAlert,
-  // } = useSelector((store) => store.user);
+  const {
+    userDetails,
+    userInfo,
+    isLoading,
+    isError,
+    isSuccess,
+    alertType,
+    alertText,
+    showAlert,
+  } = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  //   dispatch(getSingleCustomer(userInfo?._id));
-  // }, [userInfo?._id]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    dispatch(getSingleCustomer(userInfo?._id));
+  }, [userInfo?._id]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -49,30 +49,30 @@ export default function Profile() {
     address: "",
   });
 
-  // useEffect(() => {
-  //   if (userDetails) {
-  //     const {
-  //       firstname,
-  //       lastname,
-  //       email,
-  //       country,
-  //       isAdmin,
-  //       phone,
-  //       city,
-  //       address,
-  //     } = userDetails;
-  //     setFormData({
-  //       firstname,
-  //       lastname,
-  //       email,
-  //       country,
-  //       isAdmin,
-  //       phone,
-  //       city,
-  //       address,
-  //     });
-  //   }
-  // }, [setFormData, userDetails]);
+  useEffect(() => {
+    if (userDetails) {
+      const {
+        firstname,
+        lastname,
+        email,
+        country,
+        isAdmin,
+        phone,
+        city,
+        address,
+      } = userDetails;
+      setFormData({
+        firstname,
+        lastname,
+        email,
+        country,
+        isAdmin,
+        phone,
+        city,
+        address,
+      });
+    }
+  }, [setFormData, userDetails]);
 
   const inputData = [
     {
@@ -180,27 +180,29 @@ export default function Profile() {
   };
 
   // navigate back to the user dashboard when update is successfull
-  // useEffect(() => {
-  //   if (showAlert) {
-  //     setTimeout(() => {
-  //       dispatch(clearUserAlertError());
-  //     }, 4000);
-  //   }
-  // }, [showAlert]);
+  useEffect(() => {
+    if (showAlert) {
+      setTimeout(() => {
+        dispatch(clearUserAlertError());
+      }, 4000);
+    }
+  }, [showAlert]);
 
   return (
     <>
-      {/* {isLoading && <LoaderIndex loading={isLoading} />} */}
-      <Header text={"Customer Profile"} />
+      {isLoading && <LoaderIndex loading={isLoading} />}
+      <Topbar text={"Customer Profile"} />
       <ProfileContainer>
         <div className="profileWrapper">
-          {/* {isError && (
+          <h2 className="family1 flex-1 fs-30 text-dark">Profile</h2>
+
+          {isError && (
             <Message
               alertText={alertText}
               handleClearAlert={clearUserAlertError}
               alertType={alertType}
             />
-          )} */}
+          )}
           <form className="profileForm" onSubmit={handleUpdateUserProfile}>
             <div className="profileFormBottom">
               {inputData.slice(0, 6).map((input) => {
@@ -221,7 +223,7 @@ export default function Profile() {
                 );
               })}
             </div>
-            <div className="ProfileBottom">
+            <div className="ProfileBottom family1">
               <h3>Personal Address</h3>
               <div className="profileFormBottom">
                 {inputData.slice(6, 9).map((input) => {
@@ -244,7 +246,7 @@ export default function Profile() {
               </div>
             </div>
             <div className="btnWrapper">
-              <button type="submit" className="editBtn">
+              <button type="submit" className="editBtn family1">
                 Edit Profile
               </button>
             </div>
@@ -274,7 +276,7 @@ const ProfileContainer = styled.div`
         color: var(--text-color);
         font-weight: 700;
         text-transform: uppercase;
-        font-family: "Barlow", sans-serif;
+        /* font-family: "Barlow", sans-serif; */
       }
     }
     .profileForm {
@@ -298,13 +300,13 @@ const ProfileContainer = styled.div`
         .editBtn {
           border: none;
           outline: none;
-          font-size: 1.6rem;
-          font-weight: 400;
+          font-size: 1.4rem;
+          font-weight: 500;
           color: #fff;
           border-radius: 40px;
           background: var(--blue-2);
-          padding: 1.4rem 4rem;
-          font-family: "Barlow", sans-serif;
+          padding: 1.2rem 4rem;
+          /* font-family: "Barlow", sans-serif; */
           cursor: pointer;
           &:hover {
             background: var(--red);
@@ -322,7 +324,7 @@ const ProfileContainer = styled.div`
           color: var(--text-color);
           font-weight: 700;
           text-transform: uppercase;
-          font-family: "Barlow", sans-serif;
+          /* font-family: "Barlow", sans-serif; */
         }
       }
       .profileFormBottom {

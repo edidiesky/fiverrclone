@@ -116,7 +116,6 @@ export const sidebarData = [
     path: "create-gig",
   },
   { id: 4, icon1: <BsCollection />, title: "Orders", path: "order" },
-  { id: 5, icon1: <HiUsers />, title: "Sellers", path: "client" },
 
   { id: 5, icon1: <HiUsers />, title: "Buyers", path: "users" },
   { id: 6, icon1: <MdSettings />, title: "Settings", path: "Profile" },

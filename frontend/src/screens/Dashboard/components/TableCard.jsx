@@ -13,6 +13,9 @@ export default function TableCards({ x, type }) {
   const { deleteGigModalAlert, GigsDetails } = useSelector(
     (store) => store.gigs
   );
+  const {userAlert } = useSelector(
+    (store) => store.user
+  );
   let createddate = moment(x?.createdAt);
   createddate = createddate.format("MMMM Do YYYY");
 
@@ -48,18 +51,35 @@ export default function TableCards({ x, type }) {
     return (
       <>
         {/* <Delete type="users" /> */}
+        <AnimatePresence
+          initial="false"
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {userAlert && <Delete type={'users'} />}
+        </AnimatePresence>
         <tr key={x?._id}>
           <td>{x?._id}</td>
-          <td>{x?.firstname}</td>
-          <td>{x?.lastname}</td>
+          <td>
+            <div className="flex fs-12 text-bold item-center gap-2">
+              <img src={x.image} alt="" className="avatar" />
+              {x?.username}
+            </div>
+          </td>
           <td>{x?.email}</td>
           <td>{x?.country}</td>
           <td>
-            {x?.isAdmin ? (
-              <AiOutlineCheck className="true" />
-            ) : (
-              <FaTimes className="false" />
-            )}
+            <h5
+              className={
+                x?.role === "seller"
+                  ? "fs-12 text-bold capitalize seller"
+                  : x?.role === "admin"
+                  ? "fs-12 text-bold capitalize admin"
+                  : "fs-12 text-bold capitalize "
+              }
+            >
+              {x?.role}
+            </h5>
           </td>
           <td>
             <div className="action">
@@ -126,12 +146,12 @@ export default function TableCards({ x, type }) {
 
   return (
     <>
-     <AnimatePresence
+      <AnimatePresence
         initial="false"
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-       { deleteGigModalAlert && <Delete /> }
+        {deleteGigModalAlert && <Delete />}
       </AnimatePresence>
       <tr key={x?._id}>
         <td>{x?._id}</td>

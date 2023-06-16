@@ -45,8 +45,23 @@ export default function Delete({ type, click }) {
   // open modal if type  === users
   if (type === "users") {
     return (
-      <DeleteContainer className={userAlert ? "active" : ""}>
-        <div className={userAlert ? "deleteCard active" : "deleteCard"}>
+      <DeleteContainer
+        as={motion.div}
+        initial={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+        exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+        animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
+      >
+        <div
+          className="backdrop"
+          onClick={() => dispatch(clearUserAlertError())}
+        ></div>
+        <motion.div
+          variants={dropin}
+          initial="hidden"
+          animate="visible"
+          exit={"exit"}
+          className={"deleteCard family1"}
+        >
           <div
             className="cross"
             onClick={() => dispatch(clearUserAlertError())}
@@ -73,7 +88,7 @@ export default function Delete({ type, click }) {
               Delete User
             </button>
           </div>
-        </div>
+        </motion.div>
       </DeleteContainer>
     );
   }

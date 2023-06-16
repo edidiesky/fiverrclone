@@ -20,7 +20,7 @@ const PaginationContainer = styled.div`
       border: none;
       outline: none;
       height: 4rem;
-      width: 6rem;
+      width: 4rem;
       border: 1.5px solid var(--grey-2);
       background: transparent;
       font-size: 1.4rem;
@@ -54,7 +54,7 @@ export default function Pagination({ type }) {
   const [pagindex, setPagIndex] = useState(1);
   const dispatch = useDispatch();
   const { page, totalProduct, noOfPages } = useSelector(
-    (store) => store.product
+    (store) => store.gigs
   );
 
   const { userpage, totalUser, usernoOfpage } = useSelector(

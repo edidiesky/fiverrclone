@@ -84,8 +84,7 @@ const userSlice = createSlice({
       const userpayload = action.payload;
       state.users = state.users.filter((user) => {
         if (
-          user.firstname.toLowerCase().includes(userpayload) ||
-          user.lastname.toLowerCase().includes(userpayload) ||
+          user.username.toLowerCase().includes(userpayload) ||
           user.email.toLowerCase().includes(userpayload)
         ) {
           return true;

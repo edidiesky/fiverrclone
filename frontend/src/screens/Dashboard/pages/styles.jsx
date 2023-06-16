@@ -207,6 +207,12 @@ export const Table = styled.div`
             .true {
               color: e72d2d;
             }
+            .seller {
+              color: #2d81e7;
+            }
+            .admin {
+              color: var(--green);
+            }
             .cartProduct {
               width: 100%;
               display: flex;

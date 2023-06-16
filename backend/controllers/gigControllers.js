@@ -38,14 +38,14 @@ const GetAllGig = asyncHandler(async (req, res) => {
     queryObject.category = category;
   }
 
-  const limit = req.query.limit || 12;
+  const limit = req.query.limit || 6;
   const page = req.query.page;
   const skip = (page - 1) * limit;
 
   let result = Gig.find(queryObject)
     .skip(skip)
     .limit(limit)
-    .populate("sellerId", "image username level about")
+    .populate("sellerId", "image username level about");
 
   // perform sorting operation
   if (sort === "latest") {
@@ -98,7 +98,7 @@ const CreateSingleGig = asyncHandler(async (req, res) => {
     type,
     deliveryDays,
   } = req.body;
-  const { sellerId, role } = req.user;
+  const { userId, role } = req.user;
 
   if (role === "user") {
     res.status(404);
@@ -115,7 +115,7 @@ const CreateSingleGig = asyncHandler(async (req, res) => {
     tags,
     type,
     deliveryDays,
-    user: sellerId,
+    sellerId: userId,
     category,
     subInfo,
   });
@@ -151,7 +151,7 @@ const UpdateGig = asyncHandler(async (req, res) => {
   // check if the user is the seller or is admin
   if (gig.sellerId.toString() === userId || role === "admin") {
     const data = {
-      user: userId,
+      sellerId: userId,
       title,
       tags,
       image,
@@ -200,6 +200,11 @@ const DeleteGig = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("You are not authorized to perform this action");
   }
+  // console.log(gig);
+  // res.status(200).json({ gig});
+
+  // console.log('Helolo world');
+
 });
 
 const GetTopRatedGig = asyncHandler(async (req, res) => {
