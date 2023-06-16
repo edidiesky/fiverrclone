@@ -1,21 +1,46 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  clearGigsAlert,
+  clearDeleteGigModalAlert,
   DeleteGig,
   adminDeleteCustomer,
   clearUserAlertError,
 } from "../../../Features";
-import { AiFillWarning } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
-export default function Delete({ type }) {
+
+export default function Delete({ type, click }) {
+  const dropin = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+      transition: {
+        delay: 0.5,
+      },
+    },
+    visible: {
+      y: "0",
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        type: "spring",
+        damping: 26,
+        stiffness: 600,
+      },
+    },
+    exit: {
+      y: "100vh",
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
   // dispatch
   const dispatch = useDispatch();
   // get the cart alert
-  const { productAlert, productDetails } = useSelector(
-    (store) => store.product
-  );
+  const { GigsDetails } = useSelector((store) => store.gigs);
   const { userAlert, userDetails } = useSelector((store) => store.user);
   // open modal if type  === users
   if (type === "users") {
@@ -36,7 +61,7 @@ export default function Delete({ type }) {
               <br /> You can't undo this action.
             </p>
           </div>
-         
+
           <div className="deleteCardBottom">
             <button onClick={() => dispatch(clearUserAlertError())}>
               Cancel
@@ -54,39 +79,56 @@ export default function Delete({ type }) {
   }
 
   return (
-    <DeleteContainer className={productAlert ? "active" : ""}>
-      <div className={productAlert ? "deleteCard active" : "deleteCard"}>
-        <div className="cross" onClick={() => dispatch(clearGigsAlert())}>
+    <DeleteContainer
+      as={motion.div}
+      initial={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+      exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+      animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
+    >
+      <div
+        className="backdrop"
+        onClick={() => dispatch(clearDeleteGigModalAlert())}
+      ></div>
+      <motion.div
+        variants={dropin}
+        initial="hidden"
+        animate="visible"
+        exit={"exit"}
+        className={"deleteCard family1"}
+      >
+        <div
+          className="cross"
+          onClick={() => dispatch(clearDeleteGigModalAlert())}
+        >
           <RxCross2 />
         </div>
         <div className="deleteCardTop">
-          <h3>Delete Media?</h3>
+          <h3>Delete Gig?</h3>
           <p>
-            Are you sure you want to delete "{productDetails?.title}"?
+            Are you sure you want to delete "{GigsDetails?.title}"?
             <br /> You can't undo this action.
           </p>
         </div>
-        {/*<div className='deleteCardCenter'>
-            <AiFillWarning/>
-            <h4><span className='deleteSpan'>Warning</span>
-             By deleting this media "{bagDetails?.title}" will also be deleted
-            </h4>
-          </div>*/}
         <div className="deleteCardBottom">
-          <button onClick={() => dispatch(clearGigsAlert())}>Cancel</button>
+          <button
+            className="text-dark"
+            onClick={() => dispatch(clearDeleteGigModalAlert())}
+          >
+            Cancel
+          </button>
           <button
             className="deleteBtn"
-            onClick={() => dispatch(DeleteGig(productDetails?._id))}
+            onClick={() => dispatch(DeleteGig(GigsDetails?._id))}
           >
-            Delete Product
+            Delete Gig
           </button>
         </div>
-      </div>
+      </motion.div>
     </DeleteContainer>
   );
 }
 
-const DeleteContainer = styled.div`
+const DeleteContainer = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -97,16 +139,15 @@ const DeleteContainer = styled.div`
   align-items: center;
   justify-content: center;
   top: 0;
-  background: rgba(0, 0, 0, 0.05);
-  opacity: 0;
-  visibility: hidden;
-  &.active {
-    opacity: 1;
-    visibility: visible;
-  }
+  .backdrop {
+    background: rgba(0, 0, 0, 0.5);
 
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
   .deleteCard {
-    min-width: 200px;
+    /* width: clamp(60%, 200px, 100%); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -117,14 +158,9 @@ const DeleteContainer = styled.div`
     border-radius: 6px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
-    opacity: 0;
-    transform: scale(0.7);
-    visibility: hidden;
-    transition: all 0.4s;
-    &.active {
-      opacity: 1;
-      transform: scale(1);
-      visibility: visible;
+    @media (max-width: 380px) {
+      padding: 4rem 3rem;
+      width: 250px;
     }
     .cross {
       position: absolute;
@@ -138,7 +174,7 @@ const DeleteContainer = styled.div`
       justify-content: center;
       cursor: pointer;
       &:hover {
-        background: var(--grey-2);
+        background: var(--grey-4);
       }
       svg {
         font-size: 20px;
@@ -153,10 +189,10 @@ const DeleteContainer = styled.div`
       button {
         padding: 1.2rem 2rem;
         border: none;
-        font-size: 1.4rem;
-        font-weight: 400;
-        background: var(--grey-2);
-        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background: var(--grey-4);
+        color: #000;
         outline: none;
         border-radius: 40px;
         cursor: pointer;

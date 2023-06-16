@@ -105,7 +105,7 @@ export default function App() {
 
                 <Route
                   exact
-                  path="create-product"
+                  path="create-gig"
                   element={<CreateProductIndex />}
                 />
               </Route>

@@ -106,17 +106,19 @@ export const sidebarData = [
   {
     id: 2,
     icon1: <HiOutlineShoppingCart />,
-    title: "Products",
+    title: "gigs",
     path: "gigs",
   },
   {
     id: 3,
     icon1: <MdAddBusiness />,
-    title: "Add Products",
-    path: "create-product",
+    title: "Add gigs",
+    path: "create-gig",
   },
   { id: 4, icon1: <BsCollection />, title: "Orders", path: "order" },
-  { id: 5, icon1: <HiUsers />, title: "Customers", path: "users" },
+  { id: 5, icon1: <HiUsers />, title: "Sellers", path: "client" },
+
+  { id: 5, icon1: <HiUsers />, title: "Buyers", path: "users" },
   { id: 6, icon1: <MdSettings />, title: "Settings", path: "Profile" },
 ];
 
@@ -129,7 +131,7 @@ export default function Sidebar() {
     <SidebarWrapper>
       <div className="sidebarContainer">
         <NavLink to={"/"} className="imageWrapper">
-          <Logo color={"#333"} />
+          <Logo type={"type"} />
         </NavLink>
         <div className="list">
           {sidebarData.map((x) => {

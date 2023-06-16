@@ -27,6 +27,7 @@ import {
   getSearch,
   getGigs,
   clearGigsDetails,
+  clearDeleteGigModalAlert,
 } from "./gigs/gigsSlice";
 
 import {
@@ -86,22 +87,21 @@ import {
   getCustomerOrderById,
   updateCustomersOrderToIsDelivered,
   getCustomerOrderStats,
-  handlePaypalKey
-} from './order/orderReducer'
+  handlePaypalKey,
+} from "./order/orderReducer";
 import {
   orderPayReset,
   orderDelieveredReset,
   getOrderPage,
-
-} from './order/orderSlice'
+} from "./order/orderSlice";
 
 import {
   GetAllBuyerCart,
   CreateBuyerCart,
   DeleteBuyerCart,
   UpdateBuyerCart,
-  GetSingleBuyerCart
-} from './cart/cartReducer'
+  GetSingleBuyerCart,
+} from "./cart/cartReducer";
 
 export {
   ToggleSidebar,
@@ -127,6 +127,7 @@ export {
   getReviewSearch,
   getGigs,
   clearGigsDetails,
+  clearDeleteGigModalAlert,
   clearAlert,
   clearReviewsAlert,
   getSearch,
@@ -145,7 +146,7 @@ export {
   adminDeleteCustomer,
   UpdateProfile,
   getUserStats,
-  // 
+  //
   clearUserAlertError,
   ClearUserInfo,
   saveShippingAddress,
@@ -166,11 +167,10 @@ export {
   orderDelieveredReset,
   getOrderPage,
   handlePaypalKey,
-
   // cart
   GetAllBuyerCart,
   CreateBuyerCart,
   DeleteBuyerCart,
   UpdateBuyerCart,
-  GetSingleBuyerCart
+  GetSingleBuyerCart,
 };

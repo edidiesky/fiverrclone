@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Styled from "styled-components";
+import React from "react";
+import { AnimatePresence } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { AiOutlineCheck } from "react-icons/ai";
 import moment from "moment";
@@ -10,6 +10,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { MdEdit } from "react-icons/md";
 import { BsTrash } from "react-icons/bs";
 export default function TableCards({ x, type }) {
+  const { deleteGigModalAlert, GigsDetails } = useSelector(
+    (store) => store.gigs
+  );
   let createddate = moment(x?.createdAt);
   createddate = createddate.format("MMMM Do YYYY");
 
@@ -123,7 +126,13 @@ export default function TableCards({ x, type }) {
 
   return (
     <>
-      {/* <Delete /> */}
+     <AnimatePresence
+        initial="false"
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+       { deleteGigModalAlert && <Delete /> }
+      </AnimatePresence>
       <tr key={x?._id}>
         <td>{x?._id}</td>
         <td>12th of Sep</td>

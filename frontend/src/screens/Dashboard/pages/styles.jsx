@@ -71,7 +71,7 @@ export const Table = styled.div`
         display: flex;
         align-items: center;
         gap: 2rem;
-        background: var(--grey-3);
+        background: var(--grey-4);
         border-radius: 7px;
         border-radius: 40px;
 
@@ -164,7 +164,7 @@ export const Table = styled.div`
         tr {
           text-align: start;
           z-index: 200;
-          /* background: var(--grey-3); */
+          /* background: var(--grey-4); */
           text-align: start;
           transition: all 0.3s var(--transition-2);
           &:hover {
@@ -318,12 +318,12 @@ export const Table = styled.div`
                 cursor: pointer;
               }
               &:hover {
-                background: var(--grey-3);
+                background: var(--grey-4);
               }
             }
             .details {
               padding: 0.8rem 1rem;
-              background: var(--grey-3);
+              background: var(--grey-4);
               border-radius: 5px;
             }
           }

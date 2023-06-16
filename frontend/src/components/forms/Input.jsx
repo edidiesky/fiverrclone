@@ -26,11 +26,12 @@ const LabelContainer = styled.label`
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  font-size: 1.7rem;
-  color: var(--grey-1);
+  font-size: 1.4rem;
+  color: var(--dark-1);
   font-weight: 700;
   text-transform: capitalize;
-  font-family: "Roboto Condensed", sans-serif;
+  /* font-family: "Roboto Condensed", sans-serif; */
+  font-family: "Montserrat", sans-serif;
 
   input {
     height: 5rem;
@@ -40,11 +41,14 @@ const LabelContainer = styled.label`
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.3);
     outline: none;
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.3rem;
+    font-weight: 500;
     transition: all 0.2s;
     font-family: inherit;
-    font-family: "Roboto Condensed", sans-serif;
+    /* font-family: "Roboto Condensed", sans-serif; */
+    font-family: "Montserrat", sans-serif;
+    color: var(--grey-3);
+
     &:hover {
       border: 1px solid rgba(0, 0, 0, 0.4);
       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);

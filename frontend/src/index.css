@@ -62,6 +62,44 @@ body {
   font-weight: 900;
 }
 
+.textarea {
+  height: 10rem;
+  border-radius: 6px;
+  background: #fff;
+  padding: 2.4rem;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  font-size: 1.3rem;
+  font-weight:500;
+  transition: all 0.2s;
+  font-family: "Montserrat", sans-serif;
+
+  color: var(--dark-1);
+}
+.input:hover,
+.textarea:hover {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+.input:focus,
+.textarea:focus {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+.textLabel {
+  width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: var(--dark-1);
+  font-weight: 600;
+  text-transform: capitalize;
+  font-family: "Montserrat", sans-serif;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -174,29 +212,6 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.textarea {
-  height: 10rem;
-  border-radius: 6px;
-  background: #fff;
-  padding: 2.4rem;
-  width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  outline: none;
-  font-size: 1.7rem;
-  font-weight: 400;
-  transition: all 0.2s;
-  font-family: "Roboto Condensed", sans-serif;
-  color: var(--dark-1);
-}
-.input:hover,
-.textarea:hover {
-  border: 1px solid rgba(0, 0, 0, 0.8);
-}
-.input:focus,
-.textarea:focus {
-  border: 1px solid rgba(0, 0, 0, 0.8);
-}
-
 .select {
   border-radius: 6px;
   background: #fff;
@@ -289,7 +304,7 @@ p {
   padding-left: 4rem;
   padding-right: 4rem;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
   background: #ccc;
@@ -298,7 +313,7 @@ p {
   background: var(--dark-1);
   border-radius: 20px;
   transition: all 0.5s;
-}
+} */
 
 .a:hover {
   text-decoration: underline;

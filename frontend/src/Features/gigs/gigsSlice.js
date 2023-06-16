@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   getAllGigs,
   getSingleGigsDetails,
-  createReviewGigs,
   CreateSingleGig,
   DeleteGig,
   UpdateGig,
@@ -34,6 +33,7 @@ const initialState = {
   maxprice: 0,
   minprice: 0,
   page: 1,
+  deleteGigModalAlert: false,
 };
 
 const GigsSlice = createSlice({
@@ -61,7 +61,7 @@ const GigsSlice = createSlice({
       state.sort = action.payload;
     },
     getGigs: (state, action) => {
-      state.GigsAlert = true;
+      state.deleteGigModalAlert = true;
       state.GigsDetails = action.payload;
     },
     getSearch: (state, action) => {
@@ -78,6 +78,9 @@ const GigsSlice = createSlice({
       state.maxprice = 0;
       state.search = "";
       state.GigsAlert = false;
+    },
+    clearDeleteGigModalAlert: (state, action) => {
+      state.deleteGigModalAlert = false;
     },
     clearGigsDetails: (state, action) => {
       state.GigsDetails = null;
@@ -226,6 +229,7 @@ export const {
   getMinPrice,
   getMaxPrice,
   cleargetCategory,
+  clearDeleteGigModalAlert
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;
