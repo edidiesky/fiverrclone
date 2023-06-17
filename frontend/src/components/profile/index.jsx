@@ -8,7 +8,7 @@ export default function ProfileIndex() {
   const { userInfo } = useSelector((store) => store.user);
 
   return (
-    <ProfileIndexContent className={userInfo.role === "user" ? "active" : ""}>
+    <ProfileIndexContent className={userInfo?.role === "user" ? "active" : ""}>
       <div className="profileWrapper w-90 auto">
         <ProfileLeftIndex />
         <ProfileRightIndex />
@@ -20,8 +20,9 @@ export default function ProfileIndex() {
 const ProfileIndexContent = styled.div`
   width: 100%;
   padding: 7rem 0;
+  background-color: var(--grey-4);
   &.active {
-    background-color: var(--light-grey);
+    background-color: var(--grey-3);
   }
   .profileWrapper {
     display: grid;

@@ -79,7 +79,14 @@ export default function App() {
                   element={<Services />}
                 />
                 <Route path="categories/:category1" element={<Services />} />
-                <Route path="profile" element={<Profile />} />
+                <Route
+                  path="profile"
+                  element={
+                    <ProtectRoute>
+                      <Profile />
+                    </ProtectRoute>
+                  }
+                />
                 <Route path="join/login" element={<Login />} />
                 <Route path="join/register" element={<Register />} />
                 <Route path="explore" element={<Explore />} />
@@ -100,7 +107,7 @@ export default function App() {
                 exact
                 path={"/dashboard/"}
                 element={
-                  <ProtectRoute type={'dashboard'}>
+                  <ProtectRoute type={"dashboard"}>
                     <LayoutList />
                   </ProtectRoute>
                 }

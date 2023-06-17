@@ -136,7 +136,7 @@ export default function Register() {
                       !password ||
                       (!password2 && isLoading)
                     }
-                    className="btn fs-16 w-100 active py-2 family1 px-4 text-white text-light"
+                    className="btn fs-14 w-100 active py-2 family1 px-4 text-white text-light"
                     style={{ padding: "1.7rem 4rem" }}
                   >
                     {isLoading ? <LoaderIndex type={"small"} /> : " Continue"}
@@ -179,10 +179,18 @@ const AuthForm = styled.div`
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
   }
+  .btn {
+    font-size: 13px;
+    color: #fff;
+    border-radius: 4px;
+  }
   .btn:disabled {
     background-color: #f7f7f7;
     /* z-index: -1; */
+    font-weight: 700;
+    font-size: 13px;
     color: #777;
+    border-radius: 4px;
     cursor: not-allowed;
   }
   .left,

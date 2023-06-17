@@ -170,6 +170,11 @@ const AuthForm = styled.div`
       display: none;
     }
   }
+  .btn {
+    font-size: 13px;
+    color: #fff;
+    border-radius: 4px;
+  }
  
   .left,
   .right {

@@ -155,7 +155,7 @@ const DeleteContainer = styled(motion.div)`
   justify-content: center;
   top: 0;
   .backdrop {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
 
     position: absolute;
     height: 100%;

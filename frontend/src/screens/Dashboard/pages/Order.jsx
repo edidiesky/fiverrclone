@@ -12,6 +12,26 @@ import { orderData } from "../../../data/Order";
 
 export default function Order() {
   const dispatch = useDispatch();
+  const orderList = [
+    {
+      id: 1,
+      name: "All Status",
+    },
+    {
+      id: 2,
+      name: "Pending",
+    },
+    {
+      id: 3,
+      name: "Paid",
+    },
+    {
+      id: 4,
+      name: "Cancelled",
+    },
+  ];
+
+  const [tab, setTab] = useState(1);
 
   // const { isLoading, orders, totalorder, orderpage } = useSelector(
   //   (store) => store.order
@@ -31,12 +51,30 @@ export default function Order() {
         subtext={"Here is what is happening with your orders today"}
       /> */}
       <Topbar />
-      <OrdersContainer >
+      <OrdersContainer>
         <div className="w-100 flex column gap-3">
           <h2 className="family1 flex-1 fs-30 text-dark">Orders</h2>
           <Table>
             <div className="TableTop">
-              <div className="TableTopLeft"></div>
+              <div className="w-100">
+                <div className="flex item-center gap-3">
+                  {orderList.map((x, index) => {
+                    return (
+                      <div
+                        key={index}
+                        onClick={() => setTab(x.id)}
+                        className={
+                          x.id === tab
+                            ? "list family1 fs-14 text-bold text-dark active"
+                            : "list family1 fs-14 text-bold text-dark"
+                        }
+                      >
+                        {x.name}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
             <div className="TableContainer">
               <table className="tableWrapper">
@@ -53,7 +91,7 @@ export default function Order() {
                   </tr>
                 </thead>
                 <tbody>
-                  {orderData?.slice(0,4).map((x) => {
+                  {orderData?.slice(0, 4).map((x) => {
                     return <TableCard x={x} key={x?._id} type="orders" />;
                   })}
                 </tbody>
@@ -71,4 +109,32 @@ const OrdersContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   padding-top: 3rem;
+  .list {
+    position: relative;
+    color: var(--grey-2);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    &.active {
+      color: var(--green);
+      &::after {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &::after {
+      position: absolute;
+      bottom: -15%;
+      width: 100%;
+      left: 0;
+      border-radius: 20px;
+      height: 3px;
+      background-color: var(--green);
+      content: "";
+      opacity: 0;
+      visibility: none;
+      transition: all 0.5s;
+    }
+  }
 `;
