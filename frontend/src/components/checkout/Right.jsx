@@ -13,7 +13,7 @@ export default function CheckoutRight() {
           {/* gig image and basic description */}
           <div className="py-2 p2 border flex item-center">
             <div className="flex1">
-              {cartDetails?.gigId?.image && (
+              {!cartIsLoading && (
                 <img
                   src={cartDetails?.gigId?.image[0]}
                   alt=""

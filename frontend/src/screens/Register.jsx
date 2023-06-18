@@ -91,6 +91,8 @@ export default function Register() {
     <>
       <Meta title="Sign In for a Fiverr Account - Join Fiverr Today" />
       <Header />
+      {isLoading && <LoaderIndex />}
+
       <AuthForm className="w-100 py-6">
         <div className="w-90 auto py-3 flex wrapper item-start">
           <div className="left flex-1">
@@ -139,7 +141,7 @@ export default function Register() {
                     className="btn fs-14 w-100 active py-2 family1 px-4 text-white text-light"
                     style={{ padding: "1.7rem 4rem" }}
                   >
-                    {isLoading ? <LoaderIndex type={"small"} /> : " Continue"}
+                    {" Continue"}
                   </button>
                   <p className="fs-14 text-light text-grey">
                     Not yet a member?{" "}
