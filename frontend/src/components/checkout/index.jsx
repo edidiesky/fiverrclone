@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Header from "./Header";
+import Header from "./Header";  
 import CheckoutLeft from "./Left";
 import CheckoutRight from "./Right";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,13 +11,13 @@ export default function CheckoutIndex() {
   const dispatch = useDispatch();
   const { cartDetails, cartIsLoading } = useSelector((store) => store.cart);
   const [searchParams, setSearchParams] = useSearchParams();
-  const gigid = searchParams.get("gigid");
+  const id = searchParams.get("gigid");
   // console.log(gigid);
   useEffect(() => {
-    if (gigid) {
-      dispatch(GetSingleBuyerCart({ id: gigid }));
+    if(id) {
+      dispatch(GetSingleBuyerCart(id));
     }
-  }, [gigid, dispatch]);
+  }, [id]);
   return (
     <div>
       <div className="w-100">

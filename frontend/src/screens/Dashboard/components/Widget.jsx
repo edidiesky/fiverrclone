@@ -125,7 +125,7 @@ const WidgetWrapper = styled.div`
       align-items: center;
       justify-content: center;
       background: #daf2c2;
-      border-radius: 6px;
+      border-radius: 50%;
       svg {
         font-size: 2.5rem;
         color: var(--green);

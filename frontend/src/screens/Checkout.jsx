@@ -11,7 +11,7 @@ export default function Checkout() {
     <div>
       <Meta title={"Secure Checkout"} />
       <div className="w-100">
-        {cartIsLoading ? <LoaderIndex /> : <CheckoutIndex />}
+        { <CheckoutIndex />}
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import {
 } from "../../Features";
 import { clearCartAlert } from "../../Features/bag/bagSlice";
 import Message from "../loaders/Message";
+import LoaderIndex from "../loaders";
 
 export default function CartSidebar() {
   const dispatch = useDispatch();
@@ -18,19 +19,25 @@ export default function CartSidebar() {
   // get the cartDetails content
   const { cartsidebar } = useSelector((store) => store.toggle);
   const { GigsDetails } = useSelector((store) => store.gigs);
-  const { orderisSuccess } = useSelector((store) => store.order);
-  const { cartIsSuccess, showAlert, alertText, cartDetails } = useSelector(
-    (store) => store.cart
+  const { orderisSuccess, orderisLoading } = useSelector(
+    (store) => store.order
   );
+  const {
+    cartIsSuccess,
+    showAlert,
+    alertText,
+    cartDetails,
+    cartIsLoading,
+  } = useSelector((store) => store.cart);
   const navigate = useNavigate();
   const handleAddToCart = () => {
     dispatch(CreateBuyerCart({ qty }));
   };
 
-  let estimatedTax = 0.055 * parseInt(cartDetails?.gigId?.price);
+  let estimatedTax = 0.055 * parseInt(GigsDetails?.price);
 
   let ShoppingPrice =
-    parseInt(cartDetails?.gigId.price) * parseInt(cartDetails?.gigQuantity);
+    parseInt(GigsDetails?.price) * parseInt(cartDetails?.gigQuantity);
   let shippingPrice = ShoppingPrice > 100 ? 100 : 0;
   let TotalShoppingPrice =
     ShoppingPrice + estimatedTax + parseInt(shippingPrice);
@@ -39,12 +46,12 @@ export default function CartSidebar() {
   const orderData = {
     cartId: cartDetails?._id,
     paymentMethod: "Paypal",
-    TotalShoppingPrice: parseInt(TotalShoppingPrice).toFixed(2),
+    TotalShoppingPrice: parseFloat(TotalShoppingPrice).toFixed(2),
     totalQuantity: cartDetails?.gigQuantity,
     shippingPrice: shippingPrice,
     estimatedTax: estimatedTax,
   };
-  console.log(orderData);
+  // console.log(orderData);
   // if the cartDetails has been added then create the order
   // if successfull then head to the checkout page
 
@@ -52,12 +59,12 @@ export default function CartSidebar() {
     if (cartIsSuccess) {
       dispatch(createCustomersOrder({ orderData }));
     }
-    // if (orderisSuccess) {
-    //   setTimeout(() => {
-    //     navigate(`/checkout?gigid=${GigsDetails?._id}`);
-    //   }, 5000);
-    // }
-  }, [cartIsSuccess]);
+    if (orderisSuccess) {
+      setTimeout(() => {
+        navigate(`/checkout?gigid=${cartDetails?._id}`);
+      }, 3000);
+    }
+  }, [cartIsSuccess, orderisSuccess, navigate]);
 
   return (
     <CartSidebarContainer className={cartsidebar ? "active" : ""}>
@@ -65,6 +72,8 @@ export default function CartSidebar() {
         className="backdrop"
         onClick={() => dispatch(offCartSidebar())}
       ></div>
+      {cartIsLoading && <LoaderIndex />}
+      {orderisLoading && <LoaderIndex />}
       <div className="cartSidebarWrapper">
         <div className="cartSidebarTop flex item-center justify-space w-100">
           <h4 className="fs-16 family1 ">Order options</h4>

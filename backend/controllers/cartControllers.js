@@ -26,7 +26,7 @@ const GetAllBuyerCart = asyncHandler(async (req, res) => {
 const GetSingleBuyerCart = asyncHandler(async (req, res) => {
   const { id } = req.params;
   // find the Gig
-  const cart = await Cart.findOne({ gigId: id })
+  const cart = await Cart.findOne({ _id: id })
     .populate(
       "gigId",
       "image title image shortDescription price category subInfo type deliveryDays"
@@ -37,64 +37,6 @@ const GetSingleBuyerCart = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Cart Item not found");
   }
-  res.status(200).json({ cart });
-});
-
-// GET SINGLE Cart
-// Private
-// Admin and seller
-const CreateBuyerCart = asyncHandler(async (req, res) => {
-  // get the request body parameters
-  const { qty } = req.body;
-
-  // console.log(qty);
-
-  // get the request params
-  const { id } = req.params;
-  const gig = await Gig.findById({ _id: id });
-  if (!gig) {
-    res.status(404);
-    throw new Error("Gig not found");
-  }
-  const { userId } = req.user;
-
-  // check if the gig is alrady in the cart
-  const alreadyinCart = await Cart.findOne({
-    gigId: id,
-    buyer: userId,
-  });
-  if (alreadyinCart !== null) {
-    res.status(404);
-    throw new Error("You have added it in cart");
-  }
-
-  // "countInStock": 10,
-  // checking if the required quantity is greater that the gig countInStock
-  if (qty > gig.countInStock) {
-    res.status(404);
-    throw new Error(
-      "The gig/ service is not available for that quantity count"
-    );
-  }
-  // console.log(qty);
-  // console.log(gig.countInStock);
-  // trying to update the sellers's Gig count in stock
-  await Gig.findByIdAndUpdate(
-    { _id: id },
-    { countInStock: parseInt(gig.countInStock - qty) },
-    { new: true }
-  );
-
-  // console.log('hello');
-  // console.log(gig.countInStock - qty);
-
-  const cart = await Cart.create({
-    gigQuantity: qty,
-    buyer: userId,
-    gigId: id,
-    sellerId: gig.sellerId ? gig.sellerId : gig.user,
-  });
-
   res.status(200).json({ cart });
 });
 
@@ -150,6 +92,70 @@ const UpdateBuyerCart = asyncHandler(async (req, res) => {
   } else {
     res.status(404);
     throw new Error("You are not authorized to perform this action");
+  }
+});
+
+// GET SINGLE Cart
+// Private
+// Admin and seller
+const CreateBuyerCart = asyncHandler(async (req, res) => {
+  // get the request body parameters
+  const { qty } = req.body;
+
+  // console.log(qty);
+  const { id } = req.params;
+  const gig = await Gig.findById({ _id: id });
+  if (!gig) {
+    res.status(404);
+    throw new Error("Gig not found");
+  }
+  const { userId } = req.user;
+
+  // check if the gig is alrady in the cart
+  const alreadyinCart = await Cart.findOne({
+    gigId: id,
+    buyer: userId,
+  });
+  // if in cart update it
+  if (alreadyinCart) {
+    let cart = await Cart.findOneAndUpdate(
+      {
+        gigId: id,
+        buyer: userId,
+      },
+      {gigQuantity: qty },
+      { new: true }
+    );
+    res.status(200).json({ cart });
+  } else {
+    // "countInStock": 10,
+    // checking if the required quantity is greater that the gig countInStock
+    if (qty > gig.countInStock) {
+      res.status(404);
+      throw new Error(
+        "The gig / service is not available for that quantity count"
+      );
+    }
+    // console.log(qty);
+    // console.log(gig.countInStock);
+    // trying to update the sellers's Gig count in stock
+    await Gig.findByIdAndUpdate(
+      { _id: id },
+      { countInStock: parseInt(gig.countInStock - qty) },
+      { new: true }
+    );
+
+    // console.log('hello');
+    // console.log(gig.countInStock - qty);
+
+    const cart = await Cart.create({
+      gigQuantity: qty,
+      buyer: userId,
+      gigId: id,
+      sellerId: gig.sellerId ? gig.sellerId : gig.user,
+    });
+
+    res.status(200).json({ cart });
   }
 });
 

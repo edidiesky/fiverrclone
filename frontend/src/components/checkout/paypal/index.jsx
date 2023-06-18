@@ -1,10 +1,16 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createCustomersOrder } from "../../../Features";
+import { useNavigate } from "react-router-dom";
+
+import {
+  createCustomersOrder,
+  updateCustomersOrderToPaid,
+} from "../../../Features";
 
 export default function PaymentButton() {
   const amount = "2";
+  const navigate = useNavigate();
   const currency = "USD";
   const {
     bag,
@@ -28,25 +34,25 @@ export default function PaymentButton() {
     shippingPrice,
   };
   const dispatch = useDispatch();
-  const handleApprove = (orderId) => {
-    console.log(orderId);
+  const handleApprove = (details) => {
+    // console.log(details);
     // Call backend function to fulfill order
-    dispatch(createCustomersOrder(orderData));
+    dispatch(updateCustomersOrderToPaid({ details }));
     // Refresh user's account or subscription status
     // if response is error
     // alert("Your payment was processed successfully. However, we are unable to fulfill your purchase. Please contact us at support@designcode.io for assistance.");
   };
 
-  if (successPay) {
-    // Display success message, modal or redirect user to success page
-    alert("Thank you for your purchase!");
-  }
-
+  useEffect(() => {
+    if (successPay) {
+      // Display success message, modal or redirect user to success page
+      navigate(`/order-success?orderId=${order?._id}`);
+    }
+  }, [successPay, navigate]);
   return (
     <PayPalButtons
       style={{
         color: "blue",
-        layout: "horizontal",
         height: 40,
         tagline: false,
         shape: "pill",
@@ -59,7 +65,7 @@ export default function PaymentButton() {
               {
                 amount: {
                   currency_code: currency,
-                  value: 100,
+                  value: TotalShoppingPrice,
                 },
               },
             ],
@@ -69,9 +75,10 @@ export default function PaymentButton() {
             return orderId;
           });
       }}
-      onApprove={async function(data, actions) {
-        await actions.order.capture();
-        handleApprove(data);
+      onApprove={(data, actions) => {
+        return actions.order.capture().then((details) => {
+          handleApprove(details);
+        });
       }}
     />
   );

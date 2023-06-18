@@ -20,17 +20,20 @@ import reviewRoute from "./routes/reviewRoutes.js";
 import gigRoute from "./routes/gigRoutes.js";
 import uploadRoute from "./routes/uploadRoute.js";
 import cartRoute from "./routes/cartRoute.js";
+import orderRoute from "./routes/orderRoutes.js";
+
 import chatRoute from "./routes/chatRoutes.js";
-// import orderRoute from './routes/orderRoutes.js';
+import stripeCheckout from "./controllers/stripeController.js";
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/gig", gigRoute);
 app.use("/api/v1/review", reviewRoute);
-// app.use('/api/v1/order', orderRoute);
+app.use('/api/v1/order', orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/cart", cartRoute);
 app.use("/api/v1/chat", chatRoute);
+app.post("/api/v1/create-payment-intent", stripeCheckout);
 app.get("/api/v1/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });

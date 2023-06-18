@@ -22,7 +22,7 @@ export const GetAllBuyerCart = createAsyncThunk(
 // fetching all cart for the buyer
 export const GetSingleBuyerCart = createAsyncThunk(
   "/cart/singleBuyerCart",
-  async ({ id }, thunkAPI) => {
+  async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     const config = {
       headers: {
@@ -30,7 +30,7 @@ export const GetSingleBuyerCart = createAsyncThunk(
       },
     };
     try {
-      let cartUrl = `/api/v1/cart/buyer/${id}`;
+      let cartUrl = `/api/v1/cart/buyer/${name}`;
       const { data } = await axios.get(cartUrl, config);
       return data.cart;
     } catch (error) {

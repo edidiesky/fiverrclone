@@ -13,11 +13,13 @@ export default function CheckoutRight() {
           {/* gig image and basic description */}
           <div className="py-2 p2 border flex item-center">
             <div className="flex1">
-              <img
-                src={cartDetails?.gigId?.image[0]}
-                alt=""
-                className="w-100 radius1"
-              />
+              {cartDetails?.gigId?.image && (
+                <img
+                  src={cartDetails?.gigId?.image[0]}
+                  alt=""
+                  className="w-100 radius1"
+                />
+              )}
             </div>
             <h4 className="fs-18 flex1 text-grey">
               {cartDetails?.gigId?.shortDescription}
@@ -64,7 +66,10 @@ export default function CheckoutRight() {
             {/* total fee */}
             <ul className="flex column py-1 borderB gap-2">
               <li className="flex item-center text-light justify-space w-100 gap-1 fs-18 text-grey">
-                <span className="text-bold">Total</span> $2.28
+                <span className="text-bold">Total</span> $
+                {0.055 * parseInt(cartDetails?.gigId?.price) +
+                  parseInt(cartDetails?.gigId?.price) +
+                  parseInt(2.28)}
               </li>
               <li className="flex item-center justify-space w-100 gap-1 fs-18 text-light text-grey">
                 <span className="text-light">Total delivery time</span> $2.28

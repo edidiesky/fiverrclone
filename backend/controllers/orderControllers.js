@@ -1,4 +1,4 @@
-import Product from "../models/Product.js";
+// import Product from "../models/Product.js";
 import Order from "../models/Order.js";
 import moment from "moment";
 import asyncHandler from "express-async-handler";
@@ -58,7 +58,6 @@ const CreateOrder = async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
   const {
-    orderItems,
     paymentMethod,
     estimatedTax,
     shippingPrice,
@@ -66,22 +65,23 @@ const CreateOrder = async (req, res) => {
     cartId,
   } = req.body;
 
-  // Checking if there's an empty orderItem
-  if (!orderItems && orderItems.length === 0) {
-    res.status(403);
-    throw new Error('Can"t create an order for you with an empty order Item');
-  }
   const order = await Order.create({
     buyerId: userId,
-    cartId: cartId,
-    orderItems,
+    cartId,
     paymentMethod,
     estimatedTax,
     shippingPrice,
-    TotalShoppingPrice,
+    TotalShoppingPrice:parseInt(TotalShoppingPrice),
   });
 
   res.status(200).json({ order });
+  // console.log({
+  //   paymentMethod,
+  //   estimatedTax,
+  //   shippingPrice,
+  //   TotalShoppingPrice:parseInt(TotalShoppingPrice),
+  //   cartId,
+  // });
 };
 
 // Update Order to paid for the user
