@@ -11,9 +11,14 @@ export default function CheckoutRight() {
         {/* box */}
         <div className="w-85 auto border top flex column gap-2">
           {/* gig image and basic description */}
-          <div className="py-2 p2 border flex item-center">
+          <div
+            className="py-2 p2 border flex item-center"
+            style={{ flexWrap: "wrap" }}
+          >
             <div className="flex1">
-              {!cartIsLoading && (
+              {cartDetails ? (
+                ""
+              ) : (
                 <img
                   src={cartDetails?.gigId?.image[0]}
                   alt=""
@@ -74,7 +79,13 @@ export default function CheckoutRight() {
               <li className="flex item-center justify-space w-100 gap-1 fs-18 text-light text-grey">
                 <span className="text-light">Total delivery time</span> $2.28
               </li>
-              <PaymentButton />
+              <PaymentButton
+                price={
+                  0.055 * parseInt(cartDetails?.gigId?.price) +
+                  parseInt(cartDetails?.gigId?.price) +
+                  parseInt(2.28)
+                }
+              />
             </ul>
             {/* paypal Checkout */}
           </div>

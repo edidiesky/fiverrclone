@@ -228,3 +228,4 @@ const AuthForm = styled.div`
     }
   }
 `;
+  

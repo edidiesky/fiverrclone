@@ -4,35 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import {
-  createCustomersOrder,
   updateCustomersOrderToPaid,
 } from "../../../Features";
 
-export default function PaymentButton() {
-  const amount = "2";
+export default function PaymentButton({price}) {
   const navigate = useNavigate();
   const currency = "USD";
-  const {
-    bag,
-    totalPrice,
-    shippingPrice,
-    estimatedTax,
-    TotalShoppingPrice,
-  } = useSelector((store) => store.bag);
-  const [payment, setPayment] = useState("Paypal");
   const { addressData } = useSelector((store) => store.user);
   const { order, successPay } = useSelector((store) => store.order);
-  const [paidFor, setPaidFor] = useState(false);
-
-  const orderData = {
-    orderItems: bag,
-    estimatedTax,
-
-    shippingAddress: addressData,
-    TotalShoppingPrice,
-    paymentMethod: payment,
-    shippingPrice,
-  };
   const dispatch = useDispatch();
   const handleApprove = (details) => {
     // console.log(details);
@@ -65,7 +44,7 @@ export default function PaymentButton() {
               {
                 amount: {
                   currency_code: currency,
-                  value: TotalShoppingPrice,
+                  value: price,
                 },
               },
             ],

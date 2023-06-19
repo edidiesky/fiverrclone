@@ -39,6 +39,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { handlePaypalKey } from "./Features";
 import LoaderIndex from "./components/loaders";
+import Order from "./screens/Order";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -74,6 +75,8 @@ export default function App() {
                 <Route index element={<Home />} />
                 <Route path="gigs/:id" element={<Single />} />
                 <Route path="gigs" element={<Services />} />
+                <Route path="order-success" element={<Order />} />
+
                 <Route
                   path="categories/:category1/:category2"
                   element={<Services />}
@@ -105,7 +108,7 @@ export default function App() {
 
               <Route
                 exact
-                path={"/dashboard/"}
+                path={"/dashboard"}
                 element={
                   <ProtectRoute type={"dashboard"}>
                     <LayoutList />

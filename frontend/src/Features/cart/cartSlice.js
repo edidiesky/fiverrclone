@@ -131,21 +131,6 @@ const CartSlice = createSlice({
       state.alertType = "danger";
       state.showAlert = true;
     },
-
-    // [getcartStats.pending]: (state) => {
-    //   state.cartIsLoading = true;
-    // },
-    // [getcartStats.fulfilled]: (state, action) => {
-    //   state.cartLoading = false;
-    //   state.cartStat = action.payload;
-    // },
-    // [getcartStats.rejected]: (state, action) => {
-    //   state.cartLoading = false;
-    //   state.showAlert = true;
-    //   state.cartIsError = true;
-    //   state.alertText = action.payload;
-    //   state.alertType = "danger";
-    // },
   },
 });
 

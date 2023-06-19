@@ -1,4 +1,5 @@
 // import Product from "../models/Product.js";
+import Cart from "../models/Cart.js";
 import Order from "../models/Order.js";
 import moment from "moment";
 import asyncHandler from "express-async-handler";
@@ -32,10 +33,9 @@ const GetCustomerOrder = async (req, res) => {
   // instantiate the user id from the req.user
   const { userId } = req.user;
   // instantiate the Order variable
-  const order = await Order.find({ createdBy: userId }).populate(
-    "createdBy",
-    "firstname lastname email address"
-  );
+  const order = await Order.find({ createdBy: userId })
+    .populate("createdBy", "firstname lastname email address")
+    .populate("cartId", "image title price countInStock deliveryDays");
   res.status(200).json({ order });
 };
 
@@ -66,12 +66,12 @@ const CreateOrder = async (req, res) => {
   } = req.body;
 
   const order = await Order.create({
-    buyerId: userId,
+    createdBy: userId,
     cartId,
     paymentMethod,
     estimatedTax,
     shippingPrice,
-    TotalShoppingPrice:parseInt(TotalShoppingPrice),
+    TotalShoppingPrice: parseInt(TotalShoppingPrice),
   });
 
   res.status(200).json({ order });
@@ -89,14 +89,15 @@ const CreateOrder = async (req, res) => {
 // Admin
 const UpdateOrderToPaid = async (req, res) => {
   // find the user order in the data base
-  const order = await Order.findById({ _id: req.params.id });
+  const order = await Order.findOne({ cartId: req.params.id });
   // check if the order exist
   if (!order) {
     res.status(403);
     throw new Error("This order request does not exist");
   }
-  const updatedOrder = await Order.findByIdAndUpdate(
-    { _id: req.params.id },
+  // udate the cart
+  const updatedOrder = await Order.findOneAndUpdate(
+    { cartId: req.params.id },
     {
       isPaid: true,
       paidAt: Date.now(),
@@ -109,6 +110,8 @@ const UpdateOrderToPaid = async (req, res) => {
     },
     { new: true }
   );
+  // clear the buyer cart
+  await Cart.findByIdAndDelete({ _id: req.params.id });
 
   res.status(200).json({ updatedOrder });
 };

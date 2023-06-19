@@ -130,7 +130,7 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { _id } = state.order.order;
+      const { _id } = state.cart.cartDetails;
       const { data } = await axios.put(
         `/api/v1/order/${_id}/pay`,
         details,

@@ -12,6 +12,12 @@ export default function Message({
   // dispatch
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(handleClearAlert());
+    }, 4000);
+  }, []);
+
   return (
     <MessageContent
       className={

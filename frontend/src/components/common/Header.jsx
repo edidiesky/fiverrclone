@@ -9,7 +9,7 @@ import Bar from "./svg/Bar";
 import Logo from "./svg/Logo";
 import { HiUser } from "react-icons/hi";
 
-const data = [
+const data = [  
   { id: 1, title: "Fiverr Business", path: "/business" },
   { id: 2, title: "Explore", path: "/explore" },
   { id: 3, title: "English", path: "/product" },
@@ -400,6 +400,8 @@ const HeaderTopContainer = styled.div`
 const HeaderWrapper = styled.div`
   width: 100%;
   z-index: 1000;
+  position: sticky;
+  top: 0;
   .headerTopContainer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     .headerTopCenter {

@@ -62,7 +62,7 @@ export default function CartSidebar() {
     if (orderisSuccess) {
       setTimeout(() => {
         navigate(`/checkout?gigid=${cartDetails?._id}`);
-      }, 3000);
+      }, 4000);
     }
   }, [cartIsSuccess, orderisSuccess, navigate]);
 

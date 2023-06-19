@@ -33,22 +33,22 @@ export default function Header() {
           className="w-100 flex item-center gap-1"
           style={{ flexWrap: "wrap" }}
         >
-          <div className="flex fs-16 family1 text-green item-center gap-1">
-            <div className="avatar flex item-center justify-center fs-18 text-white">
+          <div className="flex fs-14 family1 text-green item-center gap-1">
+            <div className="avatar flex item-center justify-center fs-14 text-white">
               <BiChevronRight className="fs-24" />
             </div>
             Order Details
           </div>
           <BiChevronRight className="fs-30 text-grey" />
-          <div className="flex fs-16 family1 text-green item-center gap-1">
-            <div className="avatar flex item-center justify-center fs-18 text-white">
+          <div className="flex fs-14 family1 text-green item-center gap-1">
+            <div className="avatar flex item-center justify-center fs-14 text-white">
               2
             </div>
             Confirm & Pay
           </div>
           <BiChevronRight className="fs-30 text-grey" />
-          <div className="flex fs-16 family1 text-green item-center gap-1">
-            <div className="avatar flex item-center justify-center fs-18 text-white">
+          <div className="flex fs-14 family1 text-green item-center gap-1">
+            <div className="avatar flex item-center justify-center fs-14 text-white">
               3
             </div>
             Submit Requirements
@@ -77,6 +77,7 @@ const HeaderTopContainer = styled.div`
   background: #fff;
   padding: 1.5rem 0;
   gap: 3rem;
+
   .links {
   }
   .fill {
@@ -148,6 +149,8 @@ const HeaderTopContainer = styled.div`
 const HeaderWrapper = styled.div`
   width: 100%;
   z-index: 5000;
+  position: fixed;
+  top: 0;
   .text-green {
     color: var(--green);
   }
