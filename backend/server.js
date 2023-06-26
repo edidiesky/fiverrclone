@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
-
+import CookieSession from "cookie-session";
 dotenv.config();
 
 const app = express();
@@ -13,6 +13,13 @@ import mongoose from "mongoose";
 // middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(
+  CookieSession({
+    name: "session",
+    keys: ["edidie"],
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours,
+  })
+);
 
 import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
@@ -29,7 +36,7 @@ app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/gig", gigRoute);
 app.use("/api/v1/review", reviewRoute);
-app.use('/api/v1/order', orderRoute);
+app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/cart", cartRoute);
 app.use("/api/v1/chat", chatRoute);
