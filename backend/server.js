@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
+import passport from "passport";
 import CookieSession from "cookie-session";
 dotenv.config();
 
@@ -13,6 +14,8 @@ import mongoose from "mongoose";
 // middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(passport.initialize())
+app.use(passport.session())
 app.use(
   CookieSession({
     name: "session",
