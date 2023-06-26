@@ -60,7 +60,7 @@ export default function SellerPage1() {
               return (
                 <div className="w-100 flex column gap-2" key={index}>
                   <img src={x.image} alt="" className="images" />
-                  <h4 className="fs-18 text-dark text-light">{x.text}</h4>
+                  <h4 className="fs-18 text-grey text-light">{x.text}</h4>
                 </div>
               );
             })}
@@ -68,11 +68,11 @@ export default function SellerPage1() {
           <div className="buttonWrapper flex item-center py-2 gap-2">
             <Link
               to={"/seller_onboarding/dont"}
-              className="contactBtn family1 green fs-18 text-white"
+              className="contactBtn family1 green fs-14 text-white"
             >
               Continue
             </Link>
-            <Link to={"/"} className="contactBtn family1 fs-16 text-grey">
+            <Link to={"/"} className="contactBtn btn1 family1 fs-14 text-grey">
               Back
             </Link>
           </div>
@@ -83,9 +83,16 @@ export default function SellerPage1() {
 }
 const SellerPage1Container = styled.div`
   width: 100%;
+  .contactBtn {
+    padding: 1.5rem 3rem;
+    &.btn1 {
+      border: none;
+      padding: 1.5rem 0 !important;
+    }
+  }
   .sellerWrapper {
     display: grid;
-    grid-template-columns: 30vw 1fr;
+    grid-template-columns: auto 1fr;
     grid-gap: 7rem;
     height: 100%;
     padding: 3rem 0;
@@ -97,7 +104,8 @@ const SellerPage1Container = styled.div`
     }
 
     .image {
-      height: 55rem;
+      /* height: 55rem; */
+      width: 100%;
       @media (max-width: 990px) {
         display: none;
       }

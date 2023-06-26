@@ -6,6 +6,7 @@ import { Pagination, TableCard, Topbar } from "../components";
 import { Table } from "./styles";
 import LoaderIndex from "../../../components/loaders/index";
 import Message from "../../../components/modals/Message";
+import Card from "../../../components/common/Card";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -49,29 +50,12 @@ export default function Products() {
       <ProductsContainer className="flex column gap-3 ">
         <div className="w-100 flex column gap-3">
           <h2 className="family1 flex-1 fs-30 text-dark">Gigs</h2>
-          <Table>
-            <div className="TableContainer">
-              <table className="tableWrapper">
-                <thead>
-                  <tr>
-                    <th>No.</th>
-                    {/* <th>Image</th> */}
-                    <th>Image</th>
-                    <th>description</th>
-                    <th>Price</th>
-                    <th>CountInStock</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Gigs?.map((x) => {
-                    return <TableCard x={x} key={x?._id} />;
-                  })}
-                </tbody>
-              </table>
-            </div>
-            {noOfPages > 0 && <Pagination />}
-          </Table>
+          <div className="w-100 wrapper">
+            {Gigs?.map((x) => {
+              return <Card x={x} key={x?._id} type={'dashboard'} />;
+            })}
+          </div>
+          {noOfPages > 0 && <Pagination />}
         </div>
       </ProductsContainer>
     </>
@@ -82,4 +66,9 @@ const ProductsContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   padding-top: 3rem;
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap: 3rem;
+  }
 `;

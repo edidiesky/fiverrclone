@@ -11,22 +11,19 @@ export default function UserBottomInfo() {
   return (
     <UserBottomInfoContent>
       {/* bototm */}
-      <div className="w-100 py-2 flex column gap-1">
+      <div className="w-100 py-2 flex column gap-3">
         {/* description */}
-        <div className="flex bottom w-100 fs-16 text-dark text-bold column gap-2">
-          <span className="flex fs-18 justify-space item-center gap-2">
+        <div className="flex family1 bottom w-100 fs-16 text-dark text-bold column gap-2">
+          <span className="flex family1 fs-16 text-bold justify-space item-center gap-2">
             Description
             {!desc && (
-              <div
-                className="text-light text-blue"
-                onClick={() => setDec(true)}
-              >
+              <div className=" text-blue fs-14" onClick={() => setDec(true)}>
                 Edit Description
               </div>
             )}
           </span>
           {/* sample description */}
-          {/* <span className="text-light">
+          {/* <span className="">
             Analyzes aerial pictures of rooftops using sophisticated software to
             convert these aerial pictures into CAD drawings including exact
             measurements.
@@ -41,30 +38,27 @@ export default function UserBottomInfo() {
           >
             {/* text area */}
             <textarea
-              className="area family1"
+              className="area family1 text-bold"
               placeholder="Please tell us about any hobbies, additional expertise, or anything else you'd like to add"
             ></textarea>
             {/* add button section */}
             <div className="w-100 flex item-center gap-1">
               <div
-                className="w-100 contactBtn fs-16"
+                className="w-100 contactBtn fs-14"
                 onClick={() => setDec(false)}
               >
                 Cancel
               </div>
-              <div className="w-100 contactBtn green fs-16">Update</div>
+              <div className="w-100 contactBtn green fs-14">Update</div>
             </div>
           </div>
           {/* input description tab end */}
         </div>
         {/* languages */}
-        <div className="flex bottom w-100 fs-16 text-dark text-bold column gap-2">
-          <span className="flex flex fs-18 justify-space item-center gap-2">
+        <div className="flex family1 bottom w-100 fs-16 text-dark text-bold column gap-2">
+          <span className="flex family1 flex fs-16 justify-space item-center gap-2">
             Languages
-            <div
-              className="text-light text-blue"
-              onClick={() => setLanguage(true)}
-            >
+            <div className=" text-blue fs-14" onClick={() => setLanguage(true)}>
               Add New
             </div>
           </span>
@@ -85,36 +79,33 @@ export default function UserBottomInfo() {
             {/* add button section */}
             <div className="w-100 flex item-center gap-1">
               <div
-                className="w-100 contactBtn fs-16"
+                className="w-100 contactBtn fs-14"
                 onClick={() => setLanguage(false)}
               >
                 Cancel
               </div>
-              <div className="w-100 contactBtn green fs-16">Update</div>
+              <div className="w-100 contactBtn green fs-14">Update</div>
             </div>
           </div>
           {/* input description tab end */}
-          {/* <span className="text-light">
-            English - <span className="text-light text-grey2">Fluent</span>
+          {/* <span className="">
+            English - <span className=" text-grey2">Fluent</span>
           </span> */}
         </div>
         {/* accounts */}
-        <div className="flex bottom w-100 fs-16 text-dark text-bold column gap-2">
-          <span className="flex flex fs-18 justify-space item-center gap-2">
+        <div className="flex family1 bottom w-100 fs-16 text-dark text-bold column gap-2">
+          <span className="flex family1 flex fs-16 justify-space item-center gap-2">
             Linked Accounts
-            <div className="text-light text-blue">Add New</div>
+            <div className=" text-blue fs-14">Add New</div>
           </span>
-          <span className="text-light">Google</span>
+          <span className="">Google</span>
         </div>
         {/* skills */}
-        <div className="flex bottom w-100 fs-16 text-dark column gap-2 text-bold gap-2">
-          <span className="flex flex fs-18 justify-space item-center gap-2">
+        <div className="flex family1 bottom w-100 fs-16 text-dark column gap-2 text-bold gap-2">
+          <span className="flex family1 flex fs-16 justify-space item-center gap-2">
             Skills
             {!skill && (
-              <div
-                className="text-light text-blue"
-                onClick={() => setSkill(true)}
-              >
+              <div className=" text-blue fs-14" onClick={() => setSkill(true)}>
                 Add Skills
               </div>
             )}
@@ -148,12 +139,12 @@ export default function UserBottomInfo() {
             {/* add button section */}
             <div className="w-100 flex item-center gap-1">
               <div
-                className="w-100 contactBtn fs-16"
+                className="w-100 contactBtn fs-14"
                 onClick={() => setSkill(false)}
               >
                 Cancel
               </div>
-              <div className="w-100 contactBtn green fs-16">Update</div>
+              <div className="w-100 contactBtn green fs-14">Update</div>
             </div>
           </div>
           {/* input description tab end */}

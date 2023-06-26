@@ -17,8 +17,10 @@ export default function UserTopInfo() {
         {userInfo?.image ? (
           <div className="ProfileImage flex item-center justify-center cardImage">
             <img src={userInfo?.image} alt="" className="image" />
+            <div className="image dark flex item-center justify-center">
+              <Camera />
+            </div>
           </div>
-          
         ) : (
           <div className="w-100 ProfileImage flex item-center justify-center cardImage">
             <div className="image dark flex item-center justify-center">
@@ -99,6 +101,7 @@ const UserTopInfoContent = styled.div`
     height: 16rem;
     border-radius: 50%;
     z-index: 300;
+    object-fit: cover;
     &:hover .image {
       &.dark {
         opacity: 1;
@@ -120,12 +123,14 @@ const UserTopInfoContent = styled.div`
     left: 50%;
     top: 0;
     transform: translateX(-50%);
+    object-fit: cover;
+    cursor: pointer;
 
     &.grey {
-      background-color: var(--light-grey);
+      background-color: rgba(0, 0, 0, 0.6);
     }
     &.dark {
-      background-color: var(--grey-1);
+      background-color:rgba(0, 0, 0, 0.8);
       opacity: 0;
       visibility: hidden;
     }

@@ -38,7 +38,7 @@ const GetAllGig = asyncHandler(async (req, res) => {
     queryObject.category = category;
   }
 
-  const limit = req.query.limit || 6;
+  const limit = req.query.limit || 12;
   const page = req.query.page;
   const skip = (page - 1) * limit;
 

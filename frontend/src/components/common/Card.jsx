@@ -65,6 +65,72 @@ export default function Card({ x, index, type }) {
       </>
     );
   }
+  if (type === "dashboard") {
+    return (
+      <>
+      {gigsIsLoading ? (
+        <CardLoading />
+      ) : (
+        <CardContent>
+          <Link
+            to={`/dashboard/create-gig/${x?._id}`}
+            className="w-100 cards flex column"
+            key={x?.id}
+          >
+            <div className="w-100 card">
+              <img src={x?.image[0]} alt="" className="w-100" />
+              <div className="backdrop"></div>
+              <div className="icon left">
+                <BiChevronLeft />
+              </div>
+              <div className="icon right">
+                <BiChevronRight />
+              </div>
+            </div>
+            <div className="bottom w-100 back-white py-2 flex item-center gap-1">
+              <img
+                src={x?.sellerId?.image}
+                alt=""
+                className="images"
+                style={{
+                  width: "3.5rem",
+                  height: "3.5rem",
+                  borderRadius: "50%",
+                }}
+              />
+              <div className="flex column">
+                <Link
+                  to={"/"}
+                  className="fs-16 a family1 text-extra-bold text-dark"
+                >
+                  {x?.sellerId?.username}
+                </Link>
+                <h4 className="fs-14 text-grey text-light">{x?.sellerId?.level}</h4>
+              </div>
+            </div>
+            <p className="bottom desc w-90 fs-18 text-dark text-light">
+              {x?.title.substring(0, 44)}....
+            </p>
+            <div className="w-100 border gap-1 flex text-grey2 family1 px-2 text-bold item-center fs-14">
+              <BiStar className="text-secondary fs-16" />
+              <div className="flex item-center text-secondary fs-14">
+                {x?.rating}
+                <span className="text-grey2">({x?.reviews})</span>
+              </div>
+            </div>
+            <div className="bottom w-100 flex item-center justify-space">
+              <BiHeart className="fs-20 text-grey" />
+              <div className="fs-14 uppercase text-light text-grey">
+                Starting at <span className="fs-20 text-dark">${x?.price}</span>
+              </div>
+            </div>
+          </Link>
+        </CardContent>
+      )}
+    </>
+    );
+  }
+
 
   return (
     <>

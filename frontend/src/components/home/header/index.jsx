@@ -129,7 +129,7 @@ export default function Header() {
             >
               E
             </div> */}
-            {userInfo?.image ? (
+            {userInfo ? (
               <img
                 src={userInfo?.image}
                 alt=""
@@ -242,12 +242,12 @@ const HeaderTopWrapper = styled.div`
     width: 4.5rem;
     height: 4.5rem;
     border-radius: 50%;
-    background-color: #adabab;
+    /* background-color: #adabab; */
     color: #fff;
     display: grid;
     place-items: center;
     &:hover {
-      background-color: #adababa4;
+      /* background-color: #adababa4; */
     }
 
     svg {
