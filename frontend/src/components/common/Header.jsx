@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import { BiBell, BiHeart, BiMessage, BiSearch } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
@@ -8,8 +8,9 @@ import Profile from "./Profile";
 import Bar from "./svg/Bar";
 import Logo from "./svg/Logo";
 import { HiUser } from "react-icons/hi";
+import { onAuthModal } from "../../Features/user/userSlice";
 
-const data = [  
+const data = [
   { id: 1, title: "Fiverr Business", path: "/business" },
   { id: 2, title: "Explore", path: "/explore" },
   { id: 3, title: "English", path: "/product" },
@@ -32,6 +33,7 @@ export default function Header({ type }) {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(false);
   const { userInfo } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
 
   const isActive = () => {
     window.scrollY > 200 ? setActive(false) : setActive(true);
@@ -145,7 +147,11 @@ export default function Header({ type }) {
               E
             </div> */}
             {userInfo?.image ? (
-              <img src={userInfo?.image} alt="" className="avatar flex item-center justify-center" />
+              <img
+                src={userInfo?.image}
+                alt=""
+                className="avatar flex item-center justify-center"
+              />
             ) : (
               <div className="avatar flex item-center justify-center">
                 <HiUser />
@@ -160,8 +166,8 @@ export default function Header({ type }) {
     }
     return (
       <div className="Right flex item-center gap-3">
-        <Link
-          to={"/joing/login"}
+        <div
+          onClick={() => dispatch(onAuthModal())}
           className={
             active
               ? "flex links fs-18 text-light text-dark item-center justify-center active"
@@ -169,13 +175,13 @@ export default function Header({ type }) {
           }
         >
           Sign In
-        </Link>
-        <Link
-          to={"/join/login"}
+        </div>
+        <div
+          onClick={() => dispatch(onAuthModal())}
           className="flex btn-4 fs-18 text-bold text-dark item-center justify-center"
         >
           Join
-        </Link>
+        </div>
       </div>
     );
   };

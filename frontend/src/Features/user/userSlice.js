@@ -36,7 +36,8 @@ const initialState = {
   totalUser: 0,
   userStats: null,
   userAlert: false,
-  loginSuccess:false
+  loginSuccess:false,
+  authmodal: false,
 };
 
 const userSlice = createSlice({
@@ -59,6 +60,12 @@ const userSlice = createSlice({
     getUser: (state, action) => {
       state.userAlert = true;
       state.userDetails = action.payload;
+    },
+        onAuthModal: (state, action) => {
+      state.authmodal = true;
+    },
+    offAuthModal: (state, action) => {
+      state.authmodal = false;
     },
     clearUserAlertError: (state, action) => {
       state.showAlert = false;
@@ -270,6 +277,8 @@ export const {
   ClearauthInfo,
   getUserPage,
   getUser,
+  onAuthModal,
+  offAuthModal
 } = userSlice.actions;
 
 export default userSlice.reducer;

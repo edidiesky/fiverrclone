@@ -20,8 +20,6 @@ import {
   SellerLayout,
   Personal1,
   Professional,
-  Login,
-  Register,
   ProtectRoute,
 } from "./screens";
 
@@ -90,8 +88,6 @@ export default function App() {
                     </ProtectRoute>
                   }
                 />
-                <Route path="join/login" element={<Login />} />
-                <Route path="join/register" element={<Register />} />
                 <Route path="explore" element={<Explore />} />
               </Route>
 

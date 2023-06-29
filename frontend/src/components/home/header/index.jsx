@@ -5,8 +5,9 @@ import { BiBell, BiHeart, BiSearch } from "react-icons/bi";
 import Profile from "../../common/Profile";
 import { AiOutlineMail } from "react-icons/ai";
 import Bar from "../../common/svg/Bar";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { HiUser } from "react-icons/hi";
+import { onAuthModal } from "../../../Features/user/userSlice";
 
 const data = [
   { id: 1, title: "Fiverr Business", path: "/business" },
@@ -30,6 +31,7 @@ export default function Header() {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(false);
   const { userInfo } = useSelector((store) => store.user);
+  const dispatch = useDispatch()
   const isActive = () => {
     window.scrollY > 200 ? setActive(false) : setActive(true);
   };
@@ -149,8 +151,8 @@ export default function Header() {
     }
     return (
       <div className="Right flex item-center gap-3">
-        <Link
-          to={"/join/login"}
+        <div
+          onClick={() => dispatch(onAuthModal())}
           className={
             active
               ? "flex links fs-18 text-light text-dark item-center justify-center active"
@@ -158,13 +160,13 @@ export default function Header() {
           }
         >
           Sign In
-        </Link>
-        <Link
-          to={"/join/login"}
+        </div>
+        <div
+          onClick={() => dispatch(onAuthModal())}
           className="flex btn-4 fs-18 text-bold text-dark item-center justify-center"
         >
           Join
-        </Link>
+        </div>
       </div>
     );
   };
