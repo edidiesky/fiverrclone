@@ -3,11 +3,13 @@ import path from "path";
 import dotenv from "dotenv";
 import passport from "passport";
 import session from "express-session";
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20'
 import CookieSession from "cookie-session";
 dotenv.config();
+import User from "./models/User.js";
 
-import googlePassport from "./config/passport";
-googlePassport();
+// import googlePassport from "./config/passport.js";
+// googlePassport();
 const app = express();
 import connectDb from "./db/connect.js";
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
@@ -71,7 +73,6 @@ import orderRoute from "./routes/orderRoutes.js";
 
 import chatRoute from "./routes/chatRoutes.js";
 import stripeCheckout from "./controllers/stripeController.js";
-import User from "./models/User";
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
