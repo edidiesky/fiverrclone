@@ -5,7 +5,7 @@ import ProfileRightIndex from "./right";
 import { useSelector } from "react-redux";
 
 export default function ProfileIndex() {
-  const { userInfo } = useSelector((store) => store.user);
+  const { userInfo, profilemodal } = useSelector((store) => store.user);
 
   return (
     <ProfileIndexContent className={userInfo?.role === "user" ? "active" : ""}>

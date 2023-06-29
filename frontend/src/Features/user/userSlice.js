@@ -40,6 +40,7 @@ const initialState = {
   authmodal: false,
   registersuccess: false,
   usernamemodal: false,
+  profilemodal: false,
 };
 
 const userSlice = createSlice({
@@ -68,6 +69,12 @@ const userSlice = createSlice({
     },
     offAuthModal: (state, action) => {
       state.authmodal = false;
+    },
+    onProfileModal: (state, action) => {
+      state.profilemodal = true;
+    },
+    offProfileModal: (state, action) => {
+      state.profilemodal = false;
     },
     clearUserAlertError: (state, action) => {
       state.showAlert = false;
@@ -306,6 +313,8 @@ export const {
   getUser,
   onAuthModal,
   offAuthModal,
+  onProfileModal,
+  offProfileModal
 } = userSlice.actions;
 
 export default userSlice.reducer;

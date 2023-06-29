@@ -32,7 +32,6 @@ const UserSchema = new mongoose.Schema(
       language: { type: Array, default: [] },
       description: { type: String },
       skills: { type: Array, default: [] },
-      accounts: { type: Array, default: [] },
       information: { type: String },
     },
     country: {

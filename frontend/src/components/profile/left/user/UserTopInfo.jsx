@@ -17,7 +17,7 @@ export default function UserTopInfo() {
         {userInfo?.image ? (
           <div className="ProfileImage flex item-center justify-center cardImage">
             <img src={userInfo?.image} alt="" className="image" />
-            <div className="image dark flex item-center justify-center">
+            <div className="image grey flex item-center justify-center">
               <Camera />
             </div>
           </div>
@@ -26,7 +26,7 @@ export default function UserTopInfo() {
             <div className="image dark flex item-center justify-center">
               <Camera />
             </div>
-            <div className="image grey fs-40 text-grey flex item-center justify-center">
+            <div className="image grey fs-45 text-white flex item-center justify-center">
               {userInfo?.username.charAt(0)}
             </div>
           </div>
@@ -43,21 +43,11 @@ export default function UserTopInfo() {
               : "Please add a short description of yourself"}
           </span>
         </Link>
-        {/* rating */}
-        {/* <div className="w-100 flex item-center justify-center fs-18">
-          <Rating value={5} />
-        </div> */}
-        {/* contact button */}
-        {/* <div className="w-100 flex item-center gap-2">
-          <Link className="contactBtn green family1">Contact Me</Link>
-          <Link className="contactBtn family1">Contact Me</Link>
-        </div> */}
-        {/* previw button */}
         <Link className="contactBtn family1">Preview Fiverr Profile</Link>
       </div>
       {/* bototm */}
       <ul className="w-100 py-2 flex column gap-1">
-        <li className="flex w-100 fs-16 text-grey text-light justify-space item-center">
+        <li className="flex family1 w-100 fs-14 text-grey text-light justify-space item-center">
           <span className="flex item-center gap-2">
             <FaLocationArrow /> From
           </span>
@@ -65,17 +55,11 @@ export default function UserTopInfo() {
             {userInfo?.about.from ? userInfo?.about.from : "Unknown"}
           </span>
         </li>
-        <li className="flex w-100 fs-16 text-grey text-light justify-space item-center">
+        <li className="flex family1 w-100 fs-14 text-grey text-light justify-space item-center">
           <span className="flex item-center gap-2">
             <FaUser /> Member since
           </span>
           <span className="text-bold">{userInfo?.createdAt}</span>
-        </li>
-        <li className="flex w-100 fs-16 text-grey text-light justify-space item-center">
-          <span className="flex item-center gap-2">
-            <FaUser /> Last Delivery
-          </span>
-          <span className="text-bold">1 Day</span>
         </li>
       </ul>
     </UserTopInfoContent>
@@ -102,6 +86,8 @@ const UserTopInfoContent = styled.div`
     border-radius: 50%;
     z-index: 300;
     object-fit: cover;
+    background-color: rgba(0, 0, 0, 0.4);
+
     &:hover .image {
       &.dark {
         opacity: 1;
@@ -125,12 +111,16 @@ const UserTopInfoContent = styled.div`
     transform: translateX(-50%);
     object-fit: cover;
     cursor: pointer;
+    font-size: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &.grey {
       background-color: rgba(0, 0, 0, 0.6);
     }
     &.dark {
-      background-color:rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.4);
       opacity: 0;
       visibility: hidden;
     }
