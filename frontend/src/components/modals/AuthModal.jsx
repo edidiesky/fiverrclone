@@ -132,6 +132,9 @@ export default function AuthModal({ type, click }) {
     // console.log('hello')
     dispatch(UpdateProfile({ username }));
   };
+  const HandleGoogle = (e) => {
+    window.open("https://localhost:5000/api/v1/auth/google", "_self");
+  };
   // open modal if type  === users
 
   // update the user profile when process ahs been completed
@@ -240,7 +243,7 @@ export default function AuthModal({ type, click }) {
               <div className="w-100 text-center">Continue with Facebook</div>{" "}
             </div>
             <div
-              onClick={() => dispatch(googleAuth())}
+              onClick={HandleGoogle}
               className="authBtn flex fs-14 text-dark text-bold family1 item-center justify-space"
             >
               <FcGoogle fontSize={"20px"} />{" "}
