@@ -21,9 +21,6 @@ const ProfileIndexContent = styled.div`
   width: 100%;
   padding: 7rem 0;
   background-color: var(--grey-4);
-  &.active {
-    background-color: var(--grey-3);
-  }
   .profileWrapper {
     display: grid;
     place-items: start;
