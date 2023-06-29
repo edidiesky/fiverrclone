@@ -13,9 +13,9 @@ export default function TableCards({ x, type }) {
   const { deleteGigModalAlert, GigsDetails } = useSelector(
     (store) => store.gigs
   );
-  const {userAlert } = useSelector(
-    (store) => store.user
-  );
+    const {userAlert } = useSelector(
+      (store) => store.user
+    );
   let createddate = moment(x?.createdAt);
   createddate = createddate.format("MMMM Do YYYY");
 

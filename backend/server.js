@@ -2,6 +2,7 @@ import express from "express";
 import path from "path";
 import dotenv from "dotenv";
 import passport from "passport";
+import session from 'express-session'
 import CookieSession from "cookie-session";
 dotenv.config();
 
@@ -14,15 +15,21 @@ import mongoose from "mongoose";
 // middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(session({ 
+  secret: 'eddie',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(
-  CookieSession({
-    name: "session",
-    keys: ["edidie"],
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours,
-  })
-);
+// app.use(
+//   CookieSession({
+//     name: "session",
+//     keys: ["edidie"],
+//     maxAge: 24 * 60 * 60 * 1000, // 24 hours,
+//   })
+// );
 
 import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
