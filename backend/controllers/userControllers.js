@@ -27,8 +27,8 @@ const GetUsersProfile = asyncHandler(async (req, res) => {
 //PRIVATE/USER
 const UpdateUser = asyncHandler(async (req, res) => {
   const { userId, username } = req.user;
-  const Loginuser = await User.findById({ _id: req.params.id });
-  if (!Loginuser) {
+  const user = await User.findById({ _id: req.params.id });
+  if (!user) {
     res.status(404);
     throw new Error("The user does not exist");
   }
@@ -36,7 +36,7 @@ const UpdateUser = asyncHandler(async (req, res) => {
   const { from, language, description, skills, accounts, information } =
     req.body;
 
-  Loginuser.about.push({
+  user.about.push({
     from,
     language,
     description,
@@ -44,7 +44,7 @@ const UpdateUser = asyncHandler(async (req, res) => {
     accounts,
     information,
   });
-  await Loginuser.save();
+  await user.save();
   const updatedUser = await User.findByIdAndUpdate(
     { _id: req.params.id },
     req.body,
@@ -56,8 +56,8 @@ const UpdateUser = asyncHandler(async (req, res) => {
 //PRIVATE/ADMIN
 const AdminUpdateUser = asyncHandler(async (req, res) => {
   const { userId, username } = req.user;
-  const Loginuser = await User.findById({ _id: req.params.id });
-  if (!Loginuser) {
+  const user = await User.findById({ _id: req.params.id });
+  if (!user) {
     res.status(404);
     throw new Error("The user does not exist");
   }
@@ -71,8 +71,8 @@ const AdminUpdateUser = asyncHandler(async (req, res) => {
 //PRIVATE/ADMIN
 const DeleteUser = asyncHandler(async (req, res) => {
   const { userId, username } = req.user;
-  const Loginuser = await User.findById({ _id: req.params.id });
-  if (!Loginuser) {
+  const user = await User.findById({ _id: req.params.id });
+  if (!user) {
     res.status(404);
     throw new Error("The user does not exist");
   }

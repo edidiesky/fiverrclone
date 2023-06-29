@@ -36,8 +36,10 @@ const initialState = {
   totalUser: 0,
   userStats: null,
   userAlert: false,
-  loginSuccess:false,
+  loginSuccess: false,
   authmodal: false,
+  registersuccess: false,
+  usernamemodal:false
 };
 
 const userSlice = createSlice({
@@ -61,7 +63,7 @@ const userSlice = createSlice({
       state.userAlert = true;
       state.userDetails = action.payload;
     },
-        onAuthModal: (state, action) => {
+    onAuthModal: (state, action) => {
       state.authmodal = true;
     },
     offAuthModal: (state, action) => {
@@ -107,7 +109,7 @@ const userSlice = createSlice({
     [registerCustomer.fulfilled]: (state, action) => {
       //
       state.isLoading = false;
-      state.isSuccess = true;
+      state.usernamemodal = true;
       state.showAlert = true;
       state.alertText = "Registration successfull. ...Redirecting soon!";
       state.alertType = "success";
@@ -278,7 +280,7 @@ export const {
   getUserPage,
   getUser,
   onAuthModal,
-  offAuthModal
+  offAuthModal,
 } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -16,8 +16,17 @@ import {
   offAuthModal,
 } from "../../Features/user/userSlice";
 import Input from "../forms/Input";
+import {
+  UpdateProfile,
+  adminUpdateCustomer,
+  loginCustomer,
+  registerCustomer,
+} from "../../Features";
+import LoaderIndex from "../loaders";
 
 export default function AuthModal({ type, click }) {
+  // swtich login and register tab
+  const [auth, setAuth] = useState(false);
   const inputData = [
     {
       id: 1,
@@ -60,6 +69,7 @@ export default function AuthModal({ type, click }) {
     password: "",
     username: "",
   });
+  const { email, username, password } = formdata;
 
   // framer motion set variants
   const dropin = {
@@ -92,10 +102,27 @@ export default function AuthModal({ type, click }) {
   const dispatch = useDispatch();
   // get the cart alert
   //   const { GigsDetails } = useSelector((store) => store.gigs);
-  const { userAlert, userDetails } = useSelector((store) => store.user);
+  const { userAlert, userDetails, usernamemodal, isLoading } = useSelector(
+    (store) => store.user
+  );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (auth) {
+      // dispatch(loginCustomer(formdata));
+      dispatch(registerCustomer({ email, password }));
+      // console.log("login");
+    } else {
+      dispatch(registerCustomer({ email, password }));
+      // console.log("registration");
+    }
+  };
+  const setUsername = () => {
+    dispatch(UpdateProfile({ username }));
+  };
   // open modal if type  === users
 
-  if (type === "username") {
+  // update the user profile when process ahs been completed
+  if (usernamemodal) {
     return (
       <AuthModalContainer
         as={motion.div}
@@ -103,6 +130,7 @@ export default function AuthModal({ type, click }) {
         exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
         animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
       >
+        {isLoading && <LoaderIndex />}
         <div
           className="backdrop"
           onClick={() => dispatch(offAuthModal())}
@@ -144,7 +172,10 @@ export default function AuthModal({ type, click }) {
               })}
             </div>
             <div className="w-100 btnWrapper flex column gap-1">
-              <div className="btn w-100 family1 fs-16 text-white text-center">
+              <div
+                onClick={setUsername}
+                className="btn w-100 family1 fs-16 text-white text-center"
+              >
                 Join
               </div>
               <p className="fs-14 text-center text-light text-grey text-center">
@@ -170,6 +201,7 @@ export default function AuthModal({ type, click }) {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
+      {isLoading && <LoaderIndex />}
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
       <motion.div
         variants={dropin}
@@ -187,7 +219,7 @@ export default function AuthModal({ type, click }) {
           </div>
         </div>
 
-        <div className="w-90 authBottom auto flex column gap-1">
+        <div className="w-90 authBottom auto flex column gap-3">
           {/* socials logins */}
           <div className="flex column gap-1">
             <div className="authBtn btn1 flex fs-14 text-dark text-bold family1 item-center justify-center">
@@ -225,7 +257,10 @@ export default function AuthModal({ type, click }) {
             })}
           </div>
           <div className="w-100 btnWrapper flex column gap-1">
-            <div className="btn w-100 family1 fs-16 text-white text-center">
+            <div
+              onClick={handleSubmit}
+              className="btn w-100 family1 fs-16 text-white text-center"
+            >
               Continue
             </div>
             <p className="fs-14 text-center text-light text-dark text-center">
@@ -233,8 +268,11 @@ export default function AuthModal({ type, click }) {
             </p>
           </div>
         </div>
-        <div className="w-100 authCenter fs-14 text-light text-gery text-center">
-          Already a member? Sign In
+        <div className="w-100 authCenter fs-16 text-light text-grey text-center">
+          Already a member?{" "}
+          <span onClick={() => setAuth(!auth)} className="text-blue">
+            {auth ? "Sign Up" : "Sign In"}
+          </span>
         </div>
       </motion.div>
     </AuthModalContainer>
@@ -255,6 +293,7 @@ const AuthModalContainer = styled(motion.div)`
   top: 0;
   .authCenter {
     padding: 1rem 0;
+    font-family: "Roboto Condensed", sans-serif;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
   .btn {
@@ -325,7 +364,7 @@ const AuthModalContainer = styled(motion.div)`
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   }
   .deleteCard {
-    width: clamp(35%, 80px, 100%);
+    width: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -335,6 +374,15 @@ const AuthModalContainer = styled(motion.div)`
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
+    @media (max-width: 380px) {
+      width: 270px;
+      .authBottom {
+        padding: 0 1.5rem;
+      }
+      .authBtn {
+        font-size: 1.2rem;
+      }
+    }
     .cross {
       position: absolute;
       right: 10px;

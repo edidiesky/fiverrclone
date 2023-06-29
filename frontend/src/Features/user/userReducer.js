@@ -9,10 +9,12 @@ export const registerCustomer = createAsyncThunk(
   'registerUser',
   async (registerData, thunkAPI) => {
     try {
-      const { data } = await axios.post(Registerurl, registerData);
-      localStorage.setItem('customer', JSON.stringify(data.user))
-      localStorage.setItem('customertoken', data.token)
-      return data;
+
+      console.log(registerData);
+      // const { data } = await axios.post(Registerurl, registerData);
+      // localStorage.setItem('customer', JSON.stringify(data.user))
+      // localStorage.setItem('customertoken', data.token)
+      // return data;
 
     } catch (error) {
 
@@ -27,10 +29,12 @@ export const loginCustomer = createAsyncThunk(
   'loginCustomer',
   async (loginData, thunkAPI) => {
     try {
-      const { data } = await axios.post(Loginurl, loginData);
-      localStorage.setItem('customer', JSON.stringify(data.user))
-      localStorage.setItem('customertoken', data.token)
-      return data;
+      console.log(loginData);
+
+      // const { data } = await axios.post(Loginurl, loginData);
+      // localStorage.setItem('customer', JSON.stringify(data.user))
+      // localStorage.setItem('customertoken', data.token)
+      // return data;
 
     } catch (error) {
 
@@ -134,7 +138,7 @@ export const adminUpdateCustomer = createAsyncThunk(
 // Update a single user for the admin
 export const UpdateProfile = createAsyncThunk(
   'UpdateProfile',
-  async (profiledata, thunkAPI) => {
+  async ({profiledata}, thunkAPI) => {
     const state = thunkAPI.getState()
     try {
       const config = {
