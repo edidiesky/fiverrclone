@@ -18,6 +18,7 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
         autoComplete="off"
         className={touched ? "true" : ""}
       />
+      <span>{errorMessage}</span>
     </LabelContainer>
   );
 }
@@ -81,7 +82,7 @@ const LabelContainer = styled.label`
   span {
     font-size: 1.3rem;
     color: #c61212;
-    font-weight: 600;
+    font-weight: normal;
     display: none;
   }
 `;

@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 
 import {
   registerCustomer,
@@ -10,6 +9,7 @@ import {
   adminDeleteCustomer,
   UpdateProfile,
   getUserStats,
+  googleAuth,
 } from "./userReducer";
 
 // Local Storage Data
@@ -39,7 +39,7 @@ const initialState = {
   loginSuccess: false,
   authmodal: false,
   registersuccess: false,
-  usernamemodal:false
+  usernamemodal: false,
 };
 
 const userSlice = createSlice({
@@ -111,6 +111,8 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.usernamemodal = true;
       state.showAlert = true;
+      state.userInfo = action.payload.user;
+      state.token = action.payload.token;
       state.alertText = "Registration successfull. ...Redirecting soon!";
       state.alertType = "success";
     },
@@ -118,6 +120,28 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.isError = true;
       state.showAlert = true;
+
+      state.alertText = action.payload;
+      state.alertType = "danger";
+    },
+    [googleAuth.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [googleAuth.fulfilled]: (state, action) => {
+      // //
+      // state.isLoading = false;
+      // state.usernamemodal = true;
+      // state.showAlert = true;
+      // state.userInfo = action.payload.user;
+      // state.token = action.payload.token;
+      // state.alertText = "Registration successfull. ...Redirecting soon!";
+      // state.alertType = "success";
+    },
+    [googleAuth.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.showAlert = true;
+
       state.alertText = action.payload;
       state.alertType = "danger";
     },
@@ -256,8 +280,9 @@ const userSlice = createSlice({
       state.showAlert = true;
       state.userInfo = action.payload.updatedUser;
       state.isSuccess = true;
-      state.alertText = `"${action.payload.user.firstname}" Your profile details has been sucessfully updated`;
-      state.alertType = "success";
+      state.usernamemodal = false;
+      state.authmodal = false;
+      state.registersuccess = true;
     },
     [UpdateProfile.rejected]: (state, action) => {
       state.isLoading = false;

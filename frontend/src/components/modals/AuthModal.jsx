@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +23,7 @@ import {
   registerCustomer,
 } from "../../Features";
 import LoaderIndex from "../loaders";
+import { googleAuth } from "../../Features/user/userReducer";
 
 export default function AuthModal({ type, click }) {
   // swtich login and register tab
@@ -102,9 +103,19 @@ export default function AuthModal({ type, click }) {
   const dispatch = useDispatch();
   // get the cart alert
   //   const { GigsDetails } = useSelector((store) => store.gigs);
-  const { userAlert, userDetails, usernamemodal, isLoading } = useSelector(
-    (store) => store.user
-  );
+  const {
+    registersuccess,
+    userDetails,
+    usernamemodal,
+    isLoading,
+  } = useSelector((store) => store.user);
+  // useEffect(() => {
+  //   if (registersuccess) {
+  //     // head back to the origonal page
+  //     // window.history.back();
+  //   }
+  // }, [registersuccess]);
+  // form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
     if (auth) {
@@ -116,7 +127,9 @@ export default function AuthModal({ type, click }) {
       // console.log("registration");
     }
   };
-  const setUsername = () => {
+  const HandleUsername = (e) => {
+    e.preventDefault();
+    // console.log('hello')
     dispatch(UpdateProfile({ username }));
   };
   // open modal if type  === users
@@ -173,7 +186,7 @@ export default function AuthModal({ type, click }) {
             </div>
             <div className="w-100 btnWrapper flex column gap-1">
               <div
-                onClick={setUsername}
+                onClick={HandleUsername}
                 className="btn w-100 family1 fs-16 text-white text-center"
               >
                 Join
@@ -226,7 +239,10 @@ export default function AuthModal({ type, click }) {
               <FaFacebook fontSize={"20px"} />{" "}
               <div className="w-100 text-center">Continue with Facebook</div>{" "}
             </div>
-            <div className="authBtn flex fs-14 text-dark text-bold family1 item-center justify-space">
+            <div
+              onClick={() => dispatch(googleAuth())}
+              className="authBtn flex fs-14 text-dark text-bold family1 item-center justify-space"
+            >
               <FcGoogle fontSize={"20px"} />{" "}
               <div className="w-100 text-center">Continue with Google</div>{" "}
             </div>
@@ -257,12 +273,13 @@ export default function AuthModal({ type, click }) {
             })}
           </div>
           <div className="w-100 btnWrapper flex column gap-1">
-            <div
+            <button
+              type="submit"
               onClick={handleSubmit}
               className="btn w-100 family1 fs-16 text-white text-center"
             >
               Continue
-            </div>
+            </button>
             <p className="fs-14 text-center text-light text-dark text-center">
               By joining I agree to receive emails from Fiverr.
             </p>
@@ -364,7 +381,7 @@ const AuthModalContainer = styled(motion.div)`
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   }
   .deleteCard {
-    width: 360px;
+    width: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -374,8 +391,11 @@ const AuthModalContainer = styled(motion.div)`
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
-    @media (max-width: 380px) {
-      width: 270px;
+    @media (max-width: 780px) {
+      width: 370px;
+    }
+    @media (max-width: 480px) {
+      width: 280px;
       .authBottom {
         padding: 0 1.5rem;
       }

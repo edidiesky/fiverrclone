@@ -32,19 +32,6 @@ const UpdateUser = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("The user does not exist");
   }
-
-  const { from, language, description, skills, accounts, information } =
-    req.body;
-
-  user.about.push({
-    from,
-    language,
-    description,
-    skills,
-    accounts,
-    information,
-  });
-  await user.save();
   const updatedUser = await User.findByIdAndUpdate(
     { _id: req.params.id },
     req.body,
