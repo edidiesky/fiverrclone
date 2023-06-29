@@ -39,6 +39,17 @@ export default function AuthModal({ type, click }) {
       required: true,
     },
   ];
+  const inputData2 = [
+    {
+      id: 1,
+      name: "username",
+      placeholder: "example@site.com",
+      type: "text",
+      text: "Choose a username",
+      errorMessage: "username cannot be left empty",
+      required: true,
+    },
+  ];
 
   const onChange = (e) => {
     setFormData({ ...formdata, [e.target.name]: e.target.value });
@@ -47,6 +58,7 @@ export default function AuthModal({ type, click }) {
   const [formdata, setFormData] = useState({
     email: "",
     password: "",
+    username: "",
   });
 
   // framer motion set variants
@@ -82,6 +94,74 @@ export default function AuthModal({ type, click }) {
   //   const { GigsDetails } = useSelector((store) => store.gigs);
   const { userAlert, userDetails } = useSelector((store) => store.user);
   // open modal if type  === users
+
+  if (type === "username") {
+    return (
+      <AuthModalContainer
+        as={motion.div}
+        initial={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+        exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
+        animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
+      >
+        <div
+          className="backdrop"
+          onClick={() => dispatch(offAuthModal())}
+        ></div>
+        <motion.div
+          variants={dropin}
+          initial="hidden"
+          animate="visible"
+          exit={"exit"}
+          className={"deleteCard family1 shadow"}
+        >
+          {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
+            <RxCross2 />
+          </div> */}
+          <div className="w-100">
+            <div className="w-100 authTop fs-20 text-extra-bold text-dark text-center">
+              Join Fiverr
+            </div>
+          </div>
+
+          <div className="w-90 authBottom auto flex column gap-1">
+            <div className="flex column gap-2">
+              {inputData2.map((input) => {
+                return (
+                  <Input
+                    id={input.text}
+                    onChange={onChange}
+                    placeholder={input.placeholder}
+                    type={input.type}
+                    name={input.name}
+                    value={formdata[input.name]}
+                    input={input}
+                    key={input.id}
+                    required={input.required}
+                    pattern={input.pattern}
+                    errorMessage={input.errorMessage}
+                  />
+                );
+              })}
+            </div>
+            <div className="w-100 btnWrapper flex column gap-1">
+              <div className="btn w-100 family1 fs-16 text-white text-center">
+                Join
+              </div>
+              <p className="fs-14 text-center text-light text-grey text-center">
+                By joining I agree to fiverr emails from Fiverr{" "}
+                <span className="text-blue">Terms of service</span> <br /> as
+                well as to receive occasional emails from us
+              </p>
+            </div>
+          </div>
+          <div className="w-100 authCenter family1 fs-14 text-light text-gery text-center">
+            Already a member? Sign In
+          </div>
+        </motion.div>
+      </AuthModalContainer>
+      // <h2>hello</h2>
+    );
+  }
 
   return (
     <AuthModalContainer
@@ -125,7 +205,7 @@ export default function AuthModal({ type, click }) {
             </div>
           </div>
           <div className="option uppercase fs-18">or</div>
-          <div className="flex column gap-1">
+          <div className="flex column gap-2">
             {inputData.map((input) => {
               return (
                 <Input
@@ -145,10 +225,10 @@ export default function AuthModal({ type, click }) {
             })}
           </div>
           <div className="w-100 btnWrapper flex column gap-1">
-            <div className="btn w-100 fs-16 family1 text-white text-center">
+            <div className="btn w-100 family1 fs-16 text-white text-center">
               Continue
             </div>
-            <p className="fs-14 family1 text-center text-light text-dark text-center">
+            <p className="fs-14 text-center text-light text-dark text-center">
               By joining I agree to receive emails from Fiverr.
             </p>
           </div>
@@ -182,6 +262,9 @@ const AuthModalContainer = styled(motion.div)`
     color: #fff;
     padding: 1.3rem 2rem;
     border-radius: 5px;
+    /* font-family: "Roboto Condensed", sans-serif; */
+    font-weight: bold;
+    font-size: 13px;
   }
   .btn1 {
     background-color: var(--blue-1);
@@ -229,7 +312,7 @@ const AuthModalContainer = styled(motion.div)`
     }
   }
   .backdrop {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.6);
 
     position: absolute;
     height: 100%;
@@ -238,7 +321,7 @@ const AuthModalContainer = styled(motion.div)`
   .authTop {
     padding: 2rem 0;
     font-size: 24px;
-    padding-bottom:2rem;
+    padding-bottom: 2rem;
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   }
   .deleteCard {

@@ -194,6 +194,8 @@ button {
   outline: none;
   font-family: inherit;
   background-color: transparent;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: normal;
 }
 
 .input {

@@ -8,7 +8,7 @@ import User from "../models/User.js";
 const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password, phone, country } = req.body;
   //
-  if (!username || !email || !password) {
+  if (!email || !password) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
   }
@@ -23,9 +23,8 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedpassword = await bcrypt.hash(req.body.password, salt);
   const Tempuser = {
     email,
-    username,
     password: hashedpassword,
-    ...req.body
+    ...req.body,
   };
   const user = await User.create(Tempuser);
   //

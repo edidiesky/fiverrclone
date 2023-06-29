@@ -25,7 +25,7 @@ export default function Layout() {
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {authmodal && <AuthModal />}
+        {authmodal && <AuthModal type={'username'} />}
       </AnimatePresence>
       <Outlet />
       <Message/>

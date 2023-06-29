@@ -8,13 +8,15 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
   };
   return (
     <LabelContainer className="family1" htmlFor={id}>
-      {id}
+      <div className="labelspan text-grey">{id}</div>
       <input
         {...props}
         onBlur={handleTouch}
         onFocus={() => (props.name === "password2" ? setTouched(true) : "")}
         focused={touched.toString()}
         onChange={onChange}
+        autoComplete="off"
+        className={touched ? "true" : ""}
       />
     </LabelContainer>
   );
@@ -25,45 +27,54 @@ const LabelContainer = styled.label`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.3rem;
   font-size: 1.4rem;
   color: var(--dark-1);
   font-weight: 700;
   text-transform: capitalize;
-  /* font-family: "Roboto Condensed", sans-serif; */
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+  position: relative;
+  /* font-family: "Montserrat", sans-serif; */
 
+  .labelspan {
+    position: absolute;
+    top: -15%;
+    padding: 0 0.7rem;
+    left: 3%;
+    background-color: #fff;
+    font-weight: normal;
+  }
   input {
-    height: 5rem;
+    height: 5.5rem;
     border-radius: 8px;
-    background: #fff;
-    padding: 0 2.4rem;
+    background: transparent;
+    padding: 0 1.8rem;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.3);
     outline: none;
-    font-size: 1.3rem;
-    font-weight: 500;
-    transition: all 0.2s;
+    font-size: 1.6rem;
+    font-weight: normal;
     font-family: inherit;
-    /* font-family: "Roboto Condensed", sans-serif; */
-    font-family: "Montserrat", sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+
     color: var(--grey-3);
 
     &:hover {
       border: 1px solid rgba(0, 0, 0, 0.4);
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
     }
     &:focus {
-      border: 1px solid rgba(0, 0, 0, 0.8);
+      border: 2px solid var(--blue-1);
+      background: transparent;
+    }
+    &.true {
+      background: #fff;
     }
     &.inputError {
-      border: 1px solid var(--red);
+      border: 2px solid var(--red);
     }
     &:invalid[focused="true"] ~ span {
       display: block;
-    }
-    &:invalid[focused="true"] {
-      border: 1px solid var(--red);
     }
   }
 
