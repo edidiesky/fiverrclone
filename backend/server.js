@@ -27,6 +27,32 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "http://www.example.com/auth/google/callback",
+    },
+    function (accessToken, refreshToken, profile, cb) {
+      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      //   return cb(err, user);
+      // });
+      console.log(profile);
+    }
+  )
+);
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+
 // app.use(
 //   CookieSession({
 //     name: "session",
@@ -45,6 +71,7 @@ import orderRoute from "./routes/orderRoutes.js";
 
 import chatRoute from "./routes/chatRoutes.js";
 import stripeCheckout from "./controllers/stripeController.js";
+import User from "./models/User";
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
