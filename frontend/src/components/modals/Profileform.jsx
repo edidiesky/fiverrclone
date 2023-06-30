@@ -13,40 +13,29 @@ import Input from "../forms/Input";
 import { UpdateProfile, registerCustomer } from "../../Features";
 import LoaderIndex from "../loaders";
 import { googleAuth } from "../../Features/user/userReducer";
+import TagInput from "../common/Tag";
 
-export default function Profileform({ type, click }) {
+export default function Profileform({ type, click, setFormdata, formdata2 }) {
   // swtich login and register tab
   const [auth, setAuth] = useState(false);
   const inputData = [
     {
-      id: 1,
-      name: "email",
-      placeholder: "example@site.com",
-      type: "email",
-      text: "Email",
-      errorMessage: "It should be a valid email",
-      required: true,
-    },
-    {
-      id: 2,
-      name: "password",
-      placeholder: "Minimum 8 Characters",
-      type: "password",
-      text: "password",
-      errorMessage:
-        "Password should be 8-20 characters Long and should include 1 letter and 1 special Character",
-      required: true,
-    },
-  ];
-  const inputData2 = [
-    {
-      id: 1,
       name: "username",
-      placeholder: "example@site.com",
+      placeholder: "Add your profile username",
       type: "text",
-      text: "Choose a username",
-      errorMessage: "username cannot be left empty",
-      required: true,
+      text: "username",
+    },
+    {
+      name: "shordescription",
+      placeholder: "Add your profile shordescription",
+      type: "text",
+      text: "shordescription",
+    },
+    {
+      name: "description",
+      placeholder: "insert a description of yourself",
+      type: "text",
+      text: "description",
     },
   ];
 
@@ -55,7 +44,7 @@ export default function Profileform({ type, click }) {
   };
 
   const [formdata, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
     username: "",
   });
@@ -142,17 +131,20 @@ export default function Profileform({ type, click }) {
         {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
           <RxCross2 />
         </div> */}
-        <div className="w-100">
-          <div className="w-100 authTop fs-20 text-extra-bold text-dark text-center">
-            Join Fiverr
-          </div>
-        </div>
 
-        <div className="w-90 authBottom auto flex column gap-3">
+        <div className="w-90 authBottom auto flex column gap-1">
+          <div className="w-100 auto authTop fs-20 text-extra-bold text-dark">
+            Update your fiverr profile
+            <h4 className="fs-18 block py-1 text-light family1 text-grey">
+              To help build credible and authentic connections with customers,
+              they’ll now see your display name. Learn more
+            </h4>
+          </div>
+
           {/* socials logins */}
           {/* <div className="option uppercase fs-18">or</div> */}
           <div className="flex column gap-2">
-            {inputData.map((input) => {
+            {inputData.map((input, index) => {
               return (
                 <Input
                   id={input.text}
@@ -162,25 +154,41 @@ export default function Profileform({ type, click }) {
                   name={input.name}
                   value={formdata[input.name]}
                   input={input}
-                  key={input.id}
+                  key={index}
                   required={input.required}
                   pattern={input.pattern}
                   errorMessage={input.errorMessage}
                 />
               );
             })}
+            {/* skills */}
+            <TagInput
+              tagdata={formdata2.skills}
+              setTagData={setFormData}
+              title={"skills"}
+            />
+            <TagInput
+              tagdata={formdata2.language}
+              setTagData={setFormData}
+              title={"language"}
+            />
           </div>
-          <div className="w-100 btnWrapper flex column gap-1">
+
+          <div className="w-100 btnWrapper flex item-center justify-end gap-1">
             <button
               type="submit"
               onClick={handleSubmit}
-              className="btn w-100 family1 fs-16 text-white text-center"
+              className="btn btn2 family1 fs-16 text-white text-center"
             >
               Continue
+            </button>{" "}
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="btn  family1 fs-16 text-white text-center"
+            >
+              Save display Profile
             </button>
-            <p className="fs-14 text-center text-light text-dark text-center">
-              By joining I agree to receive emails from Fiverr.
-            </p>
           </div>
         </div>
       </motion.div>
@@ -205,6 +213,9 @@ const AuthModalContainer = styled(motion.div)`
     font-family: "Roboto Condensed", sans-serif;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
+  h4 {
+    font-family: "Roboto Condensed", sans-serif;
+  }
   .btn {
     background: var(--green);
     color: #fff;
@@ -224,6 +235,14 @@ const AuthModalContainer = styled(motion.div)`
     border-radius: 8px;
   }
   .btnWrapper {
+    padding-top: 1.6rem;
+    .btn2 {
+      background-color: var(--light-grey);
+      color: var(--dark-1);
+    }
+    .btn {
+      padding: 1.4rem 3rem;
+    }
   }
   .authBottom {
     position: relative;
@@ -273,7 +292,7 @@ const AuthModalContainer = styled(motion.div)`
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   }
   .deleteCard {
-    width: 400px;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -283,6 +302,8 @@ const AuthModalContainer = styled(motion.div)`
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
+    max-height: 98vh;
+    overflow-y: scroll;
     @media (max-width: 780px) {
       width: 370px;
     }

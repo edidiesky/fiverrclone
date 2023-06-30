@@ -13,6 +13,8 @@ export default function ProfileIndex() {
         <ProfileLeftIndex />
         <ProfileRightIndex />
       </div>
+
+
     </ProfileIndexContent>
   );
 }

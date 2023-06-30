@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Rating from "../../../common/Rating";
 import Camera from "../../../common/svg/Camera";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { BsFillPencilFill } from "react-icons/bs";
+import { onProfileModal } from "../../../../Features/user/userSlice";
 
 export default function UserTopInfo() {
   const { userInfo } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
   return (
     <UserTopInfoContent>
       {/* top */}
@@ -33,7 +36,7 @@ export default function UserTopInfo() {
         )}
 
         {/* profile name */}
-        <Link to={"/"} className="fs-24 text-center text-dark">
+        <div className="fs-24 text-center text-dark">
           {/* name */}
           {userInfo?.username}
           {/* role */}
@@ -42,9 +45,17 @@ export default function UserTopInfo() {
               ? userInfo?.about.information
               : "Please add a short description of yourself"}
           </span>
-        </Link>
+        </div>
+        <div className="w-100 text-center">
+          <BsFillPencilFill
+            onClick={() => dispatch(onProfileModal())}
+            fontSize={"20px"}
+            color="var(--grey-1)"
+          />
+        </div>
         <Link className="contactBtn family1">Preview Fiverr Profile</Link>
       </div>
+
       {/* bototm */}
       <ul className="w-100 py-2 flex column gap-1">
         <li className="flex family1 w-100 fs-14 text-grey text-light justify-space item-center">
