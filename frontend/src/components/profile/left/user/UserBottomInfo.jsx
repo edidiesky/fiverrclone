@@ -92,14 +92,6 @@ export default function UserBottomInfo() {
             English - <span className=" text-grey2">Fluent</span>
           </span> */}
         </div>
-        {/* accounts */}
-        <div className="flex family1 bottom w-100 fs-16 text-dark text-bold column gap-2">
-          <span className="flex family1 flex fs-16 justify-space item-center gap-2">
-            Linked Accounts
-            <div className=" text-blue fs-14">Add New</div>
-          </span>
-          <span className="">Google</span>
-        </div>
         {/* skills */}
         <div className="flex family1 bottom w-100 fs-16 text-dark column gap-2 text-bold gap-2">
           <span className="flex family1 flex fs-16 justify-space item-center gap-2">

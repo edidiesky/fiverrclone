@@ -15,7 +15,16 @@ import LoaderIndex from "../loaders";
 import { googleAuth } from "../../Features/user/userReducer";
 import TagInput from "../common/Tag";
 
-export default function Profileform({ type, click, setFormdata, formdata2 }) {
+export default function Profileform({
+  type,
+  click,
+  setFormdata,
+  formdata2,
+  skills,
+  setSkills,
+  language,
+  setLanguage,
+}) {
   // swtich login and register tab
   const [auth, setAuth] = useState(false);
   const inputData = [
@@ -163,13 +172,13 @@ export default function Profileform({ type, click, setFormdata, formdata2 }) {
             })}
             {/* skills */}
             <TagInput
-              tagdata={formdata2.skills}
-              setTagData={setFormData}
+              tagdata={skills}
+              setTagData={setSkills}
               title={"skills"}
             />
             <TagInput
-              tagdata={formdata2.language}
-              setTagData={setFormData}
+              tagdata={language}
+              setTagData={setLanguage}
               title={"language"}
             />
           </div>

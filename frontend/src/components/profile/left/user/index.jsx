@@ -13,9 +13,10 @@ export default function UserIndex() {
     username: "",
     description: "",
     information: "",
-    language: [],
-    skills: ["a", "b"],
   });
+
+  const [skills, setSkills] = useState([]);
+  const [language, setLanguage] = useState([]);
   return (
     <div className="flex w-100 column gap-2">
       <UserTopInfo />
@@ -28,7 +29,14 @@ export default function UserIndex() {
         onExitComplete={() => null}
       >
         {profilemodal && (
-          <Profileform formdata2={formdata} setFormdata={setFormdata} />
+          <Profileform
+            language={language}
+            setLanguage={setLanguage}
+            skills={skills}
+            setSkills={setSkills}
+            formdata2={formdata}
+            setFormdata={setFormdata}
+          />
         )}
       </AnimatePresence>
     </div>

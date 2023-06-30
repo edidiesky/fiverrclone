@@ -7,11 +7,13 @@ export default function TagInput({ tagdata, setTagData, title }) {
     // check if the entetr key is pressed
     if (e.key !== "Enter") return;
     // check if the there is emppty value
-    const value = e.target.value;
+    let value = e.target.value;
     if (!value.trim()) return;
     // set the list
     setTagData([...tagdata, value]);
   };
+
+  // console.log(tagdata);
   const deleteTagInput = (id) => {
     const tagFilterResult = tagdata.filter((x, index) => index !== id);
     setTagData(tagFilterResult);
@@ -28,7 +30,6 @@ export default function TagInput({ tagdata, setTagData, title }) {
           onKeyDown={handleTagInput}
           className="taginput family1"
           placeholder={title}
-          class
         />
         <div className="w-100 flex item-center gap-1">
           {tagdata.map((x, index) => {
@@ -50,7 +51,7 @@ export default function TagInput({ tagdata, setTagData, title }) {
 }
 
 const TagInfoWrapper = styled.div`
-padding-top: 1rem;
+  padding-top: 1rem;
   input {
     height: 6rem;
     border-radius: 8px;

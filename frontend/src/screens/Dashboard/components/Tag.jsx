@@ -2,20 +2,18 @@ import React from "react";
 import { RxCross1 } from "react-icons/rx";
 import styled from "styled-components";
 
-export default function TagInput({
-  tagdata,
-  setTagData,
-  title,
-}) {
+export default function TagInput({ tagdata, setTagData, title }) {
   const handleTagInput = (e) => {
     // check if the entetr key is pressed
     if (e.key !== "Enter") return;
     // check if the there is emppty value
-    const value = e.target.value;
+    let value = e.target.value;
     if (!value.trim()) return;
     // set the list
     setTagData([...tagdata, value]);
   };
+
+  // console.log(tagdata);
   const deleteTagInput = (id) => {
     const tagFilterResult = tagdata.filter((x, index) => index !== id);
     setTagData(tagFilterResult);
@@ -23,9 +21,17 @@ export default function TagInput({
 
   return (
     <TagInfoWrapper>
-      <div className="w-100 flex column gap-1">
-        <h4 className="family1 fs-14 text-bold">{title}</h4>
-        <div className="tagForm item-center">
+      <div className="tagForm item-center flex column gap-1">
+        <div className="text-grey capitalize labelspan text fs-16 text-bold">
+          {title}
+        </div>
+        <input
+          type="text"
+          onKeyDown={handleTagInput}
+          className="taginput family1"
+          placeholder={title}
+        />
+        <div className="w-100 flex item-center gap-1">
           {tagdata.map((x, index) => {
             return (
               <div className="tagWrapper family1 text-light text-bold flex item-center gap-1">
@@ -38,12 +44,6 @@ export default function TagInput({
               </div>
             );
           })}
-          <input
-            type="text"
-            onKeyDown={handleTagInput}
-            className="taginput family1"
-            placeholder={title}
-          />
         </div>
       </div>
     </TagInfoWrapper>
@@ -51,28 +51,57 @@ export default function TagInput({
 }
 
 const TagInfoWrapper = styled.div`
-  .taginput {
+  padding-top: 1rem;
+  input {
+    height: 6rem;
+    border-radius: 8px;
+    background: transparent;
+    padding: 0 1.8rem;
+    width: 100%;
     outline: none;
-    font-size: 1.3rem;
-    font-weight: 500;
-    transition: all 0.2s;
-    /* font-family: "Barlow", sans-serif; */
-    color: var(--dark-1);
-    border: none;
-    height: 100%;
-  }
-  .tagForm {
-    min-height: 5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-family: inherit;
+    font-family: "Roboto Condensed", sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+
+    color: var(--grey-3);
+
     &:hover {
       border: 1px solid rgba(0, 0, 0, 0.4);
-      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
     }
+    &:focus {
+      border: 2px solid var(--blue-1);
+      background: transparent;
+    }
+    &.true {
+      background: #fff;
+    }
+    &.inputError {
+      border: 2px solid var(--red);
+    }
+    &:invalid[focused="true"] ~ span {
+      display: block;
+    }
+  }
+  .labelspan {
+    position: absolute;
+    top: -15%;
+    padding: 0 0.7rem;
+    left: 3%;
+    background-color: #fff;
+    font-weight: normal;
+  }
+  .tagForm {
+    border-radius: 8px;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-family: inherit;
+    font-family: "Roboto Condensed", sans-serif;
     .tagWrapper {
       padding: 0.5rem 1rem;
       background-color: rgba(0, 0, 0, 0.08);
