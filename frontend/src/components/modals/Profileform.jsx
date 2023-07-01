@@ -2,13 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook, FaGithub } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
-import {
-  clearUserAlertError,
-  offProfileModal,
-} from "../../Features/user/userSlice";
+import { offProfileModal } from "../../Features/user/userSlice";
 import Input from "../forms/Input";
 import { UpdateProfile, registerCustomer } from "../../Features";
 import LoaderIndex from "../loaders";
@@ -55,7 +50,6 @@ export default function Profileform({
   const [formdata, setFormData] = useState({
     username: "",
     password: "",
-    username: "",
   });
   const { email, username, password } = formdata;
 
@@ -90,12 +84,7 @@ export default function Profileform({
   const dispatch = useDispatch();
   // get the cart alert
   //   const { GigsDetails } = useSelector((store) => store.gigs);
-  const {
-    registersuccess,
-    userDetails,
-    usernamemodal,
-    isLoading,
-  } = useSelector((store) => store.user);
+  const { isLoading } = useSelector((store) => store.user);
   // form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -107,14 +96,6 @@ export default function Profileform({
       dispatch(registerCustomer({ email, password }));
       // console.log("registration");
     }
-  };
-  const HandleUsername = (e) => {
-    e.preventDefault();
-    // console.log('hello')
-    dispatch(UpdateProfile({ username }));
-  };
-  const HandleGoogle = (e) => {
-    window.open("https://localhost:5000/api/v1/auth/google", "_self");
   };
   // open modal if type  === users
 

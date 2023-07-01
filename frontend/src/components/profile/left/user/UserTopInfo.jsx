@@ -1,6 +1,7 @@
 import React from "react";
 import { FaLocationArrow, FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import styled from "styled-components";
 import Rating from "../../../common/Rating";
 import Camera from "../../../common/svg/Camera";
@@ -8,9 +9,31 @@ import { useSelector, useDispatch } from "react-redux";
 import { BsFillPencilFill } from "react-icons/bs";
 import { onProfileModal } from "../../../../Features/user/userSlice";
 
-export default function UserTopInfo() {
+export default function UserTopInfo({ image, setImage }) {
   const { userInfo } = useSelector((store) => store.user);
   const dispatch = useDispatch();
+
+  const handleFileUpload = async (e) => {
+    // get the file
+    console.log('hello');
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "fiverr");
+    console.log('hello');
+
+    // try {
+    //   const { url } = await axios.post(
+    //     "https://api.cloudinary.com/v1_1/dl93zl9fn/image/upload",
+    //     formData
+    //   );
+    //   console.log(url);
+    //   return url;
+    // } catch (err) {
+    //   console.log(err);
+    // }
+  };
+
   return (
     <UserTopInfoContent>
       {/* top */}
@@ -18,21 +41,44 @@ export default function UserTopInfo() {
         {/* images */}
         {/* check if there is any image else seet the image folder */}
         {userInfo?.image ? (
-          <div className="ProfileImage flex item-center justify-center cardImage">
+          <label
+            className="ProfileImage w-100 flex item-center justify-center cardImage"
+            htmlFor="upload"
+          >
             <img src={userInfo?.image} alt="" className="image" />
             <div className="image grey flex item-center justify-center">
               <Camera />
             </div>
-          </div>
+            <input
+              type="file"
+              id="upload"
+              placeholder="Gig Image"
+              autoComplete="off"
+              style={{ display: "none" }}
+              onChange={handleFileUpload}
+              multiple
+            />
+          </label>
         ) : (
-          <div className="w-100 ProfileImage flex item-center justify-center cardImage">
-            <div className="image dark flex item-center justify-center">
-              <Camera />
-            </div>
+          <label
+            className="ProfileImage w-100 flex item-center justify-center cardImage"
+            htmlFor="upload"
+          >
             <div className="image grey fs-45 text-white flex item-center justify-center">
               {userInfo?.username.charAt(0)}
             </div>
-          </div>
+            <div className="image dark flex item-center justify-center">
+              <Camera />
+            </div>
+            <input
+              type="file"
+              id="upload"
+              placeholder="Gig Image"
+              autoComplete="off"
+              style={{ display: "none" }}
+              multiple
+            />
+          </label>
         )}
 
         {/* profile name */}
@@ -104,10 +150,6 @@ const UserTopInfoContent = styled.div`
         opacity: 1;
         visibility: visible;
       }
-      &.grey {
-        opacity: 0;
-        visibility: hidden;
-      }
     }
   }
 
@@ -128,10 +170,10 @@ const UserTopInfoContent = styled.div`
     justify-content: center;
 
     &.grey {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.3);
     }
     &.dark {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.6);
       opacity: 0;
       visibility: hidden;
     }

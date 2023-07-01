@@ -17,9 +17,10 @@ export default function UserIndex() {
 
   const [skills, setSkills] = useState([]);
   const [language, setLanguage] = useState([]);
+  const [image, setImage] = useState([]);
   return (
     <div className="flex w-100 column gap-2">
-      <UserTopInfo />
+      <UserTopInfo image={image} setImage={setImage} />
       <UserInfo />
       <Shared />
 

@@ -1,50 +1,36 @@
+import express from "express";
+import path from "path";
+import multer from "multer";
+import { v2 as cloudinary } from "cloudinary";
 
-import express from "express"
-import path from 'path'
-import multer from 'multer'
-const router = express.Router()
+cloudinary.config({
+  cloud_name: 'dl93zl9fn',
+  api_key: '896513678197917',
+  api_secret: '1H2tQKwTv3fsE9SyM9WTJiGrZJQ',
+});
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'public/uploads/')
-  },
-  filename(req, file, cb) {
-    cb(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    )
-  },
-})
+const router = express.Router();
+// Configure Multer
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
-function checkFileType(file, cb) {
-  const filetypes = /jpg|jpeg|png/
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase())
-  const mimetype = filetypes.test(file.mimetype)
-
-  if (extname && mimetype) {
-    return cb(null, true)
-  } else {
-    cb('Images only!')
+router.post("/", upload.array("files", 4), async (req, res) => {
+  // let files = req.files;
+  // const uploadPromises = files.map((file) =>
+  //   cloudinary.uploader.upload(file.buffer)
+  // );
+  // const uploadResults = await Promise.all(uploadPromises);
+  // res.status(200).json(uploadResults);
+  try {
+    const uploadPromises = req.files.map((file) =>
+      cloudinary.uploader.upload(file.buffer)
+    );
+    const uploadResults = await Promise.all(uploadPromises);
+    res.status(200).json(uploadResults);
+  } catch (error) {
+    console.error('Error uploading files:', error);
+    res.status(500).json({ error: 'Error uploading files' });
   }
-}
+});
 
-const upload = multer({
-  storage,
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb)
-  },
-})
-
-
-router.post('/', upload.array('images', 4), (req, res) => {
-  let files = req.files
-  files = files.map(x => {
-    const { path } = x
-    return `/${path}`
-
-  })
-  res.json({ files })
-})
-
-
-export default router
+export default router;
