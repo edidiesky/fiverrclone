@@ -8,7 +8,7 @@ export default function Input({ id, onChange, errorMessage, ...props }) {
   };
   return (
     <LabelContainer className="family1" htmlFor={id}>
-      <div className="labelspan text-grey">{id}</div>
+      <div className="labelspan text-grey fs-12">{id}</div>
       <input
         {...props}
         onBlur={handleTouch}
@@ -40,7 +40,7 @@ const LabelContainer = styled.label`
 
   .labelspan {
     position: absolute;
-    top: -15%;
+    top: -8%;
     padding: 0 0.7rem;
     left: 3%;
     background-color: #fff;
@@ -80,7 +80,7 @@ const LabelContainer = styled.label`
   }
 
   span {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #c61212;
     font-weight: normal;
     display: none;

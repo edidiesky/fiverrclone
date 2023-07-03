@@ -30,7 +30,7 @@ const doData = [
 export default function SellerPage2() {
   return (
     <SellerPage2Container>
-      <div className="w-90 auto sellerWrapper">
+      <div className="w-90 auto sellerWrapper  flex item-center justify-center h-100">
         <div className="w-100">
           <img
             src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/6c2ad11444ef671ac89d56497b5b2e9b-1634792164899/image2.a1387aa.jpeg"
@@ -60,13 +60,13 @@ export default function SellerPage2() {
           <div className="buttonWrapper flex item-center py-2 gap-2">
             <Link
               to={"/seller_onboarding/personal_info"}
-              className="contactBtn family1 green fs-14 text-white"
+              className="contactBtn family1 green fs-18 text-white"
             >
               Continue
             </Link>
             <Link
               to={"/seller_onboarding/do"}
-              className="contactBtn btn1 family1 fs-14 text-grey"
+              className="contactBtn btn1 family1 fs-18 text-grey"
             >
               Back
             </Link>
@@ -78,6 +78,10 @@ export default function SellerPage2() {
 }
 const SellerPage2Container = styled.div`
   width: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
   .contactBtn {
     padding: 1.5rem 3rem;
     &.btn1 {

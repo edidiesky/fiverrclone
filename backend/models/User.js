@@ -27,6 +27,11 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "PLease add a password value"],
     },
+    verified: {
+      type: Boolean,
+      default: false,
+    },
+
     about: {
       from: { type: String },
       language: { type: Array, default: [] },

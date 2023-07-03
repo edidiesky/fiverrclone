@@ -92,7 +92,7 @@ export default function App() {
               </Route>
 
               <Route path={"/seller_onboarding"} element={<SellerLayout />}>
-                <Route path="do" element={<SellerPage1 />} />
+                <Route index element={<SellerPage1 />} />
                 <Route path="dont" element={<SellerPage2 />} />
                 <Route exact path="personal_info" element={<Personal1 />} />
                 <Route

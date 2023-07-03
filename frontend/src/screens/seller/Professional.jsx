@@ -1,9 +1,6 @@
 import React  from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import Dropdown from "react-dropdown-select";
-// import Select from "react-select";
-// import countryList from "react-select-country-list";
 
 const options = [
   {
@@ -30,52 +27,6 @@ export default function Professional() {
         </h2>
       </div>
       <div className="w-90 auto column flex gap-4">
-        {/* occupation */}
-        <div className="flex py-2 item-start gap-4 just">
-          <h4 className="fs-20 profile text-dark text-light">
-            Your Occupation*
-            <span className="block fs-18 text-light text-grey">
-              Ex. John Smith
-            </span>
-          </h4>
-          <div className="border w-100 wrapper flex column gap-2">
-            <Select defaultValue={value} options={options} value={value} onChange={changeHandler} />
-          </div>
-        </div>
-
-        {/* skills */}
-        <div className="flex py-2 item-start gap-4 just">
-          <h4 className="fs-20 profile text-dark text-light">
-            Your Skills
-            <span className="block fs-18 text-light text-grey">
-              List the skills related to the services you're offering and add
-              your experience level.
-            </span>
-          </h4>
-          <div className="border w-100 wrapper flex column gap-2">
-            {/* <Dropdown
-              options={options}
-              values={[]}
-              className="my-dropdown"
-              searchable
-              clearable
-              dropdownHeight="300px"
-              onChange={(value) => console.log(value)}
-            /> */}
-          </div>
-        </div>
-
-        {/* certification */}
-        <div className="flex py-2 item-start gap-4 just">
-          <h4 className="fs-20 profile text-dark text-light">
-            Certification
-            <span className="block fs-18 text-light text-grey">
-              Include any certificates or awards that are relevant to the
-              services you're offering.
-            </span>
-          </h4>
-        </div>
-
         {/* submit btn */}
         <div className="contactWrapper flex item-center justify-end">
           <Link
