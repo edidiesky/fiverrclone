@@ -24,13 +24,16 @@
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "express-session": "^1.17.3",
+    "googleapis": "^120.0.0",
     "jsonwebtoken": "^9.0.0",
     "moment": "^2.29.4",
     "mongoose": "^6.8.1",
     "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.3",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
-    "stripe": "^11.18.0"
+    "stripe": "^11.18.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

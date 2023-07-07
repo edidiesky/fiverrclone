@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "install-frontend": "cd frontend && npm install --legacy-peer-deps && vite build",
-    "setup-production": "npm run install-frontend",
+    "build": "npm run install-frontend",
     "preview": "vite preview",
     "start": "cd backend && npm install && npm run server"
   },
