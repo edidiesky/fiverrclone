@@ -283,7 +283,7 @@ const HeaderTopContainer = styled.div`
     }
     .nav-link {
       font-weight: 400;
-      color: var(--dark-dark);
+      color: var(--grey-1);
       transition: all 0.5s;
       text-decoration: none;
       position: relative;
@@ -292,7 +292,7 @@ const HeaderTopContainer = styled.div`
       }
       &.active {
         position: relative;
-        color: var(--green);
+        color: #fff;
       }
     }
   }

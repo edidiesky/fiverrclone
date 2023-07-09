@@ -5,7 +5,7 @@ import { BiBell, BiHeart, BiSearch } from "react-icons/bi";
 import Profile from "../../common/Profile";
 import { AiOutlineMail } from "react-icons/ai";
 import Bar from "../../common/svg/Bar";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { HiUser } from "react-icons/hi";
 import { onAuthModal } from "../../../Features/user/userSlice";
 
@@ -31,9 +31,9 @@ export default function Header() {
   const [active, setActive] = useState(true);
   const [profile, setProfile] = useState(false);
   const { userInfo } = useSelector((store) => store.user);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const isActive = () => {
-    window.scrollY > 200 ? setActive(false) : setActive(true);
+    window.scrollY > 100 ? setActive(false) : setActive(true);
   };
   useEffect(() => {
     window.addEventListener("scroll", isActive);
@@ -51,7 +51,7 @@ export default function Header() {
         }
         style={{
           borderBottom: "1px solid rgba(0,0,0,.06)",
-          padding: "1.2rem 0",
+          padding: "1rem 0",
           flexWrap: "wrap",
         }}
       >
@@ -82,7 +82,7 @@ export default function Header() {
   };
   const HeaderTopLeft = () => {
     return (
-      <div className="headerTopLeft flex item-center gap-2">
+      <div className="headerTopLeft flex-1 flex item-center gap-2">
         <Link to={"/"}>
           <svg
             width="89"
@@ -127,7 +127,7 @@ export default function Header() {
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}
-              className="avatar text-white fs-18 text-bold uppercase family1 flex item-center justify-center"
+              className="avatar text-white fs-18 text-extra-bold uppercase family1 flex item-center justify-center"
             >
               E
             </div> */}
@@ -155,15 +155,15 @@ export default function Header() {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-18 text-light text-dark item-center justify-center active"
-              : "flex links fs-18 text-light text-dark item-center justify-center"
+              ? "flex links fs-18 text-extra-bold text-dark item-center justify-center active"
+              : "flex links fs-18 text-extra-bold text-dark item-center justify-center"
           }
         >
           Sign In
         </div>
         <div
           onClick={() => dispatch(onAuthModal())}
-          className="flex btn-4 fs-18 text-bold text-dark item-center justify-center"
+          className="flex btn-4 fs-18 text-extra-bold text-dark item-center justify-center"
         >
           Join
         </div>
@@ -193,14 +193,20 @@ export default function Header() {
       );
     }
     return (
-      <div className={active ? "headerTopCenter active" : "headerTopCenter"}>
+      <div
+        className={
+          active
+            ? "headerTopCenter gap-4 flex item-center active"
+            : "headerTopCenter gap-4 flex item-center"
+        }
+      >
         {data.map((x) => {
           return (
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "nav-link fs-18 text-bold active"
-                  : "nav-link fs-18 text-bold"
+                  ? "nav-link fs-20 text-extra-bold active"
+                  : "nav-link fs-20 text-extra-bold"
               }
               to={`${x.path}`}
               key={x.id}
@@ -401,13 +407,13 @@ const HeaderTopContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 1.6rem;
+    gap: 2rem;
     @media (max-width: 980px) {
       display: none;
     }
     .nav-link {
-      font-weight: 400;
-      color: var(--dark-dark);
+      font-weight: bold;
+      color: var(--grey-1);
       transition: all 0.5s;
       text-decoration: none;
       position: relative;

@@ -1,4 +1,4 @@
-const gigData = [
+ const gigData = [
   // Design Logo Design
   {
     shortDescription:

@@ -63,9 +63,9 @@ export default function Card({ x, index, type }) {
           <CardLoading />
         ) : (
           <Link
-            to={`/gigs/${x?._id}`}
+            to={`/gigs/${cardid}`}
             className="w-100 MainCard flex column"
-            key={x?._id}
+            key={cardid}
           >
             <div className="w-100 card">
               <img src={x?.image[0]} alt="" className="w-100" />
@@ -104,12 +104,12 @@ export default function Card({ x, index, type }) {
         ) : (
           <CardContent>
             <Link
-              to={`/dashboard/create-gig/${x?._id}`}
+              to={`/dashboard/create-gig/${cardid}`}
               className="w-100 cards flex column"
               key={x?.id}
             >
               <div className="detailsImageContainer">
-                {/* <div className="icon">
+                {/* <div className="btnArrow">
                 <Heart />
               </div> */}
                 {/* button  */}
@@ -136,7 +136,7 @@ export default function Card({ x, index, type }) {
                   {x?.image?.map((x) => {
                     return (
                       <Link
-                        to={`/gigs/${x?._id}`}
+                        to={`/gigs/${cardid}`}
                         style={{ transform: `translateX(-${tabindex * 100}%)` }}
                         className="w-100 card"
                       >
@@ -200,37 +200,39 @@ export default function Card({ x, index, type }) {
           <div className="icon">
             <Heart />
           </div>
+          <div className="hidden">
+            {x?.image?.length >= 2 && (
+              <div className="flex hidden">
+                {tabindex > 0 && (
+                  <div
+                    className="btnArrow shadow left"
+                    onClick={() => handleImagePosition("left")}
+                  >
+                    <BiChevronLeft />
+                  </div>
+                )}
+                <div
+                  className="btnArrow shadow right"
+                  onClick={() => handleImagePosition("right")}
+                >
+                  <BiChevronRight />
+                </div>
+              </div>
+            )}
+          </div>
           <Link
-            to={`/gigs/${x?._id}`}
+            to={`/gigs/${cardid}`}
             className="w-100 cards flex column"
             key={x?.id}
           >
             <div className="detailsImageContainer">
               {/* button  */}
-              {/* {x?.image?.length >= 2 && (
-                <div className="flex">
-                  {tabindex > 0 && (
-                    <div
-                      className="btnArrow shadow left"
-                      onClick={() => handleImagePosition("left")}
-                    >
-                      <BiChevronLeft />
-                    </div>
-                  )}
-                  <div
-                    className="btnArrow shadow right"
-                    onClick={() => handleImagePosition("right")}
-                  >
-                    <BiChevronRight />
-                  </div>
-                </div>
-              )} */}
 
               <div className="detailsImageWrapper">
                 {x?.image?.map((x) => {
                   return (
                     <Link
-                      to={`/gigs/${x?._id}`}
+                      to={`/gigs/${cardid}`}
                       style={{ transform: `translateX(-${tabindex * 100}%)` }}
                       className="w-100 card"
                     >
@@ -286,7 +288,11 @@ export default function Card({ x, index, type }) {
 
 const CardContent = styled.div`
   width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
+  .hidden {
+  overflow: hidden;
+
+  }
   &:hover {
     .desc {
       color: var(--green);
@@ -317,6 +323,7 @@ const CardContent = styled.div`
         position: absolute;
         border-radius: inherit;
         width: 100%;
+        transition: all 0.4s ease-in-out;
 
         height: 100%;
         img {
@@ -327,31 +334,9 @@ const CardContent = styled.div`
           height: 100%;
           object-fit: cover;
         }
-        .icon {
-          position: absolute;
-          width: 2.7rem;
-          background-color: #fff;
-          height: 2.7rem;
-          top: 50%;
-          border-radius: 50%;
-          display: grid;
-          place-items: center;
-          transition: all 0.4s;
-          &.left {
-            left: -20%;
-          }
-          &.right {
-            right: -20%;
-          }
 
-          svg {
-            width: 50%;
-            height: 50%;
-            color: #333;
-          }
-        }
         &:hover {
-          .icon {
+          .btnArrow {
             &.left {
               left: -8px;
             }
@@ -375,6 +360,30 @@ const CardContent = styled.div`
           border-radius: inherit;
         }
       }
+    }
+  }
+  .btnArrow {
+    position: absolute;
+    width: 3rem;
+    background-color: #fff;
+    height: 3rem;
+    top: 25%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: all 0.4s;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    &.left {
+      left: 4%;
+    }
+    &.right {
+      right: -4%;
+    }
+
+    svg {
+      font-size: 20px;
+      color: #333;
     }
   }
 
