@@ -5,7 +5,6 @@ import HomeIndex from '../components/home';
 import styled from 'styled-components'
 import Header from '../components/home/header';
 import { clearGigsAlert, getAllGigs } from '../Features';
-ig
 
 export default function Home() {
   useEffect(() => {

@@ -63,8 +63,8 @@ export default function Header({ type }) {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "nav-links fs-18 text-light text-grey active"
-                      : "nav-links fs-18 text-light text-grey"
+                      ? "nav-links fs-18 text-extra-bold text-grey active"
+                      : "nav-links fs-18 text-extra-bold text-grey"
                   }
                   to={`${x}`}
                   key={index}
@@ -98,8 +98,8 @@ export default function Header({ type }) {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "nav-links fs-18 text-light text-grey active"
-                    : "nav-links fs-18 text-light text-grey"
+                    ? "nav-links fs-18 text-extra-bold text-grey active"
+                    : "nav-links fs-18 text-extra-bold text-grey"
                 }
                 to={`${x}`}
                 key={index}
@@ -142,7 +142,7 @@ export default function Header({ type }) {
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}
-              className="avatar text-white fs-18 text-bold uppercase family1 flex item-center justify-center"
+              className="avatar text-white fs-18 text-extra-bold uppercase family1 flex item-center justify-center"
             >
               E
             </div> */}
@@ -170,15 +170,15 @@ export default function Header({ type }) {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-18 text-light text-dark item-center justify-center active"
-              : "flex links fs-18 text-light text-dark item-center justify-center"
+              ? "flex links fs-18 text-extra-bold text-dark item-center justify-center active"
+              : "flex links fs-18 text-extra-bold text-dark item-center justify-center"
           }
         >
           Sign In
         </div>
         <div
           onClick={() => dispatch(onAuthModal())}
-          className="flex btn-4 fs-18 text-bold text-dark item-center justify-center"
+          className="flex btn-4 fs-18 text-extra-bold text-dark item-center justify-center"
         >
           Join
         </div>
@@ -209,8 +209,8 @@ export default function Header({ type }) {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "nav-link fs-18 text-bold active"
-                  : "nav-link fs-18 text-bold"
+                  ? "nav-link fs-18 text-extra-bold active"
+                  : "nav-link fs-18 text-extra-bold"
               }
               to={`${x.path}`}
               key={x.id}

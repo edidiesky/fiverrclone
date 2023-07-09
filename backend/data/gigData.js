@@ -137,7 +137,7 @@ const gigData = [
   // writing
   {
     shortDescription: "EDIT AND REWRITE COVER LETTER ONLY.",
-    title: "I will provide resume, cv, and cover letter writing",
+    title: "I will provide web design for you",
     countInStock: 10,
     price: 50,
     sellerId: "64747c2a6c57ba66d735606c",
@@ -145,10 +145,65 @@ const gigData = [
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
     username: "mathias_gr",
-    category: ["Writing & Translation", "Resume Writing"],
+    category: ["Graphics-Design", "Web Design"],
     subInfo: ["HQ audio file (WAV format)"],
     image: [
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/134896101/original/5e7108dee74aee877f72fc638de97cd111b5d904/write-edit-design-a-resume-cv-cover-letter-or-linkedin.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/235896714/original/9948fcf62c9338a5feb31c0caa99c584440b1480.png",
+    ],
+  },
+  // Design website
+  {
+    shortDescription:
+      "A basic quality custom made website based on your requirements.",
+    title:
+      "I will do website and landing page UI UX design in figma, xd format",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
+    countInStock: 3,
+    category: ["Graphics-Design", "Website Design"],
+    price: 85,
+    deliveryDays: 12,
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/309241563/original/875df0a0da51a1229e2e657b5c8c168171a7f72d.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/301357002/original/574e420ac96b45b4d0452bd310959dff7e1808ba.png",
+    ],
+  }, // Design website
+  {
+    shortDescription:
+      "A basic quality custom made website based on your requirements.",
+    title:
+      "I will do website in figma, xd format",
+    sellerId: "6474d09f1ddaba8bb68f7f48",
+    countInStock: 3,
+    category: ["Graphics-Design", "Website Design"],
+    price: 85,
+    deliveryDays: 12,
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/315225510/original/746862c5155c0c96d40bfdc3fb2cd7b815ffea8f.png',
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/301357002/original/491da5db870750f6c4cb65c954fe402a8c68f828.png",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/309241563/original/875df0a0da51a1229e2e657b5c8c168171a7f72d.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/301357002/original/574e420ac96b45b4d0452bd310959dff7e1808ba.png",
     ],
   },
   // 3d modelling user2
@@ -467,34 +522,7 @@ const gigData = [
       "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/304956372/original/6f868b825ea83eff29c03bcd4a8548aba28fe136/do-website-ui-ux-design-mobile-app-ui-ux-design-dashboard-ui-ux-design.png",
     ],
   },
-  // Design website
-  {
-    shortDescription:
-      "A basic quality custom made website based on your requirements.",
-    title:
-      "I will do website and landing page UI UX design in figma, xd format",
-    sellerId: "6474d09f1ddaba8bb68f7f48",
-    countInStock: 3,
-    category: ["Graphics-Design", "Website Design"],
-    price: 85,
-    deliveryDays: 12,
-    subInfo: [
-      "Convert to HTML/CSS",
-      "Responsive design",
-      "Source file",
-      "Printable file",
-      "Include 3D mockup",
-      "Include source file",
-    ],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
-    image: [
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/132069918/original/a721755c508fcbd8929f5f106a186ad9bcbd9582/design-photoshop-web-template-psd-website-psd-to-wordpress.png",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs2/132069918/original/92ba06cc0358488206e24243c420c1be92f7553e/design-photoshop-web-template-psd-website-psd-to-wordpress.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs2/132069918/original/92ba06cc0358488206e24243c420c1be92f7553e/design-photoshop-web-template-psd-website-psd-to-wordpress.jpg",
-    ],
-  },
   {
     shortDescription:
       "A basic quality custom made website based on your requirements.",
@@ -576,5 +604,6 @@ const gigData = [
     ],
   },
 ];
+
 
 export default gigData;

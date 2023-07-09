@@ -16,11 +16,11 @@ import { clearGigs } from "../../Features/gigs/gigsSlice";
 export default function HomeIndex() {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   // clear provious fetch actions and then fetch new gigs
-  //   dispatch(clearGigsAlert());
-  //   dispatch(getAllGigs());
-  // }, []);
+  useEffect(() => {
+    // clear provious fetch actions and then fetch new gigs
+    dispatch(clearGigsAlert());
+    dispatch(getAllGigs());
+  }, []);
   return (
     <HomeIndexContainer className="flex column ">
       <HeroIndex />

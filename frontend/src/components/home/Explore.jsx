@@ -70,15 +70,15 @@ export default function Explore() {
       className="w-100 py-10 back-white item-center"
       style={{ background: "#Fff" }}
     >
-      <div className="w-90 auto flex column gap-2">
-        <div className="w-100 flex item-center justify-space">
-          <Head text={"Explore the marketplace"} />
+      <div className="w-90 auto flex column gap-4">
+        <div className="w-100 flex item-center justify-space py-2">
+          <Head text={"You need it, we've got it"} />
         </div>
         <ExploreIcon
           className={"w-100"}
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gridRowGap: "4rem",
+            gridRowGap: "6rem",
           }}
         >
           {exploreData.map((x) => {
