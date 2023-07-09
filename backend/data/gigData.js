@@ -1,4 +1,139 @@
 const gigData = [
+  // Design Logo Design
+  {
+    shortDescription:
+      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
+    title: "I will create a modern minimalist logo design for your business",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
+    countInStock: 3,
+    category: ["Graphics-Design", "Logo Design"],
+    price: 25,
+    deliveryDays: 12,
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
+    ],
+  },
+  // Design Logo Design
+  {
+    shortDescription:
+      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
+    title: "I will create a modern minimalist logo design for your business",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
+    countInStock: 3,
+    category: ["Graphics-Design", "Logo Design"],
+    price: 25,
+    deliveryDays: 12,
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/70059941/original/4861bfc045086ac87db0dbe852d96bb0c3349ca6.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/70059941/original/4861bfc045086ac87db0dbe852d96bb0c3349ca6.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/attachments/delivery/asset/3b6ca7fe9e68002c2c41e51521a6f228-1688036825/logo%20concept%201_4x-100.jpg",
+    ],
+  },
+  // Design Logo Design
+  {
+    shortDescription:
+      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
+    title: "I will design or redesign 3d and minimalist business logo design",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
+    countInStock: 3,
+    category: ["Graphics-Design", "Logo Design"],
+    price: 15,
+    deliveryDays: 12,
+    subInfo: [
+      "Logo transparency",
+      "Vector file",
+      "Printable file",
+      "Include source file",
+      "1 concept included",
+      "Printable file",
+      "Include 3D mockup",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125595779/original/6c5bcaa59692ab691312b869a92a0aa3e5faab0b.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/125595779/original/cfef2fa0f3de4605bbe6c58215fe40702c651696.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/125595779/original/6947406b2d721f9b47771018a15d1ff6ec9b0ed4.jpg",
+    ],
+  },
+  // Design Logo Design
+  {
+    shortDescription:
+      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
+    title: "I will draw a unique logo for your enterprise",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
+    countInStock: 3,
+    category: ["Graphics-Design", "Logo Design"],
+    price: 15,
+    deliveryDays: 12,
+    subInfo: [
+      "Logo transparency",
+      "Vector file",
+      "Printable file",
+      "Include source file",
+      "1 concept included",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
+    ],
+  }, // Design Logo Design
+  {
+    shortDescription:
+      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
+    title: "I will do a modern minimalist logo design",
+    sellerId: "6474d09f1ddaba8bb68f7f3d",
+    countInStock: 3,
+    category: ["Graphics-Design", "Logo Design"],
+    price: 15,
+    deliveryDays: 12,
+    subInfo: [
+      "Logo transparency",
+      "Vector file",
+      "Printable file",
+      "Include source file",
+      "1 concept included",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/109611151/original/f8a0dca284ffd4c5be5e16b8ef49247cd32b54d7.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/109611151/original/42d4814c676b9f4320152d541bb6c8be7cd83d39.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/109611151/original/fb62237b2a79e0cddbd306921aea85d8dde19247.jpg",
+    ],
+  },
   // writing
   {
     shortDescription: "EDIT AND REWRITE COVER LETTER ONLY.",
@@ -172,6 +307,10 @@ const gigData = [
       "3 renderings",
       "Logo transparency",
       "Vector file",
+      "Printable file",
+      "Include source file",
+      "1 concept included",
+      "Vector file",
       "1 page/screen",
       "Responsive design",
     ],
@@ -222,6 +361,10 @@ const gigData = [
       "Logo transparency",
       "Vector file",
       "Printable file",
+      "Include source file",
+      "1 concept included",
+      "Vector file",
+      "Printable file",
       "Include 3D mockup",
     ],
     image: [
@@ -255,7 +398,14 @@ const gigData = [
     category: ["Graphics-Design", "Website Design"],
     price: 250,
     deliveryDays: 12,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
@@ -273,7 +423,14 @@ const gigData = [
     category: ["Graphics-Design", "Website Design"],
     price: 20,
     deliveryDays: 12,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
@@ -293,7 +450,14 @@ const gigData = [
     category: ["Graphics-Design", "Website Design"],
     price: 15,
     deliveryDays: 12,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
@@ -314,7 +478,14 @@ const gigData = [
     category: ["Graphics-Design", "Website Design"],
     price: 85,
     deliveryDays: 12,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
@@ -333,7 +504,14 @@ const gigData = [
     category: ["Graphics-Design", "Website Design"],
     price: 35,
     deliveryDays: 1,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
@@ -354,7 +532,14 @@ const gigData = [
     category: ["Programming-Tech", "Website-Development", "WordPress"],
     price: 35,
     deliveryDays: 1,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
@@ -374,102 +559,20 @@ const gigData = [
     category: ["Programming-Tech", "Website-Development", "WordPress"],
     price: 15,
     deliveryDays: 1,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
-
-    image: [
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/183201718/original/44d584c6fca7fed34cd9e92751f16fb5f95e7126/do-elementor-pro-wordpress-site-and-fix-issues.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/183201718/original/44d584c6fca7fed34cd9e92751f16fb5f95e7126/do-elementor-pro-wordpress-site-and-fix-issues.jpg",
-    ],
-  },
-  // Design Logo Design
-  {
-    shortDescription:
-      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
-    title: "I will create a modern minimalist logo design for your business",
-    sellerId: "6474d09f1ddaba8bb68f7f3d",
-    countInStock: 3,
-    category: ["Graphics-Design", "Logo Design"],
-    price: 25,
-    deliveryDays: 12,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
-
-    image: [
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
-    ],
-  },
-  // Design Logo Design
-  {
-    shortDescription:
-      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
-    title: "I will create a modern minimalist logo design for your business",
-    sellerId: "6474d09f1ddaba8bb68f7f3d",
-    countInStock: 3,
-    category: ["Graphics-Design", "Logo Design"],
-    price: 25,
-    deliveryDays: 12,
-    subInfo: ["Convert to HTML/CSS", "Responsive design", "Source file"],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
-
-    image: [
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg",
-    ],
-  },
-  // Design Logo Design
-  {
-    shortDescription:
-      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
-    title: "I will design or redesign 3d and minimalist business logo design",
-    sellerId: "6474d09f1ddaba8bb68f7f3d",
-    countInStock: 3,
-    category: ["Graphics-Design", "Logo Design"],
-    price: 15,
-    deliveryDays: 12,
     subInfo: [
-      "Logo transparency",
-      "1 concept included",
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
       "Printable file",
       "Include 3D mockup",
+      "Include source file",
     ],
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
     image: [
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-    ],
-  },
-  // Design Logo Design
-  {
-    shortDescription:
-      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
-    title: "I will draw a unique logo for your enterprise",
-    sellerId: "6474d09f1ddaba8bb68f7f3d",
-    countInStock: 3,
-    category: ["Graphics-Design", "Logo Design"],
-    price: 15,
-    deliveryDays: 12,
-    subInfo: ["Logo transparency"],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
-
-    image: [
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/183201718/original/44d584c6fca7fed34cd9e92751f16fb5f95e7126/do-elementor-pro-wordpress-site-and-fix-issues.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/183201718/original/44d584c6fca7fed34cd9e92751f16fb5f95e7126/do-elementor-pro-wordpress-site-and-fix-issues.jpg",
     ],
   },
 ];

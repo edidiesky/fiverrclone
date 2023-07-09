@@ -6,7 +6,7 @@ import Card from "../../common/Card";
 import { useSelector } from "react-redux";
 
 const options2 = {
-  items: 5,
+  items: 4,
   stagePadding: 10,
   nav: true,
   dots: false,
@@ -16,7 +16,7 @@ const options2 = {
   slideBy: 4,
   responsive: {
     0: {
-      items: 3,
+      items: 2,
     },
     460: {
       items: 2,
@@ -25,7 +25,7 @@ const options2 = {
       items: 3,
     },
     1024: {
-      items: 5,
+      items: 4,
     },
   },
 };
@@ -74,12 +74,12 @@ const GigsIndexContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 55px;
-      height: 55px;
+      width: 50px;
+      height: 50px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
-      font-size: 24px;
+      font-size: 20px;
       color: #777;
       &.disabled {
         display: none;
@@ -97,13 +97,13 @@ const GigsIndexContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 55px;
-      height: 55px;
+      width: 50px;
+      height: 50px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
       color: #777;
-      font-size: 24px;
+      font-size: 20px;
       &.disabled {
         display: none;
       }

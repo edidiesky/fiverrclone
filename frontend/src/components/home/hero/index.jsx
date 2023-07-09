@@ -7,11 +7,13 @@ export default function HeroIndex() {
   return (
     <>
       <HeroIndexContent>
-        <img
-          src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/76e89842118995cfef742b0d9eab0707-1674662995485/bg-hero-6-900-x2.png"
-          alt=""
-          className="w-100 image"
-        />
+        <div style={{position:"absolute"}} className="w-100 h-100">
+          <img
+            src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/76e89842118995cfef742b0d9eab0707-1674662995485/bg-hero-6-900-x2.png"
+            alt=""
+            className="w-100 image"
+          />
+        </div>
         <div className="w-90 auto">
           <div className="w-100 flex header column gap-2">
             <h2 className="fs-40 text-white">
@@ -106,7 +108,7 @@ export default function HeroIndex() {
 
 const HeroIndexContent = styled.div`
   padding: 6rem 0;
-  min-height: 80rem;
+  min-height: 100vh;
   position: relative;
   display: flex;
   place-items: center;
@@ -121,15 +123,15 @@ const HeroIndexContent = styled.div`
     }
   }
   .image {
-    position: absolute;
     width: 100%;
     height: 100%;
+    position: absolute;
   }
   .header {
     position: relative;
     z-index: 4000;
     width: 50%;
-    @media (max-width: 780px) {
+    @media (max-width: 980px) {
       width: 80%;
     }
   }
@@ -139,8 +141,11 @@ const HeroIndexContent = styled.div`
   }
   h2 {
     font-size: 5rem;
-    font-weight: 700;
-    font-family: "Roboto Condensed", sans-serif;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+    @media (max-width: 980px) {
+      font-size: 4rem;
+    }
   }
   form {
     height: 5rem;

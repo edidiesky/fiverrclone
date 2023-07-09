@@ -3,15 +3,8 @@ import path from "path";
 import dotenv from "dotenv";
 import passport from "passport";
 import session from "express-session";
-import { Strategy as GoogleStrategy } from 'passport-google-oauth20'
-import CookieSession from "cookie-session";
 dotenv.config();
-import User from "./models/User.js";
-
-// import googlePassport from "./config/passport.js";
-// googlePassport();
 const app = express();
-import connectDb from "./db/connect.js";
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
 
 import mongoose from "mongoose";
@@ -30,30 +23,30 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: process.env.Google_ClientId,
-      clientSecret: process.env.Google_Secret,
-      callbackURL: "http://localhost:5173",
-    },
-    function (accessToken, refreshToken, profile, cb) {
-      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //   return cb(err, user);
-      // });
-      console.log(profile);
-    }
-  )
-);
+// passport.use(
+//   new GoogleStrategy(
+//     {
+//       clientID: process.env.Google_ClientId,
+//       clientSecret: process.env.Google_Secret,
+//       callbackURL: "http://localhost:5173",
+//     },
+//     function (accessToken, refreshToken, profile, cb) {
+//       // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+//       //   return cb(err, user);
+//       // });
+//       console.log(profile);
+//     }
+//   )
+// );
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
-    done(err, user);
-  });
-});
+// passport.serializeUser((user, done) => {
+//   done(null, user);
+// });
+// passport.deserializeUser((id, done) => {
+//   User.findById(id, (err, user) => {
+//     done(err, user);
+//   });
+// });
 
 // app.use(
 //   CookieSession({
@@ -63,6 +56,7 @@ passport.deserializeUser((id, done) => {
 //   })
 // );
 
+// routes
 import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
 import reviewRoute from "./routes/reviewRoutes.js";
@@ -72,7 +66,6 @@ import cartRoute from "./routes/cartRoute.js";
 import orderRoute from "./routes/orderRoutes.js";
 
 import chatRoute from "./routes/chatRoutes.js";
-import stripeCheckout from "./controllers/stripeController.js";
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
@@ -81,24 +74,7 @@ app.use("/api/v1/review", reviewRoute);
 app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/cart", cartRoute);
-app.use("/api/v1/chat", chatRoute);
-app.post("/api/v1/create-payment-intent", stripeCheckout);
-app.get("/api/v1/config/paypal", (req, res) => {
-  res.send(process.env.PAYPAL_CLIENT_ID);
-});
-
-app.get("/stripekey", (req, res) => {
-  res.send(process.env.STRIPE_KEY);
-});
-
-// app.post('/stripe', Stripepayment)
-// app.get('/payment_intents', getAllStripePaymentIntent)
-const __dirname = path.resolve();
-
-app.use(
-  "/public/uploads",
-  express.static(path.join(__dirname, "/public/uploads"))
-);
+// app.use("/api/v1/chat", chatRoute);
 
 // console.log((path.join(__dirname, '/public/uploads')))
 

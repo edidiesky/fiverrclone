@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import OwlCarousel from "react-owl-carousel";
 import { Slider } from "../common";
+import { testimonialData } from "../../data/testimonial";
 
 const options2 = {
   items: 1,
@@ -19,46 +20,7 @@ const options2 = {
   },
 };
 
-const testimonialData = [
-  {
-    position: "Co-Founder",
-    company: "rooted",
-    name: "Kay Kim",
-    companyImage:
-      "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/rooted-logo-x2.7da3bc9.png",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173396/testimonial-video-still-lavender.jpg",
-    desc: "We use Fiverr for our SEO, our logo, website, copy, and animated videos - literally everything. It was like working with a human right next to you versus being across the world",
-  },
-  {
-    position: "Co-Founder",
-    company: "Okler",
-    name: "Brighid Dannon",
-    companyImage:
-      "https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/lavender-logo-x2.3fff9e7.png",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173414/testimonial-video-still-naadam.jpg",
-    desc: "We use Fiverr for our SEO, our logo, website, copuy, and animated videos - literally everything. It was like working with a human right next to you versus being across the world",
-  },
-  {
-    position: "Co-Founder",
-    company: "Okler",
-    name: "Kay Kim",
-    companyImage:"https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/haerfest-logo-x2.934ab63.png",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173399/testimonial-video-still-rooted.jpg",
-    desc: "We use Fiverr for our SEO, our logo, website, copuy, and animated videos - literally everything. It was like working with a human right next to you versus being across the world",
-  },
-  {
-    position: "Co-Founder",
-    company: "Okler",
-    name: "Kay Kim",
-    companyImage:"https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/naadam-logo-x2.a79031d.png",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_560,dpr_1.0/v1/attachments/generic_asset/asset/42a6fd208670a0361b38bd72b47b9317-1599519173399/testimonial-video-still-rooted.jpg",
-    desc: "We use Fiverr for our SEO, our logo, website, copuy, and animated videos - literally everything. It was like working with a human right next to you versus being across the world",
-  },
-];
+
 
 export default function MapIndex() {
   return (
@@ -76,7 +38,12 @@ export default function MapIndex() {
                     <h4 className="fs-18 text-bold text-grey flex gap-2 item-center">
                       {x.name}, {x.position}
                       <div className="flex icon item-center justify-center">
-                        <img src={x.companyImage} alt="" className="image" style={{height:"4rem"}} />
+                        <img
+                          src={x.companyImage}
+                          alt=""
+                          className="image"
+                          style={{ height: "4rem" }}
+                        />
                       </div>
                     </h4>
                     <p className="para">"{x.desc}"</p>
@@ -95,7 +62,7 @@ const MapIndexWrapper = styled.div`
   width: 100%;
   padding: 5rem 0;
   .image {
-    width: .8rem;
+    width: 0.8rem;
   }
   .icon {
     padding-left: 2rem;
@@ -105,7 +72,7 @@ const MapIndexWrapper = styled.div`
     display: grid;
     grid-template-columns: 35vw 1fr;
     grid-gap: 6rem;
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       grid-template-columns: 1fr;
     }
     .imageWrapper {
@@ -116,11 +83,12 @@ const MapIndexWrapper = styled.div`
     }
 
     .para {
-      font-size: 3rem;
+      font-size: 3.8rem;
       font-style: italic;
-      font-weight: 300;
-      color: var(--green);
+      font-weight: bold;
+      color: rgb(0, 57, 18);
       font-family: serif;
+      line-height: 1.2;
     }
 
     .textTop {

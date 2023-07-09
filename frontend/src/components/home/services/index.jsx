@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Slider } from "../../common";
 
 const options2 = {
-  items: 4,
+  items: 5,
   nav: true,
   dots: false,
   margin: 30,
@@ -17,10 +17,10 @@ const options2 = {
       items: 3,
     },
     460: {
-      items: 2,
+      items: 3,
     },
     760: {
-      items: 2,
+      items: 3,
     },
     1024: {
       items: 5,
@@ -150,10 +150,10 @@ export default function ServicesIndex() {
                   </div>
                   <div className="bottom w-100 back-white py-2 flex item-center gap-1">
                     <div className="flex column">
-                      <h5 className="fs-16 family1 text-extra-bold text-white">
+                      <h5 className="fs-18 text-light text-white">
                         {x.authorName}
                       </h5>
-                      <h4 h4 className="fs-20 family1 text-white">
+                      <h4 className="fs-24 text-light text-white">
                         {x.subName}
                       </h4>
                     </div>
