@@ -47,8 +47,8 @@ export default function Features2Index() {
                   <div className="backdrop"></div>
                 </div>
                 <div className="w-100 flex column">
-                  <h3 className="fs-18 text-extra-bold text-dark">{x.text}</h3>
-                  <h4 className="fs-16 text-light text-grey2">{x.desc}</h4>
+                  <h3 className="fs-24 text-extra-bold text-dark">{x.text}</h3>
+                  <h4 className="fs-20 text-light text-grey2">{x.desc}</h4>
                 </div>
               </Link>
             );

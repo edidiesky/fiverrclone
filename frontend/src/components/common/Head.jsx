@@ -6,27 +6,6 @@ export default function Head({ text, subtext, para }) {
     <HeadWrapper className="hidden">
       <h3 className="text-bold fs-24 item-start">
         {text}
-        <div className="hidden">
-          <span
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="400"
-            className="block uppercase span1"
-          >
-            {subtext}
-          </span>
-        </div>
-
-        <div className="hidden">
-          <span
-            data-aos="fade-up"
-            data-aos-duration="1050"
-            data-aos-delay="450"
-            className="block py-2 para"
-          >
-            {para}
-          </span>
-        </div>
       </h3>
     </HeadWrapper>
   );

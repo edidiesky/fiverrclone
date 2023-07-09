@@ -11,7 +11,7 @@ export default function Talent() {
         />
         <header className="auto flex column gap-3">
           <h2>
-          Suddenly it's all so <span className="span">growing.</span>
+            Suddenly it's all so <span className="span">growing.</span>
           </h2>
           <div className="flex py-2">
             <button className="btn py-1 px-3">Get Started</button>
@@ -46,7 +46,7 @@ const TalentWrappper = styled.div`
     height: 100%;
     display: flex;
     justify-content: center;
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       width: 90%;
     }
     .btn {
@@ -60,7 +60,7 @@ const TalentWrappper = styled.div`
     h2 {
       color: #fff;
       font-size: 6rem;
-      @media (max-width:780px) {
+      @media (max-width: 780px) {
         font-size: 3.5rem;
       }
       .span {

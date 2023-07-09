@@ -511,9 +511,9 @@ p {
   overflow: hidden;
 }
 .link {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--blue-1);
-  font-weight: 600;
+  font-weight: normal;
 }
 
 .w-85 {

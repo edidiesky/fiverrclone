@@ -21,10 +21,10 @@ const options2 = {
       items: 2,
     },
     460: {
-      items: 2,
+      items: 3,
     },
     760: {
-      items: 2,
+      items: 3,
     },
     1024: {
       items: 4,
@@ -39,7 +39,7 @@ export default function Features1Index() {
       <div className="w-90 auto column">
         <div className="w-100 Heades flex item-center justify-space">
           <Head text={"Inspiring work made on Fiverr"} />
-          <Link to={""} className="link flex item-center gap-1">
+          <Link to={""} className="link fs-18 text-light flex item-center gap-1">
             See More Projects <BiChevronRight />
           </Link>
         </div>
@@ -67,7 +67,7 @@ const Features1IndexContainer = styled.div`
   }
   .owl-carousel .owl-stage-outer {
     overflow: hidden;
-    min-height: 360px !important;
+    min-height: 340px !important;
   }
   .owl-nav {
     position: absolute;
@@ -148,7 +148,7 @@ const Features1IndexContainer = styled.div`
     border-radius: 50%;
   }
   .project {
-    padding: 5rem 0;
+    padding: 2rem 0;
     width: 100%;
   }
   .grid-auto {
