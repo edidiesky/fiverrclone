@@ -16,9 +16,12 @@ const options2 = {
   dotClass: "owl-dot custom-dot",
   responsive: {
     0: {
-      items: 1,
+      items: 2,
     },
-    600: {
+    460: {
+      items: 2,
+    },
+    760: {
       items: 3,
     },
   },
@@ -67,6 +70,15 @@ const Features2IndexContainer = styled.div`
     @media (max-width:780px) {
       flex-direction: column;
       justify-content: flex-start;
+    }
+  }
+  h3 {
+    @media (max-width:980px) {
+      font-size: 2rem;
+    }
+  }h4 {
+    @media (max-width:980px) {
+      font-size: 1.7rem;
     }
   }
   .card {

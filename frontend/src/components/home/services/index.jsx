@@ -130,7 +130,7 @@ const projectData = [
 export default function ServicesIndex() {
   return (
     <ServicesIndexContainer>
-      <div className="w-90 auto flex column">
+      <div className="w-90 auto flex column gap-2">
         <div className="w-100 Heades flex item-start justify-space">
           <Head text={"Popular professional services"} />
         </div>

@@ -21,7 +21,7 @@ const options2 = {
       items: 2,
     },
     460: {
-      items: 3,
+      items: 2,
     },
     760: {
       items: 3,

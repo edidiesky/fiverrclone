@@ -20,8 +20,6 @@ const options2 = {
   },
 };
 
-
-
 export default function MapIndex() {
   return (
     <MapIndexWrapper>
@@ -71,14 +69,17 @@ const MapIndexWrapper = styled.div`
   .Card {
     display: grid;
     grid-template-columns: 35vw 1fr;
-    grid-gap: 6rem;
+    grid-gap: 4rem;
     @media (max-width: 780px) {
       grid-template-columns: 1fr;
+      grid-gap: 4rem;
     }
     .imageWrapper {
       width: 100%;
+      height: 100%;
       .images {
         width: 100%;
+        height: 100%;
       }
     }
 
@@ -89,6 +90,15 @@ const MapIndexWrapper = styled.div`
       color: rgb(0, 57, 18);
       font-family: serif;
       line-height: 1.2;
+      @media (max-width: 1080px) {
+        font-size: 3rem;
+      }
+      @media (max-width: 780px) {
+        font-size: 3rem;
+      }
+      @media (max-width: 780px) {
+        font-size: 3rem;
+      }
     }
 
     .textTop {

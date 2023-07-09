@@ -30,14 +30,16 @@ export default function Sidebar() {
             <img
               src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg"
               alt=""
-              style={{ width: "10rem", height: "10rem", borderRadius: "50%" }}
+              style={{ width: "7rem", height: "7rem", borderRadius: "50%" }}
             />
-            <h3 className="fs-18">
+            <h3 className="fs-16">
               edidiongessi320
-              <span className="block text-light text-grey2">essienedidiong1000@gma</span>
+              <span className="block fs-18 text-light text-grey2">
+                essienedidiong1000@gma
+              </span>
             </h3>
           </div>
-          <ul className="flex column w-85 auto py-4 gap-2">
+          <ul className="flex column w-100 auto py-4 gap-2">
             {data.map((x) => {
               return (
                 <NavLink
@@ -88,10 +90,10 @@ const SidebarContainer = styled.div`
   z-index: 85000;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s;
+  transition: all 1s;
   left: -100%;
 
-  @media (min-width:980px) {
+  @media (min-width: 980px) {
     display: none;
   }
 
@@ -101,7 +103,7 @@ const SidebarContainer = styled.div`
     left: 0%;
   }
   .nav-link {
-    padding: 1rem 0;
+    padding: 1rem 2rem;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.09);
     &:hover {
