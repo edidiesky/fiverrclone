@@ -247,14 +247,14 @@ export default function Card({ x, index, type }) {
               <div className="flex item-center w-100 justify-space">
                 <div className="flex gap-1 item-center">
                   <img
-                    src="./images/johanna-richardson.jpg"
+                    src={x?.sellerId?.image}
                     style={{
                       width: "3rem",
                       height: "3rem",
                       borderRadius: "50%",
                     }}
                   />
-                  <h5 className="fs-16 text-dark text-bold">Luckyash</h5>
+                  <h5 className="fs-16 text-dark text-bold">{x?.sellerId?.username}</h5>
                 </div>
                 <h5 className="fs-16 text-grey text-bold">Luckyash</h5>
               </div>
