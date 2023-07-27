@@ -56,7 +56,7 @@ width:100%;
             text-align:start;
             font-size:1.8rem;
             font-weight:400;
-            color:var(--blue-1);
+            color:var(--dark-1);
             cursor: pointer;
             /* &.active {
             z-index:-1;
