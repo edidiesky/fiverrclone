@@ -33,6 +33,7 @@ const initialState = {
   ordernoOfpage: 0,
   totalorder: 0,
   isloadingPayalKey: false,
+  url:""
 };
 
 const orderSlice = createSlice({
@@ -63,7 +64,8 @@ const orderSlice = createSlice({
     },
     [createCustomersOrder.fulfilled]: (state, action) => {
       state.orderisLoading = false;
-      state.order = action.payload;
+      state.order = action.payload.order;
+      state.url = action.payload.url;
       state.orderisSuccess = true;
     },
     [createCustomersOrder.rejected]: (state, action) => {

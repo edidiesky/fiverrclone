@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Paypal from "../svg/paypal";
 import { useSelector } from "react-redux";
 export default function CheckoutLeft() {
   const { userInfo } = useSelector((store) => store.user);
@@ -27,14 +26,14 @@ export default function CheckoutLeft() {
           </div>
         </div>
       </div>
-      <div className="w-100 wrapper radius1 flex column">
+      {/* <div className="w-100 wrapper radius1 flex column">
         <h3 className="fs-20 p2 text-grey radius1 back-grey">
           Payment Options
         </h3>
         <div className="p2 flex item-center gap-1">
-          <Paypal />
+         
         </div>
-      </div>
+      </div> */}
     </CheckoutLeftContent>
   );
 }

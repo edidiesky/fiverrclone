@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import PaymentButton from "./paypal";
 export default function CheckoutRight() {
   const { cartDetails, cartIsLoading } = useSelector((store) => store.cart);
+  const price =
+    0.055 * parseInt(cartDetails?.gigId?.price) +
+    parseInt(cartDetails?.gigId?.price) +
+    parseInt(2.28);
+  const { url } = useSelector((store) => store.order);
+  useEffect(() => {
+    if (url) {
+      window.location.href = url;
+    }
+  }, [url]);
   return (
     <CheckoutRightContent className="w-100">
       <div className="Right flex gap-2 column">
@@ -79,15 +88,9 @@ export default function CheckoutRight() {
               <li className="flex item-center justify-space w-100 gap-1 fs-18 text-light text-grey">
                 <span className="text-light">Total delivery time</span> $2.28
               </li>
-              <PaymentButton
-                price={
-                  0.055 * parseInt(cartDetails?.gigId?.price) +
-                  parseInt(cartDetails?.gigId?.price) +
-                  parseInt(2.28)
-                }
-              />
             </ul>
             {/* paypal Checkout */}
+            <div className="btn btn-1 fs-16 text-light text-white">Pay Now</div>
           </div>
         </div>
       </div>
