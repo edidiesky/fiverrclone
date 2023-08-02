@@ -29,7 +29,7 @@ export default function Message({ alertText, showAlert, alertType }) {
 }
 
 const MessageContent = styled.div`
-  min-width: 400px;
+  min-width: 300px;
   padding: 1.7rem 2rem;
   box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.26);
   background-color: #fff;

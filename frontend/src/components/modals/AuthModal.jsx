@@ -24,6 +24,8 @@ import {
 } from "../../Features";
 import LoaderIndex from "../loaders";
 import { googleAuth } from "../../Features/user/userReducer";
+import Message from "../loaders/Message";
+import { BiCheck } from "react-icons/bi";
 
 export default function AuthModal({ type, click }) {
   // swtich login and register tab
@@ -75,7 +77,7 @@ export default function AuthModal({ type, click }) {
   // framer motion set variants
   const dropin = {
     hidden: {
-      y: "-100vh",
+      y: "100vh",
       opacity: 0,
       transition: {
         delay: 0.5,
@@ -108,6 +110,8 @@ export default function AuthModal({ type, click }) {
     userDetails,
     usernamemodal,
     isLoading,
+    showAlert,
+    alertText,
   } = useSelector((store) => store.user);
   // useEffect(() => {
   //   if (registersuccess) {
@@ -118,13 +122,13 @@ export default function AuthModal({ type, click }) {
   // form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
+    // sign based on login and registration
     if (auth) {
-      // dispatch(loginCustomer(formdata));
-      dispatch(registerCustomer({ email, password }));
-      // console.log("login");
-    } else {
       dispatch(registerCustomer({ email, password }));
       // console.log("registration");
+    } else {
+      dispatch(loginCustomer({ email, password }));
+      // console.log("login");
     }
   };
   const HandleUsername = (e) => {
@@ -217,6 +221,11 @@ export default function AuthModal({ type, click }) {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
+      <Message
+        showAlert={showAlert}
+        alertText={alertText}
+        handleClearAlert={clearUserAlertError}
+      />
       {isLoading && <LoaderIndex />}
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
       <motion.div
@@ -226,73 +235,91 @@ export default function AuthModal({ type, click }) {
         exit={"exit"}
         className={"deleteCard family1 shadow"}
       >
-        {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
-          <RxCross2 />
-        </div> */}
-        <div className="w-100">
-          <div className="w-100 authTop fs-20 text-extra-bold text-dark text-center">
-            Join Fiverr
+        <div className="py-3 flex card_auth_wrapper item-center">
+          <div className="left h-100 flex-1">
+            <img
+              src="https://npm-assets.fiverrcdn.com/assets/@fiverr-private/user_session/standard.7691fcf.png"
+              alt=""
+              className="w-100"
+            />
+            <div className="flex column left_content gap-2">
+              <div className="w-85 auto flex column gap-2">
+                <h3 className="fs-35 text-white">Success starts here</h3>
+                <ul className="flex family1 column text-white gap-2 fs-20 text-light">
+                  <li className="flex item-start gap-1">
+                    <BiCheck fontSize={"24px"} /> Over 600 categories
+                  </li>
+                  <li className="flex item-start gap-1">
+                    <BiCheck fontSize={"24px"} /> Pay per project, not per hour
+                  </li>
+                  <li className="flex item-start gap-1">
+                    <BiCheck fontSize={"24px"} /> Access to talent and
+                    businesses across the globe
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
+          <div className="right flex-1 justify-space flex column item-start h-100">
+            <div className="w-85 auto flex column item-center rightwrapper justify-space h-100">
+              <form
+                className="authContentFormWrapper w-100 flex column gap-2"
+                onSubmit={handleSubmit}
+              >
+                <h3 className="fs-30 family1">
+                  {auth ? "Create a new account" : "Sign in to your account"}
 
-        <div className="w-90 authBottom auto flex column gap-3">
-          {/* socials logins */}
-          <div className="flex column gap-1">
-            <div className="authBtn btn1 flex fs-14 text-dark text-bold family1 item-center justify-center">
-              <FaFacebook fontSize={"20px"} />{" "}
-              <div className="w-100 text-center">Continue with Facebook</div>{" "}
-            </div>
-            <div
-              onClick={HandleGoogle}
-              className="authBtn flex fs-14 text-dark text-bold family1 item-center justify-space"
-            >
-              <FcGoogle fontSize={"20px"} />{" "}
-              <div className="w-100 text-center">Continue with Google</div>{" "}
-            </div>
-
-            <div className="authBtn flex fs-14 text-dark text-bold family1 item-center justify-center">
-              <FaGithub fontSize={"20px"} />{" "}
-              <div className="w-100 text-center">Continue with Github</div>{" "}
+                  <span className="block flex item-center gap-1 fs-20 py-1 text-light text-grey">
+                    {auth
+                      ? "Already have an account?"
+                      : "Don’t have an account?"}
+                    <span
+                      onClick={() => setAuth(!auth)}
+                      className="text-dark text-light"
+                      style={{
+                        textDecoration: "underline",
+                        cursor: "pointer",
+                        marginLeft: "7px",
+                      }}
+                    >
+                      {auth ? "Sign in" : "Sign up"}
+                    </span>
+                  </span>
+                </h3>
+                {inputData.map((input) => {
+                  return (
+                    <Input
+                      id={input.text}
+                      onChange={onChange}
+                      placeholder={input.placeholder}
+                      type={input.type}
+                      name={input.name}
+                      value={formdata[input.name]}
+                      input={input}
+                      key={input.id}
+                      required={input.required}
+                      pattern={input.pattern}
+                      errorMessage={input.errorMessage}
+                    />
+                  );
+                })}
+                <div className="w-100 flex gap-2 column">
+                  <button
+                    disabled={(!email || !password) && !isLoading}
+                    className="btn fs-18 w-100 py-2 family1 px-4 text-white text-bold"
+                    style={{ padding: "1.7rem 4rem" }}
+                  >
+                    {" Continue"}
+                  </button>
+                  <h5 className="fs-14 text-grey text-light">
+                    By joining, you agree to the Fiverr Terms of Service and to
+                    occasionally receive emails from us. Please read our Privacy
+                    Policy to learn how we use your personal data.
+                  </h5>
+                </div>
+              </form>
             </div>
           </div>
-          <div className="option uppercase fs-18">or</div>
-          <div className="flex column gap-2">
-            {inputData.map((input) => {
-              return (
-                <Input
-                  id={input.text}
-                  onChange={onChange}
-                  placeholder={input.placeholder}
-                  type={input.type}
-                  name={input.name}
-                  value={formdata[input.name]}
-                  input={input}
-                  key={input.id}
-                  required={input.required}
-                  pattern={input.pattern}
-                  errorMessage={input.errorMessage}
-                />
-              );
-            })}
-          </div>
-          <div className="w-100 btnWrapper flex column gap-1">
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className="btn w-100 family1 fs-16 text-white text-center"
-            >
-              Continue
-            </button>
-            <p className="fs-14 text-center text-light text-dark text-center">
-              By joining I agree to receive emails from Fiverr.
-            </p>
-          </div>
-        </div>
-        <div className="w-100 authCenter fs-16 text-light text-grey text-center">
-          Already a member?{" "}
-          <span onClick={() => setAuth(!auth)} className="text-blue">
-            {auth ? "Sign Up" : "Sign In"}
-          </span>
         </div>
       </motion.div>
     </AuthModalContainer>
@@ -319,11 +346,11 @@ const AuthModalContainer = styled(motion.div)`
   .btn {
     background: var(--green);
     color: #fff;
-    padding: 1.3rem 2rem;
+    padding: 1rem 2rem;
     border-radius: 5px;
     /* font-family: "Roboto Condensed", sans-serif; */
-    font-weight: bold;
-    font-size: 13px;
+    font-weight: normal;
+    font-size: 16px;
   }
   .btn1 {
     background-color: var(--blue-1);
@@ -336,37 +363,53 @@ const AuthModalContainer = styled(motion.div)`
   }
   .btnWrapper {
   }
-  .authBottom {
-    position: relative;
-    padding: 0 2.4rem;
-    padding-bottom: 1.6rem;
+  .rightwrapper {
+    overflow: hidden;
+  }
+  .right {
+    background-color: #fff;
+    display: flex;
+    align-items: flex-start;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
 
-    .option {
+  .card_auth_wrapper {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .left {
+      height: 100%;
       width: 100%;
+      min-height: 60rem;
       position: relative;
-      text-align: center;
-      padding: 0 1.4rem;
-      font-size: 12px;
-      color: var(--grey-1);
-      &::after {
-        width: 45%;
-        height: 0.4px;
-        content: "";
-        background-color: rgba(0, 0, 0, 0.5);
-        left: 0;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      background-color: transparent;
+      .left_content {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        z-index: 30;
+        top: 10%;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
       }
-      &::before {
-        width: 45%;
-        height: 0.4px;
-        content: "";
-        background-color: rgba(0, 0, 0, 0.5);
-        right: 0;
+      img {
+        height: 100%;
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
+        object-fit: cover;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+      }
+    }
+    @media (max-width: 780px) {
+      flex-direction: column-reverse;
+
+      .left,
+      .right {
+        width: 100%;
       }
     }
   }
@@ -384,28 +427,13 @@ const AuthModalContainer = styled(motion.div)`
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   }
   .deleteCard {
-    width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    width: 65%;
     background: #fff;
     gap: 2rem;
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
-    @media (max-width: 780px) {
-      width: 370px;
-    }
-    @media (max-width: 480px) {
-      width: 280px;
-      .authBottom {
-        padding: 0 1.5rem;
-      }
-      .authBtn {
-        font-size: 1.2rem;
-      }
-    }
+
     .cross {
       position: absolute;
       right: 10px;

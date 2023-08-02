@@ -5,11 +5,19 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { onCartSidebar } from "../../../Features";
 import Bolt from "../../common/svg/Bolt";
+import { onAuthModal } from "../../../Features/user/userSlice";
 
 export default function RightIndex() {
   const dispatch = useDispatch();
   const { GigsDetails } = useSelector((store) => store.gigs);
   const { userInfo } = useSelector((store) => store.user);
+  const handleCreateReservation = () => {
+    if (userInfo) {
+      dispatch(onCartSidebar());
+    } else {
+      dispatch(onAuthModal());
+    }
+  };
   return (
     <RightIndexContent className="w-100">
       <div className="Right flex gap-1 column">
@@ -49,21 +57,12 @@ export default function RightIndex() {
               })}
             </ul>
             {/* set up a condition if the user is alrady login or authenticateed */}
-            {userInfo ? (
-              <div
-                className="contactBtn family1 fs-16 green"
-                onClick={() => dispatch(onCartSidebar())}
-              >
-                Continue
-              </div>
-            ) : (
-              <Link
-                to={"/join/login"}
-                className="contactBtn family1 fs-16 green"
-              >
-                Continue
-              </Link>
-            )}
+            <div
+              className="contactBtn family1 fs-16 green"
+              onClick={handleCreateReservation}
+            >
+              Continue
+            </div>
           </div>
         </div>
         {/* contact button */}

@@ -10,16 +10,24 @@ export default function SellerInfo() {
     <SellerInfoContent className="flex w-100 column gap-2">
       <div className="top w-100 ">
         <div className="w-100 flex column gap-2">
-          <h3 className="fs-20 text-bold text-dark">About the Seller</h3>
+          <h3 className="fs-30 text-bold text-grey">About the Seller</h3>
           <div className="flex item-center gap-2">
             <img
               src={GigsDetails?.sellerId?.image}
               alt=""
-              style={{ width: "10rem", height: "10rem", borderRadius: "50%" }}
+              style={{
+                width: "15rem",
+                height: "15rem",
+                objectFit: "cover",
+                borderRadius: "50%",
+              }}
             />
-            <div className="flex column item-start gap-2">
-              <h4 className="fs-16 text-dark text-bold">
-                {GigsDetails?.sellerId?.username}
+            <div className="flex column item-start gap-1">
+              <h4 className="fs-24 text-grey text-bold">
+                {GigsDetails?.sellerId?.name}{" "}
+                <span className="fs-20 text-light">
+                  @{GigsDetails?.sellerId?.username}
+                </span>
               </h4>
               <div
                 className="flex item-center gap-1 fs-18"
@@ -31,7 +39,7 @@ export default function SellerInfo() {
                 <h4 className="fs-16 text-grey text-bold">{5} (101)</h4>
               </div>
               <div className="w-100 flex">
-                <Link to={"/"} className="contactBtn fs-14 family1">
+                <Link to={"/"} className="contactBtn fs-16 family1">
                   Contact Me
                 </Link>
               </div>
@@ -59,7 +67,10 @@ export default function SellerInfo() {
             className="flex gap-1 text-grey2 fs-18 text-light column"
             style={{ width: "50%" }}
           >
-            From <span className="block text-bold text-grey">{GigsDetails?.sellerId?.about?.from}</span>
+            From{" "}
+            <span className="block text-bold text-grey">
+              {GigsDetails?.sellerId?.about?.from}
+            </span>
           </li>
           <li className="flex gap-1 text-grey2 fs-18 text-light column">
             Member since{" "}
