@@ -8,7 +8,7 @@ export const Table = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 3rem;
-  gap: 2rem;
+  gap: 2rem;use
   /* border: 1px solid rgba(0, 0, 0, 0.2); */
   &::-webkit-scrollbar {
     width: 7px;

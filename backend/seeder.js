@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGO_URl, {
 
 const importData = async () => {
   try {
-    await Gig.insertMany(gigData)
+    await User.insertMany(userData)
  
     console.log('Data Imported!')
     process.exit()

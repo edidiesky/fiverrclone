@@ -40,15 +40,12 @@ import Order from "./screens/Order";
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(handlePaypalKey());
     AOS.init();
     const container = document.querySelector(".based");
     const height = container.getBoundingClientRect().height;
     setHeight(height);
   }, []);
   const [height, setHeight] = useState(0);
-
-
   return (
     <>
       <div className="based" style={{ height }}>

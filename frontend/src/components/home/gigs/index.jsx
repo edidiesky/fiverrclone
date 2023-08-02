@@ -6,14 +6,14 @@ import Card from "../../common/Card";
 import { useSelector } from "react-redux";
 
 const options2 = {
-  items: 4,
+  items: 5,
   stagePadding: 10,
   nav: true,
   dots: false,
   margin: 20,
   navText: ["<", ">"],
   width: "100%",
-  slideBy: 4,
+  slideBy: 5,
   responsive: {
     0: {
       items: 2,
@@ -25,7 +25,7 @@ const options2 = {
       items: 3,
     },
     1024: {
-      items: 4,
+      items: 5,
     },
   },
 };
