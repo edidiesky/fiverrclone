@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 import asyncHandler from "express-async-handler";
 import User from "../models/User.js";
@@ -119,12 +120,12 @@ const LoginUser = asyncHandler(async (req, res) => {
   }
   // Find the user in the database
 
-  const user = await User.findOne({ email });
+  const user = await User.findOne({ email })
   if (!user) {
     res.status(404);
     throw new Error("The user does not exist");
   }
-  const verifyPassword = await bcrypt.compare(password, user.password);
+  const verifyPassword = bcrypt.compare(password, user.password);
   if (!verifyPassword) {
     res.status(404);
     throw new Error("Please provide a valid password");
