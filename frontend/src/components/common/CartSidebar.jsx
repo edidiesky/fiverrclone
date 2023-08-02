@@ -57,14 +57,9 @@ export default function CartSidebar() {
 
   useEffect(() => {
     if (cartIsSuccess) {
-      dispatch(createCustomersOrder({ orderData }));
+      navigate(`/checkout?gigid=${cartDetails?._id}`);
     }
-    if (orderisSuccess) {
-      setTimeout(() => {
-        navigate(`/checkout?gigid=${cartDetails?._id}`);
-      }, 4000);
-    }
-  }, [cartIsSuccess, orderisSuccess, navigate]);
+  }, [cartIsSuccess, navigate]);
 
   return (
     <CartSidebarContainer className={cartsidebar ? "active" : ""}>
@@ -73,7 +68,6 @@ export default function CartSidebar() {
         onClick={() => dispatch(offCartSidebar())}
       ></div>
       {cartIsLoading && <LoaderIndex />}
-      {orderisLoading && <LoaderIndex />}
       <div className="cartSidebarWrapper">
         <div className="cartSidebarTop flex item-center justify-space w-100">
           <h4 className="fs-16 family1 ">Order options</h4>

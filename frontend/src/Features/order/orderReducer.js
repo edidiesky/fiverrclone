@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const createCustomersOrder = createAsyncThunk(
   "/create/order",
-  async ({orderData}, thunkAPI) => {
+  async (orderData, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {

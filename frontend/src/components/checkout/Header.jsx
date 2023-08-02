@@ -148,7 +148,7 @@ const HeaderTopContainer = styled.div`
 
 const HeaderWrapper = styled.div`
   width: 100%;
-  z-index: 5000;
+  z-index: 100;
   position: fixed;
   top: 0;
   .text-green {
@@ -174,7 +174,7 @@ const HeaderWrapper = styled.div`
   .HeaderBottom {
     overflow: auto;
     width: 100%;
-    z-index: 5000;
+    z-index: 500;
     background-color: #fff;
     &.active {
       display: none;

@@ -12,7 +12,13 @@ const orderSchema = mongoose.Schema(
       required: true,
       ref: "Cart",
     },
-   
+    cart_items: [
+      {
+        title: { type: String },
+        price: { type: Number },
+        image: { type: Array },
+      },
+    ],
     estimatedTax: {
       type: Number,
       required: true,

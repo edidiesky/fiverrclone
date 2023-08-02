@@ -60,28 +60,27 @@ const GetOrderById = async (req, res) => {
 const CreateOrder = async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
-  const {
-    estimatedTax,
-    TotalShoppingPrice,
-    cartId,
-    orders
-  } = req.body;
+  const { estimatedTax, TotalShoppingPrice, cartId, cart_items } = req.body;
+
+  // console.log(req.body, cart_items);
 
   const order = await Order.create({
     createdBy: userId,
     cartId,
     estimatedTax,
+    cart_items,
     TotalShoppingPrice: parseInt(TotalShoppingPrice),
   });
-  
+  // console.log(order)
+
   const session = await stripeClient.checkout.sessions.create({
-    line_items: orders.map((items) => {
+    line_items: cart_items.map((items) => {
       return {
         price_data: {
           currency: "usd",
           product_data: {
             name: items.title,
-            images: items.image,
+            images: [items.image[0]],
           },
           unit_amount: items.price,
         },

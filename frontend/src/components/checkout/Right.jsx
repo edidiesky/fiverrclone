@@ -1,19 +1,58 @@
 import React, { useEffect } from "react";
 import { FaCheck } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { createCustomersOrder } from "../../Features";
+import LoaderIndex from "../loaders";
 export default function CheckoutRight() {
+  const { GigsDetails } = useSelector((store) => store.gigs);
+  const dispatch = useDispatch();
   const { cartDetails, cartIsLoading } = useSelector((store) => store.cart);
   const price =
     0.055 * parseInt(cartDetails?.gigId?.price) +
     parseInt(cartDetails?.gigId?.price) +
     parseInt(2.28);
-  const { url } = useSelector((store) => store.order);
+  const { url, orderisLoading } = useSelector((store) => store.order);
+
+  // console.log(cartDetails);
+
+  let estimatedTax = 0.055 * parseInt(cartDetails?.gigId?.price);
+
+  let ShoppingPrice =
+    parseInt(cartDetails?.gigId?.price) * parseInt(cartDetails?.gigQuantity);
+  let shippingPrice = ShoppingPrice > 100 ? 100 : 0;
+  let TotalShoppingPrice = parseFloat(
+    ShoppingPrice + estimatedTax + parseInt(shippingPrice)
+  ).toFixed(1);
+
+  // order data to be created
+  const orderData = {
+    cartId: cartDetails?._id,
+    paymentMethod: "Paypal",
+    TotalShoppingPrice: TotalShoppingPrice,
+    totalQuantity: cartDetails?.gigQuantity,
+    estimatedTax: estimatedTax,
+    cart_items: [
+      {
+        price: TotalShoppingPrice * 100,
+        image: cartDetails?.gigId?.image,
+        title: cartDetails?.gigId?.title,
+        quantity: cartDetails?.gigQuantity,
+      },
+    ],
+  };
+  // console.log(orderData);
+  //
+  const handleOrderPayment = () => {
+    dispatch(createCustomersOrder(orderData));
+  };
+
   useEffect(() => {
     if (url) {
       window.location.href = url;
     }
   }, [url]);
+
   return (
     <CheckoutRightContent className="w-100">
       <div className="Right flex gap-2 column">
@@ -24,18 +63,19 @@ export default function CheckoutRight() {
             className="py-2 p2 border flex item-center"
             style={{ flexWrap: "wrap" }}
           >
-            <div className="flex1">
-              {cartDetails ? (
+            <div className="flex-1">
+              {/* {cartDetails?.gigId?.image ? (
                 ""
               ) : (
-                <img
-                  src={cartDetails?.gigId?.image[0]}
-                  alt=""
-                  className="w-100 radius1"
-                />
-              )}
+               
+              )} */}
+              <img
+                src={cartDetails?.gigId?.image[0]}
+                alt=""
+                className="radius1 w-100"
+              />
             </div>
-            <h4 className="fs-18 flex1 text-grey">
+            <h4 className="fs-16 flex1 text-grey">
               {cartDetails?.gigId?.shortDescription}
             </h4>
           </div>
@@ -90,7 +130,13 @@ export default function CheckoutRight() {
               </li>
             </ul>
             {/* paypal Checkout */}
-            <div className="btn btn-1 fs-16 text-light text-white">Pay Now</div>
+            {orderisLoading && <LoaderIndex />}
+            <div
+              onClick={handleOrderPayment}
+              className="btn btn-1 text-center fs-16 text-light text-white"
+            >
+              Pay Now
+            </div>
           </div>
         </div>
       </div>
@@ -105,6 +151,10 @@ const CheckoutRightContent = styled.div`
   }
   img {
     width: 80%;
+  }
+  .btn {
+    padding: 1rem 2rem;
+    border-radius: 40px;
   }
 
   .Right {
