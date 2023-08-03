@@ -12,7 +12,7 @@ export default function CheckoutRight() {
     0.055 * parseInt(cartDetails?.gigId?.price) +
     parseInt(cartDetails?.gigId?.price) +
     parseInt(2.28);
-  const { url, orderisLoading } = useSelector((store) => store.order);
+  const { urls, orderisLoading } = useSelector((store) => store.order);
 
   // console.log(cartDetails);
 
@@ -48,10 +48,10 @@ export default function CheckoutRight() {
   };
 
   useEffect(() => {
-    if (url) {
-      window.location.href = url;
+    if (urls) {
+      window.location.href = urls;
     }
-  }, [url]);
+  }, [urls]);
 
   return (
     <CheckoutRightContent className="w-100">
@@ -69,11 +69,13 @@ export default function CheckoutRight() {
               ) : (
                
               )} */}
-              <img
-                src={cartDetails?.gigId?.image[0]}
-                alt=""
-                className="radius1 w-100"
-              />
+              {cartDetails && (
+                <img
+                  src={cartDetails?.gigId?.image[0]}
+                  alt=""
+                  className="radius1 w-100"
+                />
+              )}
             </div>
             <h4 className="fs-16 flex1 text-grey">
               {cartDetails?.gigId?.shortDescription}

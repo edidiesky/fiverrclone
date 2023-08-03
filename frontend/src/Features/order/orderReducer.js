@@ -13,7 +13,7 @@ export const createCustomersOrder = createAsyncThunk(
       };
       const { data } = await axios.post("/api/v1/order", orderData, config);
 
-      return data.order;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
