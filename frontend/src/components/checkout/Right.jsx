@@ -60,29 +60,20 @@ export default function CheckoutRight() {
         <div className="w-85 auto border top flex column gap-2">
           {/* gig image and basic description */}
           <div
-            className="py-2 p2 border flex item-center"
+            className="py-2 p2 border gap-1 flex item-center"
             style={{ flexWrap: "wrap" }}
           >
-            <div className="flex-1">
-              {/* {cartDetails?.gigId?.image ? (
-                ""
-              ) : (
-               
-              )} */}
-              {cartDetails && (
-                <img
-                  src={cartDetails?.gigId?.image[0]}
-                  alt=""
-                  className="radius1 w-100"
-                />
-              )}
+            <div className="flex-1 detailsImageWrapper">
+              {cartDetails?.gigId?.image?.map((x) => {
+                return <img src={x} alt="" className="radius1 w-100" />;
+              })}
             </div>
             <h4 className="fs-16 flex1 text-grey">
               {cartDetails?.gigId?.shortDescription}
             </h4>
           </div>
           {/* basic information */}
-          <div className="w-100 flex column gap-2 p2">
+          <div className="w-100 flex column gap-1 p2">
             {/* price */}
             <div className="w-100 family1 flex item-center justify-space">
               <h4 className="fs-18 text-light text-dark">Basic</h4>
@@ -93,8 +84,11 @@ export default function CheckoutRight() {
             </div>
             {/* work desc */}
 
-            <ul className="flex borderB top column py-1 gap-1">
-              <div className="w-100 flex item-center gap-1 fs-18 text-light text-grey">
+            <ul
+              style={{ gap: ".7rem" }}
+              className="flex borderB top column py-1"
+            >
+              <div className="w-100 flex item-center fs-18 gap-1 text-light text-grey">
                 <FaCheck className="text-green" />
                 {cartDetails?.gigId?.deliveryDays} Days Delivery
               </div>
@@ -148,6 +142,21 @@ export default function CheckoutRight() {
 
 const CheckoutRightContent = styled.div`
   width: 100%;
+  .detailsImageWrapper {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+    height: 8rem;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      border-radius: 6px;
+      height: 100%;
+    }
+  }
   .top {
     background-color: #fafafa;
   }

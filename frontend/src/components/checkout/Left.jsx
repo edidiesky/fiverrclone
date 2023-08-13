@@ -15,7 +15,7 @@ export default function CheckoutLeft() {
               Your invoice will be issued according to the details listed here.
             </h4>
             <div className="flex-1">
-              <div className={"cartBtn py-1 fs-14 text-dark text-extra-bold family1"}>Add Details</div>
+              <div className={"cartBtn py-1 fs-16 text-dark text-extra-bold family1"}>Add Details</div>
             </div>
           </div>
           <div className="w-100 flex column">

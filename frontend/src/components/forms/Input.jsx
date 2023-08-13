@@ -4,10 +4,9 @@ import { styled } from "@mui/material/styles";
 
 const InputTextField = styled(TextField)(({ theme }) => ({
   "& .MuiOutlinedInput-root": {
-    borderRadius: "5px",
+    borderRadius: "7px",
     backgroundColor: "#fff",
-    border: "1px solid rgba(0,0,0,.4)",
-    transitino: "all .4s",
+    border: "1px solid rgba(0,0,0,.2)",
 
     "& fieldset": {
       borderColor: "transparent",
@@ -35,10 +34,9 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     color: "var(--dark-1)",
   },
   "& .MuiInputLabel-root": {
-    fontSize: "14px",
+    fontSize: "15px",
     fontWeight: "400",
     color: "var(--dark-1)",
-    transitino: "all .4s",
   },
   "& .MuiInputLabel-root.Mui-focused": {
     // Styles when the form is focused
@@ -46,8 +44,8 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     color: "var(--grey-1)",
   },
   "& .MuiInputLabel-shrink": {
-    transform: "translate(12px, 6px) scale(0.75)",
-    fontWeight: "normal",
+    transform: "translate(12px, 3px) scale(0.75)",
+    fontWeight: "bold",
     color: "var(--grey-1)",
   },
 }));

@@ -112,6 +112,7 @@ export default function AuthModal({ type, click }) {
     isLoading,
     showAlert,
     alertText,
+    loginSuccess,
   } = useSelector((store) => store.user);
   // useEffect(() => {
   //   if (registersuccess) {
@@ -119,6 +120,16 @@ export default function AuthModal({ type, click }) {
   //     // window.history.back();
   //   }
   // }, [registersuccess]);
+
+  // off the auth modal once succefull
+
+  useEffect(() => {
+    if (loginSuccess) {
+      setTimeout(() => {
+        dispatch(offAuthModal());
+      }, 4000);
+    }
+  }, [loginSuccess]);
   // form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -286,23 +297,25 @@ export default function AuthModal({ type, click }) {
                     </span>
                   </span>
                 </h3>
-                {inputData.map((input) => {
-                  return (
-                    <Input
-                      id={input.text}
-                      onChange={onChange}
-                      placeholder={input.placeholder}
-                      type={input.type}
-                      name={input.name}
-                      value={formdata[input.name]}
-                      input={input}
-                      key={input.id}
-                      required={input.required}
-                      pattern={input.pattern}
-                      errorMessage={input.errorMessage}
-                    />
-                  );
-                })}
+                <div className="flex w-100 column" style={{ gap: ".6rem" }}>
+                  {inputData.map((input) => {
+                    return (
+                      <Input
+                        id={input.text}
+                        onChange={onChange}
+                        placeholder={input.placeholder}
+                        type={input.type}
+                        name={input.name}
+                        value={formdata[input.name]}
+                        input={input}
+                        key={input.id}
+                        required={input.required}
+                        pattern={input.pattern}
+                        errorMessage={input.errorMessage}
+                      />
+                    );
+                  })}
+                </div>
                 <div className="w-100 flex gap-2 column">
                   <button
                     disabled={(!email || !password) && !isLoading}
@@ -365,6 +378,7 @@ const AuthModalContainer = styled(motion.div)`
   }
   .rightwrapper {
     overflow: hidden;
+    background: #fff;
   }
   .right {
     background-color: #fff;
@@ -372,6 +386,8 @@ const AuthModalContainer = styled(motion.div)`
     align-items: flex-start;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+    min-height: 60rem;
+    justify-content: center;
   }
 
   .card_auth_wrapper {
@@ -428,7 +444,7 @@ const AuthModalContainer = styled(motion.div)`
   }
   .deleteCard {
     width: 65%;
-    background: #fff;
+
     gap: 2rem;
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);

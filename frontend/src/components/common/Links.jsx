@@ -9,7 +9,7 @@ export default function Links({ step1, step2, step3, title2, title3, title4, tit
     <LinksContainer>
       {step1 ?
         <Link to={`/`}
-          className={step1 && !step2 && !step3 ? 'active fs-16 text-grey' : "fs-16 text-grey"}>
+          className={step1 && !step2 && !step3 ? 'active fs-12 text-grey' : "fs-12 text-grey"}>
            {title1 || step1}
         </Link>
         :
@@ -20,7 +20,7 @@ export default function Links({ step1, step2, step3, title2, title3, title4, tit
       }
       {step2 ?
         <Link to={`/categories/${step2}`}
-          className={step1 && step2 && !step3 ? 'active fs-18' : "fs-16 text-grey"}>
+          className={step1 && step2 && !step3 ? 'active fs-18' : "fs-12 text-grey"}>
           <BiChevronRight className='fs-20'/> {title2 || step2}
         </Link>
         :
@@ -31,12 +31,12 @@ export default function Links({ step1, step2, step3, title2, title3, title4, tit
       }
       {step3 ?
         <Link to={`/categories/${step2}/${step3}`}
-          className={step1 && step2 && step3 ? 'active fs-18' : "fs-16 text-grey"}>
+          className={step1 && step2 && step3 ? 'active fs-18' : "fs-12 text-grey"}>
           <BiChevronRight className='fs-20'/> {title3 || step3}
         </Link>
         :
         <Link to={`/categories/${step2}/${step3}`}
-          className={step1 && step2 && step3 ? 'active fs-16 text-grey' : "fs-18"} style={{ display: "none", color: "#ccc" }}>
+          className={step1 && step2 && step3 ? 'active fs-12 text-grey' : "fs-18"} style={{ display: "none", color: "#ccc" }}>
           <BiChevronRight className='fs-20'/> {title3 || step3}
         </Link>
       }
@@ -54,7 +54,7 @@ width:100%;
              align-items:center;
              gap:.8rem;
             text-align:start;
-            font-size:1.8rem;
+            font-size:1.4rem;
             font-weight:400;
             color:var(--dark-1);
             cursor: pointer;

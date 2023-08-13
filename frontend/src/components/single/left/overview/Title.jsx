@@ -20,8 +20,8 @@ export default function Title() {
             src={GigsDetails?.sellerId?.image}
             alt=""
             style={{
-              width: "8rem",
-              height: "8rem",
+              width: "6rem",
+              height: "6rem",
               objectFit: "cover",
               borderRadius: "50%",
             }}
@@ -29,7 +29,7 @@ export default function Title() {
           {/* author name */}
           <div className="flex column" style={{ gap: ".5rem" }}>
             <Link to={"/"}>
-              <h4 className="fs-24 text-grey text-bold">
+              <h4 className="fs-20 text-dark text-bold">
                 {GigsDetails?.sellerId?.name}{" "}
                 <span className="fs-20 text-light">
                   @{GigsDetails?.sellerId?.username}

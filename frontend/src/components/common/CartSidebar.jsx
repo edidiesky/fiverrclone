@@ -165,7 +165,7 @@ export default function CartSidebar() {
           <div className="w-100 auto column item-center gap-1 justify-center flex">
             <div
               onClick={handleAddToCart}
-              className={"cartBtn py-1 fs-16 family1"}
+              className={"cartBtn py-1 fs-20 text-dark family1"}
             >
               Continue (${GigsDetails?.price})
             </div>

@@ -89,8 +89,8 @@ const CreateOrder = async (req, res) => {
     }),
     mode: "payment",
     payment_method_types: ["card"],
-    success_url: `http://localhost:5173/profile`,
-    cancel_url: `http://localhost:5173/order`,
+    success_url: `http://localhost:5173/${order?._id}/order-success`,
+    cancel_url: `http://localhost:5173/checkout?gigid=${cartId}`,
   });
 
   res.status(200).json({ order, url: session.url });

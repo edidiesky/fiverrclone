@@ -58,7 +58,7 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="gigs/:id" element={<Single />} />
             <Route path="gigs" element={<Services />} />
-            <Route path="order-success" element={<Order />} />
+            <Route path=":id/order-success" element={<Order />} />
 
             <Route
               path="categories/:category1/:category2"

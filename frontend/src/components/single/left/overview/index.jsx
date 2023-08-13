@@ -10,7 +10,7 @@ export default function OverviewIndex() {
   const { GigsDetails } = useSelector((store) => store.gigs);
 
   return (
-    <div className="flex column w-100 gap-2">
+    <div className="flex column w-100 ">
       <Links
         step1={"Home"}
         step2={`${GigsDetails?.category[0]}`}

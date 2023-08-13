@@ -58,7 +58,7 @@ export default function RightIndex() {
             </ul>
             {/* set up a condition if the user is alrady login or authenticateed */}
             <div
-              className="contactBtn family1 fs-16 green"
+              className="contactBtn family1 fs-20 green"
               onClick={handleCreateReservation}
             >
               Continue
@@ -67,7 +67,7 @@ export default function RightIndex() {
         </div>
         {/* contact button */}
         <div className="w-100 flex back-grey py-2 radius1">
-          <div className="contactBtn family1 fs-16">Contact Me</div>
+          <div className="contactBtn family1 fs-18">Contact Me</div>
         </div>
         {/* additional info */}
         <div className="w-100 p1 border flex item-center gap-2">

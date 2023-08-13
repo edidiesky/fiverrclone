@@ -21,12 +21,7 @@ export default function OrderIndex() {
   }, [orderId]);
   return (
     <div className="py-3 w-90 auto">
-      <h3
-        className="py-2 family1 text-bold text-dark"
-        style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
-      >
-        Thank you. Your order has been received.
-      </h3>
+   
       <div className="py-4 w-90 auto flex column gap-1">
         {/* order number */}
         <div className="w-100 flex item-center gap-1">

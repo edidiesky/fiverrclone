@@ -33,18 +33,20 @@ const MessageContent = styled.div`
   padding: 1.7rem 2rem;
   box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.26);
   background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   position: fixed;
   z-index: 5000;
   left: -100%;
   border-radius: 7px;
-  bottom: 20px;
-  border-left: 4px solid var(--green);
+  top: -100%;
+  left: 50%;
   font-size: 14px;
   font-weight: 700;
   color: var(--dark-1);
   transition: all 1s;
+  transform: translateX(-50%);
   &.active {
-    left: 2%;
+    top: 20px;
     display: flex;
   }
   @media (max-width: 780px) {

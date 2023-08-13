@@ -120,7 +120,7 @@ const userSlice = createSlice({
       state.showAlert = true;
       state.userInfo = action.payload.user;
       state.token = action.payload.token;
-      state.alertText = "Registration successfull. ...Redirecting soon!";
+      state.alertText = "Registration successfull.";
       state.alertType = "success";
     },
     [registerCustomer.rejected]: (state, action) => {
@@ -141,7 +141,7 @@ const userSlice = createSlice({
       // state.showAlert = true;
       // state.userInfo = action.payload.user;
       // state.token = action.payload.token;
-      // state.alertText = "Registration successfull. ...Redirecting soon!";
+      // state.alertText = "Registration successfull.";
       // state.alertType = "success";
     },
     [googleAuth.rejected]: (state, action) => {
@@ -163,7 +163,7 @@ const userSlice = createSlice({
       state.userInfo = action.payload.user;
       state.token = action.payload.token;
       state.showAlert = true;
-      state.alertText = "Login successfull. ...Redirecting soon!";
+      state.alertText = "Login successfull.";
       state.alertType = "success";
     },
     [loginCustomer.rejected]: (state, action) => {
