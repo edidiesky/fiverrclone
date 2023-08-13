@@ -163,7 +163,7 @@ const DetailsTopLeftContainer = styled.div`
       display: grid;
       grid-template-columns: repeat(4, 100%);
       overflow: hidden;
-      height: 50rem;
+      /* height: 50rem; */
       background: #f5f5f5;
       @media (max-width: 780px) {
         min-height: 100%;

@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-BoldItalic.eot');
+    src: local('Macan Pan Web Bold Italic'), local('MacanPanWeb-BoldItalic'),
+        url('MacanPanWeb-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-BoldItalic.woff2') format('woff2'),
+        url('MacanPanWeb-BoldItalic.woff') format('woff'),
+        url('MacanPanWeb-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan Book';
+    src: url('MacanPanWeb-Book.eot');
+    src: local('Macan Pan Web Book'), local('MacanPanWeb-Book'),
+        url('MacanPanWeb-Book.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Book.woff2') format('woff2'),
+        url('MacanPanWeb-Book.woff') format('woff'),
+        url('MacanPanWeb-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-Bold.eot');
+    src: local('Macan Pan Web Bold'), local('MacanPanWeb-Bold'),
+        url('MacanPanWeb-Bold.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Bold.woff2') format('woff2'),
+        url('MacanPanWeb-Bold.woff') format('woff'),
+        url('MacanPanWeb-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-LightItalic.eot');
+    src: local('Macan Pan Web Light Italic'), local('MacanPanWeb-LightItalic'),
+        url('MacanPanWeb-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-LightItalic.woff2') format('woff2'),
+        url('MacanPanWeb-LightItalic.woff') format('woff'),
+        url('MacanPanWeb-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-ExtralightItalic.eot');
+    src: local('Macan Pan Web Extralight Italic'), local('MacanPanWeb-ExtralightItalic'),
+        url('MacanPanWeb-ExtralightItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-ExtralightItalic.woff2') format('woff2'),
+        url('MacanPanWeb-ExtralightItalic.woff') format('woff'),
+        url('MacanPanWeb-ExtralightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-Extrabold.eot');
+    src: local('Macan Pan Web Extrabold'), local('MacanPanWeb-Extrabold'),
+        url('MacanPanWeb-Extrabold.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Extrabold.woff2') format('woff2'),
+        url('MacanPanWeb-Extrabold.woff') format('woff'),
+        url('MacanPanWeb-Extrabold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan Book';
+    src: url('MacanPanWeb-BookItalic.eot');
+    src: local('Macan Pan Web Book Italic'), local('MacanPanWeb-BookItalic'),
+        url('MacanPanWeb-BookItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-BookItalic.woff2') format('woff2'),
+        url('MacanPanWeb-BookItalic.woff') format('woff'),
+        url('MacanPanWeb-BookItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-Light.eot');
+    src: local('Macan Pan Web Light'), local('MacanPanWeb-Light'),
+        url('MacanPanWeb-Light.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Light.woff2') format('woff2'),
+        url('MacanPanWeb-Light.woff') format('woff'),
+        url('MacanPanWeb-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-ExtraboldItalic.eot');
+    src: local('Macan Pan Web Extrabold Italic'), local('MacanPanWeb-ExtraboldItalic'),
+        url('MacanPanWeb-ExtraboldItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-ExtraboldItalic.woff2') format('woff2'),
+        url('MacanPanWeb-ExtraboldItalic.woff') format('woff'),
+        url('MacanPanWeb-ExtraboldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-Extralight.eot');
+    src: local('Macan Pan Web Extralight'), local('MacanPanWeb-Extralight'),
+        url('MacanPanWeb-Extralight.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Extralight.woff2') format('woff2'),
+        url('MacanPanWeb-Extralight.woff') format('woff'),
+        url('MacanPanWeb-Extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-Regular.eot');
+    src: local('Macan Pan Web Regular'), local('MacanPanWeb-Regular'),
+        url('MacanPanWeb-Regular.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Regular.woff2') format('woff2'),
+        url('MacanPanWeb-Regular.woff') format('woff'),
+        url('MacanPanWeb-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-Medium.eot');
+    src: local('Macan Pan Web Medium'), local('MacanPanWeb-Medium'),
+        url('MacanPanWeb-Medium.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Medium.woff2') format('woff2'),
+        url('MacanPanWeb-Medium.woff') format('woff'),
+        url('MacanPanWeb-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-MediumItalic.eot');
+    src: local('Macan Pan Web Medium Italic'), local('MacanPanWeb-MediumItalic'),
+        url('MacanPanWeb-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-MediumItalic.woff2') format('woff2'),
+        url('MacanPanWeb-MediumItalic.woff') format('woff'),
+        url('MacanPanWeb-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-Semibold.eot');
+    src: local('Macan Pan Web Semibold'), local('MacanPanWeb-Semibold'),
+        url('MacanPanWeb-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Semibold.woff2') format('woff2'),
+        url('MacanPanWeb-Semibold.woff') format('woff'),
+        url('MacanPanWeb-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-SemiboldItalic.eot');
+    src: local('Macan Pan Web Semibold Italic'), local('MacanPanWeb-SemiboldItalic'),
+        url('MacanPanWeb-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-SemiboldItalic.woff2') format('woff2'),
+        url('MacanPanWeb-SemiboldItalic.woff') format('woff'),
+        url('MacanPanWeb-SemiboldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-ThinItalic.eot');
+    src: local('Macan Pan Web Thin Italic'), local('MacanPanWeb-ThinItalic'),
+        url('MacanPanWeb-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-ThinItalic.woff2') format('woff2'),
+        url('MacanPanWeb-ThinItalic.woff') format('woff'),
+        url('MacanPanWeb-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-Thin.eot');
+    src: local('Macan Pan Web Thin'), local('MacanPanWeb-Thin'),
+        url('MacanPanWeb-Thin.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-Thin.woff2') format('woff2'),
+        url('MacanPanWeb-Thin.woff') format('woff'),
+        url('MacanPanWeb-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Macan';
+    src: url('MacanPanWeb-RegularItalic.eot');
+    src: local('Macan Pan Web Regular Italic'), local('MacanPanWeb-RegularItalic'),
+        url('MacanPanWeb-RegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('MacanPanWeb-RegularItalic.woff2') format('woff2'),
+        url('MacanPanWeb-RegularItalic.woff') format('woff'),
+        url('MacanPanWeb-RegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
