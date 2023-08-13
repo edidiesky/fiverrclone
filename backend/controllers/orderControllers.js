@@ -101,31 +101,25 @@ const CreateOrder = async (req, res) => {
 // Admin
 const UpdateOrderToPaid = async (req, res) => {
   // find the user order in the data base
-  const order = await Order.findOne({ cartId: req.params.id });
+  const order = await Order.find({ _id: req.params.id });
   // check if the order exist
   if (!order) {
     res.status(403);
     throw new Error("This order request does not exist");
   }
   // udate the cart
-  const updatedOrder = await Order.findOneAndUpdate(
-    { cartId: req.params.id },
+  await Order.findOneAndUpdate(
+    { _id: req.params.id },
     {
       isPaid: true,
       paidAt: Date.now(),
-      paymentResult: {
-        id: req.body.id,
-        status: req.body.status,
-        update_time: req.body.update_time,
-        email_address: req.body.email_address,
-      },
     },
     { new: true }
   );
   // clear the buyer cart
   await Cart.findByIdAndDelete({ _id: req.params.id });
 
-  res.status(200).json({ updatedOrder });
+  res.status(200).json({ order });
 };
 
 // Update Order to Delivered for the user

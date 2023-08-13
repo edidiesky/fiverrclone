@@ -15,7 +15,6 @@ const initialState = {
   orderisSuccess: false,
   orderisError: false,
   order: null,
-  orders: null,
   orderisLoading: false,
   showAlert: false,
   alertText: "",
@@ -142,6 +141,7 @@ const orderSlice = createSlice({
       state.alertType = "danger";
     },
 
+    // updating customers order to paid
     // updating customers order to paid
     [updateCustomersOrderToPaid.pending]: (state) => {
       state.loadingPay = true;

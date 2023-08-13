@@ -2,121 +2,38 @@ import styled from "styled-components";
 
 export const Table = styled.div`
   width: 100%;
-  padding: 2rem 1.6rem;
+  padding: 10px 15px;
   background: #fff;
-  border-radius: 2px;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
-  padding-top: 3rem;
-  gap: 2rem;use
-  /* border: 1px solid rgba(0, 0, 0, 0.2); */
-  &::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-    background: #ccc;
-    border-radius: 10px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 10px;
-    transition: all 0.5s;
-    &:hover {
-      background: var(--dark-1);
-    }
-  }
-  .TableTop {
-    padding: 0.4rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  padding-top: 24px;
+  /* gap: 10px; */
+  transition: all 0.5s;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  .detailsImageWrapper {
     width: 100%;
-    @media (max-width: 780px) {
-      flex-direction: column;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+    height: 10rem;
+
+    img {
       width: 100%;
-      justify-content: flex-end;
-      gap: 2rem;
+      object-fit: cover;
+      position: absolute;
+      border-radius: 6px;
+      height: 100%;
     }
+  }
 
-    .TableTopRight {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      width: 100%;
-      h3 {
-        font-size: 2rem;
-        color: var(--text-color);
-        font-weight: 600;
-        font-family: "Montserrat", sans-serif;
-      }
-    }
-
-    .TableTopLeft {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      width: 100%;
-      justify-content: flex-end;
-      @media (max-width: 780px) {
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-      @media (max-width: 480px) {
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 1.4rem;
-      }
-      form {
-        padding: 1.4rem 3rem;
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        background: var(--grey-4);
-        border-radius: 7px;
-        border-radius: 40px;
-
-        svg {
-          width: 2rem;
-          height: 2rem;
-          color: var(--grey);
-        }
-
-        input {
-          flex: 1;
-          border: none;
-          background: inherit;
-          font-size: 1.1rem;
-          outline: none;
-          border: none;
-          font-weight: 500;
-          color: var(--grey);
-          font-family: inherit;
-          font-family: "Montserrat", sans-serif;
-          &::placeholder {
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: rgba(0, 0, 0, 0.3);
-          }
-        }
-      }
-      .addBtn {
-        border: none;
-        padding: 1.2rem 2rem;
-        font-size: 1.5rem;
-        border-radius: 4px;
-        color: #fff;
-        background: #1b3d8c;
-        font-weight: 400;
-        outline: none;
-        cursor: pointer;
-        border-radius: 40px;
-        font-family: "Montserrat", sans-serif;
-
-        &:hover {
-          background: var(--red);
-        }
-      }
-    }
+  .listing_status {
+    padding: 0.6rem 0.8rem;
+    color: #fff;
+    border-radius: 4px;
+    background: var(--red);
+    font-weight: 600;
   }
 
   .TableContainer {
@@ -133,51 +50,35 @@ export const Table = styled.div`
       border-radius: 10px;
     }
     &::-webkit-scrollbar-thumb {
-      background: var(--primary);
+      background: #000;
       border-radius: 10px;
       transition: all 0.5s;
       &:hover {
         background: var(--dark-1);
       }
     }
-
     .tableWrapper {
       border-collapse: collapse;
       width: 100%;
-      min-width: 500px;
-      &::-webkit-scrollbar {
-        width: 7px;
-        height: 7px;
-        background: #ccc;
-        border-radius: 10px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: var(--primary);
-        border-radius: 10px;
-        transition: all 0.5s;
-        &:hover {
-          background: var(--dark-1);
-        }
+      min-width: 1000px;
+      @media (min-width: 1209px) {
+        min-width: 1000px;
       }
 
       thead {
         tr {
           text-align: start;
           z-index: 200;
-          /* background: var(--grey-4); */
           text-align: start;
-          transition: all 0.3s var(--transition-2);
-          &:hover {
-            background: rgb(0 0 0 / 13%);
-          }
           th {
-            font-size: 1.1rem;
-            color: var(--blue-3);
+            font-size: 12px;
             font-weight: 700;
             text-align: start;
-            font-family: "Montserrat", sans-serif;
+            font-family: "Roboto", sans-serif;
+
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 2rem;
+            padding: 0 10px;
+            padding-bottom: 14px;
             text-transform: uppercase;
 
             transition: all 0.3s var(--transition-2);
@@ -191,54 +92,23 @@ export const Table = styled.div`
           z-index: 200;
 
           &:hover {
-            background: #daf2c2;
-            td {
-              color: var(--blue-3);
-            }
+            background: rgba(0, 0, 0, 0.02);
           }
           td {
-            font-size: 1.1rem;
+            font-size: 13px;
             font-weight: 600;
             text-align: start;
-            padding: 1.5rem 2rem;
-            color: #777;
-            font-family: "Montserrat", sans-serif;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 10px;
+            color: #222;
+            font-family: "Roboto", sans-serif;
+
             .true {
               color: e72d2d;
             }
-            .seller {
-              color: #2d81e7;
-            }
-            .admin {
-              color: var(--green);
-            }
-            .cartProduct {
-              width: 100%;
-              display: flex;
-              align-items: center;
-              gap: 2rem;
-              justify-content: center;
-              .imageWrapper {
-                width: 10rem;
-                position: relative;
-                height: 6rem;
-                border-radius: 5px;
-                img {
-                  position: absolute;
-                  top: 0;
-                  width: 90%;
-                  height: 100%;
-                  left: 0;
-                  border-radius: 5px;
-                  object-fit: cover;
-                }
-              }
-            }
             .tablespan {
               display: block;
-              padding: 1rem;
-              font-size: 1.1rem;
+              padding: 2px;
+              font-size: 12px;
               font-weight: 600;
               /* width: 100%; */
               /* display: block; */
@@ -257,11 +127,11 @@ export const Table = styled.div`
 
             .true {
               color: var(--green);
-              font-size: 1.1rem;
+              font-size: 12px;
             }
             .false {
               color: var(--red);
-              font-size: 1.1rem;
+              font-size: 12px;
             }
 
             .imageGradient {
@@ -290,14 +160,14 @@ export const Table = styled.div`
           .header {
             display: flex;
             flex-direction: column;
-            gap: 0.7rem;
+            gap: 7px;
             h3 {
-              font-size: 1.2rem;
+              font-size: 12px;
               color: #777;
               font-weight: 600;
             }
             p {
-              font-size: 1.2rem;
+              font-size: 12px;
               color: #ccc;
               font-weight: 400;
               width: 80%;
@@ -313,14 +183,14 @@ export const Table = styled.div`
             justify-content: center;
             gap: 0.5rem;
             .icons {
-              width: 4rem;
-              height: 4rem;
+              width: 40px;
+              height: 40px;
               border-radius: 50%;
               display: flex;
               align-items: center;
               justify-content: center;
               svg {
-                font-size: 1.7rem;
+                font-size: 15px;
                 cursor: pointer;
               }
               &:hover {
@@ -328,7 +198,7 @@ export const Table = styled.div`
               }
             }
             .details {
-              padding: 0.8rem 1rem;
+              padding: 8px 2px;
               background: var(--grey-4);
               border-radius: 5px;
             }

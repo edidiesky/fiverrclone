@@ -1,13 +1,25 @@
 import React, { useEffect } from "react";
 import { Header, Meta } from "../components/common";
-import OrderIndex from "../components/order";
-import Info from "../components/order/Info";
 import styled from "styled-components";
+import { Table } from "./Dashboard/pages/styles";
+import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
+import { useParams } from "react-router-dom";
+import { updateCustomersOrderToPaid } from "../Features";
+import TableCards from "./Dashboard/components/TableCard";
 
 export default function Order() {
+  const dispatch = useDispatch();
+  const { order } = useSelector((store) => store.order);
+  // console.log(order);
+
+  let createddate = moment(order?.updatedAt);
+  createddate = createddate.format("MMMM Do YYYY");
+  const { id } = useParams();
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, []);
+    dispatch(updateCustomersOrderToPaid(id));
+  }, [id]);
   return (
     <>
       <Meta title={"My Orders"} />
@@ -23,11 +35,34 @@ export default function Order() {
           className="py-2 w-90 auto family1 text-bold text-dark"
           style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
         >
-          Thank you. Your order has been received.
+          Transaction History.
         </h3>
         <div className="flex item-center w-90 auto flex item-start justify-space">
-          <OrderIndex />
-          <Info />
+          <Table>
+            <div className="TableContainer">
+              <div className="flex column gap-2 justify-space w-100 flex-wrap">
+                {/* <h3 className="fs-24 text-bold">Transaction History</h3> */}
+              </div>
+              <table className="tableWrapper">
+                <thead>
+                  <tr>
+                    <th>Gig Name</th>
+                    <th>Date</th>
+                    <th>Paid</th>
+                    <th>Price</th>
+                    <th>Estimated Tax</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {order?.map((x) => {
+                    return <TableCards type={"order"} x={x} key={x?._id} />;
+                  })}
+                </tbody>
+              </table>
+            </div>
+            {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
+          </Table>
         </div>
       </OrderWrapper>
     </>

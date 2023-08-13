@@ -121,7 +121,7 @@ export const getAllCustomersOrder = createAsyncThunk(
 );
 
 export const updateCustomersOrderToPaid = createAsyncThunk(
-  "/update/order",
+  "/update/order/pay",
   async (details, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
@@ -130,14 +130,13 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { _id } = state.cart.cartDetails;
       const { data } = await axios.put(
-        `/api/v1/order/${_id}/pay`,
-        details,
+        `/api/v1/order/${details}/pay`, 
+        null,
         config
       );
 
-      return data.updatedOrder;
+      return data.order;
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response && error.response.data.message
@@ -147,6 +146,7 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
     }
   }
 );
+
 
 export const updateCustomersOrderToIsDelivered = createAsyncThunk(
   "/update/order/deliver",

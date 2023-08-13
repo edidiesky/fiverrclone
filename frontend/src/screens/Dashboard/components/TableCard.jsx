@@ -10,12 +10,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { MdEdit } from "react-icons/md";
 import { BsTrash } from "react-icons/bs";
 export default function TableCards({ x, type }) {
+  let order_gig = x;
   const { deleteGigModalAlert, GigsDetails } = useSelector(
     (store) => store.gigs
   );
-    const {userAlert } = useSelector(
-      (store) => store.user
-    );
+  const { userAlert } = useSelector((store) => store.user);
   let createddate = moment(x?.createdAt);
   createddate = createddate.format("MMMM Do YYYY");
 
@@ -56,7 +55,7 @@ export default function TableCards({ x, type }) {
           exitBeforeEnter={true}
           onExitComplete={() => null}
         >
-          {userAlert && <Delete type={'users'} />}
+          {userAlert && <Delete type={"users"} />}
         </AnimatePresence>
         <tr key={x?._id}>
           <td>{x?._id}</td>
@@ -95,52 +94,55 @@ export default function TableCards({ x, type }) {
       </>
     );
   }
-  if (type === "orders") {
+  if (type === "order") {
     return (
-      <tr key={x?._id}>
-        <td>{x?._id}</td>
-        <td>{createddate}</td>
-        {/* <td>
-          {x?.createdBy?.firstname} {x?.createdBy?.lastname}
-        </td> */}
-        <td>
-          {" "}
-          <div className="flex item-center gap-2">
-            <h5 className="fs-12 text-bold family1">Edidiong</h5>
-            <div className="">
-              {x?.image && (
-                <img
-                  src={x?.image[0]}
-                  alt="images"
-                  className="flex item-center justify-center avatar"
-                />
-              )}
-            </div>
-          </div>
-        </td>
-
-        <td>${x?.TotalShoppingPrice}</td>
-        <td>
-          <div className="flex item-center">
-            {x?.isPaid ? (
-              <div className="tablespan true">Paid</div>
-            ) : (
-              <div className="tablespan false">Not Paid</div>
-            )}
-          </div>
-        </td>
-        <td>
-          <div className="flex item-center">
-            {x?.isDelivered ? (
-              <div className="tablespan true">Delivered</div>
-            ) : (
-              <div className="tablespan false">Not Delivered</div>
-            )}
-          </div>
-        </td>
-        <td>50</td>
-        <td>Totals</td>
-      </tr>
+      <>
+        {/* <Delete type="users" /> */}
+        <AnimatePresence
+          initial="false"
+          exitBeforeEnter={true}
+          onExitComplete={() => null}
+        >
+          {/* {userAlert && <Delete type={"users"} />} */}
+        </AnimatePresence>
+        {x?.cart_items?.map((gig) => {
+          let createddate = moment(gig?.createdAt);
+          createddate = createddate.format("MMMM Do YYYY");
+          return (
+            <tr key={gig?._id}>
+              <td>
+                <div className="flex item-center gap-1">
+                  <div
+                    style={{ width: "11rem", borderRadius: "10px" }}
+                    className="flex detailsImageWrapper"
+                  >
+                    <div className="w-100 image">
+                      {gig?.image?.map((x) => {
+                        return <img src={x} alt="" className="radius1 w-100" />;
+                      })}
+                    </div>
+                  </div>
+                  <h4 className="fs-16 text-bold text-dark">
+                    {gig?.title}
+                    <span className="block fs-12 text-grey">{gig?._id}</span>
+                  </h4>
+                </div>
+              </td>
+              <td>
+                <div className="flex column">
+                  <h4 className="fs-14 text-bold text-dark">{createddate}</h4>
+                </div>
+              </td>
+              <td>{x?.isPaid ? "Paid" : "Not paid"}</td>
+              <td>
+                <h4 className="fs-16 text-extra-bold">${gig?.price}</h4>
+              </td>
+              <td>${x?.estimatedTax}</td>
+              <td>{x?.status}</td>
+            </tr>
+          );
+        })}
+      </>
     );
   }
 

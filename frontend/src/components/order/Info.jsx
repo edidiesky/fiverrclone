@@ -9,45 +9,42 @@ export default function Info() {
       <RightWrapper className=" w-90 auto">
         <div className="flex summary center py-2">
           {/* order summary */}
-          <div className="w-50 flex gap-2 column">
-            <div className="w-100 detailsImageWrapper">
-              {/* {cartDetails?.gigId?.image?.map((x) => {
-                return (
-                  <img
-                    src={
-                      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg"
-                    }
-                    alt=""
-                    className="radius1 w-100"
-                  />
-                );
-              })} */}
-              <img
-                src={
-                  "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/215100800/original/5fd553fd6fc3516fb438fdbfd7f4c022fae4e258/do-flat-modern-minimalist-logo-design.jpg"
-                }
-                alt=""
-                className="radius1 w-100"
-              />
-            </div>
-            <h5 className="text-bold fs-18 text-dark w-100 flex item-center justify-space">
-              EstimatedTax
-              <span className="text-light">${order?.estimatedTax || 100}</span>
-            </h5>
+          {order?.map((x, index) => {
+            return (
+              <div key={index} className="w-50 flex gap-2 column">
+                <div className="w-100 detailsImageWrapper">
+                  {x?.cart_items?.map((x) => {
+                    return (
+                      <div className="w-100">
+                        {x?.image?.map((x) => {
+                          return (
+                            <img src={x} alt="" className="radius1 w-100" />
+                          );
+                        })}
+                      </div>
+                    );
+                  })}
+                </div>
+                <h5 className="text-bold fs-18 text-dark w-100 flex item-center justify-space">
+                  EstimatedTax
+                  <span className="text-light">${x?.estimatedTax || 100}</span>
+                </h5>
 
-            <h5 className="text-bold fs-18 text-dark w-100 flex item-center justify-space">
-              Payment method
-              <span className="text-light">
-                {order?.paymentMethod || "Stripe"}
-              </span>
-            </h5>
-            <h5 className="text-bold fs-18 text-dark w-100 flex gap-2 item-center justify-space">
-              Total
-              <span className="text-light">
-                ${order?.TotalShoppingPrice || 3000}
-              </span>
-            </h5>
-          </div>
+                <h5 className="text-bold fs-18 text-dark w-100 flex item-center justify-space">
+                  Payment method
+                  <span className="text-light">
+                    {x?.paymentMethod || "Stripe"}
+                  </span>
+                </h5>
+                <h5 className="text-bold fs-18 text-dark w-100 flex gap-2 item-center justify-space">
+                  Total
+                  <span className="text-light">
+                    ${x?.TotalShoppingPrice || 3000}
+                  </span>
+                </h5>
+              </div>
+            );
+          })}
         </div>
       </RightWrapper>
     </div>
@@ -70,7 +67,7 @@ const RightWrapper = styled.div`
       height: 100%;
     }
   }
- 
+
   .w-50 {
     width: clamp(30%, 280px, 70%);
     @media (max-width: 580px) {
