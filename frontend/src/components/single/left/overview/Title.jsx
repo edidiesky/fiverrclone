@@ -13,9 +13,7 @@ export default function Title() {
           {GigsDetails?.title}
         </h2>
         {/* author pics */}
-        <div
-          className="w-100 flex gap-1 item-center"
-        >
+        <div className="w-100 flex gap-1 item-center">
           <img
             src={GigsDetails?.sellerId?.image}
             alt=""
@@ -28,7 +26,7 @@ export default function Title() {
           />
           {/* author name */}
           <div className="flex column" style={{ gap: ".5rem" }}>
-            <Link to={"/"}>
+            <Link to={`/profile`} className="link text-dark">
               <h4 className="fs-20 text-dark text-bold">
                 {GigsDetails?.sellerId?.name}{" "}
                 <span className="fs-20 text-light">
