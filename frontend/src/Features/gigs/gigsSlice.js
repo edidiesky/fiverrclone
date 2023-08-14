@@ -83,6 +83,7 @@ const GigsSlice = createSlice({
       state.maxprice = 0;
       state.search = "";
       state.GigsAlert = false;
+      state.sellerId = null
     },
     clearDeleteGigModalAlert: (state, action) => {
       state.deleteGigModalAlert = false;

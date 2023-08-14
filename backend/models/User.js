@@ -39,6 +39,7 @@ const UserSchema = new mongoose.Schema(
       description: { type: String },
       skills: { type: Array, default: [] },
       information: { type: String },
+      occupation: { type: String },
     },
     country: {
       type: String,

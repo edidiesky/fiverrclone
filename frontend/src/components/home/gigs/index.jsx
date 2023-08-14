@@ -10,7 +10,7 @@ const options2 = {
   stagePadding: 10,
   nav: true,
   dots: false,
-  margin: 20,
+  margin: 30,
   navText: ["<", ">"],
   width: "100%",
   slideBy: 5,

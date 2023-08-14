@@ -222,7 +222,7 @@ export default function Card({ x, index, type }) {
           </div>
           <Link
             to={`/gigs/${cardid}`}
-            className="w-100 cards flex column"
+            className="w-100 cards gap-1 flex column"
             key={x?.id}
           >
             <div className="detailsImageContainer">
@@ -243,7 +243,7 @@ export default function Card({ x, index, type }) {
                 })}
               </div>
             </div>
-            <div className="w-100 flex column py-1 gap-1">
+            <div className="w-100 flex column py-1 gap">
               <div className="flex item-center w-100 justify-space">
                 <div className="flex gap-1 item-center">
                   <img
@@ -254,11 +254,13 @@ export default function Card({ x, index, type }) {
                       borderRadius: "50%",
                     }}
                   />
-                  <h5 className="fs-16 text-dark text-bold">{x?.sellerId?.username}</h5>
+                  <h5 className="fs-16 text-dark text-bold">
+                    {x?.sellerId?.username}
+                  </h5>
                 </div>
                 <h5 className="fs-16 text-grey text-bold">Luckyash</h5>
               </div>
-              <h4 className="desc fs-20 text-dark text-light">
+              <h4 className="desc fs-18 py-1 text-dark text-light">
                 {x?.title.substring(0, 44)}....
               </h4>
               <div
@@ -275,8 +277,11 @@ export default function Card({ x, index, type }) {
                 </span>
               </div>
 
-              <div className="w-100 fs-20 text-dark">
-                From <span className="fs-20">${x?.price}</span>
+              <div
+                style={{ marginTop: ".6rem" }}
+                className="w-100 fs-18 text-dark"
+              >
+                From <span className="fs-18">${x?.price}</span>
               </div>
             </div>
           </Link>
@@ -290,8 +295,7 @@ const CardContent = styled.div`
   width: 100%;
   overflow: hidden;
   .hidden {
-  overflow: hidden;
-
+    overflow: hidden;
   }
   &:hover {
     .desc {
