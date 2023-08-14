@@ -116,16 +116,7 @@ export const getSingleCustomer = createAsyncThunk(
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const config = {
-        headers: {
-          authorization: `Bearer ${state.user.token}`,
-        },
-      };
-
-      const { data } = await axios.get(
-        `/api/v1/user/admin/profile/${name}`,
-        config
-      );
+      const { data } = await axios.get(`/api/v1/user/profile/${name}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

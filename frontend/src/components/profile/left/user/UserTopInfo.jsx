@@ -10,17 +10,17 @@ import { BsFillPencilFill } from "react-icons/bs";
 import { onProfileModal } from "../../../../Features/user/userSlice";
 
 export default function UserTopInfo({ image, setImage }) {
-  const { userInfo } = useSelector((store) => store.user);
+  const { userDetails } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   const handleFileUpload = async (e) => {
     // get the file
-    console.log('hello');
+    console.log("hello");
     const file = e.target.files[0];
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "fiverr");
-    console.log('hello');
+    console.log("hello");
 
     // try {
     //   const { url } = await axios.post(
@@ -40,12 +40,12 @@ export default function UserTopInfo({ image, setImage }) {
       <div className="w-100 flex item-center justify-center column gap-1">
         {/* images */}
         {/* check if there is any image else seet the image folder */}
-        {userInfo?.image ? (
+        {userDetails?.image ? (
           <label
             className="ProfileImage w-100 flex item-center justify-center cardImage"
             htmlFor="upload"
           >
-            <img src={userInfo?.image} alt="" className="image" />
+            <img src={userDetails?.image} alt="" className="image" />
             <div className="image grey flex item-center justify-center">
               <Camera />
             </div>
@@ -65,7 +65,7 @@ export default function UserTopInfo({ image, setImage }) {
             htmlFor="upload"
           >
             <div className="image grey fs-45 text-white flex item-center justify-center">
-              {userInfo?.username.charAt(0)}
+              {userDetails?.username.charAt(0)}
             </div>
             <div className="image dark flex item-center justify-center">
               <Camera />
@@ -84,11 +84,11 @@ export default function UserTopInfo({ image, setImage }) {
         {/* profile name */}
         <div className="fs-24 text-center text-dark">
           {/* name */}
-          {userInfo?.username}
+          {userDetails?.username}
           {/* role */}
           <span className="block text-grey text-light fs-16">
-            {userInfo?.about.information
-              ? userInfo?.about.information
+            {userDetails?.about.information
+              ? userDetails?.about.information
               : "Please add a short description of yourself"}
           </span>
         </div>
@@ -109,14 +109,14 @@ export default function UserTopInfo({ image, setImage }) {
             <FaLocationArrow /> From
           </span>
           <span className="text-bold">
-            {userInfo?.about.from ? userInfo?.about.from : "Unknown"}
+            {userDetails?.about.from ? userDetails?.about.from : "Unknown"}
           </span>
         </li>
         <li className="flex family1 w-100 fs-14 text-grey text-light justify-space item-center">
           <span className="flex item-center gap-2">
             <FaUser /> Member since
           </span>
-          <span className="text-bold">{userInfo?.createdAt}</span>
+          <span className="text-bold">{userDetails?.createdAt}</span>
         </li>
       </ul>
     </UserTopInfoContent>

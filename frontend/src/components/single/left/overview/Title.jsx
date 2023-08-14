@@ -26,7 +26,10 @@ export default function Title() {
           />
           {/* author name */}
           <div className="flex column" style={{ gap: ".5rem" }}>
-            <Link to={`/profile`} className="link text-dark">
+            <Link
+              to={`/profile/${GigsDetails?.sellerId?.username}`}
+              className="link text-dark"
+            >
               <h4 className="fs-20 text-dark text-bold">
                 {GigsDetails?.sellerId?.name}{" "}
                 <span className="fs-20 text-light">

@@ -15,8 +15,9 @@ const GetUserById = asyncHandler(async (req, res) => {
 // single user
 //PRIVATE/ADMIN
 const GetUsersProfile = asyncHandler(async (req, res) => {
-  const { userId, username } = req.user;
-  const user = await User.findOne({ _id: req.params.id });
+  // const { userId, username } = req.user;
+  // find the users profile based on it username
+  const user = await User.findOne({ username: req.params.username });
   if (!user) {
     res.status(404);
     throw new Error("The user does not exist");

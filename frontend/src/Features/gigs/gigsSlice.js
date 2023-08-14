@@ -34,6 +34,7 @@ const initialState = {
   maxprice: 0,
   minprice: 0,
   page: 1,
+  sellerId: null,
   deleteGigModalAlert: false,
 };
 
@@ -60,6 +61,9 @@ const GigsSlice = createSlice({
     },
     getSort: (state, action) => {
       state.sort = action.payload;
+    },
+     getUserId: (state, action) => {
+      state.sellerId = action.payload;
     },
     getGigs: (state, action) => {
       state.deleteGigModalAlert = true;
@@ -230,7 +234,8 @@ export const {
   getMinPrice,
   getMaxPrice,
   cleargetCategory,
-  clearDeleteGigModalAlert
+  clearDeleteGigModalAlert,
+  getUserId
 } = GigsSlice.actions;
 
 export default GigsSlice.reducer;

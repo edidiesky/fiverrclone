@@ -1,144 +1,100 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
 export default function UserBottomInfo() {
   const { userInfo } = useSelector((store) => store.user);
-  const [desc, setDec] = useState(false);
-  const [language, setLanguage] = useState(false);
-  const [skill, setSkill] = useState(false);
+  const { userDetails } = useSelector((store) => store.user);
+
+  const checkUser = userInfo?.name === userDetails?.name;
+
+  const [description, setDecription] = useState("");
+  const [language, setLanguage] = useState([]);
+  const [skill, setSkill] = useState([]);
+
+  useEffect(() => {
+    if (userDetails) {
+      const { about, language, skills } = userDetails;
+      setDecription(about?.description);
+      setLanguage(language);
+      setSkill(skills);
+    }
+  }, [userDetails, setDecription, setLanguage, setSkill]);
 
   return (
     <UserBottomInfoContent>
       {/* bototm */}
       <div className="w-100 py-2 flex column gap-3">
         {/* description */}
-        <div className="flex family1 bottom w-100 fs-16 text-dark text-bold column gap-2">
-          <span className="flex family1 fs-16 text-bold justify-space item-center gap-2">
+        <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
+          <span className="flex family1 fs-20 text-bold justify-space item-center gap-2">
             Description
-            {!desc && (
-              <div className=" text-blue fs-14" onClick={() => setDec(true)}>
+            {!description && (
+              <div
+                className=" text-blue fs-14"
+                onClick={() => setDecription(true)}
+              >
                 Edit Description
               </div>
             )}
           </span>
           {/* sample description */}
+          {description && (
+            <span className="fs-18 text-grey text-light">{description}</span>
+          )}
           {/* <span className="">
             Analyzes aerial pictures of rooftops using sophisticated software to
             convert these aerial pictures into CAD drawings including exact
             measurements.
           </span> */}
           {/* input description tab start */}
-          <div
-            className={
-              desc
-                ? "w-100 flex column justify-space gap-2 descTab active"
-                : "w-100 flex column justify-space gap-2 descTab"
-            }
-          >
-            {/* text area */}
-            <textarea
-              className="area family1 text-bold"
-              placeholder="Please tell us about any hobbies, additional expertise, or anything else you'd like to add"
-            ></textarea>
-            {/* add button section */}
-            <div className="w-100 flex item-center gap-1">
-              <div
-                className="w-100 contactBtn fs-14"
-                onClick={() => setDec(false)}
-              >
-                Cancel
-              </div>
-              <div className="w-100 contactBtn green fs-14">Update</div>
-            </div>
-          </div>
           {/* input description tab end */}
         </div>
         {/* languages */}
-        <div className="flex family1 bottom w-100 fs-16 text-dark text-bold column gap-2">
-          <span className="flex family1 flex fs-16 justify-space item-center gap-2">
+        <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
+          <span className="flex family1 flex fs-20 justify-space item-center gap-2">
             Languages
-            <div className=" text-blue fs-14" onClick={() => setLanguage(true)}>
-              Add New
-            </div>
-          </span>
-          {/* input description tab start */}
-          <div
-            className={
-              language
-                ? "w-100 flex column justify-space gap-2 descTab active"
-                : "w-100 flex column justify-space gap-2 descTab"
-            }
-          >
-            {/* text area */}
-            <input
-              type="text"
-              placeholder="Add Language"
-              className="fs-16 input"
-            />
-            {/* add button section */}
-            <div className="w-100 flex item-center gap-1">
+            {checkUser && (
               <div
-                className="w-100 contactBtn fs-14"
-                onClick={() => setLanguage(false)}
+                className=" text-blue fs-14"
+                onClick={() => setLanguage(true)}
               >
-                Cancel
+                Add New
               </div>
-              <div className="w-100 contactBtn green fs-14">Update</div>
+            )}
+          </span>
+          {language?.length > 0 && (
+            <div className="list w-100">
+              {language?.map((x) => {
+                return <span className="fs-14 skills family1">{x}</span>;
+              })}
             </div>
-          </div>
+          )}
+          {/* input description tab start */}
           {/* input description tab end */}
           {/* <span className="">
             English - <span className=" text-grey2">Fluent</span>
           </span> */}
         </div>
-        {/* skills */}
-        <div className="flex family1 bottom w-100 fs-16 text-dark column gap-2 text-bold gap-2">
-          <span className="flex family1 flex fs-16 justify-space item-center gap-2">
+        {/* skills section */}
+        <div className="flex family1 bottom w-100 fs-20 text-dark column gap-2 text-bold gap-2">
+          <span className="flex family1 flex fs-20 justify-space item-center gap-2">
             Skills
-            {!skill && (
+            {checkUser && (
               <div className=" text-blue fs-14" onClick={() => setSkill(true)}>
                 Add Skills
               </div>
             )}
           </span>
-          {/* <div className="list w-100">
-            <span className="fs-14 skills family1">3d Modelling</span>
-            <span className="fs-14 skills family1">3d Modelling</span>
-            <span className="fs-14 skills family1">3d Modelling</span>
-          </div> */}
+          {skill?.length > 0 && (
+            <div className="list w-100">
+              {skill?.map((x) => {
+                return <span className="fs-14 skills family1">{x}</span>;
+              })}
+            </div>
+          )}
           {/* input description tab start */}
-          <div
-            className={
-              skill
-                ? "w-100 flex column justify-space gap-2 descTab active"
-                : "w-100 flex column justify-space gap-2 descTab"
-            }
-          >
-            {/* text area */}
-            <div className="w-100 flex column gap-2">
-              <input
-                type="text"
-                placeholder="Add Skills"
-                className="fs-16 input"
-              />
-              <input
-                type="text"
-                placeholder="Experience Level"
-                className="fs-16 input"
-              />
-            </div>
-            {/* add button section */}
-            <div className="w-100 flex item-center gap-1">
-              <div
-                className="w-100 contactBtn fs-14"
-                onClick={() => setSkill(false)}
-              >
-                Cancel
-              </div>
-              <div className="w-100 contactBtn green fs-14">Update</div>
-            </div>
-          </div>
+
           {/* input description tab end */}
         </div>
       </div>

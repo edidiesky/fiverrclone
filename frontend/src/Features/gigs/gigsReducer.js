@@ -14,6 +14,7 @@ export const getAllGigs = createAsyncThunk(
         minprice,
         time,
         maxprice,
+        sellerId,
       } = thunkAPI.getState().gigs;
       let GigsUrl = `/api/v1/gig`;
       if (sort) {
@@ -29,6 +30,11 @@ export const getAllGigs = createAsyncThunk(
         const { data } = await axios.get(GigsUrl);
         return data;
       }
+      if (sellerId) {
+        GigsUrl = GigsUrl + `?user=${sellerId}`;
+        const { data } = await axios.get(GigsUrl);
+        return data;
+      }
       if (category || minprice || maxprice) {
         GigsUrl =
           GigsUrl +
@@ -37,9 +43,7 @@ export const getAllGigs = createAsyncThunk(
         return data;
       }
       if (page) {
-        GigsUrl =
-          GigsUrl +
-          `?page=${page}`;
+        GigsUrl = GigsUrl + `?page=${page}`;
         const { data } = await axios.get(GigsUrl);
         return data;
       }
@@ -76,7 +80,7 @@ export const getSingleGigsDetails = createAsyncThunk(
 // fetching single Gigs based on its id
 export const CreateSingleGig = createAsyncThunk(
   "Gigs/createGigs",
-  async ({GigsData}, thunkAPI) => {
+  async ({ GigsData }, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {
@@ -100,7 +104,7 @@ export const CreateSingleGig = createAsyncThunk(
 // Update a single Gigs for the admin
 export const UpdateGig = createAsyncThunk(
   "/updateGig",
-  async ({GigsData}, thunkAPI) => {
+  async ({ GigsData }, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
       const config = {
@@ -109,11 +113,7 @@ export const UpdateGig = createAsyncThunk(
         },
       };
       const { _id } = state.gigs.GigsDetails;
-      const { data } = await axios.put(
-        `/api/v1/gig/${_id}`,
-        GigsData,
-        config
-      );
+      const { data } = await axios.put(`/api/v1/gig/${_id}`, GigsData, config);
       // console.log(GigsData)
       return data.updatedGig;
     } catch (error) {
@@ -137,10 +137,7 @@ export const DeleteGig = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.delete(
-        `/api/v1/gig/${Gigsid}`,
-        config
-      );
+      const { data } = await axios.delete(`/api/v1/gig/${Gigsid}`, config);
       return Gigsid;
     } catch (error) {
       return thunkAPI.rejectWithValue(

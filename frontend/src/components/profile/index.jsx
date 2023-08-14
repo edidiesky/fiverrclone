@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ProfileLeftIndex from "./left";
 import ProfileRightIndex from "./right";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getAllGigs, getSingleCustomer } from "../../Features";
 export default function ProfileIndex() {
-  const { userInfo, profilemodal } = useSelector((store) => store.user);
+  const { username } = useParams();
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector(
+    (store) => store.user
+  );
+  const { sellerId } = useSelector((store) => store.gigs);
+  useEffect(() => {
+    dispatch(getSingleCustomer(username));
+  }, [username]);
 
   return (
     <ProfileIndexContent className={userInfo?.role === "user" ? "active" : ""}>
@@ -13,8 +22,6 @@ export default function ProfileIndex() {
         <ProfileLeftIndex />
         <ProfileRightIndex />
       </div>
-
-
     </ProfileIndexContent>
   );
 }

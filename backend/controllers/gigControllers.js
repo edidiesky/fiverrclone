@@ -31,7 +31,7 @@ const GetAllGig = asyncHandler(async (req, res) => {
   }
   // user
   if (sellerId) {
-    queryObject.sellerId = user;
+    queryObject.sellerId = sellerId;
   }
   // category
   if (category) {
