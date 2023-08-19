@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function HeroIndex() {
+  const [index, setIndex] = useState(0);
+
   return (
     <>
       <HeroIndexContent>
-        <div style={{position:"absolute"}} className="w-100 h-100">
+        <div style={{ position: "absolute" }} className="w-100 h-100">
           <img
             src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/76e89842118995cfef742b0d9eab0707-1674662995485/bg-hero-6-900-x2.png"
             alt=""
@@ -107,8 +109,8 @@ export default function HeroIndex() {
 }
 
 const HeroIndexContent = styled.div`
-  padding: 6rem 0;
-  min-height: 100vh;
+  padding: 27rem 0;
+  min-height: 100%;
   position: relative;
   display: flex;
   place-items: center;

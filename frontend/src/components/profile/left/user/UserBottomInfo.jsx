@@ -14,10 +14,10 @@ export default function UserBottomInfo() {
 
   useEffect(() => {
     if (userDetails) {
-      const { about, language, skills } = userDetails;
+      const { about } = userDetails;
       setDecription(about?.description);
-      setLanguage(language);
-      setSkill(skills);
+      setLanguage(about?.language);
+      setSkill(about?.skills);
     }
   }, [userDetails, setDecription, setLanguage, setSkill]);
 
@@ -87,7 +87,7 @@ export default function UserBottomInfo() {
             )}
           </span>
           {skill?.length > 0 && (
-            <div className="list w-100">
+            <div className="list flex w-100">
               {skill?.map((x) => {
                 return <span className="fs-14 skills family1">{x}</span>;
               })}
@@ -141,7 +141,7 @@ const UserBottomInfoContent = styled.div`
   }
   .list {
     flex-wrap: wrap;
-    gap: 1.2rem;
+    gap: 1rem;
   }
   .bottom {
     padding-bottom: 1.6rem;
