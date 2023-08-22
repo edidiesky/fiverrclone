@@ -45,6 +45,9 @@
     "https": "^1.0.0",
     "vite": "^4.1.0"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "proxy": "http://localhost:4000",
   "allowedHosts": "all"
 }
