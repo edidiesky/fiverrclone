@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
   Layout,
-  Home,
   Business,
-  Single,
   Services,
   Profile,
   Explore,
@@ -37,6 +35,10 @@ import { useDispatch, useSelector } from "react-redux";
 import LoaderIndex from "./components/loaders";
 import Order from "./screens/Order";
 
+//
+const HomeImport = React.lazy(() => import("./screens/Home"));
+const SingleImport = React.lazy(() => import("./screens/Single"));
+
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -55,8 +57,22 @@ export default function App() {
           <Route path="/business" element={<Business />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path={"/"} element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="gigs/:id" element={<Single />} />
+            <Route
+              index
+              element={
+                <Suspense fallback={<LoaderIndex />}>
+                  <HomeImport />
+                </Suspense>
+              }
+            />
+            <Route
+              path="gigs/:id"
+              element={
+                <Suspense fallback={<LoaderIndex />}>
+                  <SingleImport />
+                </Suspense>
+              }
+            />
             <Route path="gigs" element={<Services />} />
             <Route path=":id/order-success" element={<Order />} />
             <Route

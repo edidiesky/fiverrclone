@@ -1,20 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+const heroBackgroundData = [
+  {
+    backgroundImage:
+      "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_2.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616487/jenny-2x.jpg",
+    author: "Jenny",
+    role: "Creative assistant",
+  },
+  {
+    backgroundImage:
+      "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_2.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616493/colin-2x.jpg",
+    author: "Colin",
+    role: "Product Assistant",
+  },
+  {
+    backgroundImage:
+      "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_2.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616493/jordan-2x.jpg",
+    author: "Scarlet",
+    role: "Product Assistant",
+  },
+  {
+    backgroundImage:
+      "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto,dpr_2.0/v1/attachments/generic_asset/asset/4637ac0b5e7bc7f247cd24c0ca9e36a3-1690384616497/christina-2x.jpg",
+    author: "christina",
+    role: "Product Assistant",
+  },
+];
+
 export default function HeroIndex() {
-  const [index, setIndex] = useState(0);
+  const [tabindex, setTabIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTabIndex(tabindex === 3 ? 0 : tabindex + 1);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [setTabIndex, tabindex]);
 
   return (
     <>
       <HeroIndexContent>
         <div style={{ position: "absolute" }} className="w-100 h-100">
-          <img
-            src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/76e89842118995cfef742b0d9eab0707-1674662995485/bg-hero-6-900-x2.png"
-            alt=""
-            className="w-100 image"
-          />
+          {heroBackgroundData.map((x, index) => {
+            return (
+              <img
+                key={index}
+                src={x.backgroundImage}
+                alt=""
+                className={index === tabindex ? "images active" : "images"}
+              />
+            );
+          })}
         </div>
         <div className="w-90 auto">
           <div className="w-100 flex header column gap-2">
@@ -113,7 +152,19 @@ const HeroIndexContent = styled.div`
   min-height: 100%;
   position: relative;
   display: flex;
+  /* height: 50vh; */
   place-items: center;
+  .images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: all 1s ease;
+    &.active {
+      opacity: 1;
+    }
+  }
   .links {
     padding: 0.6rem 1.4rem;
     text-align: center;
