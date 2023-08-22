@@ -171,6 +171,7 @@ export default function AuthModal({ type, click }) {
           initial="hidden"
           animate="visible"
           exit={"exit"}
+          style={{background:"#fff"}}
           className={"deleteCard family1 shadow"}
         >
           {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
@@ -280,7 +281,7 @@ export default function AuthModal({ type, click }) {
                 <h3 className="fs-30 family1">
                   {auth ? "Create a new account" : "Sign in to your account"}
 
-                  <span className="block flex item-center gap-1 fs-20 py-1 text-light text-grey">
+                  <span className="block flex item-center gap-1 fs-18 py-1 text-light text-grey">
                     {auth
                       ? "Already have an account?"
                       : "Don’t have an account?"}

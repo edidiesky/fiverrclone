@@ -64,6 +64,7 @@ export default function Card({ x, index, type }) {
         ) : (
           <Link
             to={`/gigs/${cardid}`}
+            style={{ boxShadow: "var(--shadow)", borderRadius: "5px" }}
             className="w-100 MainCard flex column"
             key={cardid}
           >
@@ -71,7 +72,13 @@ export default function Card({ x, index, type }) {
               <img src={x?.image[0]} alt="" className="w-100" />
               {/* <div className="backdrop"></div> */}
             </div>
-            <div className="bottom w-100 back-white py-2 flex item-center gap-1">
+            <div
+              style={{
+                borderBottomLeftRadius: "5px",
+                borderBottomRightRadius: "5px",
+              }}
+              className="bottom w-100 back-white py-2 flex item-center gap-1"
+            >
               <img
                 src={x?.sellerId?.image}
                 alt=""
@@ -109,29 +116,6 @@ export default function Card({ x, index, type }) {
               key={x?.id}
             >
               <div className="detailsImageContainer">
-                {/* <div className="btnArrow">
-                <Heart />
-              </div> */}
-                {/* button  */}
-                {/* {x?.image?.length >= 2 && (
-                <div className="flex">
-                  {tabindex > 0 && (
-                    <div
-                      className="btnArrow shadow left"
-                      onClick={() => handleImagePosition("left")}
-                    >
-                      <BiChevronLeft />
-                    </div>
-                  )}
-                  <div
-                    className="btnArrow shadow right"
-                    onClick={() => handleImagePosition("right")}
-                  >
-                    <BiChevronRight />
-                  </div>
-                </div>
-              )} */}
-
                 <div className="detailsImageWrapper">
                   {x?.image?.map((x) => {
                     return (
@@ -199,26 +183,6 @@ export default function Card({ x, index, type }) {
         <CardContent>
           <div className="icon">
             <Heart />
-          </div>
-          <div className="hidden">
-            {x?.image?.length >= 2 && (
-              <div className="flex hidden">
-                {tabindex > 0 && (
-                  <div
-                    className="btnArrow shadow left"
-                    onClick={() => handleImagePosition("left")}
-                  >
-                    <BiChevronLeft />
-                  </div>
-                )}
-                <div
-                  className="btnArrow shadow right"
-                  onClick={() => handleImagePosition("right")}
-                >
-                  <BiChevronRight />
-                </div>
-              </div>
-            )}
           </div>
           <Link
             to={`/gigs/${cardid}`}
@@ -311,7 +275,7 @@ const CardContent = styled.div`
   .detailsImageContainer {
     height: 20rem;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 6px;
     position: relative;
     display: grid;
     grid-template-columns: repeat(4, 100%);

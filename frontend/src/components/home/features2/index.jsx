@@ -86,6 +86,7 @@ const Features2IndexContainer = styled.div`
     position: relative;
     overflow: hidden;
     border-radius: 10px;
+    
     &:hover {
       img {
         transform: scale(1.1);
