@@ -92,22 +92,22 @@ mongoose.connect(
 // production mode process
 const __dirname = path.resolve()
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
-  );
-} else {
-  app.get("/", (req, res) => {
-    res.send("API is running....");
-  });
-}
+//   app.get("*", (req, res) =>
+//     res.sendFile(path.join(__dirname, "../frontend/dist/index.html"))
+//   );
+// } else {
+//   app.get("/", (req, res) => {
+//     res.send("API is running....");
+//   });
+// }
 
 // Middlewares
 app.use(NotFound);
 app.use(errorHandler);
 
-app.listen(6000, () => {
+app.listen(5000, () => {
   console.log("server is listening on port 4000");
 });
