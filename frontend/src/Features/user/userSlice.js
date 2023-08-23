@@ -122,11 +122,13 @@ const userSlice = createSlice({
       state.token = action.payload.token;
       state.alertText = "Registration successfull.";
       state.alertType = "success";
+      state.registersuccess = true
     },
     [registerCustomer.rejected]: (state, action) => {
       state.isLoading = false;
       state.isError = true;
       state.showAlert = true;
+      state.registersuccess = false
 
       state.alertText = action.payload;
       state.alertType = "danger";

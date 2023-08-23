@@ -53,28 +53,28 @@ import { google } from "googleapis";
 //   .then(token => console.log(token))
 //   .catch(error => console.log('Error:', error));
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true, // Set this to true for SSL/TLS
-  auth: {
-    username: "essienedidiong1000@gmail.com",
-    password: "Mcgarvey1000",
-    type: "PLAIN",
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   service: "gmail",
+//   host: "smtp.gmail.com",
+//   port: 465,
+//   secure: true, // Set this to true for SSL/TLS
+//   auth: {
+//     username: "essienedidiong1000@gmail.com",
+//     password: "Mcgarvey1000",
+//     type: "PLAIN",
+//   },
+// });
 
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(success);
-  }
-});
+// transporter.verify((error, success) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(success);
+//   }
+// });
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { username, email, password, phone, country } = req.body;
+  const { email, password } = req.body;
   //
   if (!email || !password) {
     res.status(404);
@@ -91,8 +91,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedpassword = await bcrypt.hash(req.body.password, salt);
   const Tempuser = {
     email,
-    password: hashedpassword,
-    ...req.body,
+    password: hashedpassword
   };
   const user = await User.create(Tempuser);
   //
@@ -100,7 +99,6 @@ const registerUser = asyncHandler(async (req, res) => {
     {
       userId: user._id,
       role: user.role,
-      username: user.username,
     },
     process.env.JWT_CODE,
     { expiresIn: "2d" }

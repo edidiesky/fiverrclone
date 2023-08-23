@@ -103,33 +103,23 @@ export default function AuthModal({ type, click }) {
   };
   // dispatch
   const dispatch = useDispatch();
-  // get the cart alert
-  //   const { GigsDetails } = useSelector((store) => store.gigs);
   const {
-    registersuccess,
     userDetails,
     usernamemodal,
     isLoading,
     showAlert,
     alertText,
     loginSuccess,
+    registersuccess,
   } = useSelector((store) => store.user);
-  // useEffect(() => {
-  //   if (registersuccess) {
-  //     // head back to the origonal page
-  //     // window.history.back();
-  //   }
-  // }, [registersuccess]);
-
-  // off the auth modal once succefull
 
   useEffect(() => {
-    if (loginSuccess) {
+    if (loginSuccess || registersuccess) {
       setTimeout(() => {
         dispatch(offAuthModal());
       }, 4000);
     }
-  }, [loginSuccess]);
+  }, [loginSuccess, registersuccess]);
   // form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -162,17 +152,13 @@ export default function AuthModal({ type, click }) {
         animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
       >
         {isLoading && <LoaderIndex />}
-        <div
-          className="backdrop"
-          onClick={() => dispatch(offAuthModal())}
-        ></div>
         <motion.div
           variants={dropin}
           initial="hidden"
           animate="visible"
           exit={"exit"}
-          style={{background:"#fff"}}
-          className={"deleteCard family1 shadow"}
+          style={{ background: "#fff" }}
+          className={"deleteCard usernameModal family1 shadow"}
         >
           {/* <div className="cross" onClick={() => dispatch(clearUserAlertError())}>
             <RxCross2 />
@@ -216,9 +202,6 @@ export default function AuthModal({ type, click }) {
                 well as to receive occasional emails from us
               </p>
             </div>
-          </div>
-          <div className="w-100 authCenter family1 fs-14 text-light text-gery text-center">
-            Already a member? Sign In
           </div>
         </motion.div>
       </AuthModalContainer>
@@ -450,7 +433,13 @@ const AuthModalContainer = styled(motion.div)`
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
-
+    &.usernameModal {
+      width: 400px;
+      padding: 2rem;
+      @media (max-width: 780px) {
+        width: 60%;
+      }
+    }
     .cross {
       position: absolute;
       right: 10px;
