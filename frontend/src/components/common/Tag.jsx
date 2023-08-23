@@ -22,16 +22,16 @@ export default function TagInput({ tagdata, setTagData, title }) {
   return (
     <TagInfoWrapper>
       <div className="tagForm item-center flex column gap-1">
-        <div className="text-grey capitalize labelspan text fs-16 text-bold">
+        {/* <div className="text-grey capitalize labelspan text fs-16 text-bold">
           {title}
-        </div>
+        </div> */}
         <input
           type="text"
           onKeyDown={handleTagInput}
           className="taginput family1"
           placeholder={title}
         />
-        <div className="w-100 flex item-center gap-1">
+        <div style={{flexWrap:"wrap"}} className="w-100 flex item-center gap-1">
           {tagdata.map((x, index) => {
             return (
               <div className="tagWrapper family1 text-light text-bold flex item-center gap-1">
@@ -51,7 +51,6 @@ export default function TagInput({ tagdata, setTagData, title }) {
 }
 
 const TagInfoWrapper = styled.div`
-  padding-top: 1rem;
   input {
     height: 6rem;
     border-radius: 8px;
@@ -71,7 +70,7 @@ const TagInfoWrapper = styled.div`
       border: 1px solid rgba(0, 0, 0, 0.4);
     }
     &:focus {
-      border: 2px solid var(--blue-1);
+      border: 2px solid var(--dark-1);
       background: transparent;
     }
     &.true {
@@ -84,14 +83,14 @@ const TagInfoWrapper = styled.div`
       display: block;
     }
   }
-  .labelspan {
+  /* .labelspan {
     position: absolute;
     top: -15%;
     padding: 0 0.7rem;
     left: 3%;
     background-color: #fff;
     font-weight: normal;
-  }
+  } */
   .tagForm {
     border-radius: 8px;
     background: transparent;
@@ -103,10 +102,10 @@ const TagInfoWrapper = styled.div`
     font-family: inherit;
     font-family: "Roboto Condensed", sans-serif;
     .tagWrapper {
-      padding: 0.5rem 1rem;
-      background-color: rgba(0, 0, 0, 0.08);
+      padding: 0.7rem 1rem;
+      background-color: rgba(0, 0, 0, 0.04);
       border-radius: 40px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
     }
   }

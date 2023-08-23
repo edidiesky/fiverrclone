@@ -5,40 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { BiChevronLeft, BiChevronRight, BiHeart, BiStar } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Star from "./svg/star";
-const CardLoading = () => {
-  return (
-    <CardLoadingContent className="w-100 flex column gap-1 back-white">
-      <div className="top w-100"></div>
-      <div className="center w-90 auto flex gap-1 item-center">
-        <div className="topCenter skeleton"></div>
-        <div className="bottomCenter skeleton"></div>
-      </div>
-      <div
-        className="w-90 auto flex column item-start"
-        style={{ gap: ".5rem" }}
-      >
-        <div className="w-100 h-6 duration1 skeleton"></div>
-        <div
-          style={{ width: "60%" }}
-          className="w-50 h-6 duration2 skeleton"
-        ></div>
-      </div>{" "}
-      <div
-        className="w-90 auto flex column item-start"
-        style={{ gap: ".5rem" }}
-      >
-        <div
-          style={{ width: "50%" }}
-          className="w-100 h-6 duration1 skeleton"
-        ></div>
-        <div
-          style={{ width: "20%" }}
-          className="w-50 h-6 duration2 skeleton"
-        ></div>
-      </div>
-    </CardLoadingContent>
-  );
-};
+import CardSkeleton from "./cardskeleton";
+
 
 export default function Card({ x, index, type }) {
   const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
@@ -60,7 +28,7 @@ export default function Card({ x, index, type }) {
     return (
       <>
         {gigsIsLoading ? (
-          <CardLoading />
+          <CardSkeleton />
         ) : (
           <Link
             to={`/gigs/${cardid}`}
@@ -107,7 +75,7 @@ export default function Card({ x, index, type }) {
     return (
       <>
         {gigsIsLoading ? (
-          <CardLoading />
+          <CardSkeleton />
         ) : (
           <CardContent>
             <Link
@@ -178,7 +146,7 @@ export default function Card({ x, index, type }) {
   return (
     <>
       {gigsIsLoading ? (
-        <CardLoading />
+        <CardSkeleton />
       ) : (
         <CardContent>
           <div className="icon">
@@ -369,48 +337,5 @@ const CardContent = styled.div`
   }
   .text-secondary {
     color: var(--yellow);
-  }
-`;
-
-const CardLoadingContent = styled.div`
-  min-height: 35rem;
-  min-width: 100%;
-  background-color: #fff;
-  .skeleton {
-    opacity: 0.7;
-    animation: card-loading 1s infinite alternate;
-  }
-  .top {
-    height: 20rem;
-    border-radius: 10px;
-    opacity: 0.4;
-    animation: card-loading 2s infinite alternate;
-  }
-  .bottomCenter {
-    height: 1rem;
-    flex: 0.3;
-  }
-  .h-6 {
-    height: 1.5rem;
-    border-radius: 5px;
-  }
-  .topCenter {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-  }
-  .period1 {
-    animation-duration: 1.5s;
-  }
-  .period2 {
-    animation-duration: 2s;
-  }
-  @keyframes card-loading {
-    0% {
-      background-color: hsl(200, 20%, 70%);
-    }
-    100% {
-      background-color: hsl(200, 20%, 96%);
-    }
   }
 `;

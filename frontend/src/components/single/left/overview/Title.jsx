@@ -27,12 +27,15 @@ export default function Title() {
           {/* author name */}
           <div className="flex column" style={{ gap: ".5rem" }}>
             <Link
-              to={`/profile/${GigsDetails?.sellerId?.username}`}
+              to={`/profile/${GigsDetails?.sellerId?.username}?sellerId=${GigsDetails?.sellerId?._id}`}
               className="link text-dark"
             >
               <h4 className="fs-20 text-dark text-bold">
                 {GigsDetails?.sellerId?.name}{" "}
-                <span style={{marginLeft:"6px"}} className="fs-16 text-light">
+                <span
+                  style={{ marginLeft: "6px" }}
+                  className="fs-16 text-light"
+                >
                   @{GigsDetails?.sellerId?.username}
                 </span>
               </h4>

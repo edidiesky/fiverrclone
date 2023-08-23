@@ -60,7 +60,7 @@ const FormInput = ({ types, setState, onChange, value, id, ...props }) => {
       {...props}
       value={value}
       onChange={onChange}
-      multiline={types === "textarea"}
+      multiline={types}
     />
   );
 };

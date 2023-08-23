@@ -28,18 +28,23 @@ export default function Profileform({
       placeholder: "Add your profile username",
       type: "text",
       text: "username",
+      types:false
+
     },
     {
       name: "shordescription",
       placeholder: "Add your profile shordescription",
       type: "text",
       text: "shordescription",
+      types:true
     },
     {
       name: "description",
       placeholder: "insert a description of yourself",
       type: "text",
       text: "description",
+      types:true
+
     },
   ];
 
@@ -122,10 +127,10 @@ export default function Profileform({
           <RxCross2 />
         </div> */}
 
-        <div className="w-90 authBottom auto flex column gap-1">
-          <div className="w-100 auto authTop fs-20 text-extra-bold text-dark">
+        <div className="w-100 authBottom auto flex column gap-1">
+          <div className="w-100 wrapper auto auto authTop fs-20 text-extra-bold text-dark">
             Update your fiverr profile
-            <h4 className="fs-18 block py-1 text-light family1 text-grey">
+            <h4 className="fs-16 block py-1 text-light family1 text-grey">
               To help build credible and authentic connections with customers,
               they’ll now see your display name. Learn more
             </h4>
@@ -133,7 +138,7 @@ export default function Profileform({
 
           {/* socials logins */}
           {/* <div className="option uppercase fs-18">or</div> */}
-          <div className="flex column gap-2">
+          <div className="flex wrapper w-100 auto center column gap-2">
             {inputData.map((input, index) => {
               return (
                 <Input
@@ -148,6 +153,7 @@ export default function Profileform({
                   required={input.required}
                   pattern={input.pattern}
                   errorMessage={input.errorMessage}
+                  types={input.types}
                 />
               );
             })}
@@ -164,18 +170,18 @@ export default function Profileform({
             />
           </div>
 
-          <div className="w-100 btnWrapper flex item-center justify-end gap-1">
+          <div className="w-100 wrapper auto btnWrapper flex item-center justify-end gap-1">
             <button
               type="submit"
               onClick={handleSubmit}
-              className="btn btn2 family1 fs-16 text-white text-center"
+              className="btn btn2 family1 fs-18 text-white text-center"
             >
               Continue
             </button>{" "}
             <button
               type="submit"
               onClick={handleSubmit}
-              className="btn  family1 fs-16 text-white text-center"
+              className="btn  family1 fs-18 text-white text-center"
             >
               Save display Profile
             </button>
@@ -200,24 +206,27 @@ const AuthModalContainer = styled(motion.div)`
   top: 0;
   .authCenter {
     padding: 1rem 0;
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto", sans-serif;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
   h4 {
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: "Roboto", sans-serif;
   }
   .btn {
     background: var(--green);
     color: #fff;
     padding: 1.3rem 2rem;
     border-radius: 5px;
-    /* font-family: "Roboto Condensed", sans-serif; */
+    /* font-family: "Roboto", sans-serif; */
     font-weight: bold;
-    font-size: 13px;
+    font-size: 15px;
   }
   .btn1 {
     background-color: var(--blue-1);
     color: #fff;
+  }
+  .wrapper {
+    padding: 0 2.4rem;
   }
   .authBtn {
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -236,7 +245,6 @@ const AuthModalContainer = styled(motion.div)`
   }
   .authBottom {
     position: relative;
-    padding: 0 2.4rem;
     padding-bottom: 1.6rem;
 
     .option {
@@ -246,7 +254,7 @@ const AuthModalContainer = styled(motion.div)`
       padding: 0 1.4rem;
       font-size: 12px;
       color: var(--grey-1);
-      &::after {
+      /* &::after {
         width: 45%;
         height: 0.4px;
         content: "";
@@ -265,7 +273,7 @@ const AuthModalContainer = styled(motion.div)`
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-      }
+      } */
     }
   }
   .backdrop {
@@ -276,13 +284,13 @@ const AuthModalContainer = styled(motion.div)`
     width: 100%;
   }
   .authTop {
-    padding: 2rem 0;
+    padding: 2rem;
     font-size: 24px;
     padding-bottom: 2rem;
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   }
   .deleteCard {
-    width: 60%;
+    width: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -292,8 +300,13 @@ const AuthModalContainer = styled(motion.div)`
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     position: relative;
-    max-height: 98vh;
-    overflow-y: scroll;
+    max-height: 90vh;
+    padding: 5rem 0;
+    
+    .center {
+      overflow-y: scroll;
+      max-height: 35rem;
+    }
     @media (max-width: 780px) {
       width: 370px;
     }

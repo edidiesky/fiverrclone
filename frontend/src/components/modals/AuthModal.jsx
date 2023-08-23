@@ -152,6 +152,7 @@ export default function AuthModal({ type, click }) {
         animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
       >
         {isLoading && <LoaderIndex />}
+        <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
         <motion.div
           variants={dropin}
           initial="hidden"

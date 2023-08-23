@@ -11,8 +11,8 @@ const Star = () => {
         focusable="false"
         style={{
           fill: "currentcolor",
-          height: "18px",
-          width: "18px",
+          height: "15px",
+          width: "15px",
           margin:"0 auto"
         }}
       >

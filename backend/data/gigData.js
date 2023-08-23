@@ -4,7 +4,7 @@
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will create a modern minimalist logo design for your business",
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 25,
@@ -32,7 +32,7 @@
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will create a modern minimalist logo design for your business",
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 25,
@@ -59,7 +59,7 @@
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will design or redesign 3d and minimalist business logo design",
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 15,
@@ -87,7 +87,7 @@
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will draw a unique logo for your enterprise",
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 15,
@@ -113,7 +113,7 @@
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will do a modern minimalist logo design",
-    sellerId: "64da6578e2f1ac40fb6910fd",
+    sellerId: "64e551d835a6fbacc3edfe9d",
     countInStock: 3,
     category: ["Graphics-Design", "Logo Design"],
     price: 15,
@@ -140,7 +140,7 @@
     title: "I will provide web design for you",
     countInStock: 10,
     price: 50,
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     deliveryDays: 5,
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
@@ -157,7 +157,7 @@
       "A basic quality custom made website based on your requirements.",
     title:
       "I will do website and landing page UI UX design in figma, xd format",
-    sellerId: "64da6578e2f1ac40fb6910fd",
+    sellerId: "64e551d835a6fbacc3edfe9d",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 85,
@@ -183,7 +183,7 @@
       "A basic quality custom made website based on your requirements.",
     title:
       "I will do website in figma, xd format",
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 85,
@@ -212,7 +212,7 @@
     title: "I will make animation for 3d game character",
     countInStock: 10,
     price: 70,
-    sellerId: "64da6578e2f1ac40fb6910fd",
+    sellerId: "64e551d835a6fbacc3edfe9d",
     deliveryDays: 5,
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
@@ -230,7 +230,7 @@
     title: "I will design top notch social media content",
     countInStock: 10,
     price: 20,
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     deliveryDays: 5,
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
@@ -248,7 +248,7 @@
     title: "I will format your book ebook magazine and pdf",
     countInStock: 10,
     price: 350,
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     deliveryDays: 5,
     description:
       "From this gig, creator such as YouTubers, Instagrammers, photographers, and many more start their earnings by selling their content to their fans and followers. The working model is similar to only fans and Patreon sites..",
@@ -265,7 +265,7 @@
     title: "I will get your USA ein now for tax purposes",
     countInStock: 10,
     price: 150,
-    sellerId: "64da6578e2f1ac40fb6910fd",
+    sellerId: "64e551d835a6fbacc3edfe9d",
     deliveryDays: 5,
     description:
       "Welcome!!! I am Francis and my calling are to help businesses with their Tax, trademark, legal and raise some funds. I have been doing pretty well in the cooperate world, so I am here to see how to provide superb business planning, tax, legal, trademark and consultation services. Drop a message if you feel you would want to onboard me on your project. ONWARD FOREVER Till we exceed billions.",
@@ -282,7 +282,7 @@
     title: "I will be your professional spanish teacher",
     countInStock: 10,
     price: 150,
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     deliveryDays: 5,
     description:
       "I become a passionate person when it comes to teach a language. I like to develop each part of a language with the purpose of developing a deep, complete, and advanced level in my students: ",
@@ -301,7 +301,7 @@
     title: "I will create high end product photography",
     countInStock: 10,
     price: 450,
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     deliveryDays: 5,
     description:
       "I will create professional product photography on a white or solid color background of your products.",
@@ -316,7 +316,7 @@
     title: "I will make a professional video with vfx",
     countInStock: 10,
     price: 45,
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     deliveryDays: 5,
     description:
       "Many of you already know about me because i've been doing this for quite some time now with 250 plus 5⭐ reviews! ( Check my profile ) but for the people Who don't i'll line up a brief run down!        ",
@@ -334,7 +334,7 @@
     title: "I will do a french voice over, be your french voice",
     countInStock: 10,
     price: 50,
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     deliveryDays: 5,
     description:
       "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
@@ -350,7 +350,7 @@
     shortDescription:
       "One Page Business website I will create full fledged ONE page responsive & mobile friendly website with admin panel for you.",
     title: "I will design responsive website in 15 hours",
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     countInStock: 10,
     price: 50,
     deliveryDays: 5,
@@ -378,7 +378,7 @@
     shortDescription:
       "Silver Include 5 pages, SEO optimized, Portfolio, Landing page, Responsive website.",
     title: "I will do professional wix website design",
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     countInStock: 350,
     price: 50,
     category: ["Programming-Tech", "Website-Development"],
@@ -406,7 +406,7 @@
     category: ["Graphics-Design", "Logo Design"],
     countInStock: 10,
     price: 25,
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     deliveryDays: 5,
     description:
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
@@ -431,7 +431,7 @@
     shortDescription:
       "SMALL Axonometric drawing of a room or a simple building with small details",
     title: "I will be your committed social media manager",
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     countInStock: 10,
     price: 10,
     category: ["Digital Marketing", "Social Media Marketing"],
@@ -448,7 +448,7 @@
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
     title: "I will build responsive wordpress website design",
-    sellerId: "64da6578e2f1ac40fb6910fd",
+    sellerId: "64e551d835a6fbacc3edfe9d",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 250,
@@ -473,7 +473,7 @@
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will design fully responsive website",
-    sellerId: "64da6578e2f1ac40fb6910fd",
+    sellerId: "64e551d835a6fbacc3edfe9d",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 20,
@@ -500,7 +500,7 @@
       "A basic quality custom made website based on your requirements.",
     title:
       "I will do website UI UX design, mobile app UI UX design, dashboard ux design",
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 15,
@@ -527,7 +527,7 @@
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will design responsive website in 4 hours",
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
     price: 35,
@@ -555,7 +555,7 @@
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will design clean and responsive wordpress website",
-    sellerId: "64da6578e2f1ac40fb6910fe",
+    sellerId: "64e551d835a6fbacc3edfe9e",
     countInStock: 3,
     category: ["Programming-Tech", "Website-Development", "WordPress"],
     price: 35,
@@ -582,7 +582,7 @@
     shortDescription:
       "A basic quality custom made website based on your requirements.",
     title: "I will fix elementor issues ,fix wordpress and website building",
-    sellerId: "64da6578e2f1ac40fb6910fc",
+    sellerId: "64e551d835a6fbacc3edfe9f",
     countInStock: 3,
     category: ["Programming-Tech", "Website-Development", "WordPress"],
     price: 15,
