@@ -59,6 +59,7 @@ export default function Profileform({
   const { email, username, password } = formdata;
 
   // framer motion set variants
+  
   const dropin = {
     hidden: {
       y: "-100vh",

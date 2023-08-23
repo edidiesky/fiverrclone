@@ -41,7 +41,7 @@ const ProfileIndexContent = styled.div`
   .profileWrapper {
     display: grid;
     place-items: start;
-    grid-gap: 3rem;
+    grid-gap: 5rem;
     grid-template-columns: 30vw 1fr;
     @media (max-width: 780px) {
       grid-template-columns: 1fr;

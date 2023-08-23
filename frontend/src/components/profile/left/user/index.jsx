@@ -7,7 +7,6 @@ import Profileform from "../../../modals/Profileform";
 import { useSelector } from "react-redux";
 export default function UserIndex() {
   const { userInfo, profilemodal } = useSelector((store) => store.user);
-
   const [formdata, setFormdata] = useState({
     image: [],
     username: "",
