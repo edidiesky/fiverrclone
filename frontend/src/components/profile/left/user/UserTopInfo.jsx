@@ -145,7 +145,7 @@ export default function UserTopInfo({ image, setImage }) {
           borderTop: "1px solid rgba(0,0,0,.1)",
           gap: "1.5rem",
         }}
-        className="w-85 auto py-2 flex column"
+        className="w-85 auto proilfeLTBotttom py-2 flex column"
       >
         {profiledata.map((x, index) => {
           return (
@@ -177,6 +177,11 @@ const UserTopInfoContent = styled.div`
     width: 6rem;
     height: 6rem;
     fill: #fff;
+  }
+  .proilfeLTBotttom {
+    @media (max-width:980px) {
+      width: 95%;
+    }
   }
   .ProfileImage {
     position: relative;

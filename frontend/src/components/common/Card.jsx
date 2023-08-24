@@ -142,6 +142,7 @@ export default function Card({ x, index, type }) {
       </>
     );
   }
+  // card for profile
   if (type === "profile") {
     return (
       <>
@@ -244,6 +245,8 @@ export default function Card({ x, index, type }) {
       </>
     );
   }
+
+  // generic card
 
   return (
     <>
