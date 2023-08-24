@@ -289,6 +289,8 @@ const userSlice = createSlice({
       state.showAlert = true;
       state.userInfo = action.payload.updatedUser;
       state.isSuccess = true;
+      state.alertText = "Your profile has been successfully Updated";
+
       state.usernamemodal = false;
       state.authmodal = false;
       state.registersuccess = true;

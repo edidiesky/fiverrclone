@@ -28,17 +28,46 @@ const GetUsersProfile = asyncHandler(async (req, res) => {
 //PRIVATE/USER
 const UpdateUser = asyncHandler(async (req, res) => {
   const { userId, username } = req.user;
+  const {
+    name,
+    image,
+    phone,
+    email,
+    password,
+    from,
+    language,
+    description,
+    skills,
+    occupation,
+  } = req.body;
   const user = await User.findById({ _id: req.params.id });
   if (!user) {
     res.status(404);
     throw new Error("The user does not exist");
   }
+  const updatedbodydata = {
+    name: name ? name : user?.name,
+    username: username ? username : user?.username,
+    image: image ? image : user?.image,
+    phone: phone ? phone : user?.phone,
+    email: email ? email : user?.email,
+    password,
+    about: {
+      from: from ? from : user?.about?.from,
+      language: language ? language : user?.about?.language,
+      description: description ? description : user?.about?.description,
+      skills: skills ? skills : user?.about?.skills,
+      occupation: occupation ? occupation : user?.about?.occupation,
+    },
+  };
+
   const updatedUser = await User.findByIdAndUpdate(
     { _id: req.params.id },
-    req.body,
+    {...updatedbodydata},
     { new: true }
   );
   res.status(200).json({ updatedUser });
+  // console.log({ ...updatedbodydata });
 });
 
 //PRIVATE/ADMIN
