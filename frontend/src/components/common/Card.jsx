@@ -149,9 +149,7 @@ export default function Card({ x, index, type }) {
           <CardSkeleton />
         ) : (
           <CardContent className="profile">
-            <div className="icon">
-              <Heart />
-            </div>
+         
             <Link
               to={`/gigs/${cardid}`}
               className="w-100 cards profile gap-1 flex column"
@@ -227,13 +225,13 @@ export default function Card({ x, index, type }) {
                     style={{ gap: ".5rem" }}
                     className="flex item-center"
                   >
-                    <FaHeart fontSize={'20px'} color="var(--grey-1)"/>
+                    <FaHeart fontSize={'20px'} color="var(--grey-2)"/>
                   </div>
                   <div
                     style={{ gap: ".5rem" }}
-                    className="flex item-center fs-24 text-bold text-dark"
+                    className="flex item-center fs-20 text-bold text-dark"
                   >
-                    <span className="fs-12 text-bold text-grey">
+                    <span style={{letterSpacing:"2px"}} className="fs-10 text-bold text-grey">
                       STARTING AT
                     </span>
                     ${x?.price}

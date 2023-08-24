@@ -37,7 +37,7 @@ export default function ProfileIndex() {
 const ProfileIndexContent = styled.div`
   width: 100%;
   padding: 7rem 0;
-  background-color: var(--grey-4);
+  background-color: #fff;
   .profileWrapper {
     display: grid;
     place-items: start;
