@@ -13,19 +13,30 @@ export default function EditForm({
   description,
   setDescription,
   setEditInputField,
+  languagetext,
+  setLanguageText,
+  setSkillText,
+  skilltext,
+  skill
+  ,setSkill
 }) {
   const dispatch = useDispatch();
 
   const handleTagInput = (e) => {
-    // check if the entetr key is pressed
-    if (e.key !== "Enter") return;
-    // check if the there is emppty value
-    let value = e.target.value;
-    if (!value.trim()) return;
-    // set the list
-    setCategory([...category, value]);
+    e.preventDefault();
+    setCategory([...category, languagetext]);
+    // console.log(category)
+    dispatch(UpdateProfile({ language: [languagetext] }));
+    setLanguageText("");
   };
 
+  const handleSkillTagInput = (e) => {
+    e.preventDefault();
+    setSkill([...skill, skilltext]);
+    // console.log(category)
+    dispatch(UpdateProfile({ skills: [skilltext] }));
+    setSkillText("");
+  };
   if (type === "description") {
     return (
       <EditFormContent>
@@ -71,33 +82,12 @@ export default function EditForm({
         <div className="flex w-90 auto column gap-1">
           <input
             type="text"
-            name="langauge"
-            value={category}
-            onChange={(e)=> setCategory(e.target.value)}
+            name="languagetext"
+            value={languagetext}
+            onChange={(e) => setLanguageText(e.target.value)}
             className="input fs-16"
-            placeholder="Add yuor langauges and your experience level (e.g. English))"
+            placeholder="Add your langauges and your experience level (e.g. English))"
           />
-          <select
-            value={category}
-            name="category"
-            style={{ fontSize: "15px" }}
-            className=" input"
-            placeholder="Choose one fs-14"
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            {experienceOptions.map((x, index) => {
-              return (
-                <option
-                  style={{ fontSize: "15px" }}
-                  className=""
-                  value={x}
-                  key={index}
-                >
-                  {x}
-                </option>
-              );
-            })}
-          </select>
           <div
             style={{
               paddingTop: "1.5rem",
@@ -111,7 +101,10 @@ export default function EditForm({
             >
               Cancel
             </button>
-            <button className="editBtn text-bold flex-1 text-center submit fs-16">
+            <button
+              onClick={handleTagInput}
+              className="editBtn text-bold flex-1 text-center submit fs-16"
+            >
               Add
             </button>
           </div>
@@ -126,29 +119,11 @@ export default function EditForm({
         <input
           type="text"
           className="input fs-16"
+          name="skilltext"
+          value={skilltext}
+          onChange={(e) => setSkillText(e.target.value)}
           placeholder="Add Skill (e.g. Voice Talent))"
         />
-        <select
-          value={category}
-          name="category"
-          style={{ fontSize: "15px" }}
-          className=" input"
-          placeholder="Choose one fs-14"
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          {experienceOptions.map((x, index) => {
-            return (
-              <option
-                style={{ fontSize: "15px" }}
-                className=""
-                value={x}
-                key={index}
-              >
-                {x}
-              </option>
-            );
-          })}
-        </select>
         <div
           style={{
             paddingTop: "1.5rem",
@@ -162,7 +137,10 @@ export default function EditForm({
           >
             Cancel
           </button>
-          <button className="editBtn text-bold flex-1 text-center submit fs-16">
+          <button
+            onClick={handleSkillTagInput}
+            className="editBtn text-bold flex-1 text-center submit fs-16"
+          >
             Add
           </button>
         </div>

@@ -10,8 +10,11 @@ export default function UserBottomInfo() {
   const checkUser = userInfo?.name === userDetails?.name;
   const [ondesc, setOnDesc] = useState(false);
   const [onlang, setOnLang] = useState(false);
+  const [onskill, setOnSkill] = useState(false);
 
   const [description, setDecription] = useState("");
+  const [languagetext, setLanguageText] = useState("");
+  const [skilltext, setSkillText] = useState("");
   const [language, setLanguage] = useState([]);
   const [skill, setSkill] = useState([]);
 
@@ -27,9 +30,11 @@ export default function UserBottomInfo() {
     }
   }, [userDetails, setDecription, setLanguage, setSkill]);
 
+  // console.log(language);
+
   return (
     <UserBottomInfoContent>
-      {/* bototm */}
+      {/* bottom */}
       <div className="w-100 py-2 flex column gap-3">
         {/* description */}
         <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
@@ -65,7 +70,7 @@ export default function UserBottomInfo() {
         <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
           <span className="flex family1 flex fs-20 justify-space item-center gap-2">
             Languages
-            {checkUser  && (
+            {checkUser && (
               <span
                 className=" text-blue fs-16"
                 onClick={() => setOnLang(!onlang)}
@@ -81,6 +86,8 @@ export default function UserBottomInfo() {
               experienceOptions={experienceOptions}
               setEditInputField={setOnLang}
               type={"language"}
+              languagetext={languagetext}
+              setLanguageText={setLanguageText}
             />
           )}
           {language?.length > 0 && (
@@ -108,11 +115,23 @@ export default function UserBottomInfo() {
           <span className="flex family1 flex fs-20 justify-space item-center gap-2">
             Skills
             {checkUser && (
-              <div className=" text-blue fs-16" onClick={() => setSkill(true)}>
+              <div
+                className=" text-blue fs-16"
+                onClick={() => setOnSkill(!onskill)}
+              >
                 Add Skills
               </div>
             )}
           </span>
+          {checkUser && onskill && (
+            <EditForm
+              skill={skill}
+              setSkill={setSkill}
+              skilltext={skilltext}
+              setEditInputField={setOnSkill}
+              setSkillText={setSkillText}
+            />
+          )}
           {skill?.length > 0 && (
             <div className="list_1 flex w-100">
               {skill?.map((x) => {

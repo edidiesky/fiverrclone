@@ -54,16 +54,18 @@ const UpdateUser = asyncHandler(async (req, res) => {
     password,
     about: {
       from: from ? from : user?.about?.from,
-      language: language ? language : user?.about?.language,
+      language: language
+        ? [...user?.about?.language, ...language]
+        : user?.about?.language,
+      skills: skills ? [...user?.about?.skills, ...skills] : user?.about?.skills,
       description: description ? description : user?.about?.description,
-      skills: skills ? skills : user?.about?.skills,
       occupation: occupation ? occupation : user?.about?.occupation,
     },
   };
 
   const updatedUser = await User.findByIdAndUpdate(
     { _id: req.params.id },
-    {...updatedbodydata},
+    { ...updatedbodydata },
     { new: true }
   );
   res.status(200).json({ updatedUser });
