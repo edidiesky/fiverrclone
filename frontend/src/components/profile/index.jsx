@@ -20,6 +20,7 @@ export default function ProfileIndex() {
   const { userDetails, profilemodal } = useSelector((store) => store.user);
 
   useEffect(() => {
+    dispatch(clearGigsAlert());
     dispatch(getUserId(sellersId));
     dispatch(getAllGigs());
   }, [sellerId]);
@@ -43,8 +44,12 @@ const ProfileIndexContent = styled.div`
     place-items: start;
     grid-gap: 5rem;
     grid-template-columns: 30vw 1fr;
+    @media (max-width: 980px) {
+      grid-gap: 3rem;
+    }
     @media (max-width: 780px) {
       grid-template-columns: 1fr;
+      grid-gap: 3rem;
     }
   }
 `;

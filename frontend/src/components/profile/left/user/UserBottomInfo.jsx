@@ -9,6 +9,7 @@ export default function UserBottomInfo() {
 
   const checkUser = userInfo?.name === userDetails?.name;
   const [ondesc, setOnDesc] = useState(false);
+  const [onlang, setOnLang] = useState(false);
 
   const [description, setDecription] = useState("");
   const [language, setLanguage] = useState([]);
@@ -34,7 +35,7 @@ export default function UserBottomInfo() {
         <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
           <span className="flex family1 fs-20 text-bold justify-space item-center gap-2">
             Description
-            {!ondesc && (
+            {!ondesc && checkUser && (
               <div
                 className=" text-blue fs-16"
                 onClick={() => setOnDesc(!ondesc)}
@@ -43,12 +44,12 @@ export default function UserBottomInfo() {
               </div>
             )}
           </span>
-          {ondesc ? (
+          {ondesc && checkUser ? (
             <EditForm
               type="description"
               description={description}
               setDescription={setDecription}
-              setDesc={setOnDesc}
+              setEditInputField={setOnDesc}
             />
           ) : (
             <>
@@ -59,39 +60,40 @@ export default function UserBottomInfo() {
               )}
             </>
           )}
-
-          {/* sample description */}
-
-          {/* <span className="">
-            Analyzes aerial pictures of rooftops using sophisticated software to
-            convert these aerial pictures into CAD drawings including exact
-            measurements.
-          </span> */}
-          {/* input description tab start */}
-          {/* input description tab end */}
         </div>
         {/* languages */}
         <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
           <span className="flex family1 flex fs-20 justify-space item-center gap-2">
             Languages
-            {checkUser && (
+            {checkUser  && (
               <span
                 className=" text-blue fs-16"
-                onClick={() => setLanguage(true)}
+                onClick={() => setOnLang(!onlang)}
               >
                 Add New
               </span>
             )}
           </span>
-          <EditForm
-            category={category}
-            setCategory={setCategory}
-            experienceOptions={experienceOptions}
-          />
+          {checkUser && onlang && (
+            <EditForm
+              category={language}
+              setCategory={setLanguage}
+              experienceOptions={experienceOptions}
+              setEditInputField={setOnLang}
+              type={"language"}
+            />
+          )}
           {language?.length > 0 && (
-            <div className="list w-100">
+            <div className="list_1 w-100">
               {language?.map((x) => {
-                return <span className="fs-14 skills family1">{x}</span>;
+                return (
+                  <span
+                    style={{ margin: ".5rem" }}
+                    className="fs-16 skills family1"
+                  >
+                    {x}
+                  </span>
+                );
               })}
             </div>
           )}
@@ -112,9 +114,16 @@ export default function UserBottomInfo() {
             )}
           </span>
           {skill?.length > 0 && (
-            <div className="list flex w-100">
+            <div className="list_1 flex w-100">
               {skill?.map((x) => {
-                return <span className="fs-14 skills family1">{x}</span>;
+                return (
+                  <span
+                    style={{ margin: ".5rem" }}
+                    className="fs-16 skills family1"
+                  >
+                    {x}
+                  </span>
+                );
               })}
             </div>
           )}
@@ -164,9 +173,9 @@ const UserBottomInfoContent = styled.div`
     padding: 0.9rem 1.2rem;
     border-radius: 40px;
   }
-  .list {
+  .list_1 {
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.2rem;
   }
   .bottom {
     padding-bottom: 1.6rem;

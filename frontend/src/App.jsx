@@ -7,7 +7,6 @@ import {
   Layout,
   Business,
   Services,
-  Profile,
   Explore,
   Error,
   Checkout,
@@ -38,6 +37,7 @@ import Order from "./screens/Order";
 //
 const HomeImport = React.lazy(() => import("./screens/Home"));
 const SingleImport = React.lazy(() => import("./screens/Single"));
+const ProfileImport = React.lazy(() => import("./screens/Profile"));
 
 export default function App() {
   const dispatch = useDispatch();
@@ -84,7 +84,9 @@ export default function App() {
               path="profile/:username"
               element={
                 <ProtectRoute>
-                  <Profile />
+                  <Suspense fallback={<LoaderIndex />}>
+                    <ProfileImport />
+                  </Suspense>
                 </ProtectRoute>
               }
             />

@@ -12,9 +12,20 @@ export default function EditForm({
   experienceOptions,
   description,
   setDescription,
-  setDesc,
+  setEditInputField,
 }) {
   const dispatch = useDispatch();
+
+  const handleTagInput = (e) => {
+    // check if the entetr key is pressed
+    if (e.key !== "Enter") return;
+    // check if the there is emppty value
+    let value = e.target.value;
+    if (!value.trim()) return;
+    // set the list
+    setCategory([...category, value]);
+  };
+
   if (type === "description") {
     return (
       <EditFormContent>
@@ -35,7 +46,7 @@ export default function EditForm({
             className="w-100 flex item-center gap-2 justify-space"
           >
             <button
-              onClick={() => setDesc(false)}
+              onClick={() => setEditInputField(false)}
               className="editBtn text-bold flex-1 text-center cancel fs-16"
             >
               Cancel
@@ -46,6 +57,61 @@ export default function EditForm({
               }
               className="editBtn text-bold flex-1 text-center submit fs-16"
             >
+              Add
+            </button>
+          </div>
+        </div>
+      </EditFormContent>
+    );
+  }
+
+  if (type === "language") {
+    return (
+      <EditFormContent>
+        <div className="flex w-90 auto column gap-1">
+          <input
+            type="text"
+            name="langauge"
+            value={category}
+            onChange={(e)=> setCategory(e.target.value)}
+            className="input fs-16"
+            placeholder="Add yuor langauges and your experience level (e.g. English))"
+          />
+          <select
+            value={category}
+            name="category"
+            style={{ fontSize: "15px" }}
+            className=" input"
+            placeholder="Choose one fs-14"
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            {experienceOptions.map((x, index) => {
+              return (
+                <option
+                  style={{ fontSize: "15px" }}
+                  className=""
+                  value={x}
+                  key={index}
+                >
+                  {x}
+                </option>
+              );
+            })}
+          </select>
+          <div
+            style={{
+              paddingTop: "1.5rem",
+              borderTop: "1px solid rgba(0,0,0,.1)",
+            }}
+            className="w-100 flex item-center gap-2 justify-space"
+          >
+            <button
+              onClick={() => setEditInputField(false)}
+              className="editBtn text-bold flex-1 text-center cancel fs-16"
+            >
+              Cancel
+            </button>
+            <button className="editBtn text-bold flex-1 text-center submit fs-16">
               Add
             </button>
           </div>
@@ -90,7 +156,10 @@ export default function EditForm({
           }}
           className="w-100 flex item-center gap-2 justify-space"
         >
-          <button className="editBtn text-bold flex-1 text-center cancel fs-16">
+          <button
+            onClick={() => setEditInputField(false)}
+            className="editBtn text-bold flex-1 text-center cancel fs-16"
+          >
             Cancel
           </button>
           <button className="editBtn text-bold flex-1 text-center submit fs-16">

@@ -43,7 +43,7 @@ export default function GigsIndex() {
         </div>
         <div className="w-100 projectwrapper">
           {Gigs?.map((x, index) => {
-            return <Card x={x} index={index} />;
+            return <Card type={'profile'} x={x} index={index} />;
           })}
         </div>
       </div>

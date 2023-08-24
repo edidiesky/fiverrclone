@@ -19,28 +19,26 @@ export default function ReviewCard({ x }) {
           />
         ) : (
           // <div className="avatar">E</div> ull
-          <img
-            src={x?.reviewuser?.image}
-            alt=""
-            className="avatar flex item-center justify-center"
-          />
+          <div className="avatar grey fs-20 text-white flex item-center justify-center">
+            {x?.reviewuser?.username?.charAt(0)}
+          </div>
         )}
         {/* left */}
         <div className="flex flex-1 column">
           {/* top */}
           <div className=" flex column item-start">
             {/* name */}
-            <h4 className="fs-18 text-dark text-bold">
+            <h4 className="fs-24 text-dark text-bold">
               {x?.reviewuser?.username}
             </h4>
             {/* country */}
-            <h4 className="fs-16 text-grey text-light">
+            <h4 className="fs-18 text-grey text-light">
               {x?.reviewuser?.country ? x?.reviewuser?.country : null}
             </h4>
             <div className="flex item-center py-1 gap-1 fs-14">
               <Rating value={x.rating} />
               <h4
-                className="fs-16 text-grey text-bold"
+                className="fs-20 text-grey text-bold"
                 style={{
                   paddingRight: "1rem",
                   borderRight: "1px solid #777",
@@ -48,11 +46,11 @@ export default function ReviewCard({ x }) {
               >
                 {x.rating}
               </h4>
-              <h4 className="fs-16 text-grey text-light">{createddate}</h4>
+              <h4 className="fs-18 text-grey text-light">{createddate}</h4>
             </div>
           </div>
           {/* comment */}
-          <p className="text-dark fs-18 text-light">{x.description}</p>
+          <p className="text-dark fs-20 text-light">{x.description}</p>
         </div>
       </CriticismCard>
     </div>
@@ -67,6 +65,9 @@ const CriticismCard = styled.div`
     width: 4.5rem;
     height: 4.5rem;
     border-radius: 50%;
+    &.grey {
+      background-color: rgba(0, 0, 0, 0.09);
+    }
   }
   .btnArrow {
     z-index: 80;

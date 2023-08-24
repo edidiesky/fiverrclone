@@ -27,10 +27,21 @@ export default function Message({
           : "gap-1 flex item-center justify-space"
       }
     >
-      <AiFillCheckCircle fontSize={"20px"} color="green" />
-      <div className="flex flex1 text-extra-bold text-dark">
+      {alertType === "danger" ? (
+        <CgDanger fontSize={"20px"} color="red" />
+      ) : (
+        <AiFillCheckCircle fontSize={"20px"} color="green" />
+      )}
+
+      <h5
+        className={
+          alertType === "danger"
+            ? "flex flex1 text-extra-bold activered"
+            : "flex flex1 text-extra-bold text-dark"
+        }
+      >
         {alertText}
-      </div>
+      </h5>
       <div className="icon" onClick={handleClearAlert}>
         <RxCross1 />
       </div>
@@ -40,7 +51,7 @@ export default function Message({
 
 const MessageContent = styled.div`
   min-width: 200px;
-  padding:1.4rem;
+  padding: 1.4rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   position: fixed;
@@ -60,6 +71,12 @@ const MessageContent = styled.div`
   &.active {
     top: 5%;
     transform: translateX(-50%);
+  }
+  h5 {
+    font-size: inherit;
+    &.activered {
+      color: var(--red);
+    }
   }
   &.danger {
     background-color: var(--red);

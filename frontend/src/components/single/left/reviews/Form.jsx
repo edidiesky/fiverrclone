@@ -6,7 +6,7 @@ import {
   createReviewGigs,
   createReviews,
 } from "../../../../Features";
-import Message from "../../../modals/Message";
+import Message from "../../../loaders/Message";
 
 const Form = ({ id }) => {
   const reviewOptions = [
@@ -51,13 +51,21 @@ const Form = ({ id }) => {
     }
   }, [userInfo, setForm]);
 
+  useEffect(() => {
+    if (reviewSuccess) {
+      setTimeout(() => {
+        dispatch(clearReviewsAlert());
+      }, 5000);
+    }
+  }, [reviewSuccess]);
+
   return (
     <FormWrapper className="flex w-100 gap-2 column">
       <Message
         alertType={alertType}
         showAlert={showAlert}
         alertText={alertText}
-        handleClearAlert={clearReviewsAlert}
+        handleClearAlert={dispatch(clearReviewsAlert())}
       />
       <h3 className="fs-18 text-extra-bold text-dark">Leave A Review</h3>
       <div className="flex w-100 column gap-1">

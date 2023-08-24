@@ -25,13 +25,14 @@ const createReviews = asyncHandler(async (req, res) => {
   }
 
   // check for permissions (admin and users)
-  if (role === "user" || role === "admin") {
+  if (role === "user" || role === "seller") {
     const data = {
       sellerId: gig.sellerId,
       description,
       rating,
       gig: gig._id,
       reviewuser: userId,
+      username:username
     };
 
     // check if the user has alraedy review the gig

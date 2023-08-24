@@ -38,7 +38,8 @@ const RatingContent = styled.div`
 	gap:.4rem;
 	span {
 		svg {
-			color:var(--yellow);
+			color:var(--grey-1);
+			font-size: 16px;
 		}
 	}
 	
