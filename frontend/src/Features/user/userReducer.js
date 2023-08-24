@@ -160,8 +160,10 @@ export const adminUpdateCustomer = createAsyncThunk(
 export const UpdateProfile = createAsyncThunk(
   "UpdateProfile",
   async (profiledata, thunkAPI) => {
+    // console.log(profiledata)
     const state = thunkAPI.getState();
     try {
+      // console.log(profiledata)
       const config = {
         headers: {
           authorization: `Bearer ${state.user.token}`,

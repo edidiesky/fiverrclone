@@ -22,7 +22,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
       borderColor: "transparent",
     },
     "&.Mui-focused ": {
-      border: "2px solid rgba(0,0,0,1)",
+      border: "2px solid var(--blue-1)",
       // borderColor: "transparent",
     },
   },

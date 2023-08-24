@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import EditForm from "./editform";
 
 export default function UserBottomInfo() {
   const { userInfo } = useSelector((store) => store.user);
   const { userDetails } = useSelector((store) => store.user);
 
   const checkUser = userInfo?.name === userDetails?.name;
+  const [ondesc, setOnDesc] = useState(false);
 
   const [description, setDecription] = useState("");
   const [language, setLanguage] = useState([]);
   const [skill, setSkill] = useState([]);
+
+  const experienceOptions = ["Begineer", "Intermediate", "Expert"];
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
     if (userDetails) {
@@ -29,19 +34,34 @@ export default function UserBottomInfo() {
         <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
           <span className="flex family1 fs-20 text-bold justify-space item-center gap-2">
             Description
-            {!description && (
+            {!ondesc && (
               <div
-                className=" text-blue fs-14"
-                onClick={() => setDecription(true)}
+                className=" text-blue fs-16"
+                onClick={() => setOnDesc(!ondesc)}
               >
                 Edit Description
               </div>
             )}
           </span>
-          {/* sample description */}
-          {description && (
-            <span className="fs-18 text-grey text-light">{description}</span>
+          {ondesc ? (
+            <EditForm
+              type="description"
+              description={description}
+              setDescription={setDecription}
+              setDesc={setOnDesc}
+            />
+          ) : (
+            <>
+              {description && (
+                <span className="fs-18 text-grey text-light">
+                  {description}
+                </span>
+              )}
+            </>
           )}
+
+          {/* sample description */}
+
           {/* <span className="">
             Analyzes aerial pictures of rooftops using sophisticated software to
             convert these aerial pictures into CAD drawings including exact
@@ -55,14 +75,19 @@ export default function UserBottomInfo() {
           <span className="flex family1 flex fs-20 justify-space item-center gap-2">
             Languages
             {checkUser && (
-              <div
-                className=" text-blue fs-14"
+              <span
+                className=" text-blue fs-16"
                 onClick={() => setLanguage(true)}
               >
                 Add New
-              </div>
+              </span>
             )}
           </span>
+          <EditForm
+            category={category}
+            setCategory={setCategory}
+            experienceOptions={experienceOptions}
+          />
           {language?.length > 0 && (
             <div className="list w-100">
               {language?.map((x) => {
@@ -81,7 +106,7 @@ export default function UserBottomInfo() {
           <span className="flex family1 flex fs-20 justify-space item-center gap-2">
             Skills
             {checkUser && (
-              <div className=" text-blue fs-14" onClick={() => setSkill(true)}>
+              <div className=" text-blue fs-16" onClick={() => setSkill(true)}>
                 Add Skills
               </div>
             )}

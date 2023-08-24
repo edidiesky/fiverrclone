@@ -27,7 +27,7 @@ export default function Message({
           : "gap-1 flex item-center justify-space"
       }
     >
-      <AiFillCheckCircle fontSize={"24px"} color="green" />
+      <AiFillCheckCircle fontSize={"20px"} color="green" />
       <div className="flex flex1 text-extra-bold text-dark">
         {alertText}
       </div>
@@ -40,14 +40,14 @@ export default function Message({
 
 const MessageContent = styled.div`
   min-width: 200px;
-  padding: 1rem;
+  padding:1.4rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   position: fixed;
   z-index: 10000;
   left: 2%;
   border-radius: 8px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--dark-1);
   transition: all 0.6s;

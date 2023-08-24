@@ -227,7 +227,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.userDetails = action.payload.user;
       state.showAlert = true;
-      state.alertText = `"${action.payload.user.firstname}" Your profile details has been sucessfully fetched`;
+      state.alertText = ` Your profile details has been sucessfully fetched`;
     },
     [getSingleCustomer.rejected]: (state, action) => {
       state.isLoading = false;

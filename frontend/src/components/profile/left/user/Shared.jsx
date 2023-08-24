@@ -15,7 +15,7 @@ export default function Shared() {
           Shared activity information
           </span>
           {/* sample description */}
-          <span className="text-light fs-14 family1 text-grey2">
+          <span className="text-light fs-18 family1 text-grey">
             In order to provide the best possible work and service, some
             information about your activity on Fiverr may be shared with
             sellers. Manage settings
