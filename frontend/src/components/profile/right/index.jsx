@@ -25,8 +25,8 @@ export default function ProfileRightIndex() {
         <Head text={`${userDetails?.name} Gigs`} />
         {/* seller Gigs */}
         <div className="w-100 gigs">
-          {Gigs?.slice(0, 4)?.map((x) => {
-            return <Card x={x} />;
+          {Gigs?.map((x) => {
+            return <Card type={'profile'} x={x} />;
           })}
         </div>
         {/* seller reviews */}
@@ -55,6 +55,7 @@ const ProfileRightIndexContent = styled.div`
     display: grid;
     width: 100%;
     grid-gap: 3rem;
+    place-items: start;
     @media (max-width: 980px) {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
