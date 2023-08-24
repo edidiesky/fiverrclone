@@ -193,7 +193,7 @@ const UserTopInfoContent = styled.div`
     background-color: rgba(0, 0, 0, 0.4);
 
     &:hover .image {
-      &.dark {
+      &.dark, &.grey {
         opacity: 1;
         visibility: visible;
       }
@@ -217,7 +217,10 @@ const UserTopInfoContent = styled.div`
     justify-content: center;
 
     &.grey {
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0,0,0,.4);
+      z-index: 300;
+      opacity: 0;
+      visibility: hidden;
     }
     &.dark {
       background-color: rgba(0, 0, 0, 0.6);
