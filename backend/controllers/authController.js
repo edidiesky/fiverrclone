@@ -74,9 +74,9 @@ import { google } from "googleapis";
 // });
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name } = req.body;
   //
-  if (!email || !password) {
+  if (!email || !password || !name) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
   }
@@ -91,6 +91,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const hashedpassword = await bcrypt.hash(req.body.password, salt);
   const Tempuser = {
     email,
+    name,
     password: hashedpassword
   };
   const user = await User.create(Tempuser);

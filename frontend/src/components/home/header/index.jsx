@@ -132,11 +132,19 @@ export default function Header() {
               E
             </div> */}
             {userInfo ? (
-              <img
-                src={userInfo?.image}
-                alt=""
-                className="avatar flex item-center justify-center"
-              />
+              <>
+                {userInfo?.image ? (
+                  <img
+                    src={userInfo?.image}
+                    alt=""
+                    className="avatar flex item-center justify-center"
+                  />
+                ) : (
+                  <div className="avatar grey fs-20 text-white flex item-center justify-center">
+                    {userInfo?.username?.charAt(0)}
+                  </div>
+                )}
+              </>
             ) : (
               <div className="avatar flex item-center justify-center">
                 <HiUser />
@@ -413,19 +421,19 @@ const HeaderTopContainer = styled.div`
     }
     &.active {
       .nav-link {
-      font-weight: 400;
-      color: #fff;
-      transition: all 0.5s;
-      text-decoration: none;
-      position: relative;
-      &:hover {
-        color: var(--green);
-      }
-      &.active {
+        font-weight: 400;
+        color: #fff;
+        transition: all 0.5s;
+        text-decoration: none;
         position: relative;
-        color: var(--green);
+        &:hover {
+          color: var(--green);
+        }
+        &.active {
+          position: relative;
+          color: var(--green);
+        }
       }
-    }
     }
     .nav-link {
       font-weight: 400;

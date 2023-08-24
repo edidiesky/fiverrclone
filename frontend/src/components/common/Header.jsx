@@ -146,12 +146,20 @@ export default function Header({ type }) {
             >
               E
             </div> */}
-            {userInfo?.image ? (
-              <img
-                src={userInfo?.image}
-                alt=""
-                className="avatar flex item-center justify-center"
-              />
+            {userInfo ? (
+              <>
+                {userInfo?.image ? (
+                  <img
+                    src={userInfo?.image}
+                    alt=""
+                    className="avatar flex item-center justify-center"
+                  />
+                ) : (
+                  <div className="avatar grey fs-20 text-white flex item-center justify-center">
+                    {userInfo?.username?.charAt(0)}
+                  </div>
+                )}
+              </>
             ) : (
               <div className="avatar flex item-center justify-center">
                 <HiUser />

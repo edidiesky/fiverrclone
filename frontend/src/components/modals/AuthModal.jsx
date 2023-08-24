@@ -27,10 +27,19 @@ import { googleAuth } from "../../Features/user/userReducer";
 import Message from "../loaders/Message";
 import { BiCheck } from "react-icons/bi";
 
-export default function AuthModal({ type, click }) {
+export default function AuthModal() {
   // swtich login and register tab
   const [auth, setAuth] = useState(false);
   const inputData = [
+    {
+      id: 3,
+      name: "name",
+      placeholder: "John Doe",
+      type: "tyext",
+      text: "Name",
+      errorMessage: "It should be a valid name",
+      required: true,
+    },
     {
       id: 1,
       name: "email",
@@ -40,6 +49,7 @@ export default function AuthModal({ type, click }) {
       errorMessage: "It should be a valid email",
       required: true,
     },
+
     {
       id: 2,
       name: "password",
@@ -70,9 +80,10 @@ export default function AuthModal({ type, click }) {
   const [formdata, setFormData] = useState({
     email: "",
     password: "",
+    name: "",
     username: "",
   });
-  const { email, username, password } = formdata;
+  const { email, username, password, name } = formdata;
 
   // framer motion set variants
   const dropin = {
@@ -125,7 +136,7 @@ export default function AuthModal({ type, click }) {
     e.preventDefault();
     // sign based on login and registration
     if (auth) {
-      dispatch(registerCustomer({ email, password }));
+      dispatch(registerCustomer({ email, password, name }));
       // console.log("registration");
     } else {
       dispatch(loginCustomer({ email, password }));
@@ -283,27 +294,50 @@ export default function AuthModal({ type, click }) {
                   </span>
                 </h3>
                 <div className="flex w-100 column" style={{ gap: ".6rem" }}>
-                  {inputData.map((input) => {
-                    return (
-                      <Input
-                        id={input.text}
-                        onChange={onChange}
-                        placeholder={input.placeholder}
-                        type={input.type}
-                        name={input.name}
-                        value={formdata[input.name]}
-                        input={input}
-                        key={input.id}
-                        required={input.required}
-                        pattern={input.pattern}
-                        errorMessage={input.errorMessage}
-                      />
-                    );
-                  })}
+                  {!auth ? (
+                    <>
+                      {inputData.slice(1, 3)?.map((input) => {
+                        return (
+                          <Input
+                            label={input.text}
+                            onChange={onChange}
+                            placeholder={input.placeholder}
+                            type={input.type}
+                            name={input.name}
+                            value={formdata[input.name]}
+                            input={input}
+                            key={input.id}
+                            required={input.required}
+                            pattern={input.pattern}
+                            errorMessage={input.errorMessage}
+                          />
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <>
+                      {inputData.slice(0, 3)?.map((input) => {
+                        return (
+                          <Input
+                            label={input.text}
+                            onChange={onChange}
+                            placeholder={input.placeholder}
+                            type={input.type}
+                            name={input.name}
+                            value={formdata[input.name]}
+                            input={input}
+                            key={input.id}
+                            required={input.required}
+                            pattern={input.pattern}
+                            errorMessage={input.errorMessage}
+                          />
+                        );
+                      })}
+                    </>
+                  )}
                 </div>
                 <div className="w-100 flex gap-2 column">
                   <button
-                    disabled={(!email || !password) && !isLoading}
                     className="btn fs-18 w-100 py-2 family1 px-4 text-white text-bold"
                     style={{ padding: "1.7rem 4rem" }}
                   >
