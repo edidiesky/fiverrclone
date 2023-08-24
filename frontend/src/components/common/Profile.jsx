@@ -1,24 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ClearBagData } from "../../Features/bag/bagSlice";
 import { ClearUserInfo, ClearauthInfo } from "../../Features";
 
-const data2 = [
-  { id: 1, title: "Profile", path: "/profile" },
-  { id: 2, title: "Post a request", path: "/" },
-  { id: 3, title: "Refer a friend", path: "/" },
-  { id: 5, title: "Become a Seller", path: "/seller_onboarding/do" },
-
-  { id: 6, title: "Settings", path: "/profile" },
-  { id: 7, title: "Billings", path: "/billing" },
-  { id: 8, title: "English", path: "/" },
-  { id: 9, title: "$USD", path: "/" },
-
-  { id: 8, title: "Help and Support", path: "/" },
-];
 export default function Profile({ profile }) {
+  const { userInfo } = useSelector((store) => store.user);
+
+  const data2 = [
+    {
+      id: 1,
+      title: "Profile",
+      path: `/profile/${userInfo?.username}?sellerId=${userInfo?._id}`,
+    },
+    { id: 2, title: "Post a request", path: "/" },
+    { id: 3, title: "Refer a friend", path: "/" },
+    { id: 5, title: "Become a Seller", path: "/seller_onboarding/do" },
+
+    {
+      id: 6,
+      title: "Settings",
+      path: `/profile/${userInfo?.username}?sellerId=${userInfo?._id}`,
+    },
+    { id: 7, title: "Billings", path: "/billing" },
+    { id: 8, title: "English", path: "/" },
+    { id: 9, title: "$USD", path: "/" },
+
+    { id: 8, title: "Help and Support", path: "/" },
+  ];
+
   const dispatch = useDispatch();
   const handleLogOut = () => {
     dispatch(ClearBagData());
@@ -34,16 +45,16 @@ export default function Profile({ profile }) {
           : "profileList flex column family1"
       }
     >
-      {data2.map((x,index) => {
+      {data2.map((x, index) => {
         return (
           <div key={index}>
-            <Link className="family1 link" to={`${x.path}`}>
+            <Link className="family1 links" to={`${x.path}`}>
               {x.title}
             </Link>
           </div>
         );
       })}
-      <div className="family1 link" onClick={handleLogOut}>
+      <div className="family1 links" onClick={handleLogOut}>
         Logout
       </div>
     </List>
@@ -82,15 +93,17 @@ const List = styled.div`
     border-left: 1px solid rgba(0, 0, 0, 0.2);
     background-color: #fff;
   }
-  .link {
-    font-size: 1.5rem;
-    font-weight: 300;
+  .links {
+    font-size: 1.7rem;
+    font-weight: 400;
     color: var(--grey-1);
     cursor: pointer;
+    &:hover {
+      color: var(--green);
+    }
   }
   div {
     color: var(--grey-1);
     padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 `;

@@ -50,8 +50,8 @@ const UserSchema = new mongoose.Schema(
     },
     level: {
       type: String,
-      default: "level 1 seller",
-      enum: ["level 1 seller", "level 2 seller", "level 3 seller"],
+      default: "level 1",
+      enum: ["level 1", "level 2", "level 3"],
     },
   },
   { timestamps: true }

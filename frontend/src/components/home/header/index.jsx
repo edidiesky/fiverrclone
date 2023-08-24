@@ -411,8 +411,24 @@ const HeaderTopContainer = styled.div`
     @media (max-width: 980px) {
       display: none;
     }
+    &.active {
+      .nav-link {
+      font-weight: 400;
+      color: #fff;
+      transition: all 0.5s;
+      text-decoration: none;
+      position: relative;
+      &:hover {
+        color: var(--green);
+      }
+      &.active {
+        position: relative;
+        color: var(--green);
+      }
+    }
+    }
     .nav-link {
-      font-weight: bold;
+      font-weight: 400;
       color: var(--grey-1);
       transition: all 0.5s;
       text-decoration: none;

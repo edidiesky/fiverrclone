@@ -150,7 +150,6 @@ export default function Card({ x, index, type }) {
           <CardSkeleton />
         ) : (
           <CardContent className="profile">
-         
             <Link
               to={`/gigs/${cardid}`}
               className="w-100 cards profile gap-1 flex column"
@@ -190,7 +189,10 @@ export default function Card({ x, index, type }) {
                     </h5>
                   </div>
                 </div>
-                <h4 style={{fontWeight:"400"}} className="desc fs-18 text-dark text-bold">
+                <h4
+                  style={{ fontWeight: "400" }}
+                  className="desc fs-18 text-dark text-bold"
+                >
                   {x?.title.substring(0, 50)}
                 </h4>
                 <div
@@ -222,17 +224,17 @@ export default function Card({ x, index, type }) {
               </div>
               <div className="w-100 card_bottom flex justify-space item-center">
                 <div className="w-85 auto flex item-center justify-space">
-                  <div
-                    style={{ gap: ".5rem" }}
-                    className="flex item-center"
-                  >
-                    <FaHeart fontSize={'20px'} color="var(--grey-2)"/>
+                  <div style={{ gap: ".5rem" }} className="flex item-center">
+                    <FaHeart fontSize={"20px"} color="var(--grey-2)" />
                   </div>
                   <div
                     style={{ gap: ".5rem" }}
                     className="flex item-center fs-20 text-bold text-dark"
                   >
-                    <span style={{letterSpacing:"2px"}} className="fs-10 text-bold text-grey">
+                    <span
+                      style={{ letterSpacing: "2px" }}
+                      className="fs-10 text-bold text-grey"
+                    >
                       STARTING AT
                     </span>
                     ${x?.price}
@@ -280,7 +282,7 @@ export default function Card({ x, index, type }) {
                 })}
               </div>
             </div>
-            <div className="w-100 flex column py-1 gap">
+            <div className="w-100 flex column py-1 gap-1">
               <div className="flex item-center w-100 justify-space">
                 <div className="flex gap-1 item-center">
                   <img
@@ -295,10 +297,13 @@ export default function Card({ x, index, type }) {
                     {x?.sellerId?.username}
                   </h5>
                 </div>
-                <h5 className="fs-16 text-grey text-bold">Luckyash</h5>
+                <h5 className="fs-16 text-grey text-bold">{x?.sellerId?.level}</h5>
               </div>
-              <h4 className="desc fs-18 py-1 text-dark text-light">
-                {x?.title.substring(0, 44)}....
+              <h4
+                style={{ fontWeight: "400" }}
+                className="desc fs-18 text-dark text-bold"
+              >
+                {x?.title.substring(0, 50)}
               </h4>
               <div
                 style={{ gap: ".3rem", padding: ".3rem 0" }}
@@ -326,6 +331,7 @@ export default function Card({ x, index, type }) {
       )}
     </>
   );
+
 }
 
 const CardContent = styled.div`
@@ -348,7 +354,7 @@ const CardContent = styled.div`
       .card_center {
         /* background-color: red; */
         padding: 1rem 0;
-       
+
         .desc {
           word-wrap: break-word;
           word-break: break-word;

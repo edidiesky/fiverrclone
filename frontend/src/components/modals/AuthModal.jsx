@@ -114,12 +114,12 @@ export default function AuthModal({ type, click }) {
   } = useSelector((store) => store.user);
 
   useEffect(() => {
-    if (loginSuccess || registersuccess) {
+    if (loginSuccess) {
       setTimeout(() => {
         dispatch(offAuthModal());
       }, 4000);
     }
-  }, [loginSuccess, registersuccess]);
+  }, [loginSuccess]);
   // form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -152,7 +152,7 @@ export default function AuthModal({ type, click }) {
         animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
       >
         {isLoading && <LoaderIndex />}
-        <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
+        <div className="backdrop"></div>
         <motion.div
           variants={dropin}
           initial="hidden"
