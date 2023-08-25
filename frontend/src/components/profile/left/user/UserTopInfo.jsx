@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaLocationArrow, FaUser } from "react-icons/fa";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -11,6 +11,8 @@ import { BsFillPencilFill } from "react-icons/bs";
 import { BiTime } from "react-icons/bi";
 import { SiMinutemailer } from "react-icons/si";
 import { onProfileModal } from "../../../../Features/user/userSlice";
+import { UpdateProfile } from "../../../../Features/user/userReducer";
+import LoaderIndex from "../../../loaders";
 
 export default function UserTopInfo({ image, setImage }) {
   const { userInfo, profilemodal } = useSelector((store) => store.user);
@@ -41,32 +43,49 @@ export default function UserTopInfo({ image, setImage }) {
       subtext: "13 hours",
     },
   ];
+
+  const [uploadimage, setUploadImage] = useState('');
+  const [uploading, setUploading] = useState(false);
+  const [alert, setAlert] = useState(false);
   const dispatch = useDispatch();
 
   const handleFileUpload = async (e) => {
     // get the file
-    console.log("hello");
     const file = e.target.files[0];
+    setUploading(true);
+    // create formdata
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "fiverr");
-    console.log("hello");
 
-    // try {
-    //   const { url } = await axios.post(
-    //     "https://api.cloudinary.com/v1_1/dl93zl9fn/image/upload",
-    //     formData
-    //   );
-    //   console.log(url);
-    //   return url;
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+      const { data } = await axios.post(
+        "/api/v1/upload/single",
+        formData,
+        config
+      );
+
+      setUploadImage(data.urls);
+      dispatch(UpdateProfile({ image: data.url }));
+      setAlert(true);
+      setUploading(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
+  // useEffect(()=> {
+  //   const {image} = userInfo
+  //   setUploadImage(image)
+  // },[userInfo, setUploadImage])
 
   return (
     <UserTopInfoContent>
       {/* top */}
+      {uploading && <LoaderIndex />}
       <div className="w-100 flex item-center justify-center column gap-1">
         {/* images */}
         {/* check if there is any image else seet the image folder */}
@@ -179,7 +198,7 @@ const UserTopInfoContent = styled.div`
     fill: #fff;
   }
   .proilfeLTBotttom {
-    @media (max-width:980px) {
+    @media (max-width: 980px) {
       width: 95%;
     }
   }
@@ -193,7 +212,8 @@ const UserTopInfoContent = styled.div`
     background-color: rgba(0, 0, 0, 0.4);
 
     &:hover .image {
-      &.dark, &.grey {
+      &.dark,
+      &.grey {
         opacity: 1;
         visibility: visible;
       }
@@ -217,7 +237,7 @@ const UserTopInfoContent = styled.div`
     justify-content: center;
 
     &.grey {
-      background-color: rgba(0,0,0,.4);
+      background-color: rgba(0, 0, 0, 0.4);
       z-index: 300;
       opacity: 0;
       visibility: hidden;

@@ -15,7 +15,7 @@ cloudinaryModule.config({
 
 const router = express.Router();
 // Configure Multer
-const upload = multer({ dest: 'airbnb/' });
+const upload = multer({ dest: "fiverr/" });
 
 router.post("/", upload.array("files", 4), async (req, res) => {
   try {
@@ -39,4 +39,21 @@ router.post("/", upload.array("files", 4), async (req, res) => {
   }
 });
 
-export default router 
+router.post("/single", upload.single("file"), async (req, res) => {
+  try {
+    // Optionally, you can respond with the URLs of the uploaded images
+    const result = await cloudinaryModule.uploader.upload(req.file.path);
+    res.json({
+      success: true,
+      message: "Images uploaded successfully",
+      url: result.secure_url,
+    });
+  } catch (error) {
+    console.error("Error uploading images:", error);
+    res
+      .status(500)
+      .json({ success: false, message: "Failed to upload images" });
+  }
+});
+
+export default router;

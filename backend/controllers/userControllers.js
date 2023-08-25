@@ -45,6 +45,8 @@ const UpdateUser = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("The user does not exist");
   }
+
+  // formatting the onject body needed for update
   const updatedbodydata = {
     name: name ? name : user?.name,
     username: username ? username : user?.username,

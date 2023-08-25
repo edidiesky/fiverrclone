@@ -187,7 +187,7 @@ const userSlice = createSlice({
       state.totalUser = action.payload.totalUser;
       state.showAlert = true;
       state.alertText =
-        "All User in the data base has been successfully gotten!";
+        "All User in the data base successfully gotten!";
       state.alertType = "success";
     },
     [getAllCustomer.rejected]: (state, action) => {
@@ -207,7 +207,7 @@ const userSlice = createSlice({
       state.userStats = action.payload;
       state.showAlert = true;
       state.alertText =
-        "All User in the data base has been successfully gotten!";
+        "All User in the data base successfully gotten!";
       state.alertType = "success";
     },
     [getUserStats.rejected]: (state, action) => {
@@ -227,7 +227,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.userDetails = action.payload.user;
       state.showAlert = true;
-      state.alertText = ` Your profile details has been sucessfully fetched`;
+      state.alertText = ` profile sucessfully fetched`;
     },
     [getSingleCustomer.rejected]: (state, action) => {
       state.isLoading = false;
@@ -248,7 +248,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.showAlert = true;
       state.isSuccess = true;
-      state.alertText = `"${state.userDetails.firstname}" has been successfully deleted`;
+      state.alertText = `"${state.userDetails.firstname}" successfully deleted`;
       state.alertType = "success";
     },
     [adminDeleteCustomer.rejected]: (state, action) => {
@@ -267,7 +267,7 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.showAlert = true;
       state.isSuccess = true;
-      state.alertText = "The user has been successfully Updated";
+      state.alertText = "The user successfully Updated";
       state.alertType = "success";
       state.showAlert = true;
     },
@@ -287,9 +287,10 @@ const userSlice = createSlice({
       //
       state.isLoading = false;
       state.showAlert = true;
+      state.userDetails = action.payload.updatedUser;
       state.userInfo = action.payload.updatedUser;
       state.isSuccess = true;
-      state.alertText = "Your profile has been successfully Updated";
+      state.alertText = "Profile successfully updated";
 
       state.usernamemodal = false;
       state.authmodal = false;
