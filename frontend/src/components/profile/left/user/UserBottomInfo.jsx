@@ -95,7 +95,7 @@ export default function UserBottomInfo() {
               {language?.map((x) => {
                 return (
                   <span
-                    style={{ margin: ".5rem" }}
+                    style={{ margin: ".3rem" }}
                     className="fs-16 skills family1"
                   >
                     {x}
@@ -137,7 +137,7 @@ export default function UserBottomInfo() {
               {skill?.map((x) => {
                 return (
                   <span
-                    style={{ margin: ".5rem" }}
+                    style={{ margin: ".3rem" }}
                     className="fs-16 skills family1"
                   >
                     {x}
@@ -194,7 +194,7 @@ const UserBottomInfoContent = styled.div`
   }
   .list_1 {
     flex-wrap: wrap;
-    gap: 1.2rem;
+    gap: .2rem;
   }
   .bottom {
     padding-bottom: 1.6rem;
