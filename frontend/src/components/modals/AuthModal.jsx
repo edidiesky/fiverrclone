@@ -462,8 +462,8 @@ const AuthModalContainer = styled(motion.div)`
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
   }
   .deleteCard {
-    width: 65%;
-
+    width: fit-content;
+    max-width: 875px;
     gap: 2rem;
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);

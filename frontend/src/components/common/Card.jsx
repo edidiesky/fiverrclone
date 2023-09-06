@@ -259,11 +259,47 @@ export default function Card({ x, index, type }) {
           <div className="icon">
             <Heart />
           </div>
+
           <Link
             to={`/gigs/${cardid}`}
             className="w-100 cards gap-1 flex column"
             key={x?.id}
           >
+            <div style={{zIndex:"300"}} className="w-100 abolute hidden">
+              {x?.image?.length >= 2 && (
+                <div className="flex hidden">
+                  {tabindex > 0 && (
+                    <div
+                      className="btnArrow shadow left"
+                      onClick={() => handleImagePosition("left")}
+                    >
+                      <BiChevronLeft />
+                    </div>
+                  )}
+                  <div
+                    className="btnArrow shadow right"
+                    onClick={() => handleImagePosition("right")}
+                  >
+                    <BiChevronRight />
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div
+              style={{ gap: "5px" }}
+              className="custom_nav_wrapper flex item-center justify-center"
+            >
+              {new Array(x?.image?.length).fill("").map((x, index) => {
+                const active = tabindex === index;
+                return (
+                  <div
+                    key={index}
+                    className={active ? "cutom_nav active" : "cutom_nav"}
+                  ></div>
+                );
+              })}
+            </div>
             <div className="detailsImageContainer">
               {/* button  */}
 
@@ -297,7 +333,9 @@ export default function Card({ x, index, type }) {
                     {x?.sellerId?.username}
                   </h5>
                 </div>
-                <h5 className="fs-16 text-grey text-bold">{x?.sellerId?.level}</h5>
+                <h5 className="fs-16 text-grey text-bold">
+                  {x?.sellerId?.level}
+                </h5>
               </div>
               <h4
                 style={{ fontWeight: "400" }}
@@ -331,7 +369,6 @@ export default function Card({ x, index, type }) {
       )}
     </>
   );
-
 }
 
 const CardContent = styled.div`
@@ -341,6 +378,16 @@ const CardContent = styled.div`
   }
   .cards {
     min-height: 34rem;
+    overflow: hidden;
+
+    position: relative;
+    &:hover {
+      .btnArrow {
+        &.right {
+          right: 4%;
+        }
+      }
+    }
     &.profile {
       border: 1px solid #e4e5e7;
       background-color: #fff;
@@ -380,6 +427,40 @@ const CardContent = styled.div`
     right: 5%;
     z-index: 3000;
   }
+  .custom_nav_wrapper {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -5%);
+    z-index: 300;
+    .cutom_nav {
+      height: 0.5rem;
+      width: 0.5rem;
+      z-index: 200;
+      border-radius: 50%;
+      background-color: #cfcfcf;
+      @media (max-width: 580px) {
+        height: 0.3rem;
+        width: 0.3rem;
+      }
+      &:nth-child(5) {
+        transform: scale(0.7);
+      }
+      &:nth-child(4) {
+        transform: scale(0.8);
+      }
+
+      &.active {
+        background-color: #fff;
+        &:nth-child(5) {
+          transform: scale(1);
+        }
+        &:nth-child(4) {
+          transform: scale(1);
+        }
+      }
+    }
+  }
   .detailsImageContainer {
     height: 16rem;
     width: 100%;
@@ -388,6 +469,7 @@ const CardContent = styled.div`
     grid-template-columns: repeat(4, 100%);
     overflow: hidden;
     grid-gap: 0rem;
+    border-radius: 10px;
     .detailsImageWrapper {
       position: absolute;
       transition: all 0.6s ease-in-out;
@@ -450,10 +532,10 @@ const CardContent = styled.div`
     border: 1px solid rgba(0, 0, 0, 0.2);
     z-index: 3000;
     &.left {
-      left: 4%;
+      left: -20%;
     }
     &.right {
-      right: -4%;
+      right: -40%;
     }
 
     svg {

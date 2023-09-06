@@ -1,8 +1,6 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
-import passport from "passport";
-import session from "express-session";
 dotenv.config();
 const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";

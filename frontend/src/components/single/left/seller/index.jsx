@@ -10,22 +10,22 @@ export default function SellerInfo() {
     <SellerInfoContent className="flex w-100 column gap-2">
       <div className="top w-100 ">
         <div className="w-100 flex column gap-2">
-          <h3 className="fs-30 text-bold text-grey">About the Seller</h3>
+          <h3 className="fs-24 text-bold text-grey">About the Seller</h3>
           <div className="flex item-center gap-2">
             <img
               src={GigsDetails?.sellerId?.image}
               alt=""
               style={{
-                width: "15rem",
-                height: "15rem",
+                width: "10rem",
+                height: "10rem",
                 objectFit: "cover",
                 borderRadius: "50%",
               }}
             />
             <div className="flex column item-start gap-1">
-              <h4 className="fs-24 text-grey text-bold">
+              <h4 className="fs-20 text-grey text-bold">
                 {GigsDetails?.sellerId?.name}{" "}
-                <span className="fs-20 text-light">
+                <span className="fs-16 text-light">
                   @{GigsDetails?.sellerId?.username}
                 </span>
               </h4>
@@ -38,7 +38,7 @@ export default function SellerInfo() {
                 <Rating value={5} />
                 <h4 className="fs-16 text-grey text-bold">{5} (101)</h4>
               </div>
-              <div className="w-100 flex">
+              <div className=" flex">
                 <Link to={"/"} className="contactBtn fs-16 family1">
                   Contact Me
                 </Link>

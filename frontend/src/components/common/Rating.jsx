@@ -10,22 +10,12 @@ export default function Rating({value, type}) {
 		return <RatingContent>
 	        <div className='RatingContainer'>
 	          <span>{value >= 1 ? <BsStarFill/>: value< 0.5? <BsStar/> : <BsStarFill/> }</span>
-	          <span>{value >= 2 ? <BsStarFill/>: value<1.5? <BsStar/> : <BsStarFill/> }</span>
-	          <span>{value >= 3 ? <BsStarFill/>: value<2.5? <BsStar/> : <BsStarFill/> }</span>
-	          <span>{value >= 4 ? <BsStarFill/>: value<3.5? <BsStar/> : <BsStarFill/> }</span>
-	          <span>{value >= 5 ? <BsStarFill/>: value<4.5? <BsStar/> : <BsStarFill/> }</span>
-	          
 	        </div>
 	       </RatingContent>
 	}
 	return <RatingContent>
 	        <div className='RatingContainer'>
 	          <span>{value >= 1 ? <FaStar/>: value< 0.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          <span>{value >= 2 ? <FaStar/>: value<1.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          <span>{value >= 3 ? <FaStar/>: value<2.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          <span>{value >= 4 ? <FaStar/>: value<3.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          <span>{value >= 5 ? <FaStar/>: value<4.5? <FaStarHalfAlt/> : <FaStar/> }</span>
-	          
 	        </div>
 	       </RatingContent>
 }
