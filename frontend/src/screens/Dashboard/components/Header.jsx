@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
 // import Logo2 from "../common/svg/Logo12";
 import { Link, NavLink } from "react-router-dom";
+import Logo from "../../../components/common/svg/Logo";
 // import Logo from "../common/svg/Logo";
 // import Dropdown from "../common/Dropdown";
 
@@ -10,17 +11,17 @@ const sidebarData = [
   {
     id: 1,
     title: "Listings",
-    path: "",
+    path: "dashboard",
   },
   {
     id: 2,
     title: "Reviews",
-    path: "Reviews",
+    path: "dashboard/Reviews",
   },
-  { id: 4, title: "Reservations", path: "reservations" },
+  { id: 4, title: "Reservations", path: "dashboard/reservations" },
 
-  { id: 5, title: "Earnings", path: "earning" },
-  { id: 6, title: "Inbox", path: "Profile" },
+  { id: 5, title: "Earnings", path: "dashboard/earning" },
+  { id: 6, title: "Profile", path: "dashboard/Profile" },
 ];
 export default function Header({ type }) {
   const [drop, setDrop] = useState(false);
@@ -28,28 +29,31 @@ export default function Header({ type }) {
     return (
       <>
         <ListingHeaderContainer className="type">
-          <div className="aboutCenter flex item-center gap-3 justify-center w-90 auto">
-            <Link to={"/"}>
-              {/* <Logo2 /> */}
-            </Link>
-            <div
-              style={{ gap: ".1rem" }}
-              className="flex list w-100 justify-center item-center"
-            >
-              {sidebarData.map((x) => {
-                return (
-                  <NavLink
-                    className="nav-link "
-                    activeClassName="active"
-                    to={`/dashboard/hosting/${x.path}`}
-                    key={x.id}
-                  >
-                    <span className="span"> {x.title}</span>
-                  </NavLink>
-                );
-              })}
+          <div className="aboutCenter flex item-center gap-3 justify-space w-85 auto">
+            <div className="flex item-center gap-2">
+              <Link to={"/"}>
+                {/* <Logo2 /> */}
+                <Logo active={true} />
+              </Link>
+              <div
+                style={{ gap: ".1rem" }}
+                className="flex list w-100 justify-start item-center"
+              >
+                {sidebarData.map((x) => {
+                  return (
+                    <NavLink
+                      className="nav-link"
+                      activeClassName="active"
+                      to={`/${x.path}`}
+                      key={x.id}
+                    >
+                      <span className="span"> {x.title}</span>
+                    </NavLink>
+                  );
+                })}
+              </div>
             </div>
-            <div className="flex top item-center gap-1 justify-end">
+            <div className="flex top right item-center gap-1 justify-end">
               <AnimatePresence
                 initial="false"
                 exitBeforeEnter={true}
@@ -84,6 +88,9 @@ export default function Header({ type }) {
                   E
                 </div>
               </div>
+              <h5 style={{fontWeight:"800"}} className="fs-16 family3 text-extra-bold">Micheal peters
+              <span className="block fs-14 text-light text-grey">pertes@gmail.com</span>
+              </h5>
             </div>
           </div>
         </ListingHeaderContainer>
@@ -126,10 +133,13 @@ const ListingHeaderContainer = styled.div`
       /* border-bottom: 1px solid rgba(0, 0, 0, 0.07); */
     }
   }
+  .right {
+    justify-content: flex-end;
+  }
 
   .nav-link {
     padding: 7px 14px;
-    font-size: 14.5px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--dark-1);
     display: flex;
@@ -148,6 +158,7 @@ const ListingHeaderContainer = styled.div`
       /* background-color: #000; */
       /* color: #fff; */
       background-color: #f7f7f7;
+      box-shadow: var(--shadow);
       /* 
           &::after {
             position: absolute;

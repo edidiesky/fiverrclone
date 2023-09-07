@@ -10,6 +10,7 @@ const VisualChart = ({type}) => {
       width: "100%",
       type: type,
       stacked: false,
+      fontFamily: "Nunito, sans-serif",
     },
     dataLabels: {
       enabled: false,
@@ -18,7 +19,7 @@ const VisualChart = ({type}) => {
     series: [
       {
         name: "Series A",
-        data: [1, 2,],
+        data: [1, 2],
       },
     ],
     stroke: {
@@ -30,7 +31,7 @@ const VisualChart = ({type}) => {
       },
     },
     xaxis: {
-      categories: [2009, 2010,],
+      categories: [2009, 2010],
     },
     yaxis: [
       {
