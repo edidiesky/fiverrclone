@@ -12,13 +12,13 @@ import {
 } from "../../../Features";
 import Message from "../../../components/loaders/Message";
 import LoaderIndex from "../../../components/loaders/index";
+import { inputData } from "../../../data/formdata";
 
 export default function Profile() {
   // getting the userinfo
 
   // // user's state
   const {
-    userDetails,
     userInfo,
     isLoading,
     isError,
@@ -38,8 +38,8 @@ export default function Profile() {
   }, []);
 
   const [formdata, setFormData] = useState({
-    firstname: "",
-    lastname: "",
+    name: "",
+    username: "",
     email: "",
     password: "",
     country: "",
@@ -50,20 +50,20 @@ export default function Profile() {
   });
 
   useEffect(() => {
-    if (userDetails) {
+    if (userInfo) {
       const {
-        firstname,
-        lastname,
+        name,
+        username,
         email,
         country,
         isAdmin,
         phone,
         city,
         address,
-      } = userDetails;
+      } = userInfo;
       setFormData({
-        firstname,
-        lastname,
+        name,
+        username,
         email,
         country,
         isAdmin,
@@ -72,100 +72,7 @@ export default function Profile() {
         address,
       });
     }
-  }, [setFormData, userDetails]);
-
-  const inputData = [
-    {
-      id: 1,
-      name: "firstname",
-      placeholder: "John",
-      type: "text",
-      text: "First name",
-      errorMessage:
-        "firstname should be 3-16 characters and should not contain any special Characters",
-      required: true,
-      pattern: "^[a-zA-Z]{4,}( {1,2}[a-zA-Z]{4,}){0,}$",
-    },
-    {
-      id: 2,
-      name: "lastname",
-      placeholder: "Doe",
-      type: "text",
-      text: "Last name",
-      errorMessage:
-        "lastname should be 3-16 characters and should not contain any special Characters",
-      required: true,
-      pattern: "^[a-zA-Z]{4,}( {1,2}[a-zA-Z]{4,}){0,}$",
-    },
-    {
-      id: 3,
-      name: "email",
-      placeholder: "example@site.com",
-      type: "email",
-      text: "Email",
-      errorMessage: "It should be a valid email",
-      required: true,
-    },
-    {
-      id: 4,
-      name: "password",
-      placeholder: "Minimum 8 Characters",
-      type: "password",
-      text: "password",
-    },
-    {
-      id: 5,
-      name: "isAdmin",
-      placeholder: "isAdmin",
-      type: "text",
-      text: "isAdmin",
-      errorMessage:
-        "isAdmin should be 3-16 characters and should not contain any special Characters",
-      required: true,
-    },
-    {
-      id: 6,
-      name: "phone",
-      placeholder: "Doe",
-      type: "text",
-      text: "phone",
-      errorMessage:
-        "phone should be 3-16 characters and should not contain any special Characters",
-      required: true,
-    },
-    {
-      id: 7,
-      name: "country",
-      placeholder: "country",
-      type: "text",
-      text: "Country",
-      errorMessage:
-        "country should be 3-16 characters and should not contain any special Characters",
-      required: true,
-      pattern: "^[a-zA-Z]{4,}( {1,2}[a-zA-Z]{4,}){0,}$",
-    },
-    {
-      id: 8,
-      name: "city",
-      placeholder: "city",
-      type: "text",
-      text: "city",
-      errorMessage:
-        "city should be 3-16 characters and should not contain any special Characters",
-      required: true,
-      pattern: "^[a-zA-Z]{4,}( {1,2}[a-zA-Z]{4,}){0,}$",
-    },
-    {
-      id: 9,
-      name: "address",
-      placeholder: "address",
-      type: "text",
-      text: "address",
-      errorMessage:
-        "address should be 3-16 characters and should not contain any special Characters",
-      required: true,
-    },
-  ];
+  }, [setFormData, userInfo]);
 
   const navigate = useNavigate();
 
@@ -191,10 +98,11 @@ export default function Profile() {
   return (
     <>
       {isLoading && <LoaderIndex loading={isLoading} />}
-      <Topbar text={"Customer Profile"} />
-      <ProfileContainer>
-        <div className="profileWrapper">
-          <h2 className="family1 flex-1 fs-30 text-dark">Profile</h2>
+      <ProfileContainer className="w-90 auto">
+        <div className="profileWrapper w-90 auto">
+          <h2 className="family1 w-90 text-bold auto flex-1 fs-30 text-dark">
+            My Profile
+          </h2>
 
           {isError && (
             <Message
@@ -203,35 +111,22 @@ export default function Profile() {
               alertType={alertType}
             />
           )}
-          <form className="profileForm" onSubmit={handleUpdateUserProfile}>
-            <div className="profileFormBottom">
-              {inputData.slice(0, 6).map((input) => {
-                return (
-                  <Input
-                    id={input.text}
-                    onChange={onChange}
-                    placeholder={input.placeholder}
-                    type={input.type}
-                    name={input.name}
-                    value={formdata[input.name]}
-                    input={input}
-                    key={input.id}
-                    required={input.required}
-                    pattern={input.pattern}
-                    errorMessage={input.errorMessage}
-                  />
-                );
-              })}
-            </div>
-            <div className="ProfileBottom family1">
-              <h3>Personal Address</h3>
-              <div className="profileFormBottom">
-                {inputData.slice(6, 9).map((input) => {
+          <div className="flex w-90 auto family3 column gap-3">
+            {/* name lagal */}
+            <div className="flex family3  bottom column gap-1">
+              <span className="text-dark text-bold fs-18">
+                Legal name
+                <span className="text-grey text-light block fs-16">
+                  This is the name on your travel document, which could be a
+                  license or a passport.
+                </span>
+              </span>
+              <div className="grid wrap1 justify-space w-100">
+                {inputData?.slice(0, 2).map((input) => {
                   return (
                     <Input
-                      id={input.text}
+                      label={input.text}
                       onChange={onChange}
-                      placeholder={input.placeholder}
                       type={input.type}
                       name={input.name}
                       value={formdata[input.name]}
@@ -245,12 +140,127 @@ export default function Profile() {
                 })}
               </div>
             </div>
-            <div className="btnWrapper">
-              <button type="submit" className="editBtn family1">
-                Edit Profile
-              </button>
+            {/* email legal */}
+            <div className="flex family3  bottom column gap-1">
+              <span className="text-dark text-bold fs-18">
+                Email
+                <span className="block text-light fs-16">
+                  Use an address you’ll always have access to.
+                </span>
+              </span>
+              <div className="flex family3  gap-1 item-center justify-space w-100">
+                <Input
+                  label={inputData[2].text}
+                  onChange={onChange}
+                  type={inputData[2].type}
+                  name={inputData[2].name}
+                  value={formdata[inputData[2].name]}
+                  input={inputData[2]}
+                  key={inputData[2].id}
+                  required={inputData[2].required}
+                  pattern={inputData[2].pattern}
+                  errorMessage={inputData[2].errorMessage}
+                />
+              </div>
             </div>
-          </form>
+            {/* phone number */}
+            <div className="flex family3  bottom bottom1 column gap-1">
+              <span className="text-dark text-bold fs-18">
+                Phone numbers
+                <span className="block text-light fs-16">
+                  Add a number so confirmed guests and Airbnb can get in touch.
+                  You can add other numbers and choose how they’re used.
+                </span>
+              </span>
+              <div className="flex family3  gap-1 item-center justify-space w-100">
+                <Input
+                  label={inputData[3].text}
+                  onChange={onChange}
+                  type={inputData[3].type}
+                  name={inputData[3].name}
+                  value={formdata[inputData[3].name]}
+                  input={inputData[3]}
+                  key={inputData[3].id}
+                  required={inputData[3].required}
+                  pattern={inputData[3].pattern}
+                  errorMessage={inputData[3].errorMessage}
+                />
+              </div>
+            </div>
+            <div className="flex family3  bottom bottom1 column gap-1">
+              <span className="text-dark text-bold fs-18">
+                Address
+                <span className="block text-light fs-16">
+                  Use a permanent address where you can receive mail.
+                </span>
+              </span>
+              <div className="flex family3  column gap-1 item-start justify-space w-100">
+                <div className="wrap1">
+                  <Input
+                    label={inputData[5].text}
+                    onChange={onChange}
+                    type={inputData[5].type}
+                    name={inputData[5].name}
+                    value={formdata[inputData[5].name]}
+                    input={inputData[5]}
+                    key={inputData[5].id}
+                    required={inputData[5].required}
+                    pattern={inputData[5].pattern}
+                    errorMessage={inputData[5].errorMessage}
+                  />
+                  <div className=""></div>
+                </div>
+                <div className="w-100">
+                  <Input
+                    label={inputData[6].text}
+                    onChange={onChange}
+                    type={inputData[6].type}
+                    name={inputData[6].name}
+                    value={formdata[inputData[6].name]}
+                    input={inputData[6]}
+                    key={inputData[6].id}
+                    required={inputData[6].required}
+                    pattern={inputData[6].pattern}
+                    errorMessage={inputData[6].errorMessage}
+                  />
+                </div>
+                <div className="wrap1">
+                  <Input
+                    label={inputData[7].text}
+                    onChange={onChange}
+                    type={inputData[7].type}
+                    name={inputData[7].name}
+                    value={formdata[inputData[7].name]}
+                    input={inputData[7]}
+                    key={inputData[7].id}
+                    required={inputData[7].required}
+                    pattern={inputData[7].pattern}
+                    errorMessage={inputData[7].errorMessage}
+                  />
+                  <Input
+                    label={inputData[8].text}
+                    onChange={onChange}
+                    type={inputData[8].type}
+                    name={inputData[8].name}
+                    value={formdata[inputData[8].name]}
+                    input={inputData[8]}
+                    key={inputData[8].id}
+                    required={inputData[8].required}
+                    pattern={inputData[8].pattern}
+                    errorMessage={inputData[8].errorMessage}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex">
+              <div
+                onClick={handleUpdateUserProfile}
+                className="edit btn_1 fs-16 text-white"
+              >
+                Save
+              </div>
+            </div>
+          </div>
         </div>
       </ProfileContainer>
     </>
@@ -258,14 +268,35 @@ export default function Profile() {
 }
 
 const ProfileContainer = styled.div`
-  width: 95%;
   margin: 0 auto;
   padding: 3rem 0;
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+    span {
+      color: var(--green);
+    }
+  }
+  .edit {
+    padding: 1.5rem 4rem;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff !important;
+    background-color: #000;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  .wrap1 {
+    display: grid;
+    width: 100% !important;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
   .profileWrapper {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    width: 100%;
     .EditProfileWrapperTopLeft {
       display: flex;
       flex-direction: column;
