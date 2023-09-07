@@ -20,9 +20,15 @@ const StatisticsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+    span {
+      color: var(--green);
+    }
+  }
 
   .chartWrapper {
-    width: 90%;
     margin: 0 auto;
     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -47,26 +53,22 @@ export default function Statistics() {
 
   return (
     <>
-      {/* <Alert /> */}
-      {/* <Header text={"Edidiong Essien"} type={'n'} /> */}
-      <Topbar />
-
       <StatisticsWrapper>
         <div className="w-90 auto">
-          <h2 className="family1 w-90 auto flex-1 fs-30 text-dark">
-            {"Welcome back, Edidie Essien"}
-            <span className="block fs-14 text-grey3 text-light w-50">
-              {
-                ""
-              }
+          <h2 className="family1 w-90 text-bold auto flex-1 fs-30 text-dark">
+            Your Sales Balance is
+
+            <span className="block family2 text-grey3 text-bold w-50">
+             $400,4000
             </span>
           </h2>
         </div>
         <Widget />
-        <div className="chartWrapper flex column gap-2">
-          <VisualChart type={"line"} />
+        <div className="chartWrapper w-100 flex column gap-2">
+           <VisualChart type={"line"} />
+          {/* <VisualChart type={"line"} />
           <VisualChart type={"bar"} />
-          <Orders />
+          <Orders /> */}
         </div>
       </StatisticsWrapper>
     </>

@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";
 const LayoutWrapper = styled.div`
-  background: var(--grey-4);
+  /* background: var(--grey-4); */
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -12,7 +12,9 @@ const LayoutWrapper = styled.div`
     width: 100%;
     .OutletWrapper {
       width: 100%;
-      padding-bottom: 3.5rem;
+
+      padding: 3.5rem 0;
+      padding-top: 12rem;
       @media (max-width: 980px) {
         transform: translateY(0);
         z-index: 9000;
@@ -20,10 +22,10 @@ const LayoutWrapper = styled.div`
     }
   }
   h2 {
-    @media (max-width:1080px) {
+    @media (max-width: 1080px) {
       font-size: 2.8rem;
     }
-    @media (max-width:480px) {
+    @media (max-width: 480px) {
       font-size: 2.4rem;
     }
   }
@@ -37,7 +39,7 @@ export default function Layout() {
       <div className="LayoutContainer">
         <Header />
         <div className="OutletWrapper">
-          {/* <Outlet /> */}
+          <Outlet />
         </div>
       </div>
     </LayoutWrapper>

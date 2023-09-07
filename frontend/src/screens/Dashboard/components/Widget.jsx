@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaEye, FaMoneyCheck } from "react-icons/fa";
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { AiFillCreditCard, AiFillPieChart } from "react-icons/ai";
+import { IoMdStats } from "react-icons/io";
 import { BiStats } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import { BsCartPlus } from "react-icons/bs";
@@ -15,7 +16,7 @@ export default function Widget() {
       id: 1,
       title: "Total Sales",
       qty: "$100,357",
-      icon: <RiMoneyDollarCircleLine />,
+      icon: <AiFillCreditCard />,
       back: "#ff3333",
       percent: "2.6",
     },
@@ -23,7 +24,7 @@ export default function Widget() {
       id: 2,
       title: "Visitors",
       qty: `$100`,
-      icon: <FaEye />,
+      icon: <IoMdStats />,
       back: "#50fc61",
       percent: "-0.06",
     },
@@ -31,7 +32,7 @@ export default function Widget() {
       id: 4,
       title: "Total Product",
       qty: `100`,
-      icon: <BiStats />,
+      icon: <AiFillPieChart />,
       back: "#1457ed",
       percent: "+1.06",
     },
@@ -58,8 +59,8 @@ export default function Widget() {
           >
             <div className="Icons">{x.icon}</div>
             <h2>
-              <span className="span1">{x.title}</span>
               {x.qty}
+              <span className="span1">{x.title}</span>
             </h2>
           </div>
         );
@@ -88,6 +89,7 @@ const WidgetWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    border: 1px solid rgba(0,0,0,.2);
     width: 100%;
     border-radius: 10px;
     transition: all 0.3s;
@@ -101,7 +103,7 @@ const WidgetWrapper = styled.div`
     }
 
     h2 {
-      font-size: 3rem;
+      font-size: 5rem;
       color: var(--text-color);
       font-weight: 600;
       text-transform: uppercase;
@@ -110,8 +112,8 @@ const WidgetWrapper = styled.div`
       }
       .span1 {
         display: block;
-        font-size: 1.6rem;
-        color: var(--grey-2);
+        font-size:2rem;
+        color: var(--grey-1);
         font-weight: 400;
         text-transform: capitalize;
       }
@@ -124,29 +126,10 @@ const WidgetWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #daf2c2;
-      border-radius: 50%;
+      border-radius: 5px;
       svg {
         font-size: 2.5rem;
         color: var(--green);
-      }
-    }
-    &.active,
-    &:hover {
-      background: #daf2c2;
-      .Icons {
-        background: var(--green);
-        svg {
-          color: #daf2c2;
-        }
-      }
-
-      h2,
-      h4 {
-        color: var(--white);
-        .span2 {
-          color: var(--white);
-        }
       }
     }
   }

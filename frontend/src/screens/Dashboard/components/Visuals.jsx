@@ -14,15 +14,11 @@ const VisualChart = ({type}) => {
     dataLabels: {
       enabled: false,
     },
-    colors: ["#FF1654", "#247BA0"],
+    colors: ["var(--dark-1)"],
     series: [
       {
         name: "Series A",
-        data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6],
-      },
-      {
-        name: "Series B",
-        data: [20, 29, 37, 36, 44, 45, 50, 58],
+        data: [1, 2,],
       },
     ],
     stroke: {
@@ -34,7 +30,7 @@ const VisualChart = ({type}) => {
       },
     },
     xaxis: {
-      categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+      categories: [2009, 2010,],
     },
     yaxis: [
       {
@@ -43,38 +39,17 @@ const VisualChart = ({type}) => {
         },
         axisBorder: {
           show: true,
-          color: "#FF1654",
+          color: "var(--dark-1)",
         },
         labels: {
           style: {
-            colors: "#FF1654",
+            colors: "var(--dark-1)",
           },
         },
         title: {
           text: "Series A",
           style: {
-            color: "#FF1654",
-          },
-        },
-      },
-      {
-        opposite: true,
-        axisTicks: {
-          show: true,
-        },
-        axisBorder: {
-          show: true,
-          color: "#247BA0",
-        },
-        labels: {
-          style: {
-            colors: "#247BA0",
-          },
-        },
-        title: {
-          text: "Series B",
-          style: {
-            color: "#247BA0",
+            color: "var(--dark-1)",
           },
         },
       },
@@ -118,7 +93,6 @@ const VisualsWrapper = styled.div`
     color: var(--text-color);
     font-weight: 600;
     text-transform: uppercase;
-    font-family: "Barlow", sans-serif;
   }
 `;
 
