@@ -38,7 +38,7 @@ export default function SellerInfo() {
                 <Rating value={5} />
                 <h4 className="fs-16 text-grey text-bold">{5} (101)</h4>
               </div>
-              <div className=" flex">
+              <div style={{width:"200px"}} className="flex justify-start item-center">
                 <Link to={"/"} className="contactBtn fs-16 family1">
                   Contact Me
                 </Link>

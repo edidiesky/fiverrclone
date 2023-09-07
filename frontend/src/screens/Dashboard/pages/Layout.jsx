@@ -32,11 +32,12 @@ const LayoutWrapper = styled.div`
 export default function Layout() {
   return (
     <LayoutWrapper>
-      <Sidebar />
+      {/* <Sidebar /> */}
       {/* <Header /> */}
       <div className="LayoutContainer">
+        <Header />
         <div className="OutletWrapper">
-          <Outlet />
+          {/* <Outlet /> */}
         </div>
       </div>
     </LayoutWrapper>

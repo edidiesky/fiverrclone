@@ -1,225 +1,194 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
-import { MdNotifications } from "react-icons/md";
-import { AiFillSetting, AiOutlineMail } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
-const HeaderWrapper = styled.div`
-  background: #000000;
+// import Logo2 from "../common/svg/Logo12";
+import { Link, NavLink } from "react-router-dom";
+// import Logo from "../common/svg/Logo";
+// import Dropdown from "../common/Dropdown";
 
-  /* z-index: 11000; */
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
+const sidebarData = [
+  {
+    id: 1,
+    title: "Listings",
+    path: "",
+  },
+  {
+    id: 2,
+    title: "Reviews",
+    path: "Reviews",
+  },
+  { id: 4, title: "Reservations", path: "reservations" },
+
+  { id: 5, title: "Earnings", path: "earning" },
+  { id: 6, title: "Inbox", path: "Profile" },
+];
+export default function Header({ type }) {
+  const [drop, setDrop] = useState(false);
+
+    return (
+      <>
+        <ListingHeaderContainer className="type">
+          <div className="aboutCenter flex item-center gap-3 justify-center w-90 auto">
+            <Link to={"/"}>
+              {/* <Logo2 /> */}
+            </Link>
+            <div
+              style={{ gap: ".1rem" }}
+              className="flex list w-100 justify-center item-center"
+            >
+              {sidebarData.map((x) => {
+                return (
+                  <NavLink
+                    className="nav-link "
+                    activeClassName="active"
+                    to={`/dashboard/hosting/${x.path}`}
+                    key={x.id}
+                  >
+                    <span className="span"> {x.title}</span>
+                  </NavLink>
+                );
+              })}
+            </div>
+            <div className="flex top item-center gap-1 justify-end">
+              <AnimatePresence
+                initial="false"
+                exitBeforeEnter={true}
+                onExitComplete={() => null}
+              >
+                {/* {drop && (
+                  <Dropdown setDrop={setDrop} drop={drop} type={"type"} />
+                )} */}
+              </AnimatePresence>
+              <div
+                onClick={() => setDrop(!drop)}
+                style={{
+                  width: "4rem",
+                  height: "4rem",
+                  borderRadius: "50%",
+                  background: "rgba(0,0,0,.1)",
+                  color: "#Fff",
+                }}
+                className="profile_wrapper flex item-center justify-center"
+              >
+                <div
+                  style={{
+                    width: "90%",
+                    height: "90%",
+                    borderRadius: "50%",
+                    background: "#000",
+                    color: "#Fff",
+                    border: "2px solid #fff",
+                  }}
+                  className="fs-16 text-white flex item-center justify-center"
+                >
+                  E
+                </div>
+              </div>
+            </div>
+          </div>
+        </ListingHeaderContainer>
+      </>
+    );
+  
+}
+
+const ListingHeaderContainer = styled.div`
   width: 100%;
-  border-bottom: 1px solid #ccc;
-  padding: 3rem 0;
-  padding-bottom: 12rem;
-  @media (max-width: 980px) {
-    padding: 1rem;
-    padding-bottom: 0;
-    position: sticky;
-    top: 0;
-    height: 8rem;
-  }
-  .HeaderTopWrapper {
-    width: 90%;
-    margin: 0 auto;
-    @media (max-width: 980px) {
-      flex-direction: column;
-      gap: 2rem;
-      align-items: flex-start;
+  padding: 2rem 0;
+  top: 0;
+  position: fixed;
+  z-index: 300;
+  background-color: #fff;
+  .list {
+    @media (max-width: 780px) {
       display: none;
-      /* z-index: 30000; */
+    }
+  }
+  .dropdown {
+    position: absolute;
+    right: 3%;
+    background-color: #fff;
+    min-width: 240px;
+    padding: 0.5rem 0;
+    z-index: 200000;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    @media (min-width: 1807px) {
+      right: 17%;
+    }
+    li {
+      padding: 0.7rem 1.3rem;
+      cursor: pointer;
+      border-radius: inherit;
+      &:hover {
+        background-color: #f7f7f7;
+      }
+      /* border-bottom: 1px solid rgba(0, 0, 0, 0.07); */
     }
   }
 
-  .headertop {
-    position: fixed;
-    top: 0;
-    z-index: 182730000;
-    background: #000000;
+  .nav-link {
+    padding: 7px 14px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--dark-1);
     display: flex;
     align-items: center;
-    /* @media (max-width: 980px) {
-      display: none;
-    } */
-  }
+    justify-content: flex-start;
+    gap: 20px;
+    border-radius: 40px;
+    position: relative;
 
-  .avatar {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    /* background-color: #adabab; */
-    object-fit: cover;
-    color: #fff;
-    display: grid;
-    place-items: center;
     &:hover {
-      background-color: #adababa4;
-    }
-
-    svg {
-      color: #fff;
-      font-size: 24px;
-    }
-  }
-  .borderBottom {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 2rem 0;
-  }
-  .headerBottom {
-    z-index: 3000;
-    padding-top: 4rem;
-  }
-
-  h2 {
-    @media (max-width: 980px) {
-      font-size: 4rem;
-      line-height: 1.2;
-    }
-  }
-
-  .headerContainer {
-    width: 100%;
-
-    .headerLeft {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      .Icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @media (min-width: 780px) {
-          display: none;
-        }
-        svg {
-          font-size: 3.4rem;
-        }
-      }
-      .imageIcon {
-        width: auto;
-        height: 5rem;
-      }
-    }
-    h3 {
-      font-size: 2.6rem;
-      font-weight: 700;
+      background-color: #f7f7f7;
       color: var(--dark-1);
-      width: 100%;
-      text-align: start;
-      padding: 0 1rem;
-      .span1 {
-        display: block;
-        color: var(--grey-2);
-        font-size: 1.3rem;
-        font-weight: 500;
-        padding-top: 1rem;
-      }
+      /* font-weight: 700; */
     }
+    &.active {
+      /* background-color: #000; */
+      /* color: #fff; */
+      background-color: #f7f7f7;
+      /* 
+          &::after {
+            position: absolute;
+            right: -6%;
+            content: "";
+            width: 4px;
+            height: 100%;
+            background-color: var(--red);
+            @media (max-width: 980px) {
+              display: none;
+            }
+          } */
+    }
+  }
+  &.type {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .profile_wrapper {
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .top {
+    position: relative;
+    @media (max-width: 780px) {
+      justify-content: flex-start;
+    }
+  }
+  .aboutCenter {
+    @media (max-width: 780px) {
+      /* flex-direction: column; */
+      /* align-items: flex-start; */
+      gap: 1rem;
+      justify-content: space-between;
+    }
+  }
+
+  .headBtn {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 0.6rem 1.7rem;
+    border-radius: 40px;
   }
 `;
-
-export default function Header({ text, subtext, type }) {
-  // const dispatch = useDispatch();
-  const sidebarData = [
-    {
-      title: "My Dashboard",
-      path: "",
-    },
-    {
-      title: "Customers",
-      path: "",
-    },
-    {
-      title: "Merchants",
-      path: "",
-    },
-    {
-      title: "Gigs",
-      path: "gigs",
-    },
-    {
-      title: "Orders",
-      path: "",
-    },
-  ];
-  const HeaderBottom = () => {
-    return (
-      <div className="headerBottom flex item-center justify-space w-100">
-        <div
-          className="HeaderTopWrapper flex justify-space item-center"
-          style={{ paddingTop: "5rem" }}
-        >
-          <div className="flex column gap-1 flex-1">
-            <h2 className="family1 flex-1 text-light fs-46 text-white">
-              {text || 'Edidie Essien'}
-              <span className="block fs-14 text-grey w-85">
-                {subtext ||
-                  " Lorem ipsum dolor sit amet consectetur adipisicing elit  at minus laudantium necessitatibus!"}
-              </span>
-            </h2>
-          </div>
-          <span className="justify-end flex  family1 flex-1 fs-16 text-light text-grey">
-            Tuesday, 11 September 2023
-          </span>
-        </div>
-      </div>
-    );
-  };
-  return (
-    <HeaderWrapper>
-      <div className="headerContainer">
-        {/* <h3 className="family1 text-white">{text}</h3> */}
-        {/* header top */}
-        <div className="headertop w-100 flex item-center borderBottom">
-          <div className="HeaderTopWrapper flex justify-space item-center">
-            <div className="flex flex-1 gap-2 item-center">
-              {/* icon */}
-              <div
-                className="flex item-center gap-3"
-                style={{ flexWrap: "wrap" }}
-              >
-                {sidebarData.map((x, index) => {
-                  return (
-                    <NavLink
-                      exact
-                      className={
-                        "nav-link uppercase fs-14 text-grey text-light "
-                      }
-                      to={`${x.path}`}
-                      key={index}
-                    >
-                      {x.title}
-                    </NavLink>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="flex flex-1 item-center justify-end gap-4">
-              <AiFillSetting fontSize={"20px"} color="#fff" />
-              <AiOutlineMail fontSize={"20px"} color="#fff" />
-              <MdNotifications fontSize={"20px"} color="#fff" />
-              <div className="flex item-center gap-1">
-                <img
-                  src="https://i.pinimg.com/236x/93/08/92/93089298c654873799ee88fcd374f293.jpg"
-                  alt=""
-                  className="avatar flex item-center justify-center"
-                />
-                <h4 className="fs-16 text-light text-white">
-                  Edidiong Essien
-                  <span className="block fs-12 text-grey">
-                    Seller for the shop
-                  </span>
-                </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        {<HeaderBottom />}
-        {/* header Bottom */}
-      </div>
-    </HeaderWrapper>
-  );
-}

@@ -85,7 +85,7 @@ export default function RightIndex() {
 }
 
 const RightIndexContent = styled.div`
-  width: 370px;
+  width: auto;
   .Right {
     position: sticky;
     top: 5%;
