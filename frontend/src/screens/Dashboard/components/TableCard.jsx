@@ -1,4 +1,5 @@
 import React from "react";
+import { GiSandsOfTime } from "react-icons/gi";
 import { AnimatePresence } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import { AiOutlineCheck } from "react-icons/ai";
@@ -159,17 +160,30 @@ export default function TableCards({ x, type }) {
         <td>{x?._id}</td>
         <td>
           <div className="cartProduct">
-            <div className="imageWrapper">
-              {x?.image && <img src={x?.image[0]} alt="images" />}
+            <div
+              style={{ width: "7rem", borderRadius: "10px", height: "5rem" }}
+              className="flex"
+            >
+              <img
+                style={{ borderRadius: "10px" }}
+                src={x?.image[0]}
+                className="w-100"
+                alt=""
+              />
             </div>
           </div>
         </td>
         <td>{x?.title}</td>
+        <td>
+          <div className="flex item-center justify-center">
+            <div className="headBtn text-dark">Finish</div>
+          </div>
+        </td>
         <td>${x?.price}</td>
         <td>{x?.countInStock}</td>
         {/* <td>{x?.brand}</td> */}
         <td>
-          <div className="action">
+          <div className="action flex item-center justify-center">
             <div className="icons" onClick={handleDeleteProduct}>
               <BsTrash />
             </div>

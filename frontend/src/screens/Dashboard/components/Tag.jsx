@@ -22,16 +22,14 @@ export default function TagInput({ tagdata, setTagData, title }) {
   return (
     <TagInfoWrapper>
       <div className="tagForm item-center flex column gap-1">
-        <div className="text-grey capitalize labelspan text fs-16 text-bold">
-          {title}
-        </div>
+    
         <input
           type="text"
           onKeyDown={handleTagInput}
           className="taginput family1"
           placeholder={title}
         />
-        <div className="w-100 flex item-center gap-1">
+        <div style={{flexWrap:"wrap"}} className="w-100 flex item-center gap-1">
           {tagdata.map((x, index) => {
             return (
               <div className="tagWrapper family1 text-light text-bold flex item-center gap-1">
@@ -53,17 +51,17 @@ export default function TagInput({ tagdata, setTagData, title }) {
 const TagInfoWrapper = styled.div`
   padding-top: 1rem;
   input {
-    height: 6rem;
+    height: 6rem !important;
     border-radius: 8px;
     background: transparent;
     padding: 0 1.8rem;
     width: 100%;
     outline: none;
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     font-weight: normal;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+
     font-family: inherit;
-    font-family: "Roboto Condensed", sans-serif;
-    border: 1px solid rgba(0, 0, 0, 0.4);
 
     color: var(--grey-3);
 
@@ -101,7 +99,7 @@ const TagInfoWrapper = styled.div`
     font-size: 1.6rem;
     font-weight: normal;
     font-family: inherit;
-    font-family: "Roboto Condensed", sans-serif;
+    border: none !important;
     .tagWrapper {
       padding: 0.5rem 1rem;
       background-color: rgba(0, 0, 0, 0.08);

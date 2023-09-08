@@ -155,7 +155,7 @@ export default function Card({ x, index, type }) {
               className="w-100 cards profile gap-1 flex family3 column"
               key={x?.id}
             >
-              <div className="detailsImageContainer">
+              <div className="detailsImageContainer profile">
                 {/* button  */}
 
                 <div className="detailsImageWrapper">
@@ -191,7 +191,7 @@ export default function Card({ x, index, type }) {
                 </div>
                 <h4
                   style={{ fontWeight: "400" }}
-                  className="desc family3 fs-18 text-dark text-bold"
+                  className="desc family3 fs-16 text-dark text-bold"
                 >
                   {x?.title.substring(0, 50)}
                 </h4>
@@ -470,6 +470,9 @@ const CardContent = styled.div`
     overflow: hidden;
     grid-gap: 0rem;
     border-radius: 10px;
+    &.profile {
+      border-radius: 0px;
+    }
     .detailsImageWrapper {
       position: absolute;
       transition: all 0.6s ease-in-out;

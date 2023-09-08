@@ -4,27 +4,32 @@ import styled from "styled-components";
 // import Logo2 from "../common/svg/Logo12";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../components/common/svg/Logo";
+import { useSelector } from "react-redux";
 // import Logo from "../common/svg/Logo";
 // import Dropdown from "../common/Dropdown";
 
 const sidebarData = [
   {
     id: 1,
-    title: "Listings",
-    path: "dashboard",
+    title: "Overview",
+    path: "/dashboard/",
   },
   {
     id: 2,
     title: "Reviews",
-    path: "dashboard/Reviews",
+    path: "/dashboard/Reviews",
   },
-  { id: 4, title: "Reservations", path: "dashboard/reservations" },
-
-  { id: 5, title: "Earnings", path: "dashboard/earning" },
-  { id: 6, title: "Profile", path: "dashboard/Profile" },
+  {
+    id: 3,
+    title: "Gigs",
+    path: "/dashboard/gigs",
+  },
+  { id: 4, title: "Orders", path: "/dashboard/order" },
+  { id: 6, title: "Profile", path: "/dashboard/Profile" },
 ];
 export default function Header({ type }) {
   const [drop, setDrop] = useState(false);
+  const {userInfo} = useSelector(store=> store.user)
 
     return (
       <>
@@ -36,15 +41,15 @@ export default function Header({ type }) {
                 <Logo active={true} />
               </Link>
               <div
-                style={{ gap: ".1rem" }}
-                className="flex list w-100 justify-start item-center"
+                style={{ gap: "1rem" }}
+                className="flex gap-1 list w-100 justify-start item-center"
               >
                 {sidebarData.map((x) => {
                   return (
                     <NavLink
                       className="nav-link"
                       activeClassName="active"
-                      to={`/${x.path}`}
+                      to={`${x.path}`}
                       key={x.id}
                     >
                       <span className="span"> {x.title}</span>
@@ -85,11 +90,17 @@ export default function Header({ type }) {
                   }}
                   className="fs-16 text-white flex item-center justify-center"
                 >
-                  E
+                  {userInfo?.name?.[0]}
                 </div>
               </div>
-              <h5 style={{fontWeight:"800"}} className="fs-16 family3 text-extra-bold">Micheal peters
-              <span className="block fs-14 text-light text-grey">pertes@gmail.com</span>
+              <h5
+                style={{ fontWeight: "800" }}
+                className="fs-16 family3 text-extra-bold"
+              >
+                {userInfo?.name}
+                <span className="block fs-14 text-light text-grey">
+                  {userInfo?.email}
+                </span>
               </h5>
             </div>
           </div>
@@ -158,19 +169,7 @@ const ListingHeaderContainer = styled.div`
       /* background-color: #000; */
       /* color: #fff; */
       background-color: #f7f7f7;
-      box-shadow: var(--shadow);
-      /* 
-          &::after {
-            position: absolute;
-            right: -6%;
-            content: "";
-            width: 4px;
-            height: 100%;
-            background-color: var(--red);
-            @media (max-width: 980px) {
-              display: none;
-            }
-          } */
+      border: 2px solid rgba(0, 0, 0, 0.8);
     }
   }
   &.type {

@@ -68,21 +68,25 @@ export default function Delete({ type, click }) {
           >
             <RxCross2 />
           </div>
-          <div className="deleteCardTop">
-            <h3>Delete User?</h3>
-            <p>
-              Are you sure you want to delete "{userDetails?.firstname}" from
-              the database?
-              <br /> You can't undo this action.
-            </p>
+          <div className="deleteCardTop flex column gap-1">
+            <h3 className="fs-30 text-center">
+              Delete User?
+              <span className="block family2 text-light fs-14">
+                Are you sure you want to delete "{GigsDetails?.title}"?
+                <br /> You can't undo this action.
+              </span>
+            </h3>
           </div>
 
-          <div className="deleteCardBottom">
-            <button onClick={() => dispatch(clearUserAlertError())}>
+          <div className="flex column gap-2">
+            <button
+              className="btn btn-1 fs-14 text-bold family2"
+              onClick={() => dispatch(clearUserAlertError())}
+            >
               Cancel
             </button>
             <button
-              className="deleteBtn"
+              className="deleteBtn btn btn-2 fs-14 text-bold family2"
               onClick={() => dispatch(adminDeleteCustomer(userDetails?._id))}
             >
               Delete User
@@ -109,7 +113,7 @@ export default function Delete({ type, click }) {
         initial="hidden"
         animate="visible"
         exit={"exit"}
-        className={"deleteCard family1"}
+        className={"deleteCard gap-4 family1"}
       >
         <div
           className="cross"
@@ -117,22 +121,24 @@ export default function Delete({ type, click }) {
         >
           <RxCross2 />
         </div>
-        <div className="deleteCardTop">
-          <h3>Delete Gig?</h3>
-          <p>
-            Are you sure you want to delete "{GigsDetails?.title}"?
-            <br /> You can't undo this action.
-          </p>
+        <div className="deleteCardTop flex column gap-1">
+          <h3 className="fs-30 text-center">
+            Delete Gig?
+            <span className="block family2 text-light fs-14">
+              Are you sure you want to delete "{GigsDetails?.title}"?
+              <br /> You can't undo this action.
+            </span>
+          </h3>
         </div>
-        <div className="deleteCardBottom">
+        <div className="w-100 flex column gap-1">
           <button
-            className="text-dark"
+            className="text-dark btn btn-1 fs-14 text-bold family2"
             onClick={() => dispatch(clearDeleteGigModalAlert())}
           >
             Cancel
           </button>
           <button
-            className="deleteBtn"
+            className="deleteBtn btn btn-2 fs-14 text-bold family2"
             onClick={() => dispatch(DeleteGig(GigsDetails?._id))}
           >
             Delete Gig
@@ -155,27 +161,49 @@ const DeleteContainer = styled(motion.div)`
   justify-content: center;
   top: 0;
   .backdrop {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.1);
 
     position: absolute;
     height: 100%;
     width: 100%;
   }
+  .btn.btn-2 {
+    background-color: var(--red);
+    padding: 1.5rem !important;
+    border-radius: 40px;
+
+    cursor: pointer;
+  }
+
+  .btn.btn-1 {
+    padding: 1rem 1.5rem !important;
+    padding: 1.5rem !important;
+    border-radius: 40px;
+    background-color: transparent !important;
+    color: var(--dark-1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--grey-hover) !important;
+    }
+  }
   .deleteCard {
-    /* width: clamp(60%, 200px, 100%); */
+    max-width: 600px;
+    width: 360px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     background: var(--white);
-    padding: 4rem 3rem;
-    gap: 2rem;
-    border-radius: 6px;
-    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     position: relative;
-    @media (max-width: 380px) {
-      padding: 4rem 3rem;
-      width: 250px;
+    padding:3rem;
+    border-radius: 20px;
+    border-top-right-radius: 20px;
+    @media (max-width: 980px) {
+      width: 70%;
+    }
+    @media (max-width: 580px) {
+      width: 90%;
     }
     .cross {
       position: absolute;
@@ -193,77 +221,6 @@ const DeleteContainer = styled(motion.div)`
       }
       svg {
         font-size: 20px;
-      }
-    }
-    .deleteCardBottom {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 2rem;
-      gap: 1rem;
-      button {
-        padding: 1.2rem 2rem;
-        border: none;
-        font-size: 1.2rem;
-        font-weight: 600;
-        background: var(--grey-4);
-        color: #000;
-        outline: none;
-        border-radius: 40px;
-        cursor: pointer;
-        &:hover {
-          background: var(--grey-3);
-          color: var(--text-color);
-        }
-        &.deleteBtn {
-          background: var(--red);
-          &:hover {
-            opacity: 0.8;
-            color: #fff;
-          }
-        }
-      }
-    }
-    .deleteCardCenter {
-      padding: 2rem;
-      width: 100%;
-      background: var(--grey-3);
-      border-left: 5px solid var(--red);
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      svg {
-        font-size: 2rem;
-        color: var(--red);
-      }
-      h4 {
-        font-size: 1.6rem;
-        font-weight: 400;
-        color: var(--red);
-        .deleteSpan {
-          font-weight: 600;
-          display: block;
-          padding-bottom: 1rem;
-        }
-      }
-    }
-
-    .deleteCardTop {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 1.4rem;
-      h3 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: var(--text-color);
-      }
-      p {
-        font-size: 1.3rem;
-        font-weight: 400;
-        color: var(--grey);
-        text-align: center;
       }
     }
   }

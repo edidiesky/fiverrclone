@@ -7,7 +7,6 @@ export default function EditGigInfo({ onChange2, formdata2, setFormData2 }) {
     {
       id: 1,
       name: "title",
-      placeholder: "Add your gig title",
       type: "text",
       text: "Gig Title",
     },
@@ -22,7 +21,6 @@ export default function EditGigInfo({ onChange2, formdata2, setFormData2 }) {
               <Input
                 id={input.text}
                 onChange={onChange2}
-                placeholder={input.placeholder}
                 type={input.type}
                 name={input.name}
                 value={formdata2[input.name]}
@@ -34,30 +32,29 @@ export default function EditGigInfo({ onChange2, formdata2, setFormData2 }) {
               />
             );
           })}
-          <label htmlFor="text" className="textLabel">
-            Gig description
-            <textarea
-              type="text"
-              className="textarea"
-              placeholder="Place a description on the gig"
-              name="description"
-              value={formdata2.description}
-              onChange={onChange2}
-              id="text"
-            />
-          </label>
-          <label htmlFor="text" className="textLabel">
-            Gig shortdescription
-            <textarea
-              type="text"
-              className="textarea"
-              placeholder="Place a shortdescription on the gig"
-              name="shortdescription"
-              value={formdata2.shortdescription}
-              onChange={onChange2}
-              id="text"
-            />
-          </label>
+          <Input
+            type="Decsription"
+            className="textarea"
+            onChange={onChange2}
+            name={"description"}
+            value={formdata2.description}
+            input={formdata2.description}
+            required={true}
+            id="Decription"
+            types={true}
+          />
+
+          <Input
+            type="Short Decsription"
+            className="textarea"
+            onChange={onChange2}
+            name={"shortdescription"}
+            value={formdata2.shortdescription}
+            input={formdata2.shortdescription}
+            required={true}
+            id="Short Decription"
+            types={true}
+          />
 
           {inputData1.slice(1, 2).map((input) => {
             return (

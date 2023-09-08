@@ -45,7 +45,6 @@ export default function EditGigImage({
     <EditGigWrapperCenter>
       {/* image upload */}
       <div className="w-100 flex column gap-1">
-        <h4 className="family1 fs-14 text-bold">Upload Gig Image</h4>
         {/*upload image*/}
         {uploadimage.length > 0 ? (
           <div className="EditGigImageList">
@@ -70,7 +69,7 @@ export default function EditGigImage({
           <div className="UploadBtnWrapper">
             {uploading && <LoaderIndex type="small" />}
             <label
-              className=" column gap-2 family1 flex gap-1 item-center text-light"
+              className=" column gap-2 family1 flex gap-1 item-center text-light fs-18"
               htmlFor="upload"
             >
               <BiUpload fontSize={"18px"} /> Upload Gig image here
@@ -115,7 +114,7 @@ const EditGigWrapperCenter = styled.div`
 
   .UploadBtnWrapper {
     width: 100%;
-    padding: 2rem;
+    padding:3rem 2rem;
     padding-top: 3rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
     display: flex;
@@ -157,24 +156,6 @@ const EditGigWrapperCenter = styled.div`
         width: 12rem;
         min-height: 7rem;
       }
-
-      label {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 1rem;
-        cursor: pointer;
-        z-index: 50;
-        svg {
-          font-size: 2rem;
-          color: var(--red);
-        }
-        span {
-          color: #fff;
-          text-decoration: underline;
-        }
-      }
     }
   }
   label {
@@ -185,8 +166,6 @@ const EditGigWrapperCenter = styled.div`
     gap: 1rem;
     cursor: pointer;
     z-index: 50;
-    font-size: 13px;
-    font-weight: 500;
     width: 100%;
     svg {
       font-size: 2rem;

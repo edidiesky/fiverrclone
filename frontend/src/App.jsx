@@ -102,14 +102,14 @@ export default function App() {
 
           <Route
             exact
-            path={"/dashboard"}
+            path={"/dashboard/"}
             element={
               <ProtectRoute type={"dashboard"}>
                 <LayoutList />
               </ProtectRoute>
             }
           >
-            <Route index element={<Statistics />} />
+            <Route exact path="" element={<Statistics />} />
             <Route exact path="profile" element={<ProfileList />} />
             <Route exact path="gigs" element={<AdminProductList />} />
             <Route exact path="users" element={<Customers />} />
