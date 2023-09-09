@@ -14,4 +14,4 @@ export default function SliderIndex({ children, options }) {
       {children}
     </OwlCarousel>
   );
-}
+}``
