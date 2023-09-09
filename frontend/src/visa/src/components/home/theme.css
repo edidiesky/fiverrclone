@@ -1,0 +1,37 @@
+.custom-dots {
+  display: flex;
+  justify-content: center !important;
+  position: absolute;
+  right: 20px;
+  top: -20%;
+  gap: .1rem;
+}
+
+.custom-dot {
+  background-color: #fff !important;
+  border: 2px solid var(--blue-2) !important;
+  border-radius: 50% !important;
+  height: 13px !important;
+  margin: 0 5px !important;
+  width: 13px !important;
+}
+
+.custom-dot.active {
+    width: 100%;
+  position: relative;
+  background-color: var(--blue-2) !important;
+}
+
+
+.owl-dot span {
+    display: none !important;
+}
+
+/* .item {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .item.active {
+    opacity: 1;
+  } */

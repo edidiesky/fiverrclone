@@ -1,0 +1,48 @@
+.custom-dots {
+  display: flex;
+  justify-content: center !important;
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  top: 0;
+}
+
+.custom-dot {
+  background-color: #fff !important;
+  border: 2px solid var(--blue-2) !important;
+  border-radius: 50% !important;
+  height: 15px !important;
+  margin: 0 5px !important;
+  width: 15px !important;
+}
+
+.custom-dot.active {
+  width: 100%;
+  position: relative;
+  border: 3px solid var(--blue-2) !important;
+}
+
+.custom-dot.active::after {
+  background-color: var(--blue-2) !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -55%);
+}
+
+.owl-dot span {
+  display: none !important;
+}
+
+/* .item {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    .item.active {
+      opacity: 1;
+    } */
