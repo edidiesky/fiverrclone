@@ -63,8 +63,8 @@ export default function Header({ type }) {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "nav-links fs-18 text-extra-bold text-grey active"
-                      : "nav-links fs-18 text-extra-bold text-grey"
+                      ? "nav-links fs-24 text-extra-bold text-grey active"
+                      : "nav-links fs-24 text-extra-bold text-grey"
                   }
                   to={`${x}`}
                   key={index}
@@ -98,8 +98,8 @@ export default function Header({ type }) {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "nav-links fs-18 text-extra-bold text-grey active"
-                    : "nav-links fs-18 text-extra-bold text-grey"
+                    ? "nav-links fs-20 text-extra-bold text-grey active"
+                    : "nav-links fs-20 text-extra-bold text-grey"
                 }
                 to={`${x}`}
                 key={index}
@@ -138,7 +138,7 @@ export default function Header({ type }) {
     if (userInfo) {
       return (
         <div className={"headerTopCenter flex item-center gap-2"}>
-          <h4 className="family1 fs-16 text-dark">Orders</h4>
+          <h4 className="family1 fs-20 text-dark">Orders</h4>
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}

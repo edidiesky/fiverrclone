@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import './layout.css'
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import Header from "../components/Header";

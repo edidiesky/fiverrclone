@@ -66,8 +66,8 @@ export default function Header() {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "nav-links fs-18 text-light text-grey text-center active"
-                    : "nav-links fs-18 text-light text-grey text-center"
+                    ? "nav-links fs-24 text-light text-grey text-center active"
+                    : "nav-links fs-24 text-light text-grey text-center"
                 }
                 to={`${x}`}
                 key={index}
@@ -92,7 +92,7 @@ export default function Header() {
             xmlns="http://www.w3.org/2000/svg"
           >
             <g className={active ? "fill active" : "fill"}>
-              <path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-18.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-18.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-18.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z"></path>
+              <path d="m81.6 13.1h-3.1c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-13.4h-2.5c-2 0-3.1 1.5-3.1 4.1v9.3h-6v-24.4h6v2.8c1-2.2 2.3-2.8 4.3-2.8h7.3v2.8c1-2.2 2.3-2.8 4.3-2.8h2zm-25.2 5.6h-12.4c.3 2.1 1.6 3.2 3.7 3.2 1.6 0 2.7-.7 3.1-1.8l5.3 1.5c-1.3 3.2-4.5 5.1-8.4 5.1-6.5 0-9.5-5.1-9.5-9.5 0-4.3 2.6-9.4 9.1-9.4 6.9 0 9.2 5.2 9.2 9.1 0 .9 0 1.4-.1 1.8zm-5.7-3.5c-.1-1.6-1.3-3-3.3-3-1.9 0-3 .8-3.4 3zm-22.9 11.3h5.2l6.6-24.3h-6l-3.2 10.7-3.2-10.8h-6zm-24.4 0h5.9v-13.4h5.7v13.4h5.9v-24.4h-11.6v-1.1c0-1.2.9-2 2.2-2h3.5v-5h-4.4c-4.3 0-7.2 2.7-7.2 6.6v1.5h-3.4v5h3.4z"></path>
             </g>
             <g fill="#1dbf73">
               <path d="m85.3 27c2 0 3.7-1.7 3.7-3.7s-1.7-3.7-3.7-3.7-3.7 1.7-3.7 3.7 1.7 3.7 3.7 3.7z"></path>
@@ -123,11 +123,11 @@ export default function Header() {
               : "headerTopCenter text-white flex item-center gap-2"
           }
         >
-          <h4 className="family1 fs-16">Orders</h4>
+          <h4 className="family1 fs-20">Orders</h4>
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}
-              className="avatar text-white fs-18 text-extra-bold uppercase family1 flex item-center justify-center"
+              className="avatar text-white fs-24 text-extra-bold uppercase family1 flex item-center justify-center"
             >
               E
             </div> */}
@@ -163,15 +163,15 @@ export default function Header() {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-18 text-extra-bold text-dark item-center justify-center active"
-              : "flex links fs-18 text-extra-bold text-dark item-center justify-center"
+              ? "flex links fs-24 text-extra-bold text-dark item-center justify-center active"
+              : "flex links fs-24 text-extra-bold text-dark item-center justify-center"
           }
         >
           Sign In
         </div>
         <div
           onClick={() => dispatch(onAuthModal())}
-          className="flex btn-4 fs-18 text-extra-bold text-dark item-center justify-center"
+          className="flex btn-4 fs-24 text-extra-bold text-dark item-center justify-center"
         >
           Join
         </div>
@@ -290,6 +290,7 @@ const HeaderTopContainer = styled.div`
   align-items: center;
   background: #fff;
   padding: 1.5rem 0;
+  transition: all .6s ease;
   .avatar {
     width: 4rem;
     height: 4rem;
@@ -421,7 +422,7 @@ const HeaderTopContainer = styled.div`
     }
     &.active {
       .nav-link {
-        font-weight: 400;
+        font-weight: 500;
         color: #fff;
         transition: all 0.5s;
         text-decoration: none;
@@ -436,7 +437,7 @@ const HeaderTopContainer = styled.div`
       }
     }
     .nav-link {
-      font-weight: 400;
+      font-weight: 500;
       color: var(--grey-1);
       transition: all 0.5s;
       text-decoration: none;
@@ -483,6 +484,7 @@ const HeaderWrapper = styled.div`
     width: 100%;
     z-index: 5000;
     background-color: #fff;
+    transition: all .6s ease;
     &.active {
       display: none;
     }

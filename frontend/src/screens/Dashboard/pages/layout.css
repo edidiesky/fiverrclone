@@ -41,7 +41,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
-   font-family: 'Nunito', sans-serif;
+   font-family: 'Big Shoulders Text', cursive;
 
   line-height: 1.4;
   font-weight: 600;
@@ -207,7 +207,7 @@ button {
   outline: none;
   font-family: inherit;
   background-color: transparent;
-   font-family: 'Nunito', sans-serif;
+   font-family: 'Big Shoulders Text', cursive;
 
   font-weight: normal;
 }
@@ -238,7 +238,7 @@ button {
   font-size: 1.6rem;
   font-weight: 400;
   transition: all 0.2s;
-   font-family: 'Nunito', sans-serif;
+   font-family: 'Big Shoulders Text', cursive;
 
   color: var(--dark-1);
 }
@@ -272,7 +272,7 @@ h1 {
 }
 
 p {
-   font-family: 'Nunito', sans-serif;
+   font-family: 'Big Shoulders Text', cursive;
 
 }
 
@@ -428,11 +428,11 @@ p {
   grid-gap: 6rem;
 }
 .fs-20 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .fs-24 {
-  font-size: 24px;
+  font-size: 22px;
 }
 .fs-26 {
   font-size: 26px;

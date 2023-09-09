@@ -91,7 +91,7 @@ export default function Explore() {
                 <div className="w-100 imageWrapper flex item-center justify-center ">
                   <img src={x.image} alt="" className="image" />
                 </div>
-                <h4 className="fs-18 text-light text-dark">{x.text}</h4>
+                <h4 className="fs-20 text-bold text-grey">{x.text}</h4>
               </Link>
             );
           })}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import "../index.css";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { AnimatePresence } from "framer-motion";

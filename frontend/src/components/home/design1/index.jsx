@@ -26,15 +26,12 @@ export default function Design1Index() {
               </g>
               <h4 className="fs-30 text-light text-white">business</h4>
             </svg>
-            
           </div>
-          <h3>
-            A business solution
-            <br />
-            designed for <span className="span">teams.</span>
+          <h3 className="family2">
+            Advanced solutions and professional talent for businesses
           </h3>
           <h4
-            className="fs-20 text-bold text-white"
+            className="fs-16 family2 text-bold text-white"
             style={{ lineHeight: "1.8" }}
           >
             Upgrade to a curated experience packed with tools and benefits,
@@ -44,7 +41,7 @@ export default function Design1Index() {
             {businesslist.map((x, index) => {
               return (
                 <li
-                  className="fs-18 text-light flex item-center gap-2 text-white"
+                  className="fs-18 family2 text-bold flex item-center gap-2 text-white"
                   key={index}
                 >
                   <div className="icon">
@@ -56,12 +53,14 @@ export default function Design1Index() {
             })}
           </ul>
           <div className="flex py-2">
-            <button className="btn py-1 px-3">Try Fivver Logo Maker</button>
+            <button className="btn family2 py-1 px-3">
+              Try Fivver Logo Maker
+            </button>
           </div>
         </header>
         <img
           className="w-100"
-          src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/attachments/generic_asset/asset/d9c17ceebda44764b591a8074a898e63-1599597624757/business-desktop-870-x1.png"
+          src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/attachments/generic_asset/asset/51c35c7cecf75e6a5a0110d27909a2f5-1690202609364/EN.png"
           alt=""
         />
       </Design1IndexContainer>
