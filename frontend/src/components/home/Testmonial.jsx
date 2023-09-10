@@ -68,7 +68,7 @@ const MapIndexWrapper = styled.div`
   }
   .Card {
     display: grid;
-    grid-template-columns: 35vw 1fr;
+    grid-template-columns: 0.6fr 1fr;
     grid-gap: 4rem;
     @media (max-width: 780px) {
       grid-template-columns: 1fr;

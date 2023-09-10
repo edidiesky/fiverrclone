@@ -1,6 +1,7 @@
 import React from "react";
 import { BiLaugh } from "react-icons/bi";
 import styled from "styled-components";
+import Top from "./Top";
 
 const converstionData = [
   {
@@ -8,148 +9,8 @@ const converstionData = [
     senderMessage: [
       {
         image:
-          "/images/johanna-richardson.jpg",
+          "https://a0.muscache.com/im/pictures/user/9f63574d-3b11-44c5-937b-5a2eeef401db.jpg?im_w=240",
         text: "Hi Dear",
-      },
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "How was your day",
-      },
-    ],
-    recieverMessage: [
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "I am fine",
-      },
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "How was the wekend",
-      },
-    ],
-  },
-  {
-    id: 1,
-    senderMessage: [
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "Hi Dear",
-      },
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "How was your day",
-      },
-    ],
-    recieverMessage: [
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "I am fine",
-      },
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "How was the wekend",
-      },
-    ],
-  },
-  {
-    id: 1,
-    senderMessage: [
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "Hi Dear",
-      },
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "How was your day",
-      },
-    ],
-    recieverMessage: [
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "I am fine",
-      },
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "How was the wekend",
-      },
-    ],
-  },
-  {
-    id: 1,
-    senderMessage: [
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "Hi Dear",
-      },
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "How was your day",
-      },
-    ],
-    recieverMessage: [
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "I am fine",
-      },
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "How was the wekend",
-      },
-    ],
-  },
-  {
-    id: 1,
-    senderMessage: [
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "Hi Dear",
-      },
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "How was your day",
-      },
-    ],
-    recieverMessage: [
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "I am fine",
-      },
-      {
-        image:
-          "https://fiverr-res.cloudinary.com/image/upload/t_profile_original,q_auto,f_auto/v1/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg",
-        text: "How was the wekend",
-      },
-    ],
-  },
-  {
-    id: 1,
-    senderMessage: [
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "Hi Dear",
-      },
-      {
-        image:
-          "/images/johanna-richardson.jpg",
-        text: "How was your day",
       },
     ],
     recieverMessage: [
@@ -167,18 +28,13 @@ const converstionData = [
   },
 ];
 
-export default function Left() {
+export default function Left({onsidebar,setOnSidebar}) {
   const LeftBottom = () => {
     return (
-      <LeftBottomWrapper className="w-100">
-        <div className="flex w-90 auto column gap-1">
-          <textarea className="area"></textarea>
-          <div className="w-100 flex item-center justify-space">
-            <div className="icon">
-              <BiLaugh />
-            </div>
-            <button className="send">SEND</button>
-          </div>
+      <LeftBottomWrapper className="w-100 flex item-center justify-center">
+        <div className="flex w-90 auto item-center justify-center gap-1">
+          <textarea className="area flex item-center fs-16" placeholder="Type a message"></textarea>
+          
         </div>
       </LeftBottomWrapper>
     );
@@ -187,7 +43,7 @@ export default function Left() {
   const LeftTop = () => {
     return (
       <LeftTopWrapper className="w-100">
-        <div className="w-100 column flex gap-2">
+        <div className="w-100 column leftTopWrapper flex gap-2">
           {converstionData.map((x) => {
             return (
               <div className="flex ">
@@ -195,19 +51,29 @@ export default function Left() {
                   {x.senderMessage.map((x) => {
                     return (
                       <div className="SenderChat flex py-2 item-center family1 text-light">
-                        <div className="flex gap-1">
+                        <div className="flex w-85 auto gap-1">
                           <img src={x.image} alt="" className="avatar" />
-                          <div className="flex column gap-1">
-                            <div className="w-100 flex gap-1">
-                              <h4 className="fs-12 ">ME</h4>
-                              <h5 className="text-light fs-12 text-grey">
-                                Mar 19, 2023, 1:17 AM
+                          <div className="flex column" style={{ gap: "6px" }}>
+                            <div
+                              className="w-100 flex item-center"
+                              style={{ gap: "2px" }}
+                            >
+                              <h4
+                                className="fs-18"
+                                style={{ fontWeight: "800" }}
+                              >
+                                Bookipy
+                              </h4>
+                              <h5
+                                className="text-bold fs-10 text-grey"
+                                style={{ fontSize: "11px" }}
+                              >
+                                1:17 AM
                               </h5>
                             </div>
                             <div className="w-100">
-                              <h4 className="fs-16 text-grey text-light">
-                                Do you think you can deliver an order by would
-                                be suitable
+                              <h4 className="fs-16 text-dark text-light">
+                                {x.text}
                               </h4>
                             </div>
                           </div>
@@ -217,20 +83,33 @@ export default function Left() {
                   })}
                   {x.recieverMessage.map((x) => {
                     return (
-                      <div className="recieverChat flex item-center family1 text-light">
-                        <div className="flex gap-1">
+                      <div className="recieverChat flex py-2 item-center family1 text-light">
+                        <div className="flex w-85 auto gap-1">
                           <img src={x.image} alt="" className="avatar" />
-                          <div className="flex column gap-1">
-                            <div className="w-100 flex gap-1">
-                              <h4 className="fs-12 ">Fiverr</h4>
-                              <h5 className="text-light fs-12 text-grey">
-                                Mar 19, 2023, 1:17 AM
+                          <div className="flex column" style={{ gap: "6px" }}>
+                            <div
+                              className="w-100 flex item-center"
+                              style={{ gap: "2px" }}
+                            >
+                              <h4
+                                className="fs-18"
+                                style={{ fontWeight: "800" }}
+                              >
+                                Edidiong
+                              </h4>
+                              <h5
+                                className="text-bold fs-10 text-grey"
+                                style={{ fontSize: "11px" }}
+                              >
+                                1:17 AM
                               </h5>
                             </div>
                             <div className="w-100">
-                              <h4 className="fs-16 text-grey text-light">
-                                Do you think you can deliver an order by would
-                                be suitable
+                              <h4 style={{fontSize:"16px",lineHeight:"1.4"}} className=" text-dark text-light">
+                                Thank you for your message. How can we help you?
+                                Please don't hesitate to contact us again should
+                                you have any further requests or questions. Kind
+                                regards, Fatlind - Bookiply Customer Happiness
                               </h4>
                             </div>
                           </div>
@@ -248,6 +127,7 @@ export default function Left() {
   };
   return (
     <LeftIndexWrapper>
+      <Top setOnSidebar={setOnSidebar} onsidebar={onsidebar}  />
       <LeftTop />
       <LeftBottom />
     </LeftIndexWrapper>
@@ -256,21 +136,20 @@ export default function Left() {
 
 const LeftTopWrapper = styled.div`
   width: 100%;
+  height: 60%;
+  overflow: auto;
   background-color: #fff;
   z-index: 300;
-  height: 42rem;
-  overflow: auto;
-  padding: 5rem 0;
-  padding-top: 10rem;
-
+  .leftTopWrapper {
+    padding: 2rem 0;
+  }
   @media (max-width: 980px) {
     height: 82rem;
   }
-  h4 {
-    font-family: "Roboto Condensed", sans-serif;
-  }
   .avatar {
     border: 1.4px solid var(--blue-1);
+    width: 2.5rem;
+    height: 2.5rem;
   }
   .recieverChat {
     justify-content: flex-end;
@@ -280,10 +159,11 @@ const LeftTopWrapper = styled.div`
   }
   .SenderChat,
   .recieverChat {
-    padding: 2rem;
+    padding: 1rem 0;
     width: 100%;
+    border-radius: 10px;
     &:hover {
-      background-color: var(--light-grey);
+      background-color: #f2f2f2;
     }
     @media (max-width: 980px) {
       background-color: #fff;
@@ -298,19 +178,20 @@ const LeftTopWrapper = styled.div`
 `;
 const LeftBottomWrapper = styled.div`
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  height: 15rem;
+  height: 30%;
   background-color: #fff;
   z-index: 300;
-
-  .send {
-    border: none;
-    outline: none;
-    background-color: transparent;
-    font-size: 16px;
-    color: var(--green);
-    font-weight: 600;
+  .area {
+    /* margin-bottom: 4rem; */
+    border: 1px solid rgba(0,0,0,.4);
+    border-radius: 10px;
+    padding:20px 30px;
+    resize: none;
+    /* padding-top: 4px; */
+    height: 100%;
+    width: 100%;
+    font-family: inherit;
+    height: 120px;
   }
   .icon {
     width: 4rem;
@@ -318,18 +199,13 @@ const LeftBottomWrapper = styled.div`
     display: grid;
     place-items: center;
     &:hover {
-      background-color: var(--light-grey);
+      background-color: #f2f2f2;
     }
     svg {
       width: 70%;
       height: 70%;
       color: var(--grey-1);
     }
-  }
-  .area {
-    border-radius: 10px;
-    height: 9rem;
-    resize: none;
   }
 `;
 

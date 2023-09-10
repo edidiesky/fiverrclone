@@ -2,16 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import Head from "../../common/Head";
 import { Link } from "react-router-dom";
+import {BiChevronRight, BiChevronLeft} from 'react-icons/bi'
 import { Slider } from "../../common";
+import { categorydata } from "../../../data/categorydata";
 
 const options2 = {
   items: 5,
   nav: true,
   dots: false,
+  loop: true,
   margin: 30,
-  navText: ["<", ">"],
+  navText: ['<','>'],
   width: "100%",
-  slideBy: 4,
+  slideBy: 5,
   responsive: {
     0: {
       items: 3,
@@ -28,104 +31,7 @@ const options2 = {
   },
 };
 
-const projectData = [
-  {
-    id: 1,
-    category: ["graphics-design", "Ai Artist"],
-    authorName: "Add talent to Ai",
-    subName: "Ai Artist",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/f27bec553efc12cc60baed89b8f2223e-1674661140708/ai-artists-2x.png",
-  },
-  {
-    id: 2,
-    category: ["graphics-design", "Logo Design"],
-    subName: "Logo Design",
-    authorName: "Build your brand",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png",
-  },
-  {
-    id: 3,
-    category: ["web-development", "Social media"],
-    subName: "Social media",
-    authorName: "Customize your site",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png",
-  },
-  {
-    id: 4,
-    category: ['music-audio','voice-over'],
-    authorName: "Share your message",
-    subName:"Voice Over",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png",
-  },
-  {
-    id: 5,
-    category: ['online-marketing','social-marketing'],
-    authorName: "Reach more customers",
-    subName:"Social Media",
-    image:"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png"},
-  {
-    id: 6,
-    category: "Wordpress",
-    authorName: "Engage your audience",
-    subName:"Video Explainer",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png",
-  },
 
-
-
-
-  {
-    id: 1,
-    category: ["graphics-design", "Ai Artist"],
-    authorName: "Add talent to Ai",
-    subName: "Ai Artist",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/f27bec553efc12cc60baed89b8f2223e-1674661140708/ai-artists-2x.png",
-  },
-  {
-    id: 2,
-    category: ["graphics-design", "Logo Design"],
-    subName: "Logo Design",
-    authorName: "Build your brand",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741678/logo-design-2x.png",
-  },
-  {
-    id: 3,
-    category: ["web-development", "Social media"],
-    subName: "Social media",
-    authorName: "Customize your site",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/ae11e2d45410b0eded7fba0e46b09dbd-1598561917003/wordpress-2x.png",
-  },
-  {
-    id: 4,
-    category: ['music-audio','voice-over'],
-    authorName: "Share your message",
-    subName:"Voice Over",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741669/voiceover-2x.png",
-  },
-  {
-    id: 5,
-    category: ['online-marketing','social-marketing'],
-    authorName: "Reach more customers",
-    subName:"Social Media",
-    image:"https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741667/social-2x.png"},
-  {
-    id: 6,
-    category: "Wordpress",
-    authorName: "Engage your audience",
-    subName:"Video Explainer",
-    image:
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_255,dpr_1.0/v1/attachments/generic_asset/asset/055f758c1f5b3a1ab38c047dce553860-1598561741663/animated-explainer-2x.png",
-  },
-];
 
 export default function ServicesIndex() {
   return (
@@ -136,7 +42,7 @@ export default function ServicesIndex() {
         </div>
         <div className="w-100 grid grid-auto grid-gap1">
           <Slider className="owl-theme" options={options2}>
-            {projectData.map((x) => {
+            {categorydata.map((x) => {
               return (
                 <Link
                   to={`/categories/${x.category[0]}/${x.category[1]}`}

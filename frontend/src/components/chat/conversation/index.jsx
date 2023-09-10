@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Left from "./Left";
 import Right from "./Right";
 import Top from "./Top";
 
 export default function ConversationIndex() {
+  const [onsidebar, setOnSidebar] = useState(true);
   return (
     <ConversationIndexWrapper>
-      <Top />
       <div className="wrapper">
-        <Left />
-        <Right />
+        <Left setOnSidebar={setOnSidebar} onsidebar={onsidebar}  />
+        {onsidebar && <Right setOnSidebar={setOnSidebar} />}
       </div>
     </ConversationIndexWrapper>
   );
@@ -20,13 +20,10 @@ const ConversationIndexWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  position: sticky;
+  top: 0;
   .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 18vw;
-    width: 100%;
+    display: flex;
     height: 100%;
-    @media (max-width:780px) {
-      grid-template-columns: 1fr;
-    }
   }
 `;

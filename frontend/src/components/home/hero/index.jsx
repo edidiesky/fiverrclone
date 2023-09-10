@@ -148,11 +148,14 @@ export default function HeroIndex() {
 }
 
 const HeroIndexContent = styled.div`
-  padding: 27rem 0;
+  padding: 35rem 0;
   min-height: 100%;
   position: relative;
   display: flex;
   /* height: 50vh; */
+  @media (max-width: 880px) {
+    padding: 20rem 0;
+  }
   place-items: center;
   .images {
     position: absolute;

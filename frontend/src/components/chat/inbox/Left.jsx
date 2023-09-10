@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+// import { GoFilter } from "react-icons/go";
 import { BiSearch, BiStar } from "react-icons/bi";
-export default function InboxLeft({toggle}) {
+export default function InboxLeft({ toggle }) {
   const [search, setSearch] = useState(false);
   let image = true;
   const MessageSearch = () => {
@@ -26,34 +27,46 @@ export default function InboxLeft({toggle}) {
       {search ? (
         <MessageSearch />
       ) : (
-        <div className="top fs-20 text-light flex item-center justify-space w-100">
-          All conversations
-          <BiSearch
-            className="fs-24 text-grey2"
-            onClick={() => setSearch(true)}
-          />
+        <div className="top w-85 auto fs-20 text-extra-bold flex item-center justify-center w-100">
+          <div className="w-85 auto flex item-center justify-space ">
+            Messages
+            <div className="icon flex item-center justify-center">
+              <BiSearch
+                className="fs-24 text-dark"
+                onClick={() => setSearch(true)}
+              />
+            </div>
+          </div>
         </div>
       )}
       <div className="center flex column gap-2">
-        <div onClick={toggle} className="w-100 py-1 borderB flex item-center justify-space">
+        <div
+          onClick={toggle}
+          className="w-85 auto py-1 borderB flex item-center justify-space"
+        >
           {/* image and title */}
-          <div className="flex1 flex item-center gap-2">
+          <div className="flex1 flex item-center" style={{ gap: "10px" }}>
             <img
-              src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg"
+              src="https://a0.muscache.com/im/pictures/user/9f63574d-3b11-44c5-937b-5a2eeef401db.jpg?im_w=240"
               alt=""
               className="avatar"
             />
             <h4 className="text-dark fs-16 text-extra-bold">
-              Logo_56575
-              {/* message */}
-              <span className="block text-light family1">Hi</span>
+              Bookiply
+              <span
+                className="block text-dark"
+                style={{
+                  margin: "5px auto",
+                  fontSize: "15px",
+                  fontWeight: "300",
+                }}
+              >
+                Dear Edidiong, Thank you for your message. How can we help you?
+              </span>
+              <span className="fs-12 text-extra-bold text-grey">
+                Inquiry. Dec 8 - 13
+              </span>
             </h4>
-          </div>
-          {/* time */}
-          <div className="flex column gap-1">
-            <div className="flex fs-16 text-light text-grey gap-1 item-center">
-              2 days <BiStar className="fs-18 text-grey" />
-            </div>
           </div>
         </div>
       </div>
@@ -61,22 +74,28 @@ export default function InboxLeft({toggle}) {
   );
 }
 const InboxLeftWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  /* width: 500px; */
+  flex: 0 0 400px;
+  min-height: 100%;
+  position: sticky;
+  top: 0;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   .avatar {
-    width:6rem;
-    height: 6rem;
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
   }
-  @media (max-width:980px) {
+  @media (max-width: 980px) {
     display: none;
-    }
+  }
   .borderB {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    /* margin: 10px auto; */
     padding: 1.2rem 2rem;
+    background-color: #f7f7f7;
   }
   .top {
-    padding: 2rem;
+    min-height: 4.7rem;
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   }
@@ -100,19 +119,5 @@ const InboxLeftWrapper = styled.div`
     width: 100%;
     max-height: 40rem;
     padding-bottom: 3rem;
-    &::-webkit-scrollbar {
-      width: 7px;
-      height: 7px;
-      background: #e8e6e6;
-      border-radius: 10px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: var(--grey-1);
-      border-radius: 10px;
-      transition: all 0.5s;
-      &:hover {
-        background: #333;
-      }
-    }
   }
 `;
