@@ -33,7 +33,7 @@ export default function Left({onsidebar,setOnSidebar}) {
     return (
       <LeftBottomWrapper className="w-100 flex item-center justify-center">
         <div className="flex w-90 auto item-center justify-center gap-1">
-          <textarea className="area flex item-center fs-16" placeholder="Type a message"></textarea>
+          <input className="area flex item-center fs-16" placeholder="Type a message"></input>
           
         </div>
       </LeftBottomWrapper>
@@ -53,26 +53,32 @@ export default function Left({onsidebar,setOnSidebar}) {
                       <div className="SenderChat flex py-2 item-center family1 text-light">
                         <div className="flex w-85 auto gap-1">
                           <img src={x.image} alt="" className="avatar" />
-                          <div className="flex column" style={{ gap: "6px" }}>
+                          <div
+                            className="flex column"
+                            style={{ gap: "6px" }}
+                          >
                             <div
                               className="w-100 flex item-center"
-                              style={{ gap: "2px" }}
+                              style={{ gap: "4px" }}
                             >
                               <h4
-                                className="fs-18"
-                                style={{ fontWeight: "800" }}
+                                className="fs-20"
+                                style={{ fontWeight: "600" }}
                               >
                                 Bookipy
                               </h4>
                               <h5
-                                className="text-bold fs-10 text-grey"
-                                style={{ fontSize: "11px" }}
+                                className="text-bold fs-14 text-grey"
+                               
                               >
                                 1:17 AM
                               </h5>
                             </div>
                             <div className="w-100">
-                              <h4 className="fs-16 text-dark text-light">
+                              <h4
+                                style={{lineHeight: "1.4" }}
+                                className="fs-14 family2 text-grey text-light"
+                              >
                                 {x.text}
                               </h4>
                             </div>
@@ -89,23 +95,23 @@ export default function Left({onsidebar,setOnSidebar}) {
                           <div className="flex column" style={{ gap: "6px" }}>
                             <div
                               className="w-100 flex item-center"
-                              style={{ gap: "2px" }}
+                              style={{ gap: "4px" }}
                             >
                               <h4
-                                className="fs-18"
-                                style={{ fontWeight: "800" }}
+                                className="fs-20"
+                                style={{ fontWeight: "600" }}
                               >
                                 Edidiong
                               </h4>
-                              <h5
-                                className="text-bold fs-10 text-grey"
-                                style={{ fontSize: "11px" }}
-                              >
+                              <h5 className="text-bold fs-14 text-grey">
                                 1:17 AM
                               </h5>
                             </div>
                             <div className="w-100">
-                              <h4 style={{fontSize:"16px",lineHeight:"1.4"}} className=" text-dark text-light">
+                              <h4
+                                style={{ lineHeight: "1.4" }}
+                                className=" text-grey family2 fs-14 text-light"
+                              >
                                 Thank you for your message. How can we help you?
                                 Please don't hesitate to contact us again should
                                 you have any further requests or questions. Kind
@@ -140,6 +146,7 @@ const LeftTopWrapper = styled.div`
   overflow: auto;
   background-color: #fff;
   z-index: 300;
+  border: 1px solid rgba(0,0,0,.1);
   .leftTopWrapper {
     padding: 2rem 0;
   }
@@ -148,8 +155,8 @@ const LeftTopWrapper = styled.div`
   }
   .avatar {
     border: 1.4px solid var(--blue-1);
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 4rem;
+    height: 4rem;
   }
   .recieverChat {
     justify-content: flex-end;
@@ -178,20 +185,26 @@ const LeftTopWrapper = styled.div`
 `;
 const LeftBottomWrapper = styled.div`
   width: 100%;
-  height: 30%;
+  height: 20%;
   background-color: #fff;
   z-index: 300;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
   .area {
     /* margin-bottom: 4rem; */
-    border: 1px solid rgba(0,0,0,.4);
+    border: 1px solid rgba(0, 0, 0, 0.4) !important;
     border-radius: 10px;
-    padding:20px 30px;
+    padding: 20px 30px;
     resize: none;
     /* padding-top: 4px; */
     height: 100%;
     width: 100%;
     font-family: inherit;
-    height: 120px;
+    height: 30px;
   }
   .icon {
     width: 4rem;

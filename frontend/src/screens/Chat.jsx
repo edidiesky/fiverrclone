@@ -20,9 +20,8 @@ export default function Chat() {
   );
 }
 const ChatContainer = styled.div`
+  height: 100vh;
   width: 100%;
-  min-height: 100vh;
-  background-color: var(--light-grey);
   @media (max-width: 780px) {
     padding: 0;
     gap: 0;
@@ -31,11 +30,7 @@ const ChatContainer = styled.div`
 
 const ChatWrapper = styled.div`
   width: 100%;
-  background-color: var(--light-grey);
-  overflow: hidden;
-  place-items: center;
-  display: grid;
-  place-items: center;
+  height: 100vh;
   @media (max-width: 780px) {
     padding: 0;
     gap: 0;

@@ -11,7 +11,7 @@ export default function ChatIndex() {
 }
 
 const ChatIndexWrapper = styled.div`
-  border: 1px solid rgba(0, 0, 0, 0.2);
   /* background-color: #222; */
+  background-color: #fff;
 
 `;

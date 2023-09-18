@@ -13,9 +13,9 @@ export default function InboxIndex() {
 }
 
 const InboxIndexWrapper = styled.div`
-  width: 100%;
-  height: 90vh;
-  overflow: auto;
+  width: 97%;
+  margin: 0 auto;
+  height: 76vh;
   display: flex;
   align-items: flex-start;
   @media (max-width: 980px) {

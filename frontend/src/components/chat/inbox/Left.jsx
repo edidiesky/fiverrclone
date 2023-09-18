@@ -28,9 +28,9 @@ export default function InboxLeft({ toggle }) {
         <MessageSearch />
       ) : (
         <div className="top w-85 auto fs-20 text-extra-bold flex item-center justify-center w-100">
-          <div className="w-85 auto flex item-center justify-space ">
+          <div className="w-85 auto flex family2 item-center justify-space ">
             Messages
-            <div className="icon flex item-center justify-center">
+            <div className="icon flex family2 item-center justify-center">
               <BiSearch
                 className="fs-24 text-dark"
                 onClick={() => setSearch(true)}
@@ -39,10 +39,10 @@ export default function InboxLeft({ toggle }) {
           </div>
         </div>
       )}
-      <div className="center flex column gap-2">
+      <div className="center flex family2 column gap-2">
         <div
           onClick={toggle}
-          className="w-85 auto py-1 borderB flex item-center justify-space"
+          className="w-85 auto py-1 chatTab borderB flex item-center justify-space"
         >
           {/* image and title */}
           <div className="flex1 flex item-center" style={{ gap: "10px" }}>
@@ -51,22 +51,13 @@ export default function InboxLeft({ toggle }) {
               alt=""
               className="avatar"
             />
-            <h4 className="text-dark fs-16 text-extra-bold">
-              Bookiply
-              <span
-                className="block text-dark"
-                style={{
-                  margin: "5px auto",
-                  fontSize: "15px",
-                  fontWeight: "300",
-                }}
-              >
-                Dear Edidiong, Thank you for your message. How can we help you?
-              </span>
+            <div className="flex column h-100">
+              <h4 className="text-dark fs-16 text-extra-bold">Bookiply</h4>
+
               <span className="fs-12 text-extra-bold text-grey">
                 Inquiry. Dec 8 - 13
               </span>
-            </h4>
+            </div>
           </div>
         </div>
       </div>
@@ -75,29 +66,28 @@ export default function InboxLeft({ toggle }) {
 }
 const InboxLeftWrapper = styled.div`
   /* width: 500px; */
-  flex: 0 0 400px;
+  flex: 0 0 350px;
   min-height: 100%;
   position: sticky;
   top: 0;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  .chatTab {
+    padding: 1.5rem;
+    background-color: #fafafa;
+  }
   .avatar {
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 6rem;
     object-fit: cover;
   }
   @media (max-width: 980px) {
     display: none;
   }
   .borderB {
-    border-radius: 10px;
-    /* margin: 10px auto; */
     padding: 1.2rem 2rem;
-    background-color: #f7f7f7;
+    border-radius: 20px;
   }
   .top {
-    min-height: 4.7rem;
-    background-color: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1.2rem 2rem;
   }
   h5 {
     &:hover {
@@ -106,10 +96,6 @@ const InboxLeftWrapper = styled.div`
   }
   .input {
     background-color: #fff;
-    padding: 1.2rem 2rem;
-    flex: 1;
-    font-size: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
   }
   .center {
     display: flex;
