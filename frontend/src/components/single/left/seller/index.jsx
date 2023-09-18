@@ -22,17 +22,17 @@ export default function SellerInfo() {
                 borderRadius: "50%",
               }}
             />
-            <div className="flex column item-start gap-1">
-              <h4 className="fs-20 family2 text-grey text-bold">
+            <div className="flex column item-start">
+              <h4 className="fs-18 family2 text-grey text-bold">
                 {GigsDetails?.sellerId?.name}{" "}
-                <span className="fs-16 text-light">
+                <span className="fs-14 text-light">
                   @{GigsDetails?.sellerId?.username}
                 </span>
               </h4>
               <div
                 className="flex item-center gap-1 fs-20"
                 style={{
-                  paddingLeft: "1rem",
+                  padding: ".6rem 0",
                 }}
               >
                 <Rating value={5} />
@@ -42,7 +42,7 @@ export default function SellerInfo() {
                 style={{ width: "200px" }}
                 className="flex justify-start item-center"
               >
-                <Link to={"/"} className="contactBtn fs-16 family2">
+                <Link to={"/"} className="contactBtn fs-14 family2">
                   Contact Me
                 </Link>
               </div>

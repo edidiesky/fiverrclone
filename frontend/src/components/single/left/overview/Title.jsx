@@ -33,8 +33,8 @@ export default function Title() {
               <h4 className="fs-20 family2 text-dark family2 text-extra-bold">
                 {GigsDetails?.sellerId?.name}{" "}
                 <span
-                  style={{ marginLeft: "6px" }}
-                  className="fs-16 family2 text-light"
+                  style={{ marginLeft: "1px" }}
+                  className="fs-14 family2 text-light"
                 >
                   @{GigsDetails?.sellerId?.username}
                 </span>

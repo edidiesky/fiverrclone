@@ -67,43 +67,43 @@ export default function Footer() {
   return (
     <FooterContainer>
       <div className="w-90 container auto">
-        <div className="w-100 flex column gap-2">
-          <h4 className="fs-24 text-dark text-bold">Categories</h4>
-          <ul className="w-100 flex gap-2 column">
+        <div className="w-100 flex column gap-1">
+          <h4 className="fs-20 text-dark text-extra-bold">Categories</h4>
+          <ul className="w-100 flex gap-1 column">
             {Tagdata1.map(x=> {
-              return <li className="w-100 fs-20 text-bold text-grey">{x}</li>
+              return <li className="w-100 fs-20 text-light text-grey">{x}</li>
             })}
           </ul>
         </div>
-        <div className="w-100 flex column gap-2">
-          <h4 className="fs-24 text-dark text-bold">About</h4>
-          <ul className="w-100 flex gap-2 column">
+        <div className="w-100 flex column gap-1">
+          <h4 className="fs-20 text-dark text-extra-bold">About</h4>
+          <ul className="w-100 flex gap-1 column">
             {Tagdata2.map(x=> {
-              return <li className="w-100 fs-20 text-bold text-grey">{x}</li>
+              return <li className="w-100 fs-20 text-light text-grey">{x}</li>
             })}
           </ul>
         </div>
-        <div className="w-100 flex column gap-2">
-          <h4 className="fs-24 text-dark text-bold">Support</h4>
-          <ul className="w-100 flex gap-2 column">
+        <div className="w-100 flex column gap-1">
+          <h4 className="fs-20 text-dark text-extra-bold">Support</h4>
+          <ul className="w-100 flex gap-1 column">
             {Tagdata3.map(x=> {
-              return <li className="w-100 fs-20 text-bold text-grey">{x}</li>
+              return <li className="w-100 fs-20 text-light text-grey">{x}</li>
             })}
           </ul>
         </div>
-        <div className="w-100 flex column gap-2">
-          <h4 className="fs-24 text-dark text-bold">Community</h4>
-          <ul className="w-100 flex gap-2 column">
+        <div className="w-100 flex column gap-1">
+          <h4 className="fs-20 text-dark text-extra-bold">Community</h4>
+          <ul className="w-100 flex gap-1 column">
             {Tagdata4.map(x=> {
-              return <li className="w-100 fs-20 text-bold text-grey">{x}</li>
+              return <li className="w-100 fs-20 text-light text-grey">{x}</li>
             })}
           </ul>
         </div>
-        <div className="w-100 flex column gap-2">
-          <h4 className="fs-24 text-dark text-bold">More From Fiverr</h4>
-          <ul className="w-100 flex gap-2 column">
+        <div className="w-100 flex column gap-1">
+          <h4 className="fs-20 text-dark text-extra-bold">More From Fiverr</h4>
+          <ul className="w-100 flex gap-1 column">
             {Tagdata5.map(x=> {
-              return <li className="w-100 fs-20 text-bold text-grey">{x}</li>
+              return <li className="w-100 fs-20 text-light text-grey">{x}</li>
             })}
           </ul>
         </div>

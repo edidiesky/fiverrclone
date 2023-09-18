@@ -23,13 +23,20 @@ export default function RightIndex() {
       <div className="Right flex gap-1 column">
         {/* box */}
         <div className="w-100 border flex column gap-2">
-          <div className="w-100 p2 border fs-16 family1 text-bold text-grey">
-            Basic
+          <div className="flex item-center">
+            <div className="w-100 tab flex-1 tab1 fs-18 text-center text-bold text-grey">
+              Basic
+            </div>{" "}
+            <div className="w-100 tab tab2 flex-1 fs-18 text-center text-bold text-grey">
+              Standard
+            </div>  <div className="w-100 tab tab3 flex-1 fs-18 text-center text-bold text-grey">
+            Premium
+          </div>
           </div>
           <div className="w-100 flex column gap-2 p2">
             {/* price */}
             <div className="w-100 flex item-center justify-space">
-              <h4 className="fs-18 text-dark text-bold">INITIAL PACKAGE</h4>
+              <h4 className="fs-24 text-dark text-bold">INITIAL PACKAGE</h4>
               {/* price */}
               <h4 className="fs-24 text-dark text-light">
                 ${GigsDetails?.price}
@@ -40,8 +47,8 @@ export default function RightIndex() {
               {GigsDetails?.shortDescription}
             </h4>
             {/* basic info */}
-            <ul className="flex column gap-1">
-              <div className="w-100 flex item-center gap-1 fs-16 text-dark">
+            <ul style={{ gap: "6px" }} className="flex column">
+              <div className="w-100 flex item-center gap-1 fs-18 text-dark">
                 <FaClock />
                 {GigsDetails?.deliveryDays} Days Delivery
               </div>
@@ -49,7 +56,7 @@ export default function RightIndex() {
                 return (
                   <li
                     key={index}
-                    className="flex item-center text-bold gap-1 fs-16 text-grey"
+                    className="flex item-center text-bold gap-1 fs-18 text-grey"
                   >
                     <FaCheck /> {x}
                   </li>
@@ -89,6 +96,21 @@ const RightIndexContent = styled.div`
   .Right {
     position: sticky;
     top: 5%;
+  }
+  .tab {
+    padding: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    &.tab2,
+    &.tab3 {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    &.tab1 {
+      border-bottom: 4px solid var(--dark-1);
+    }
+    &.tab1,
+    &.tab2 {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
   }
   .p2 {
     padding: 2rem;
