@@ -82,7 +82,7 @@ body {
   padding: 2.4rem;
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  outline: none;
+  /* outline: none; */
   font-size: 1.3rem;
   font-weight: 500;
   transition: all 0.2s;
@@ -165,7 +165,6 @@ html {
 .contactBtn,
 .cartBtn {
   padding: 1rem 2rem;
-  width: 90%;
   margin: 0 auto;
   text-align: center;
   border: 1px solid var(--grey-1);
@@ -179,7 +178,6 @@ html {
 .cartBtn.green {
   background-color: var(--green);
   color: #fff;
-  width: 100%;
   border: none;
   cursor: pointer;
 }

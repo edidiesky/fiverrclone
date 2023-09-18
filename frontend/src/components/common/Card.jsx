@@ -33,7 +33,7 @@ export default function Card({ x, index, type }) {
           <Link
             to={`/gigs/${cardid}`}
             style={{ boxShadow: "var(--shadow)", borderRadius: "5px" }}
-            className="w-100 MainCard flex family3 column"
+            className="w-100 MainCard flex  column"
             key={cardid}
           >
             <div className="w-100 card">
@@ -45,7 +45,7 @@ export default function Card({ x, index, type }) {
                 borderBottomLeftRadius: "5px",
                 borderBottomRightRadius: "5px",
               }}
-              className="bottom w-100 back-white py-2 flex family3 item-center gap-1"
+              className="bottom w-100 back-white py-2 flex  item-center gap-1"
             >
               <img
                 src={x?.sellerId?.image}
@@ -57,7 +57,7 @@ export default function Card({ x, index, type }) {
                   borderRadius: "50%",
                 }}
               />
-              <div className="flex family3 column">
+              <div className="flex  column">
                 <h4 className="fs-14 family1 text-dark text-extra-bold">
                   {x?.category[0]}
                 </h4>
@@ -80,7 +80,7 @@ export default function Card({ x, index, type }) {
           <CardContent>
             <Link
               to={`/dashboard/create-gig/${cardid}`}
-              className="w-100 cards flex family3 column"
+              className="w-100 cards flex  column"
               key={x?.id}
             >
               <div className="detailsImageContainer">
@@ -99,9 +99,9 @@ export default function Card({ x, index, type }) {
                   })}
                 </div>
               </div>
-              <div className="w-100 flex family3 column py-1 gap-1">
-                <div className="flex family3 item-center w-100 justify-space">
-                  <div className="flex family3 gap-1 item-center">
+              <div className="w-100 flex  column py-1 gap-1">
+                <div className="flex  item-center w-100 justify-space">
+                  <div className="flex  gap-1 item-center">
                     <img
                       src="./images/johanna-richardson.jpg"
                       style={{
@@ -119,7 +119,7 @@ export default function Card({ x, index, type }) {
                 </h4>
                 <div
                   style={{ gap: ".3rem", padding: ".3rem 0" }}
-                  className="w-100 flex family3 text-dark text-bold item-center fs-18"
+                  className="w-100 flex  text-dark text-bold item-center fs-18"
                 >
                   <Star />
                   <span style={{ marginTop: ".3rem" }}>4.9</span>
@@ -131,7 +131,7 @@ export default function Card({ x, index, type }) {
                   </span>
                 </div>
 
-                <div className="w-100 flex family3 item-center gap-1 fs-20 text-dark">
+                <div className="w-100 flex  item-center gap-1 fs-20 text-dark">
                   From
                   <span className="fs-18">${x?.price}</span>
                 </div>
@@ -152,7 +152,7 @@ export default function Card({ x, index, type }) {
           <CardContent className="profile">
             <Link
               to={`/gigs/${cardid}`}
-              className="w-100 cards profile gap-1 flex family3 column"
+              className="w-100 cards profile gap-1 flex  column"
               key={x?.id}
             >
               <div className="detailsImageContainer profile">
@@ -173,9 +173,9 @@ export default function Card({ x, index, type }) {
                   })}
                 </div>
               </div>
-              <div className="w-85 auto card_center flex family3 column gap-1">
-                <div className="flex family3 item-center w-100 justify-space">
-                  <div className="flex family3 gap-1 item-center">
+              <div className="w-85 auto card_center flex  column gap-1">
+                <div className="flex  item-center w-100 justify-space">
+                  <div className="flex  gap-1 item-center">
                     <img
                       src={x?.sellerId?.image}
                       style={{
@@ -184,22 +184,22 @@ export default function Card({ x, index, type }) {
                         borderRadius: "50%",
                       }}
                     />
-                    <h5 className="fs-16 text-dark text-bold">
+                    <h5 className="fs-18 text-dark text-bold">
                       {x?.sellerId?.username}
                     </h5>
                   </div>
                 </div>
                 <h4
                   style={{ fontWeight: "400" }}
-                  className="desc family3 fs-16 text-dark text-bold"
+                  className="desc fs-18 text-dark text-bold"
                 >
                   {x?.title.substring(0, 50)}
                 </h4>
                 <div
                   style={{ gap: ".3rem", padding: ".3rem 0" }}
-                  className="w-100 flex family3 text-dark justify-space text-bold item-center fs-16"
+                  className="w-100 flex  text-dark justify-space text-bold item-center fs-16"
                 >
-                  <div style={{ gap: ".5rem" }} className="flex family3 item-center">
+                  <div style={{ gap: ".5rem" }} className="flex  item-center">
                     {" "}
                     <FaStar fontSize={"15px"} />
                     <span style={{ marginTop: ".3rem" }}>4.9</span>
@@ -210,7 +210,7 @@ export default function Card({ x, index, type }) {
                       (1K+)
                     </span>
                   </div>
-                  <span className="text-light text-grey">
+                  <span className="text-light fs-18 text-grey">
                     {x?.sellerId?.level}
                   </span>
                 </div>
@@ -222,18 +222,18 @@ export default function Card({ x, index, type }) {
                   From <span className="fs-18">${x?.price}</span>
                 </div> */}
               </div>
-              <div className="w-100 card_bottom flex family3 justify-space item-center">
-                <div className="w-85 auto flex family3 item-center justify-space">
-                  <div style={{ gap: ".5rem" }} className="flex family3 item-center">
+              <div className="w-100 card_bottom flex  justify-space item-center">
+                <div className="w-85 auto flex  item-center justify-space">
+                  <div style={{ gap: ".5rem" }} className="flex  item-center">
                     <FaHeart fontSize={"20px"} color="var(--grey-2)" />
                   </div>
                   <div
                     style={{ gap: ".5rem" }}
-                    className="flex family3 item-center fs-20 text-bold text-dark"
+                    className="flex  item-center fs-20 text-bold text-dark"
                   >
                     <span
                       style={{ letterSpacing: "2px" }}
-                      className="fs-10 text-bold text-grey"
+                      className="fs-14 text-bold text-grey"
                     >
                       STARTING AT
                     </span>
@@ -262,12 +262,12 @@ export default function Card({ x, index, type }) {
 
           <Link
             to={`/gigs/${cardid}`}
-            className="w-100 cards gap-1 flex family3 column"
+            className="w-100 cards gap-1 flex  column"
             key={x?.id}
           >
             <div style={{zIndex:"300"}} className="w-100 abolute hidden">
               {x?.image?.length >= 2 && (
-                <div className="flex family3 hidden">
+                <div className="flex  hidden">
                   {tabindex > 0 && (
                     <div
                       className="btnArrow shadow left"
@@ -288,7 +288,7 @@ export default function Card({ x, index, type }) {
 
             <div
               style={{ gap: "5px" }}
-              className="custom_nav_wrapper flex family3 item-center justify-center"
+              className="custom_nav_wrapper flex  item-center justify-center"
             >
               {new Array(x?.image?.length).fill("").map((x, index) => {
                 const active = tabindex === index;
@@ -318,9 +318,9 @@ export default function Card({ x, index, type }) {
                 })}
               </div>
             </div>
-            <div className="w-100 flex family3 column py-1 gap-1">
-              <div className="flex family3 item-center w-100 justify-space">
-                <div className="flex family3 gap-1 item-center">
+            <div className="w-100 flex  column py-1 gap-1">
+              <div className="flex  item-center w-100 justify-space">
+                <div className="flex  gap-1 item-center">
                   <img
                     src={x?.sellerId?.image}
                     style={{
@@ -329,23 +329,23 @@ export default function Card({ x, index, type }) {
                       borderRadius: "50%",
                     }}
                   />
-                  <h5 className="fs-16 text-dark text-bold">
+                  <h5 className="fs-18 text-dark text-bold">
                     {x?.sellerId?.username}
                   </h5>
                 </div>
-                <h5 className="fs-16 text-grey text-bold">
+                <h5 className="fs-18 text-grey text-bold">
                   {x?.sellerId?.level}
                 </h5>
               </div>
               <h4
                 style={{ fontWeight: "400" }}
-                className="desc fs-18 text-dark text-bold"
+                className="desc fs-20 text-dark text-bold"
               >
                 {x?.title.substring(0, 50)}
               </h4>
               <div
                 style={{ gap: ".3rem", padding: ".3rem 0" }}
-                className="w-100 flex family3 text-dark text-bold item-center fs-18"
+                className="w-100 flex  text-dark text-bold item-center fs-18"
               >
                 <Star />
                 <span style={{ marginTop: ".3rem" }}>4.9</span>

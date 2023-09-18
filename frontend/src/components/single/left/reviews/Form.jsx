@@ -7,6 +7,7 @@ import {
   createReviews,
 } from "../../../../Features";
 import Message from "../../../loaders/Message";
+import SelectReview from "./SelectReview";
 
 const Form = ({ id }) => {
   const reviewOptions = [
@@ -60,15 +61,72 @@ const Form = ({ id }) => {
   }, [reviewSuccess]);
 
   return (
-    <FormWrapper className="flex w-100 gap-2 column">
+    <FormWrapper className="flex w-100 gap-3 column">
       <Message
         alertType={alertType}
         showAlert={showAlert}
         alertText={alertText}
         handleClearAlert={dispatch(clearReviewsAlert())}
       />
-      <h3 className="fs-18 text-extra-bold text-dark">Leave A Review</h3>
+      <h3 className="fs-24 text-extra-bold text-grey">
+        Share your experience with the community, to help them make better
+        decisions
+      </h3>
       <div className="flex w-100 column gap-1">
+        <div className="flex item-center justify-space w-100">
+          <h4 className="fs-20 text-extra-bold text-grey">
+            Communication with seller
+            <span
+              style={{ fontSize: "13px" }}
+              className="block family2 text-light"
+            >
+              How responsive was the seller during this process?
+            </span>
+          </h4>
+          <SelectReview />
+        </div>
+        {/* service */}
+        <div className="flex item-center justify-space w-100">
+          <h4 className="fs-20 text-extra-bold text-grey">
+            Service as described
+            <span
+              style={{ fontSize: "13px" }}
+              className="block family2 text-light"
+            >
+              Did the result match the gig description?
+            </span>
+          </h4>
+          <SelectReview />
+        </div>
+        {/* service */}
+        <div className="flex item-center justify-space w-100">
+          <h4 className="fs-20 text-extra-bold text-grey">
+            Buy Again or Recommend
+            <span
+              style={{ fontSize: "13px" }}
+              className="block family2 text-light"
+            >
+              Would you recomend buying this Gig?
+            </span>
+          </h4>
+          <SelectReview />
+        </div>
+      </div>
+      <label
+        htmlFor="comments"
+        className="fs-20 flex column gap-1 text-bold text-grey"
+      >
+        What was it like working with this seller?
+        <textarea
+          id="comments"
+          className="textarea"
+          placeholder="What did you like or did'nt like about the seller's service? share as many details as you can help other buyers make the right decisions fro their needs."
+          name="description"
+          onChange={handleForm}
+          required
+        />
+      </label>
+      {/* <div className="flex w-100 column gap-1">
         <label
           htmlFor="comments"
           className="fs-18 flex column gap-1 text-light text-dark"
@@ -136,14 +194,14 @@ const Form = ({ id }) => {
             </select>
           </label>
         </div>
-      </div>
+      </div> */}
       <div className="w-100 py-2">
         <button
-          className="btn red fs-16 py-1 px-2 text-white text-bold"
+          className="btn fs-18 py-1 px-2 text-white text-bold"
           style={{ padding: "1.5rem 3rem" }}
           onClick={handleReview}
         >
-          Post Comment
+          Create review
         </button>
       </div>
     </FormWrapper>
@@ -155,6 +213,12 @@ const FormWrapper = styled.div`
     @media (max-width: 480px) {
       flex-direction: column;
     }
+  }
+  .btn {
+    background-color: var(--green);
+    color: #fff;
+    border: none;
+    cursor: pointer;
   }
 `;
 

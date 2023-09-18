@@ -98,8 +98,8 @@ export default function Header({ type }) {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "nav-links fs-20 text-extra-bold text-grey active"
-                    : "nav-links fs-20 text-extra-bold text-grey"
+                    ? "nav-links fs-20 text-light text-grey active"
+                    : "nav-links fs-20 text-light text-grey"
                 }
                 to={`${x}`}
                 key={index}
@@ -217,8 +217,8 @@ export default function Header({ type }) {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "nav-link fs-18 text-extra-bold active"
-                  : "nav-link fs-18 text-extra-bold"
+                  ? "nav-link fs-18 text-light active"
+                  : "nav-link fs-18 text-light"
               }
               to={`${x.path}`}
               key={x.id}

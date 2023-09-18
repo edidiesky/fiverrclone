@@ -105,7 +105,7 @@ const RightIndexContent = styled.div`
       background: rgba(0, 0, 0, 0.03);
     }
     &.tab1 {
-      border-bottom: 4px solid var(--dark-1);
+      border-bottom: 3px solid var(--dark-1);
     }
     &.tab1,
     &.tab2 {
@@ -119,6 +119,6 @@ const RightIndexContent = styled.div`
     padding: 1rem;
   }
   .border {
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.2);
   }
 `;
