@@ -9,7 +9,7 @@ export default function Title() {
   return (
     <div>
       <div className="flex w-100 py-2 column item-start gap-1">
-        <h2 className="fs-30 text-dark text-extra-bold">
+        <h2 className="fs-40 text-dark text-extra-bold">
           {GigsDetails?.title}
         </h2>
         {/* author pics */}
@@ -30,11 +30,11 @@ export default function Title() {
               to={`/profile/${GigsDetails?.sellerId?.username}?sellerId=${GigsDetails?.sellerId?._id}`}
               className="link text-dark"
             >
-              <h4 className="fs-20 text-dark text-bold">
+              <h4 className="fs-20 family2 text-dark family2 text-extra-bold">
                 {GigsDetails?.sellerId?.name}{" "}
                 <span
                   style={{ marginLeft: "6px" }}
-                  className="fs-16 text-light"
+                  className="fs-16 family2 text-light"
                 >
                   @{GigsDetails?.sellerId?.username}
                 </span>
@@ -44,7 +44,7 @@ export default function Title() {
             <div className="flex relative item-center">
               <h4
                 style={{ paddingRight: "1rem", borderRight: "1px solid #777" }}
-                className="fs-18 text-grey text-light"
+                className="fs-16 family2 text-grey text-light"
               >
                 {GigsDetails?.sellerId?.level}
               </h4>

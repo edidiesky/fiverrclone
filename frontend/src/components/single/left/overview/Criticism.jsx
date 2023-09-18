@@ -27,7 +27,7 @@ export default function Criticism() {
     <CriticismWrapper>
       {reviews?.length === 0 ? (
         <h4
-          className="fs-16 text-dark family1"
+          className="fs-24 text-bold text-dark"
           style={{
             border: "1px solid rgba(0,0,0,.08)",
             padding: "1.5rem",

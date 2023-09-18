@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 export default function SellerInfo() {
   const { GigsDetails } = useSelector((store) => store.gigs);
   return (
-    <SellerInfoContent className="flex w-100 column gap-2">
+    <SellerInfoContent className="flex  w-100 column gap-2">
       <div className="top w-100 ">
         <div className="w-100 flex column gap-2">
-          <h3 className="fs-24 text-bold text-grey">About the Seller</h3>
+          <h3 className="fs-30 text-extra-bold text-grey">About the Seller</h3>
           <div className="flex item-center gap-2">
             <img
               src={GigsDetails?.sellerId?.image}
@@ -23,23 +23,26 @@ export default function SellerInfo() {
               }}
             />
             <div className="flex column item-start gap-1">
-              <h4 className="fs-20 text-grey text-bold">
+              <h4 className="fs-20 family2 text-grey text-bold">
                 {GigsDetails?.sellerId?.name}{" "}
                 <span className="fs-16 text-light">
                   @{GigsDetails?.sellerId?.username}
                 </span>
               </h4>
               <div
-                className="flex item-center gap-1 fs-18"
+                className="flex item-center gap-1 fs-20"
                 style={{
                   paddingLeft: "1rem",
                 }}
               >
                 <Rating value={5} />
-                <h4 className="fs-16 text-grey text-bold">{5} (101)</h4>
+                <h4 className="fs-16 text-grey family2 text-bold">{5} (101)</h4>
               </div>
-              <div style={{width:"200px"}} className="flex justify-start item-center">
-                <Link to={"/"} className="contactBtn fs-16 family1">
+              <div
+                style={{ width: "200px" }}
+                className="flex justify-start item-center"
+              >
+                <Link to={"/"} className="contactBtn fs-16 family2">
                   Contact Me
                 </Link>
               </div>
@@ -49,7 +52,7 @@ export default function SellerInfo() {
       </div>
       {/* seller details and additional information */}
       <div
-        className="w-100 flex column gap-1"
+        className="w-100 flex  column gap-1"
         style={{
           padding: "2rem",
           border: "1px solid rgba(0,0,0,.08)",
@@ -58,13 +61,13 @@ export default function SellerInfo() {
         <ul
           className="radius1"
           style={{
-            display: "flex",
+            display: "flex ",
             flexWrap: "wrap",
             gap: "1rem",
           }}
         >
           <li
-            className="flex gap-1 text-grey2 fs-18 text-light column"
+            className="flex  gap-1 text-grey2 fs-20 text-light column"
             style={{ width: "50%" }}
           >
             From{" "}
@@ -72,12 +75,12 @@ export default function SellerInfo() {
               {GigsDetails?.sellerId?.about?.from}
             </span>
           </li>
-          <li className="flex gap-1 text-grey2 fs-18 text-light column">
+          <li className="flex  gap-1 text-grey2 fs-20 text-light column">
             Member since{" "}
             <span className="block text-bold text-grey">Sep 2022</span>
           </li>
           <li
-            className="flex gap-1 text-grey2 fs-18 text-light column"
+            className="flex  gap-1 text-grey2 fs-20 text-light column"
             style={{ width: "50%" }}
           >
             Languages <span className="block text-bold text-grey">English</span>
@@ -87,7 +90,7 @@ export default function SellerInfo() {
           className="py-2"
           style={{ borderTop: "1px solid rgba(0,0,0,.09)" }}
         >
-          <p className="fs-18 text-light text-grey">
+          <p className="fs-20 text-light text-grey">
             {/* I’m a full-time graphic designer/art director with over a decade of
             professional experience. I provide the highest-quality graphic
             design: branding, logo design, photoshop editing, illustrations,
