@@ -8,6 +8,31 @@ import Bar from "../../common/svg/Bar";
 import { useSelector, useDispatch } from "react-redux";
 import { HiUser } from "react-icons/hi";
 import { onAuthModal } from "../../../Features/user/userSlice";
+import { Slider } from "../../common";
+
+const options2 = {
+  items: 8,
+  nav: true,
+  dots: false,
+  margin: 10,
+  navText: ["<", ">"],
+  width: "100%",
+  slideBy: 2,
+  responsive: {
+    0: {
+      items: 2,
+    },
+    480: {
+      items: 3,
+    },
+    760: {
+      items: 5,
+    },
+    1024: {
+      items: 8,
+    },
+  },
+};
 
 const data = [
   { id: 1, title: "Fiverr Business", path: "/business" },
@@ -56,26 +81,26 @@ export default function Header() {
         }}
       >
         <div
-          className="w-90 auto flex bottom1 item-center justify-space"
-          style={{
-            flexWrap: "wrap",
-          }}
+          className="w-90 auto flex bottom1 item-center"
+         
         >
-          {headerBottomData.map((x, index) => {
-            return (
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "nav-links fs-24 text-light text-grey text-center active"
-                    : "nav-links fs-24 text-light text-grey text-center"
-                }
-                to={`${x}`}
-                key={index}
-              >
-                {x}
-              </NavLink>
-            );
-          })}
+          <Slider className="owl-theme" options={options2}>
+            {headerBottomData.map((x, index) => {
+              return (
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-links fs-20 text-light text-grey text-center active"
+                      : "nav-links fs-20 text-light text-grey text-center"
+                  }
+                  to={`${x}`}
+                  key={index}
+                >
+                  {x}
+                </NavLink>
+              );
+            })}
+          </Slider>
         </div>
       </HeaderTopWrapper>
     );
