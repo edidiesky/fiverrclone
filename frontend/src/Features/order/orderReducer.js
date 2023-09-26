@@ -135,6 +135,7 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
         null,
         config
       );
+      await axios.get(`/api/v1/order/customer/order`, config);
 
       return data.order;
     } catch (error) {

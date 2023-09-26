@@ -129,7 +129,7 @@ export default function CheckoutRight() {
             {orderisLoading && <LoaderIndex />}
             <div
               onClick={handleOrderPayment}
-              className="btn btn-1 text-center fs-16 text-light text-white"
+              className="btn btn-1 text-center fs-18 text-light text-white"
             >
               Pay Now
             </div>

@@ -11,14 +11,11 @@ import TableCards from "./Dashboard/components/TableCard";
 export default function Order() {
   const dispatch = useDispatch();
   const { order } = useSelector((store) => store.order);
-  // console.log(order);
-
   let createddate = moment(order?.updatedAt);
   createddate = createddate.format("MMMM Do YYYY");
   const { id } = useParams();
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    dispatch(updateCustomersOrderToPaid(id));
+   dispatch(updateCustomersOrderToPaid(id));
   }, [id]);
   return (
     <>

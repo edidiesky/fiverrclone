@@ -112,18 +112,23 @@ export default function TableCards({ x, type }) {
           return (
             <tr key={gig?._id}>
               <td>
-                <div className="flex item-center gap-1">
+                <div className="flex item-center justify-center gap-1">
                   <div
                     style={{ width: "11rem", borderRadius: "10px" }}
-                    className="flex detailsImageWrapper"
+                    className="flex detailsImageWrapper justify-center "
                   >
                     <div className="w-100 image">
-                      {gig?.image?.map((x) => {
+                      {/* {gig?.image?.map((x) => {
                         return <img src={x} alt="" className="radius1 w-100" />;
-                      })}
+                      })} */}
+                      <img
+                        src={gig?.image[0]}
+                        alt=""
+                        className="radius1 w-100"
+                      />
                     </div>
                   </div>
-                  <h4 className="fs-16 text-bold text-dark">
+                  <h4 className="fs-16 text-start text-bold text-dark">
                     {gig?.title}
                     <span className="block fs-12 text-grey">{gig?._id}</span>
                   </h4>
@@ -134,7 +139,7 @@ export default function TableCards({ x, type }) {
                   <h4 className="fs-14 text-bold text-dark">{createddate}</h4>
                 </div>
               </td>
-              <td>{x?.isPaid ? "Paid" : "Not paid"}</td>
+              <td>{x?.isPaid === true ? "Paid" : "Not paid"}</td>
               <td>
                 <h4 className="fs-16 text-extra-bold">${gig?.price}</h4>
               </td>
