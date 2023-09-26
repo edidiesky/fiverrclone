@@ -9,11 +9,11 @@ const data = [
   { id: 1, title: "Home", path: "/" },
   { id: 2, title: "Dashboard", path: "/explore" },
   { id: 3, title: "Inbox", path: "/inbox" },
-  { id: 4, title: "Lists", path: "/" },
-  { id: 5, title: "Explore", path: "/gigs" },
-  { id: 6, title: "English", path: "/" },
-  { id: 7, title: "Become a Seller", path: "/seller_onboarding/do" },
-  { id: 7, title: "Settings", path: "/profile" },
+  // { id: 4, title: "Lists", path: "/" },
+  // { id: 5, title: "Explore", path: "/gigs" },
+  // { id: 6, title: "English", path: "/" },
+  // { id: 7, title: "Become a Seller", path: "/seller_onboarding/do" },
+  // { id: 7, title: "Settings", path: "/profile" },
 ];
 
 export default function Sidebar() {
@@ -24,9 +24,9 @@ export default function Sidebar() {
   return (
     <SidebarContainer className={sidebar ? "active" : ""}>
       <div className="backdrop" onClick={() => dispatch(offSidebar())}></div>
-      <div className="SidebarWrapper">
+      <div className={sidebar ? "SidebarWrapper active" : "SidebarWrapper"}>
         <div className="sidebarContainer flex gap-2 column">
-          <div className="SidebarTop flex item-center gap-1 w-100">
+          {/* <div className="SidebarTop flex item-center gap-1 w-100">
             <img
               src="https://fiverr-res.cloudinary.com/t_profile_original,q_auto,f_auto/attachments/profile/photo/56a09771086f0077fcfe38f13d80ff28-1639316525935/140c8b5f-0558-4460-8c47-c2ba3af3b736.jpg"
               alt=""
@@ -38,43 +38,43 @@ export default function Sidebar() {
                 essienedidiong1000@gma
               </span>
             </h3>
-          </div>
-          <ul className="flex column w-100 auto py-4 gap-2">
+          </div> */}
+          <ul className="flex column w-100 auto py-4">
             {data.map((x) => {
               return (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "nav-link fs-18  text-grey2 text-light text-bold active"
-                      : "nav-link fs-18  text-grey2 text-light text-bold"
-                  }
-                  to={`${x.path}`}
-                  onClick={() => dispatch(offSidebar())}
-                  key={x.id}
-                >
-                  {x.title}
-                </NavLink>
+                <li className="w-100">
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "nav-link fs-20 text-light w-100 text-bold active"
+                        : "nav-link fs-20 text-light w-100 text-bold"
+                    }
+                    to={`${x.path}`}
+                    onClick={() => dispatch(offSidebar())}
+                    key={x.id}
+                  >
+                    {x.title}
+                  </NavLink>
+                </li>
               );
             })}
-            <li
-              onClick={() => dispatch(offSidebar())}
-              className="nav-link fs-18  text-grey2 text-light text-bold "
-            >
-              Logout
-            </li>
-            <li
-              onClick={() => dispatch(offSidebar())}
-              className="nav-link fs-18  text-grey2 text-light text-bold "
-            >
-              $ USD
-            </li>
-            <li
-              onClick={() => dispatch(offSidebar())}
-              className="nav-link fs-18  text-grey2 text-light text-bold "
-            >
-              English
-            </li>
           </ul>
+          <div className="flex column w-100">
+            <ul>
+              <li>
+                <h4 className="fs-16 text-bold family2 bottom1 text-dark">
+                  General
+                </h4>
+              </li>
+            </ul>
+            <ul className="flex column w-100">
+              <ul className="flex column w-100 auto py-1">
+                <li className="w-100 fs-20 text-light">Home</li>
+                <li className="w-100 fs-20 text-light">English</li>
+                <li className="w-100 fs-20 text-light">USD</li>
+              </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </SidebarContainer>
@@ -90,7 +90,7 @@ const SidebarContainer = styled.div`
   z-index: 85000;
   opacity: 0;
   visibility: hidden;
-  transition: all 1s;
+  transition: all 0.5s;
   left: -100%;
 
   @media (min-width: 980px) {
@@ -103,7 +103,6 @@ const SidebarContainer = styled.div`
     left: 0%;
   }
   .nav-link {
-    padding: 1rem 2rem;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.09);
     &:hover {
@@ -130,23 +129,48 @@ const SidebarContainer = styled.div`
       border-radius: 50%;
     }
   }
-
+  ul {
+    li {
+      color: #62646a;
+      padding: 1rem 2rem;
+    }
+  }
   .SidebarWrapper {
     width: 100%;
     padding: 1rem;
     display: flex;
-    width: 300px;
+    width: 290px;
     height: 100vh;
     flex-direction: column;
     position: relative;
     padding: 3rem 0;
     background-color: #fff;
+    transform: translateX(-100%);
+    transition: all 0.7s;
+
+    @media (min-width: 980px) {
+      display: none;
+    }
+    @media (max-width: 480px) {
+      width: 60%;
+    }
+    @media (max-width: 380px) {
+      width: 75%;
+    }
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0%);
+    }
 
     .sidebarContainer {
       height: 100vh;
       width: 96%;
       margin: 0 auto;
       overflow: auto;
+      @media (min-width: 980px) {
+        display: none;
+      }
       &::-webkit-scrollbar {
         width: 4px;
         height: 4px;

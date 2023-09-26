@@ -16,12 +16,15 @@ const options2 = {
   dotClass: "owl-dot custom-dot",
   responsive: {
     0: {
-      items: 2,
+      items: 1,
     },
     460: {
       items: 2,
     },
     760: {
+      items: 2,
+    },
+    1024: {
       items: 3,
     },
   },
@@ -36,7 +39,7 @@ export default function Features2Index() {
       <div className="features1wrapper w-90 py-6 auto flex column gap-2">
         <div className="w-100 Heades flex item-center justify-space">
           <Head text={"Fiverr guides"} />
-          <Link to={""} className="link flex item-center gap-1">
+          <Link to={""} className="link fs-18 flex item-center gap-1">
             See More Guides <BiChevronRight />
           </Link>
         </div>
@@ -51,7 +54,7 @@ export default function Features2Index() {
                 </div>
                 <div className="w-100 flex column">
                   <h3 className="fs-24 text-extra-bold text-dark">{x.text}</h3>
-                  <h4 className="fs-20 text-light text-grey2">{x.desc}</h4>
+                  <h4 className="fs-14 family2 text-bold text-grey">{x.desc}</h4>
                 </div>
               </Link>
             );

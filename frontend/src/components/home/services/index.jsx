@@ -17,13 +17,13 @@ const options2 = {
   slideBy: 5,
   responsive: {
     0: {
-      items: 3,
+      items: 1,
     },
     460: {
-      items: 3,
+      items: 2,
     },
     760: {
-      items: 3,
+      items: 2,
     },
     1024: {
       items: 5,
@@ -83,23 +83,31 @@ const ServicesIndexContainer = styled.div`
     top: 35%;
     width: 100%;
     z-index: 10;
-    background-color: #fff;
+
     &.disabled {
       display: none;
     }
-    button.owl-next {
+    button.owl-next,
+    button.owl-prev {
+      width: 50px;
+      height: 50px;
       background-color: #fff;
       border-radius: 50%;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
-      font-size: 20px;
+      font-size: 30px;
+      @media (max-width: 780px) {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+      }
+    }
+    button.owl-next {
       color: #777;
       &.disabled {
         display: none;
@@ -111,19 +119,9 @@ const ServicesIndexContainer = styled.div`
       }
     }
     button.owl-prev {
-      background-color: #fff;
-      border-radius: 50%;
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      border-radius: 50%;
       transition: all 0.4s;
       color: #777;
-      font-size: 20px;
+
       &.disabled {
         display: none;
       }

@@ -58,10 +58,10 @@ export default function Card({ x, index, type }) {
                 }}
               />
               <div className="flex  column">
-                <h4 className="fs-14 family1 text-dark text-extra-bold">
+                <h4 className="fs-18 family1 text-dark text-extra-bold">
                   {x?.category[0]}
                 </h4>
-                <h5 className="fs-14 text-light text-grey">
+                <h5 className="fs-12 family2 text-bold text-grey">
                   by {x?.sellerId?.username}
                 </h5>
               </div>
@@ -329,17 +329,16 @@ export default function Card({ x, index, type }) {
                       borderRadius: "50%",
                     }}
                   />
-                  <h5 className="fs-18 text-dark text-bold">
+                  <h5 className="fs-16 text-dark text-bold">
                     {x?.sellerId?.username}
                   </h5>
                 </div>
-                <h5 className="fs-18 text-grey text-bold">
+                <h5 className="fs-16 text-grey text-bold">
                   {x?.sellerId?.level}
                 </h5>
               </div>
               <h4
-                style={{ fontWeight: "400" }}
-                className="desc fs-20 text-dark text-bold"
+                className="desc fs-14 family2 text-grey text-extra-bold"
               >
                 {x?.title.substring(0, 50)}
               </h4>
@@ -472,6 +471,9 @@ const CardContent = styled.div`
     border-radius: 10px;
     &.profile {
       border-radius: 0px;
+    }
+    @media (max-width: 780px) {
+      height: 25rem;
     }
     .detailsImageWrapper {
       position: absolute;

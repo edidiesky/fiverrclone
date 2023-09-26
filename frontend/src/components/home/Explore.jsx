@@ -76,10 +76,7 @@ export default function Explore() {
         </div>
         <ExploreIcon
           className={"w-100"}
-          style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-            gridRowGap: "6rem",
-          }}
+         
         >
           {exploreData.map((x) => {
             return (
@@ -102,33 +99,45 @@ export default function Explore() {
 }
 
 export const ExploreIcon = styled.div`
-  display: grid;
-  grid-column-gap: 4rem;
-  .card {
-    &:hover {
-      .imageWrapper::after {
-        width: 40%;
-        background-color: var(--green);
-      }
-    }
-  }
-  .imageWrapper {
-    position: relative;
-    &::after {
-      width: 20%;
-      transition: all 0.3s;
-      position: absolute;
-      bottom: -10%;
-      content: "";
-      left: 50%;
-      height: 2px;
-      border-radius: 20px;
-      background-color: var(--grey-2);
-      transform: translateX(-50%);
-    }
-  }
-  .image {
-    height: 4.5rem;
-    width: 4.5rem;
-  }
-`;
+         display: grid;
+         grid-column-gap: 4rem;
+         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+         grid-row-gap: 7rem;
+
+         @media (max-width: 580px) {
+           grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+           grid-row-gap: 4rem;
+           .card {
+             h4 {
+               font-size: 17px;
+             }
+           }
+         }
+         .card {
+           &:hover {
+             .imageWrapper::after {
+               width: 40%;
+               background-color: var(--green);
+             }
+           }
+         }
+         .imageWrapper {
+           position: relative;
+           &::after {
+             width: 20%;
+             transition: all 0.3s;
+             position: absolute;
+             bottom: -10%;
+             content: "";
+             left: 50%;
+             height: 2px;
+             border-radius: 20px;
+             background-color: var(--grey-2);
+             transform: translateX(-50%);
+           }
+         }
+         .image {
+           height: 4.5rem;
+           width: 4.5rem;
+         }
+       `;

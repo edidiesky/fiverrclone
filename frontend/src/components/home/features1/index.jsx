@@ -18,13 +18,13 @@ const options2 = {
   slideBy: 3,
   responsive: {
     0: {
-      items: 2,
+      items: 1,
     },
     460: {
       items: 2,
     },
     760: {
-      items: 3,
+      items: 2,
     },
     1024: {
       items: 4,
@@ -39,7 +39,7 @@ export default function Features1Index() {
       <div className="w-90 auto column">
         <div className="w-100 Heades flex item-center justify-space">
           <Head text={"Inspiring work made on Fiverr"} />
-          <Link to={""} className="link fs-18 text-light flex item-center gap-1">
+          <Link to={""} className="link fs-20 text-light flex item-center gap-1">
             See More Projects <BiChevronRight />
           </Link>
         </div>
@@ -74,23 +74,31 @@ const Features1IndexContainer = styled.div`
     top: 35%;
     width: 100%;
     z-index: 10;
-    background-color: #fff;
+
     &.disabled {
       display: none;
     }
-    button.owl-next {
+    button.owl-next,
+    button.owl-prev {
+      width: 50px;
+      height: 50px;
       background-color: #fff;
       border-radius: 50%;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 60px;
-      height: 60px;
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
-      font-size: 26px;
+      font-size: 30px;
+      @media (max-width: 780px) {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+      }
+    }
+    button.owl-next {
       color: #777;
       &.disabled {
         display: none;
@@ -102,19 +110,9 @@ const Features1IndexContainer = styled.div`
       }
     }
     button.owl-prev {
-      background-color: #fff;
-      border-radius: 50%;
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      position: absolute;
-      border-radius: 50%;
       transition: all 0.4s;
       color: #777;
-      font-size: 26px;
+
       &.disabled {
         display: none;
       }
@@ -131,7 +129,6 @@ const Features1IndexContainer = styled.div`
       right: -2%;
     }
   }
-
   .Heades {
     @media (max-width: 780px) {
       flex-direction: column;

@@ -15,16 +15,18 @@ const options2 = {
   items: 8,
   nav: true,
   dots: false,
-  margin: 10,
+  margin: 4,
   navText: ["<", ">"],
   width: "100%",
   slideBy: 2,
   responsive: {
     0: {
       items: 2,
+      margin: 0,
     },
     480: {
       items: 3,
+      margin: 0,
     },
     760: {
       items: 5,
@@ -303,7 +305,14 @@ const HeaderTopContainer = styled.div`
   align-items: center;
   background: #fff;
   padding: 1.5rem 0;
-  transition: all .6s ease;
+  transition: all 0.6s ease;
+  .nav-links,
+  .fs-20,
+  h4 {
+    @media (max-width: 480px) {
+      font-size: 17px !important;
+    }
+  }
   .avatar {
     width: 4rem;
     height: 4rem;
@@ -480,6 +489,13 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   z-index: 5000;
+  .nav-links,
+  .fs-20,
+  h4 {
+    @media (max-width: 480px) {
+      font-size: 17px !important;
+    }
+  }
   .headerTopContainer {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     &.active {
@@ -497,7 +513,7 @@ const HeaderWrapper = styled.div`
     width: 100%;
     z-index: 5000;
     background-color: #fff;
-    transition: all .6s ease;
+    transition: all 0.6s ease;
     &.active {
       display: none;
     }

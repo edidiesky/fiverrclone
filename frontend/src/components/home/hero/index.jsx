@@ -42,121 +42,182 @@ export default function HeroIndex() {
 
   return (
     <>
-      <HeroIndexContent>
-        <div style={{ position: "absolute" }} className="w-100 h-100">
-          {heroBackgroundData.map((x, index) => {
-            return (
-              <img
-                key={index}
-                src={x.backgroundImage}
-                alt=""
-                className={index === tabindex ? "images active" : "images"}
-              />
-            );
-          })}
-        </div>
-        <div className="w-90 auto">
-          <div className="w-100 flex header column gap-2">
-            <h2 className="fs-40 text-white">
-              Find the perfect <span className="span1">freelance</span> services
-              for your business
-            </h2>
-            <form className={"w-100 py-2"}>
-              <div className="w-100 h-100 item-center formWrapper flex">
-                <BiSearch className="fs-24 text-grey" />
-                <input
-                  type="text"
-                  placeholder="Try Graphic Designer"
-                  className="input"
-                />
-              </div>
-              <div className="button fs-20 text-bold text-white flex item-center justify-center">
-                Search
-              </div>
-            </form>
-            <div
-              className="w-100 flex item-center gap-1 text-white fs-20 family1 text-white"
-              style={{ flexWrap: "wrap" }}
-            >
-              Popular:{" "}
-              <Link
-                to={"/categories/graphics-design/Website Design"}
-                className="links fs-20 family1"
-              >
-                Website Design
-              </Link>
-              <Link
-                to={"/categories/programming-tech/WordPress"}
-                className="links fs-20 family1"
-              >
-                WordPress
-              </Link>
-              <Link
-                to={"/categories/cp/ai-services"}
-                className="links fs-20 family1"
-              >
-                AI Services
-              </Link>
-              <Link
-                to={"/categories/graphics-design/Logo Design"}
-                className="links fs-20 family1"
-              >
-                Logo Design
-              </Link>
+      <div className="content2 w-100">
+        <HeroIndexContent className="content2">
+          <div className="w-90 auto">
+            <div className="w-100 auto justify-center item-center flex header column gap-2">
+              <h2 className="fs-40 text-white text-start">
+                Find the right <span className="span1">freelance</span> service
+                right away
+              </h2>
+              <form className={"w-100 forms py-2 flex column gap-2"}>
+                <div className="w-100 h-100 item-center formWrapper flex">
+                  <input
+                    type="text"
+                    placeholder="Search for any service"
+                    className="input"
+                  />
+                </div>
+                <div className="buttons w-100 fs-20 text-bold text-white flex item-center justify-center">
+                  <BiSearch className="fs-24 text-white" />
+                </div>
+              </form>
             </div>
           </div>
-        </div>
-      </HeroIndexContent>
-      <div
-        className="bottom w-100 flex gap-3 py-3 item-center justify-center"
-        style={{
-          background: "var(--light-grey)",
-          padding: "2rem 0",
-          flexWrap: "wrap",
-        }}
-      >
-        <div className="fs-20 text-grey2">Trusted by :</div>
-        <img
-          src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta2x.b364aec.png"
-          alt=""
-          style={{ height: "6rem" }}
-        />
-        <img
-          src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google2x.4fa6c20.png"
-          alt=""
-          style={{ height: "6rem" }}
-        />
-        <img
-          src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix2x.6b36ad6.png"
-          alt=""
-          style={{ height: "6rem" }}
-        />
+        </HeroIndexContent>
+      </div>
+      <div className="w-100 content1">
+        <HeroIndexContent className="content1">
+          <div style={{ position: "absolute" }} className="w-100 h-100">
+            {heroBackgroundData.map((x, index) => {
+              return (
+                <img
+                  key={index}
+                  src={x.backgroundImage}
+                  alt=""
+                  className={index === tabindex ? "images active" : "images"}
+                />
+              );
+            })}
+          </div>
+          <div className="w-90 auto">
+            <div className="w-100 flex header column gap-2">
+              <h2 className="fs-40 text-white">
+                Find the right <span className="span1">freelance</span> service
+                right away
+              </h2>
+              <form className={"w-100 py-2"}>
+                <div className="w-100 h-100 item-center formWrapper flex">
+                  <BiSearch className="fs-24 text-grey" />
+                  <input
+                    type="text"
+                    placeholder="Try Graphic Designer"
+                    className="input"
+                  />
+                </div>
+                <div className="button fs-20 text-bold text-white flex item-center justify-center">
+                  Search
+                </div>
+              </form>
+              <div
+                className="w-100 flex item-center gap-1 text-white fs-20 family1 text-white"
+                style={{ flexWrap: "wrap" }}
+              >
+                Popular:{" "}
+                <Link
+                  to={"/categories/graphics-design/Website Design"}
+                  className="links fs-20 family1"
+                >
+                  Website Design
+                </Link>
+                <Link
+                  to={"/categories/programming-tech/WordPress"}
+                  className="links fs-20 family1"
+                >
+                  WordPress
+                </Link>
+                <Link
+                  to={"/categories/cp/ai-services"}
+                  className="links fs-20 family1"
+                >
+                  AI Services
+                </Link>
+                <Link
+                  to={"/categories/graphics-design/Logo Design"}
+                  className="links fs-20 family1"
+                >
+                  Logo Design
+                </Link>
+              </div>
+            </div>
+          </div>
+        </HeroIndexContent>
+        <div
+          className="bottom w-100 flex gap-3 py-3 item-center justify-center"
+          style={{
+            background: "var(--light-grey)",
+            padding: "2rem 0",
+            flexWrap: "wrap",
+          }}
+        >
+          <div className="fs-20 text-grey2">Trusted by :</div>
+          <img
+            src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta2x.b364aec.png"
+            alt=""
+            style={{ height: "6rem" }}
+          />
+          <img
+            src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google2x.4fa6c20.png"
+            alt=""
+            style={{ height: "6rem" }}
+          />
+          <img
+            src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix2x.6b36ad6.png"
+            alt=""
+            style={{ height: "6rem" }}
+          />
 
-        <img
-          src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/pandg2x.0d06f7b.png"
-          alt=""
-          style={{ height: "6rem" }}
-        />
-        <img
-          src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal2x.d2fa54d.png"
-          alt=""
-          style={{ height: "6rem" }}
-        />
+          <img
+            src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/pandg2x.0d06f7b.png"
+            alt=""
+            style={{ height: "6rem" }}
+          />
+          <img
+            src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal2x.d2fa54d.png"
+            alt=""
+            style={{ height: "6rem" }}
+          />
+        </div>
       </div>
     </>
   );
 }
 
 const HeroIndexContent = styled.div`
-  padding: 35rem 0;
+  padding: 25rem 0;
   min-height: 100%;
   position: relative;
   display: flex;
   /* height: 50vh; */
   @media (max-width: 880px) {
-    padding: 20rem 0;
+    padding: 13rem 0;
   }
   place-items: center;
+  .buttons {
+    background-color: #1dbf73 !important;
+    height: 6rem;
+  }
+  &.content2 {
+    background-color: #0a4226;
+    .forms {
+      padding: 0;
+      .formWrapper {
+        width: 100%;
+        padding: 0;
+        input {
+          width: 100%;
+          padding: 0;
+          height: 6rem;
+          padding: 0 2rem;
+          border-radius: 4px !important;
+        }
+      }
+      .buttons {
+        background-color: #1dbf73 !important;
+        height: 6rem;
+      }
+    }
+  }
+  @media (max-width: 780px) {
+    &.content1 {
+      display: none;
+    }
+  }
+  @media (min-width: 780px) {
+    &.content2 {
+      display: none;
+    }
+  }
   .images {
     position: absolute;
     width: 100%;
@@ -200,16 +261,19 @@ const HeroIndexContent = styled.div`
     font-weight: bold;
     font-family: "Roboto", sans-serif;
     @media (max-width: 980px) {
-      font-size: 4rem;
+      font-size: 4.8rem;
+      line-height: 1.1;
+    }
+    @media (max-width: 480px) {
+      font-size: 4.5rem;
+      line-height: 1.1;
     }
   }
   form {
-    height: 5rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
     transition: all 0.5s;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
@@ -220,6 +284,8 @@ const HeroIndexContent = styled.div`
       height: 100%;
       width: 100%;
       padding: 0 2rem;
+      height: 5rem;
+
       .input {
         width: 100%;
         height: 100%;

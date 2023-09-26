@@ -546,9 +546,12 @@ p {
   overflow: hidden;
 }
 .link {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--blue-1);
   font-weight: normal;
+}
+.link:hover {
+  text-decoration-color: inherit;
 }
 
 .w-85 {
@@ -569,9 +572,9 @@ p {
   margin: 0 auto;
 }
 @media (max-width: 980px) {
-  /* html {
+  html {
     font-size: 50%;
-  } */
+  }
   p {
     width: 100%;
   }
@@ -587,5 +590,11 @@ p {
   }
   .fs-45 {
     font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 45%;
   }
 }

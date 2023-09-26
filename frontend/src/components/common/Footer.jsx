@@ -118,6 +118,11 @@ const FooterContainer = styled.div`
   background-color: #fff;
   padding: 6rem 0;
   border-top: 1px solid rgba(0,0,0,.09);
+  li,h4 {
+    @media (max-width:480px) {
+      font-size: 18px;
+    }
+  }
   .tag {
     flex-wrap: wrap;
     span {
@@ -139,7 +144,7 @@ const FooterContainer = styled.div`
   }
   .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     grid-gap: 2rem;
   }
 `;
