@@ -101,8 +101,8 @@ export default function Explore() {
 export const ExploreIcon = styled.div`
          display: grid;
          grid-column-gap: 4rem;
-         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-         grid-row-gap: 7rem;
+         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+         grid-row-gap: 5rem;
 
          @media (max-width: 580px) {
            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));

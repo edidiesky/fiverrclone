@@ -117,7 +117,7 @@ color:var(--grey-2);
 }
 
 html {
-  font-size: 60.5%;
+  font-size: 62.5%;
 }
 
 .my-select .dropdown-select {
@@ -593,8 +593,14 @@ p {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 580px) {
   html {
     font-size: 45%;
+  }
+  .fs-20 {
+    font-size: 18px;
+  }
+  .fs-40 {
+    font-size: 30px !important;
   }
 }

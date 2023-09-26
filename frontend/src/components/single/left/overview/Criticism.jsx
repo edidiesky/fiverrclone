@@ -62,7 +62,10 @@ export default function Criticism() {
                   let createddate = moment(x?.createdAt);
                   createddate = createddate.format("MMMM Do YYYY");
                   return (
-                    <div key={index} className="flex card item-start gap-2 w-90 auto">
+                    <div
+                      key={index}
+                      className="flex card item-start gap-2 w-90 auto"
+                    >
                       {/* name */}
                       <div className="flex w-100 item-start gap-2 w-100">
                         <div className="">
@@ -81,7 +84,7 @@ export default function Criticism() {
                               {x?.reviewuser?.username}
                             </h4>
                             {/* country */}
-                            <h4 className="fs-18 text-grey text-bold">
+                            <h4 className="fs-12 family2  text-grey text-bold">
                               {x?.reviewuser?.country
                                 ? x?.reviewuser?.country
                                 : null}
@@ -94,17 +97,17 @@ export default function Criticism() {
                               }}
                             >
                               <Rating value={x.rating} />
-                              <h4 className="fs-18 text-grey text-bold">
+                              <h4 className=" fs-14 family2  text-grey text-bold">
                                 {x.rating}
                               </h4>
                             </div>
                           </div>
                           {/* comment */}
-                          <p className="text-grey fs-20 text-bold">
+                          <p className="text-grey fs-14 family2 text-bold">
                             {x.description}
                           </p>
                           {/* time */}
-                          <h4 className="fs-18 text-grey text-light">
+                          <h4 className="fs-12 family2 text-grey text-light">
                             {createddate}
                           </h4>
                         </div>

@@ -17,6 +17,9 @@ const HeadWrapper = styled.div`
     font-size: 35px;
     line-height: 1.2;
     @media (max-width: 780px) {
+      font-size: 30px;
+    }
+    @media (max-width: 480px) {
       font-size: 24px;
     }
   }

@@ -61,7 +61,7 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
         decisions
       </h3>
       <div className="flex w-100 column gap-1">
-        <div className="flex item-center justify-space w-100">
+        <div className="flex item-center justify-space w-100 gap-2">
           <h4 className="fs-20 text-extra-bold text-grey">
             Communication with seller
             <span
@@ -77,7 +77,7 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
           />
         </div>
         {/* service */}
-        <div className="flex item-center justify-space w-100">
+        <div className="flex item-center justify-space w-100 gap-2">
           <h4 className="fs-20 text-extra-bold text-grey">
             Service as described
             <span
@@ -90,7 +90,7 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
           <SelectReview setTab={setServiceReview} tab={servicereview} />
         </div>
         {/* service */}
-        <div className="flex item-center justify-space w-100">
+        <div className="flex item-center justify-space w-100 gap-2">
           <h4 className="fs-20 text-extra-bold text-grey">
             Buy Again or Recommend
             <span

@@ -96,6 +96,9 @@ const SidebarContainer = styled.div`
   @media (min-width: 980px) {
     display: none;
   }
+  h4 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  }
 
   &.active {
     opacity: 1;
@@ -104,7 +107,6 @@ const SidebarContainer = styled.div`
   }
   .nav-link {
     width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
     &:hover {
       color: #333;
     }

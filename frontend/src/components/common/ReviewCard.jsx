@@ -32,13 +32,13 @@ export default function ReviewCard({ x }) {
               {x?.reviewuser?.username}
             </h4>
             {/* country */}
-            <h4 className="fs-18 text-grey text-light">
+            <h4 className="fs-14 family2  text-grey text-bold">
               {x?.reviewuser?.country ? x?.reviewuser?.country : null}
             </h4>
             <div className="flex item-center py-1 gap-1 fs-14">
               <Rating value={x.rating} />
               <h4
-                className="fs-16 text-grey text-bold"
+                className="fs-14 family2 text-grey text-bold"
                 style={{
                   paddingRight: "1rem",
                   borderRight: "1px solid #777",
@@ -46,11 +46,13 @@ export default function ReviewCard({ x }) {
               >
                 {x.rating}
               </h4>
-              <h4 className="fs-16 text-grey text-light">{createddate}</h4>
+              <h4 className="fs-14 family2  text-grey text-light">
+                {createddate}
+              </h4>
             </div>
           </div>
           {/* comment */}
-          <p className="text-dark family2 fs-16 text-bold">{x.description}</p>
+          <p className="text-dark family2 fs-14 text-bold">{x.description}</p>
         </div>
       </CriticismCard>
     </div>

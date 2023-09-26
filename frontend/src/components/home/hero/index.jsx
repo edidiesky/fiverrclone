@@ -44,8 +44,8 @@ export default function HeroIndex() {
     <>
       <div className="content2 w-100">
         <HeroIndexContent className="content2">
-          <div className="w-90 auto">
-            <div className="w-100 auto justify-center item-center flex header column gap-2">
+          <div className="w-85 auto">
+            <div className="w-100 auto justify-center item-center flex column gap-2">
               <h2 className="fs-40 text-white text-start">
                 Find the right <span className="span1">freelance</span> service
                 right away
@@ -55,7 +55,7 @@ export default function HeroIndex() {
                   <input
                     type="text"
                     placeholder="Search for any service"
-                    className="input"
+                    className="input fs-16"
                   />
                 </div>
                 <div className="buttons w-100 fs-20 text-bold text-white flex item-center justify-center">
@@ -86,7 +86,7 @@ export default function HeroIndex() {
                 Find the right <span className="span1">freelance</span> service
                 right away
               </h2>
-              <form className={"w-100 py-2"}>
+              <form className={"w-100 form py-2"}>
                 <div className="w-100 h-100 item-center formWrapper flex">
                   <BiSearch className="fs-24 text-grey" />
                   <input
@@ -180,17 +180,20 @@ const HeroIndexContent = styled.div`
   display: flex;
   /* height: 50vh; */
   @media (max-width: 880px) {
-    padding: 13rem 0;
+    padding: 20rem 0;
   }
   place-items: center;
   .buttons {
     background-color: #1dbf73 !important;
     height: 6rem;
+    padding: 1.5rem 2rem;
   }
   &.content2 {
     background-color: #0a4226;
     .forms {
       padding: 0;
+      background-color: transparent;
+
       .formWrapper {
         width: 100%;
         padding: 0;
@@ -249,7 +252,7 @@ const HeroIndexContent = styled.div`
     z-index: 4000;
     width: 50%;
     @media (max-width: 980px) {
-      width: 80%;
+      width: 70%;
     }
   }
   .span1 {
@@ -269,14 +272,16 @@ const HeroIndexContent = styled.div`
       line-height: 1.1;
     }
   }
-  form {
+  .form {
     width: 100%;
+    background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.5s;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+    height: 5rem;
     &.active {
       display: none;
     }
@@ -284,7 +289,6 @@ const HeroIndexContent = styled.div`
       height: 100%;
       width: 100%;
       padding: 0 2rem;
-      height: 5rem;
 
       .input {
         width: 100%;
