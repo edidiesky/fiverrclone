@@ -33,6 +33,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import LoaderIndex from "./components/loaders";
 import Order from "./screens/Order";
+import Orders from "./screens/Orders";
 
 //
 const HomeImport = React.lazy(() => import("./screens/Home"));
@@ -75,6 +76,7 @@ export default function App() {
             />
             <Route path="gigs" element={<Services />} />
             <Route path=":id/order-success" element={<Order />} />
+            <Route path="order" element={<Orders />} />
             <Route
               path="categories/:category1/:category2"
               element={<Services />}

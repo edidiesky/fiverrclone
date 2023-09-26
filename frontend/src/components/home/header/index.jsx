@@ -136,7 +136,7 @@ export default function Header() {
               : "headerTopCenter text-white flex item-center gap-2"
           }
         >
-          <h4 className="family1 fs-20">Orders</h4>
+          <Link to={'/order'} className="family1 fs-20">Orders</Link>
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}

@@ -10,13 +10,17 @@ import TableCards from "./Dashboard/components/TableCard";
 
 export default function Order() {
   const dispatch = useDispatch();
-  const { order } = useSelector((store) => store.order);
-  let createddate = moment(order?.updatedAt);
-  createddate = createddate.format("MMMM Do YYYY");
-  const { id } = useParams();
+const { id } = useParams();
   useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
    dispatch(updateCustomersOrderToPaid(id));
   }, [id]);
+
+    const { order } = useSelector((store) => store.order);
+    let createddate = moment(order?.updatedAt);
+    createddate = createddate.format("MMMM Do YYYY");
+    
   return (
     <>
       <Meta title={"My Orders"} />
@@ -43,6 +47,7 @@ export default function Order() {
               <table className="tableWrapper">
                 <thead>
                   <tr>
+                    <th>Gig Image</th>
                     <th>Gig Name</th>
                     <th>Date</th>
                     <th>Paid</th>

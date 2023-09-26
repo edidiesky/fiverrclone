@@ -112,28 +112,25 @@ export default function TableCards({ x, type }) {
           return (
             <tr key={gig?._id}>
               <td>
-                <div className="flex item-center justify-center gap-1">
-                  <div
-                    style={{ width: "11rem", borderRadius: "10px" }}
-                    className="flex detailsImageWrapper justify-center "
-                  >
-                    <div className="w-100 image">
-                      {/* {gig?.image?.map((x) => {
+                <div
+                  style={{ width: "11rem", borderRadius: "10px" }}
+                  className="flex detailsImageWrapper justify-center "
+                >
+                  <div className="image">
+                    {/* {gig?.image?.map((x) => {
                         return <img src={x} alt="" className="radius1 w-100" />;
                       })} */}
-                      <img
-                        src={gig?.image[0]}
-                        alt=""
-                        className="radius1 w-100"
-                      />
-                    </div>
+                    <img src={gig?.image[0]} alt="" className="radius1 w-100" />
                   </div>
-                  <h4 className="fs-16 text-start text-bold text-dark">
-                    {gig?.title}
-                    <span className="block fs-12 text-grey">{gig?._id}</span>
-                  </h4>
                 </div>
               </td>
+              <td>
+                <h4 className="fs-16 text-center text-bold text-dark">
+                  {gig?.title}
+                  <span className="block fs-14 text-grey">{gig?._id}</span>
+                </h4>
+              </td>
+             
               <td>
                 <div className="flex column">
                   <h4 className="fs-14 text-bold text-dark">{createddate}</h4>

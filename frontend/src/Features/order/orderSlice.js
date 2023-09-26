@@ -113,7 +113,7 @@ const orderSlice = createSlice({
     },
     [getCustomerOrder.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.orders = action.payload;
+      state.order = action.payload;
     },
     [getCustomerOrder.rejected]: (state, action) => {
       state.isLoading = false;
@@ -129,7 +129,7 @@ const orderSlice = createSlice({
     },
     [getAllCustomersOrder.fulfilled]: (state, action) => {
       state.isLoading = false;
-      state.orders = action.payload.order;
+      state.order = action.payload;
       state.orderpage = action.payload.noOfPages;
       state.totalorder = action.payload.totalOrder;
     },

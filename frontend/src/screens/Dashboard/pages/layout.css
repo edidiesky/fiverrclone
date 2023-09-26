@@ -72,6 +72,12 @@ body {
   --grey-4: #e6e4e4; */
 }
 
+.owl-item.active {
+  /* width: fit-content !important; */
+  flex: 1;
+  display: block;
+}
+
 .text-extra-bold {
   font-weight: 900;
 }
