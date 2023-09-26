@@ -31,6 +31,10 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
   console.log(Reviewdata);
   const handleReview = (e) => {
     dispatch(createReviews({ Reviewdata, id }));
+    setServiceReview(0)
+    setRecommendReview(0)
+    setCommunicationReview(0)
+    setDescription('')
   };
 
   const { userInfo } = useSelector((store) => store.user);

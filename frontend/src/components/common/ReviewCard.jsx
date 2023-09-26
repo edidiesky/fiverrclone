@@ -38,7 +38,7 @@ export default function ReviewCard({ x }) {
             <div className="flex item-center py-1 gap-1 fs-14">
               <Rating value={x.rating} />
               <h4
-                className="fs-20 text-grey text-bold"
+                className="fs-16 text-grey text-bold"
                 style={{
                   paddingRight: "1rem",
                   borderRight: "1px solid #777",
@@ -46,11 +46,11 @@ export default function ReviewCard({ x }) {
               >
                 {x.rating}
               </h4>
-              <h4 className="fs-18 text-grey text-light">{createddate}</h4>
+              <h4 className="fs-16 text-grey text-light">{createddate}</h4>
             </div>
           </div>
           {/* comment */}
-          <p className="text-dark fs-20 text-light">{x.description}</p>
+          <p className="text-dark family2 fs-16 text-bold">{x.description}</p>
         </div>
       </CriticismCard>
     </div>
