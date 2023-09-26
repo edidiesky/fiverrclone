@@ -28,7 +28,7 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
   const dispatch = useDispatch();
 
   const Reviewdata = { description, rating: parseInt(avaerageRating) };
-  console.log(Reviewdata);
+  // console.log(Reviewdata);
   const handleReview = (e) => {
     dispatch(createReviews({ Reviewdata, id }));
     setServiceReview(0)

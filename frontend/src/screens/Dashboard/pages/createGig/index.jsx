@@ -19,6 +19,7 @@ import Message from "../../../../components/loaders/Message";
 export default function CreateProductIndex() {
   // initailizing parameters
   const dispatch = useDispatch();
+  const {userInfo} = useSelector(store=> store.user)
   const { id } = useParams();
   const {
     GigsDetails,
@@ -228,10 +229,50 @@ export default function CreateProductIndex() {
                 />
               </div>
             </div>
-            <div style={{paddingTop:"1.5rem"}} className="right editwrapper">
-              <span className="text-dark text-bold fs-30">
-                Preview
-              </span>
+            <div
+              style={{ paddingTop: "1.5rem" }}
+              className="right flex column gap-2 editwrapper"
+            >
+              <span className="text-dark text-bold fs-30">Preview</span>
+              <div className="flex column gap-1 w-100">
+                <div style={{ zIndex: "300" }} className="w-100 hidden">
+                  <div className="w-100 card">
+                    <img src={uploadimage[0]} alt="" className="w-100" />
+                    <div className="backdrop"></div>
+                  </div>
+                </div>
+                <div className="flex  item-center w-100 justify-space">
+                  <div className="flex  gap-1 item-center">
+                    <img
+                      src={userInfo?.image}
+                      style={{
+                        width: "3rem",
+                        height: "3rem",
+                        borderRadius: "50%",
+                      }}
+                    />
+                    <h5 className="fs-18 text-dark text-bold">
+                      {userInfo?.username}
+                    </h5>
+                  </div>
+                  <h5 className="fs-18 text-grey text-bold">
+                    {userInfo?.level}
+                  </h5>
+                </div>
+                <h4
+                  style={{ fontWeight: "400" }}
+                  className="desc fs-20 text-dark text-bold"
+                >
+                  {/* {x?.title.substring(0, 50)} */}
+                  {formdata2.title}
+                </h4>
+                <div
+                  style={{ marginTop: ".6rem" }}
+                  className="w-100 fs-18 text-dark"
+                >
+                  From <span className="fs-18">${formdata1?.price}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function EditGigImage({
   setUploading,
   uploading,
 }) {
-  console.log(uploadimage);
+  // console.log(uploadimage);
   const handleFileUpload = async (e) => {
     // get the file
     const file = e.target.files;
