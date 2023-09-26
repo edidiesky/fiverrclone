@@ -11,6 +11,7 @@ export default function EditGigImage({
   setUploading,
   uploading,
 }) {
+  console.log(uploadimage);
   const handleFileUpload = async (e) => {
     // get the file
     const file = e.target.files;
@@ -114,7 +115,7 @@ const EditGigWrapperCenter = styled.div`
 
   .UploadBtnWrapper {
     width: 100%;
-    padding:3rem 2rem;
+    padding: 3rem 2rem;
     padding-top: 3rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
     display: flex;
@@ -134,27 +135,35 @@ const EditGigWrapperCenter = styled.div`
   .EditGigImageList {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 3rem;
     @media (max-width: 780px) {
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       grid-gap: 1rem;
     }
     .icon {
-      height: 100%;
+      height: 3.6rem;
       width: 3.6rem;
+      position: absolute;
+      right: 5%;
       border-left: 1px solid rgba(0, 0, 0, 0.2);
       cursor: pointer;
+      top: 5%;
+      border-radius: 50%;
+      background-color: #130e0e61;
+      svg {
+        color: #fff;
+      }
     }
 
     .imageContainer {
       border: 1px solid rgba(0, 0, 0, 0.2);
-      padding-left: 1rem;
       position: relative;
       border-radius: 10px;
       .img {
-        width: 12rem;
-        min-height: 7rem;
+        width: 100%;
+        min-height: 10rem;
+        border-radius: inherit;
       }
     }
   }

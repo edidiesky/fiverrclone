@@ -68,6 +68,7 @@ export default function CreateProductIndex() {
         description: GigsDetails?.description,
         shortDescription: GigsDetails?.shortDescription,
       });
+      setUploadImage(GigsDetails?.image);
       setFormData1({
         price: GigsDetails?.price,
         countInStock: GigsDetails?.countInStock,
@@ -101,6 +102,7 @@ export default function CreateProductIndex() {
     setCategory,
     setSubinfo,
     id,
+    setUploadImage,
   ]);
   // console.log(GigsDetails,id);
 
