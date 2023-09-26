@@ -90,8 +90,8 @@ export default function Header() {
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "nav-links fs-20 text-light text-grey text-center active"
-                      : "nav-links fs-20 text-light text-grey text-center"
+                      ? "nav-links w-100 fs-20 text-light text-grey text-center active"
+                      : "nav-links w-100 fs-20 text-light text-grey text-center"
                   }
                   to={`${x}`}
                   key={index}
@@ -515,6 +515,8 @@ const HeaderWrapper = styled.div`
     }
   }
   .nav-links {
-    min-width: 5rem;
+    /* min-width: 5rem; */
+    flex: 1;
+    width: 100%;
   }
 `;

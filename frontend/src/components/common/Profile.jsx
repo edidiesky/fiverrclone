@@ -47,8 +47,8 @@ export default function Profile({ profile }) {
     >
       {data2.map((x, index) => {
         return (
-          <div key={index}>
-            <Link className="family1 links" to={`${x.path}`}>
+          <div key={index} className="w-100">
+            <Link className="family1 links w-100" to={`${x.path}`}>
               {x.title}
             </Link>
           </div>
@@ -94,12 +94,14 @@ const List = styled.div`
     background-color: #fff;
   }
   .links {
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: 400;
+    width: 100%;
     color: var(--grey-1);
     cursor: pointer;
     &:hover {
       color: var(--green);
+      /* background-color: #faf7fa; */
     }
   }
   div {
