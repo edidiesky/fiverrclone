@@ -10,21 +10,14 @@ import Message from "../../../loaders/Message";
 import SelectReview from "./SelectReview";
 
 const Form = ({ id }) => {
-  const reviewOptions = [
-    { text: "select your rating", value: "" },
-    { text: "5- Excellent", value: 5 },
-    { text: "4- Very Good", value: 4 },
-    { text: "3- Good", value: 3 },
-    { text: "2- Average", value: 2 },
-    { text: "1- Poor", value: 1 },
-  ];
-  const [form, setForm] = useState({
-    description: "",
-    rating: 0,
-    email: "",
-    username: "",
-  });
-  const { description, rating } = form;
+const [communicationreview, setCommunicationReview] = useState(0)
+const [servicereview, setServiceReview] = useState(0);
+const [recommendreview, setRecommendReview] = useState(0);
+const avaerageRating = ((communicationreview + servicereview + recommendreview) / 3).toFixed(1)
+// console.log(avaerageRating, communicationreview, servicereview, recommendreview)  
+
+
+  const [description, setDescription] = useState('')
   const {
     reviews,
     reviewSuccess,
@@ -34,23 +27,14 @@ const Form = ({ id }) => {
   } = useSelector((store) => store.reviews);
   const dispatch = useDispatch();
 
-  const handleForm = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-  const Reviewdata = { description, rating: parseInt(rating) };
-  // console.log(Reviewdata);
+  const Reviewdata = { description, rating: parseInt(avaerageRating) };
+  console.log(Reviewdata);
   const handleReview = (e) => {
     dispatch(createReviews({ Reviewdata, id }));
   };
 
   const { userInfo } = useSelector((store) => store.user);
 
-  useEffect(() => {
-    if (userInfo) {
-      const { email, username } = userInfo;
-      setForm({ email, username });
-    }
-  }, [userInfo, setForm]);
 
   useEffect(() => {
     if (reviewSuccess) {
@@ -83,7 +67,10 @@ const Form = ({ id }) => {
               How responsive was the seller during this process?
             </span>
           </h4>
-          <SelectReview />
+          <SelectReview
+            setTab={setCommunicationReview}
+            tab={communicationreview}
+          />
         </div>
         {/* service */}
         <div className="flex item-center justify-space w-100">
@@ -96,7 +83,7 @@ const Form = ({ id }) => {
               Did the result match the gig description?
             </span>
           </h4>
-          <SelectReview />
+          <SelectReview setTab={setServiceReview} tab={servicereview} />
         </div>
         {/* service */}
         <div className="flex item-center justify-space w-100">
@@ -109,7 +96,7 @@ const Form = ({ id }) => {
               Would you recomend buying this Gig?
             </span>
           </h4>
-          <SelectReview />
+          <SelectReview setTab={setRecommendReview} tab={recommendreview} />
         </div>
       </div>
       <label
@@ -122,79 +109,11 @@ const Form = ({ id }) => {
           className="textarea"
           placeholder="What did you like or did'nt like about the seller's service? share as many details as you can help other buyers make the right decisions fro their needs."
           name="description"
-          onChange={handleForm}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           required
         />
       </label>
-      {/* <div className="flex w-100 column gap-1">
-        <label
-          htmlFor="comments"
-          className="fs-18 flex column gap-1 text-light text-dark"
-        >
-          Comments
-          <textarea
-            id="comments"
-            className="textarea"
-            placeholder="Send a message"
-            name="description"
-            onChange={handleForm}
-            required
-          />
-        </label>
-        <div className="flex wrapper w-100 gap-1 item-center">
-          <label
-            htmlFor="name"
-            className="w-100 text-light fs-18 column flex gap-1 text-dark"
-          >
-            Name
-            <input
-              id="name"
-              className="input inputs family1"
-              type="text"
-              name="username"
-              onChange={handleForm}
-              value={form.username}
-              placeholder="Name (required)"
-            />
-          </label>
-          <label
-            htmlFor="email"
-            className="w-100 text-light fs-18 column flex gap-1 text-dark"
-          >
-            Email
-            <input
-              id="email"
-              className="input inputs family1"
-              type="text"
-              placeholder="Email (required)"
-              name="email"
-              value={form.email}
-              onChange={handleForm}
-            />
-          </label>
-          <label
-            htmlFor="select"
-            className="w-100 flex column gap-1 text-light fs-18 text-dark"
-          >
-            Rating
-            <select
-              id="select"
-              className="select"
-              name="rating"
-              onChange={handleForm}
-              placeholder="Choose one"
-            >
-              {reviewOptions.map((x, index) => {
-                return (
-                  <option value={x.value} key={index}>
-                    {x.text}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
-        </div>
-      </div> */}
       <div className="w-100 py-2">
         <button
           className="btn fs-18 py-1 px-2 text-white text-bold"

@@ -24,35 +24,58 @@ const createReviews = asyncHandler(async (req, res) => {
     throw new Error("Gig not found");
   }
 
-  // check for permissions (admin and users)
-  if (role === "user" || role === "seller") {
-    const data = {
-      sellerId: gig.sellerId,
-      description,
-      rating,
-      gig: gig._id,
-      reviewuser: userId,
-      username:username
-    };
+  // // check for permissions (admin and users)
+  // if (role === "user" || role === "seller") {
+  //   const data = {
+  //     sellerId: gig.sellerId,
+  //     description,
+  //     rating,
+  //     gig: gig._id,
+  //     reviewuser: userId,
+  //     username:username
+  //   };
 
-    // check if the user has alraedy review the gig
-    const reviewed = await Reviews.findOne({
-      gig: gig._id,
-      reviewuser: userId,
-    });
-    // send an error
-    if (reviewed) {
-      res.status(404);
-      throw new Error("You can't review this gig/service twice");
-    }
-    // destructure the data and then create it
-    const review = await Reviews.create({ ...data });
+  //   // check if the user has alraedy review the gig
+  //   const reviewed = await Reviews.findOne({
+  //     gig: gig._id,
+  //     reviewuser: userId,
+  //   });
+  //   // send an error
+  //   if (reviewed) {
+  //     res.status(404);
+  //     throw new Error("You can't review this gig/service twice");
+  //   }
+  //   // destructure the data and then create it
+  //   const review = await Reviews.create({ ...data });
 
-    res.status(200).json({ review });
-  } else {
-    res.status(404);
-    throw new Error("You are not authorized to perform this action");
-  }
+  //   res.status(200).json({ review });
+  // } else {
+  //   res.status(404);
+  //   throw new Error("You are not authorized to perform this action");
+  // }
+   const data = {
+     sellerId: gig.sellerId,
+     description,
+     rating,
+     gig: gig._id,
+     reviewuser: userId,
+     username: username,
+   };
+
+   // check if the user has alraedy review the gig
+   const reviewed = await Reviews.findOne({
+     gig: gig._id,
+     reviewuser: userId,
+   });
+   // send an error
+   if (reviewed) {
+     res.status(404);
+     throw new Error("You can't review this gig/service twice");
+   }
+   // destructure the data and then create it
+   const review = await Reviews.create({ ...data });
+
+   res.status(200).json({ review });
 });
 
 // GET Review of the user gig

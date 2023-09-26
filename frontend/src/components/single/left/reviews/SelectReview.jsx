@@ -1,17 +1,42 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { BsStar, BsStarFill } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
-export default function SelectReview() {
+export default function SelectReview({tab, setTab}) {
   return (
     <SelectReviewContainer>
       <div className="selectReviewWrapper flex-1">
-        <div style={{gap:"6px"}} className="selectSpan flex item-center fs-18">
-          <BsStar />
-          <BsStar />
-          <BsStar />
-          <BsStar />
-          <BsStar />
+        <div
+          style={{ gap: "6px" }}
+          className="selectSpan flex item-center fs-18"
+        >
+          <span onClick={() => setTab(1)}>
+            {" "}
+            {tab === 1 || tab === 2 || tab === 3 || tab === 4 || tab === 5 ? (
+              <BsStarFill />
+            ) : (
+              <BsStar />
+            )}
+          </span>{" "}
+          <span onClick={() => setTab(2)}>
+            {" "}
+            {tab === 2 || tab === 3 || tab === 4 || tab === 5 ? (
+              <BsStarFill />
+            ) : (
+              <BsStar />
+            )}
+          </span>{" "}
+          <span onClick={() => setTab(3)}>
+            {" "}
+            {tab === 3 || tab === 4 || tab === 5 ? <BsStarFill /> : <BsStar />}
+          </span>{" "}
+          <span onClick={() => setTab(4)}>
+            {" "}
+            {tab === 4 || tab === 5 ? <BsStarFill /> : <BsStar />}
+          </span>{" "}
+          <span onClick={() => setTab(5)}>
+            {" "}
+            {tab === 5 ? <BsStarFill /> : <BsStar />}
+          </span>
         </div>
       </div>
     </SelectReviewContainer>
