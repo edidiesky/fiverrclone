@@ -34,7 +34,7 @@ export default function Title() {
                 {GigsDetails?.sellerId?.name}{" "}
                 <span
                   style={{ marginLeft: "1px" }}
-                  className="fs-14 family2 text-light"
+                  className="fs-14 family2 text-bold text-grey"
                 >
                   @{GigsDetails?.sellerId?.username}
                 </span>
@@ -44,16 +44,16 @@ export default function Title() {
             <div className="flex relative item-center">
               <h4
                 style={{ paddingRight: "1rem", borderRight: "1px solid #777" }}
-                className="fs-16 family2 text-grey text-light"
+                className="fs-14 family2 text-grey text-bold"
               >
                 {GigsDetails?.sellerId?.level}
               </h4>
               <div
-                className="flex item-center gap-1 fs-18"
+                className="flex item-center gap-1 fs-16 family2"
                 style={{ paddingLeft: "1rem" }}
               >
                 <Rating value={4} /> 5{/* no of reviews */}
-                <h4 className="fs-18 text-grey text-light">(102)</h4>
+                <h4 className="fs-14 family2 text-grey text-light">(102)</h4>
               </div>
             </div>
           </div>

@@ -9,23 +9,26 @@ export default function Rating({ value, type }) {
   return (
     <RatingContent>
       <div className="RatingContainer">
-        <span>
-          {value >= 1 ? (
-            <BsStarFill />
-          ) : value < 0.5 ? (
-            <BsStar />
-          ) : (
-            <BsStarFill />
-          )}
-        </span>
-        <span>
-          {value >= 2 ? (
-            <BsStarFill />
-          ) : value < 1.5 ? (
-            <BsStar />
-          ) : (
-            <BsStarFill />
-          )}
+        
+          <span>
+            {value >= 1 ? (
+              <BsStarFill />
+            ) : value < 0.5 ? (
+              <BsStar />
+            ) : (
+              <BsStarFill />
+            )}
+          </span>
+          <span>
+            {" "}
+            {value >= 2 ? (
+              <BsStarFill />
+            ) : value < 1.5 ? (
+              <BsStar />
+            ) : (
+              <BsStarFill />
+            )}
+          </span>
           <span>
             {value >= 3 ? (
               <BsStarFill />
@@ -53,8 +56,6 @@ export default function Rating({ value, type }) {
               <BsStarFill />
             )}
           </span>
-         
-        </span>
       </div>
     </RatingContent>
   );
@@ -65,11 +66,14 @@ const RatingContent = styled.div`
     gap: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.1rem;
     span {
       svg {
         color: var(--grey-1);
         font-size: 16px;
+        @media (max-width: 580px) {
+          font-size: 13px;
+        }
       }
     }
   }
