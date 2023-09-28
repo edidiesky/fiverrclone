@@ -14,13 +14,20 @@ export default function LoaderIndex({ loading, type }) {
     );
   }
   return (
-    <div>
-      <Backdrop
-        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={open}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop>
+    <div
+      className="flex item-center justify-center column gap-1"
+      style={{
+        width: "100vw",
+        zIndex: "200000",
+        position: "fixed",
+        height: "100vh",
+        top: 0,
+        left: 0,
+        background: "rgba(0,0,0,.3)",
+      }}
+    >
+      <div className="loading"></div>
+      <div className="text-center w-100 text-bold fs-18">Loading ...</div>
     </div>
   );
 }

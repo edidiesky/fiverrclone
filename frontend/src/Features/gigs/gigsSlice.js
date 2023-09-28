@@ -25,6 +25,9 @@ const initialState = {
   alertType: "",
   noOfPages: 0,
 
+  errorAlert: false,
+  errorText: "",
+
   // req queries
   category: "",
   search: "",
@@ -156,9 +159,9 @@ const GigsSlice = createSlice({
     },
     [getSingleGigsDetails.rejected]: (state, action) => {
       state.gigsIsLoading = false;
-      state.showAlert = true;
+      state.errorAlert = true;
       state.gigsIsError = true;
-      state.alertText = action.payload;
+      state.errorText = action.payload;
       state.alertType = "danger";
     },
 

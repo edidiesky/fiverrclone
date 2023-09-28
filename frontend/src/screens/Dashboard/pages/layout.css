@@ -17,6 +17,27 @@
   text-decoration: none;
   list-style: none;
 }
+/* loader */
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading {
+  width: 8rem;
+  height: 8rem;
+  border: 2px solid #f7f7f9;
+  border-radius: 50%;
+  border-top-color: #1D9BF0;
+  animation: spinner .7s linear infinite;
+}
+.loading.small {
+   width: 3rem;
+  height: 3rem;
+  border: 3px solid #f7f7f9 !important;
+  border-top-color: #1D9BF0 !important;
+
+}
 button {
   font-family: inherit;
 }

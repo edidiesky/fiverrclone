@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const orderSchema = mongoose.Schema(
   {
-    createdBy: {
+    buyer_Id: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
@@ -11,6 +11,11 @@ const orderSchema = mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "Cart",
+    },
+    seller_Id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
     },
     cart_items: [
       {

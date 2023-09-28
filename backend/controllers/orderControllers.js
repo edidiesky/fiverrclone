@@ -19,7 +19,7 @@ const GetAllOrder = async (req, res) => {
   const totalOrder = await Order.countDocuments({});
 
   const order = await Order.find({})
-    .populate("createdBy", "firstname lastname email address")
+    .populate("buyer_Id", "firstname lastname email address")
     .skip(skip)
     .limit(limit);
 
@@ -36,11 +36,24 @@ const GetCustomerOrder = async (req, res) => {
   // instantiate the user id from the req.user
   const { userId } = req.user;
   // instantiate the Order variable
-  const order = await Order.find({ createdBy: userId })
-    .populate("createdBy", "firstname lastname email address")
+  const order = await Order.find({ buyer_Id: userId })
+    .populate("buyer_Id", "firstname lastname email address")
     .populate("cartId", "image title price countInStock deliveryDays");
   res.status(200).json({ order });
 };
+
+// GET
+// Get sellers order
+const GetSellerOrder = async (req, res) => {
+  // instantiate the user id from the req.user
+  const { userId } = req.user;
+  // instantiate the Order variable
+  const order = await Order.find({ seller_Id: userId })
+    .populate("seller_Id", "firstname image lastname email address")
+    .populate("cartId", "image title price countInStock deliveryDays");
+  res.status(200).json({ order });
+};
+
 
 // get the order id
 const GetOrderById = async (req, res) => {
@@ -48,7 +61,7 @@ const GetOrderById = async (req, res) => {
   const { id } = req.params;
   // instantiate the Order variable
   const order = await Order.findById({ _id: id }).populate(
-    "createdBy",
+    "buyer_Id",
     "firstname lastname email address"
   );
   res.status(200).json({ order });
@@ -60,16 +73,18 @@ const GetOrderById = async (req, res) => {
 const CreateOrder = async (req, res) => {
   // instantiate the form data from the request body
   const { userId } = req.user;
-  const { estimatedTax, TotalShoppingPrice, cartId, cart_items } = req.body;
+  const { estimatedTax, TotalShoppingPrice, cartId, cart_items, seller_Id } =
+    req.body;
 
   // console.log(req.body, cart_items);
 
   const order = await Order.create({
-    createdBy: userId,
+    buyer_Id: userId,
     cartId,
     estimatedTax,
     cart_items,
     TotalShoppingPrice: parseInt(TotalShoppingPrice),
+    seller_Id,
   });
   // console.log(order)
 
@@ -196,4 +211,5 @@ export {
   GetCustomerOrder,
   UpdateOrderToIsDelivered,
   AggregateUserOrderStats,
+  GetSellerOrder,
 };
