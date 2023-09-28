@@ -93,6 +93,28 @@ export const getCustomerOrder = createAsyncThunk(
   }
 );
 
+export const getSellerOrder = createAsyncThunk(
+  "/getall/seller/order",
+  async (id, thunkAPI) => {
+    const state = thunkAPI.getState();
+    try {
+      const config = {
+        headers: {
+          authorization: `Bearer ${state.user.token}`,
+        },
+      };
+      const { data } = await axios.get(`/api/v1/order/seller/order`, config);
+
+      return data.order;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
 export const getAllCustomersOrder = createAsyncThunk(
   "/get/allorder",
   async (id, thunkAPI) => {

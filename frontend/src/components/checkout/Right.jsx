@@ -32,6 +32,7 @@ export default function CheckoutRight() {
     TotalShoppingPrice: TotalShoppingPrice,
     totalQuantity: cartDetails?.gigQuantity,
     estimatedTax: estimatedTax,
+    seller_Id: cartDetails?.sellerId,
     cart_items: [
       {
         price: TotalShoppingPrice * 100,

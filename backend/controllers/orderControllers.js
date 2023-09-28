@@ -84,7 +84,7 @@ const CreateOrder = async (req, res) => {
     estimatedTax,
     cart_items,
     TotalShoppingPrice: parseInt(TotalShoppingPrice),
-    seller_Id,
+    seller_Id: seller_Id,
   });
   // console.log(order)
 

@@ -35,16 +35,15 @@ export default function CheckoutIndex() {
 }
 
 const CheckoutIndexContent = styled.div`
-  
   &.grid-auto {
     display: grid;
     padding: 4rem 0;
-    grid-template-columns: 1fr 30vw;
     place-items: start;
-    grid-gap: 10rem;
     padding-top: 10rem;
+    grid-template-columns: 1fr 36.6%;
+    grid-gap: 7rem;
     @media (min-width: 1500px) {
-      grid-template-columns: 1fr 26vw;
+      grid-template-columns: 1fr 36.6%;
     }
     @media (max-width: 980px) {
       grid-template-columns: 1fr;

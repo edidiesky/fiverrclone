@@ -9,6 +9,7 @@ import {
   updateCustomersOrderToIsDelivered,
   getCustomerOrderStats,
   handlePaypalKey,
+  getSellerOrder,
 } from "./orderReducer";
 
 const initialState = {
@@ -116,6 +117,22 @@ const orderSlice = createSlice({
       state.order = action.payload;
     },
     [getCustomerOrder.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.showAlert = true;
+      state.isError = true;
+      state.alertText = action.payload;
+      state.alertType = "danger";
+    },
+
+    // getting customers order
+    [getSellerOrder.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getSellerOrder.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.order = action.payload;
+    },
+    [getSellerOrder.rejected]: (state, action) => {
       state.isLoading = false;
       state.showAlert = true;
       state.isError = true;
