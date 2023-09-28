@@ -178,15 +178,15 @@ export default function Header() {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-24 text-extra-bold text-dark item-center justify-center active"
-              : "flex links fs-24 text-extra-bold text-dark item-center justify-center"
+              ? "flex links fs-18 text-extra-bold text-dark item-center justify-center active"
+              : "flex links fs-18 text-extra-bold text-dark item-center justify-center"
           }
         >
           Sign In
         </div>
         <div
           onClick={() => dispatch(onAuthModal())}
-          className="flex btn-4 fs-24 text-extra-bold text-dark item-center justify-center"
+          className="flex btn-4 fs-18 text-extra-bold text-dark item-center justify-center"
         >
           Join
         </div>

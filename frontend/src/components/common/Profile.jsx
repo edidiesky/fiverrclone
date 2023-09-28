@@ -14,7 +14,7 @@ export default function Profile({ profile }) {
       title: "Profile",
       path: `/profile/${userInfo?.username}?sellerId=${userInfo?._id}`,
     },
-    { id: 2, title: "Post a request", path: "/" },
+    { id: 2, title: "Dashboard", path: "/dashboard" },
     { id: 3, title: "Refer a friend", path: "/" },
     { id: 5, title: "Become a Seller", path: "/seller_onboarding/do" },
 

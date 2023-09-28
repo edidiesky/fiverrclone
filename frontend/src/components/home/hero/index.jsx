@@ -132,15 +132,15 @@ export default function HeroIndex() {
             </div>
           </div>
         </HeroIndexContent>
-        <div
-          className="bottom w-100 flex gap-3 py-3 item-center justify-center"
+        <HeroBottomIndexContent
+          className="bottoms w-100 flex py-3 item-center justify-center"
           style={{
             background: "var(--light-grey)",
             padding: "2rem 0",
             flexWrap: "wrap",
           }}
         >
-          <div className="fs-20 text-grey2">Trusted by :</div>
+          <div className="fs-24 text-grey2">Trusted by :</div>
           <img
             src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta2x.b364aec.png"
             alt=""
@@ -167,12 +167,18 @@ export default function HeroIndex() {
             alt=""
             style={{ height: "6rem" }}
           />
-        </div>
+        </HeroBottomIndexContent>
       </div>
     </>
   );
 }
 
+const HeroBottomIndexContent = styled.div`
+  gap: 2.5rem;
+  @media (max-width: 480px) {
+    gap: 1.3rem;
+  }
+`;
 const HeroIndexContent = styled.div`
   padding: 25rem 0;
   min-height: 100%;
@@ -183,6 +189,7 @@ const HeroIndexContent = styled.div`
     padding: 20rem 0;
   }
   place-items: center;
+
   .buttons {
     background-color: #1dbf73 !important;
     height: 6rem;
@@ -314,5 +321,8 @@ const HeroIndexContent = styled.div`
         opacity: 0.8;
       }
     }
+  }
+  .bottoms {
+    
   }
 `;
