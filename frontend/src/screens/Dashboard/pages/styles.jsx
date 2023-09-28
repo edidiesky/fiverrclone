@@ -70,11 +70,11 @@ export const Table = styled.div`
                  z-index: 200;
                  text-align: center;
                  th {
-                   font-size: 15px;
-                   font-weight: 600;
-                   text-align: center;
+                   font-size: 11.8px;
+                   font-weight: 700;
+                   text-align: start;
                    color: #5c5c5c;
-                   font-family: "Big Shoulders Text", cursive;
+                   font-family: "Montserrat", sans-serif;
 
                    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
                    padding: 0 10px;
@@ -88,7 +88,16 @@ export const Table = styled.div`
                  }
                }
              }
-
+             .status {
+               padding: 0.6rem 1rem;
+               background-color: #82eec743;
+               color: #045235;
+               border-radius: 40px;
+               &.active {
+                 background-color: #fbd8d857;
+                 color: #e50b0b;
+               }
+             }
              tbody {
                tr {
                  transition: all 0.5s var(--transition-2);

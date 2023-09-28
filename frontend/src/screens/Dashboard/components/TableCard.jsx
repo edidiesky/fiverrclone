@@ -130,7 +130,7 @@ export default function TableCards({ x, type }) {
                   <span className="block fs-14 text-grey">{gig?._id}</span>
                 </h4>
               </td>
-             
+
               <td>
                 <div className="flex column">
                   <h4 className="fs-14 text-bold text-dark">{createddate}</h4>
@@ -146,6 +146,86 @@ export default function TableCards({ x, type }) {
           );
         })}
       </>
+    );
+  }
+
+  // sellers order
+  if (type === "sellerorder") {
+    return (
+      <tr key={x?._id}>
+        <td>
+          <div style={{ gap: "7px" }} className="flex item-center">
+            <div
+              style={{ width: "4rem", height: "4rem", borderRadius: "50%" }}
+              className="flex detailsImageWrapper justify-center "
+            >
+              <div className="image h-100 w-100 absolute">
+                <img
+                  src={x?.buyer_Id?.image}
+                  alt=""
+                  className="radius1 w-100 h-100"
+                  style={{ borderRadius: "50%", objectFit: "cover" }}
+                />
+              </div>
+            </div>
+            <h4 className="fs-16 text-start text-extra-bold">
+              {x?.buyer_Id?.name}
+              <span className="block text-bold fs-12 text-grey family2">
+                {x?.buyer_Id?.email.substring(0, 24)} ....
+              </span>
+            </h4>
+          </div>
+        </td>
+        <td>
+          <div
+            style={{ width: "7rem", borderRadius: "10px" }}
+            className="flex detailsImageWrapper justify-center "
+          >
+            <div className="image">
+              {/* {x?.image?.map((x) => {
+                        return <img src={x} alt="" className="radius1 w-100" />;
+                      })} */}
+              <img
+                src={x?.cart_items[0]?.image[0]}
+                alt=""
+                className="radius1 w-100"
+              />
+            </div>
+          </div>
+        </td>
+        <td>
+          <h4 className="fs-16 text-start text-bold text-dark">
+            {x?.cart_items[0]?.title?.substring(0, 36)} ...
+            <span className="block fs-12 family2 text-grey">{x?._id}</span>
+          </h4>
+        </td>
+
+        <td>
+          <div className="flex column">
+            <h4 className="fs-14 text-bold text-dark">{createddate}</h4>
+          </div>
+        </td>
+        <td>
+          <div className="flex fs-14 item-center">
+            <div className={x?.isPaid === false ? "status active" : "status"}>
+              {x?.isPaid === true ? "Paid" : "Not paid"}
+            </div>
+          </div>
+        </td>
+        <td>
+          <h4 className="fs-16 text-extra-bold">${x?.cart_items[0]?.price}</h4>
+        </td>
+        <td>${x?.estimatedTax}</td>
+        <td>
+          <div className="flex fs-14 item-center">
+            <div
+              className={x?.status === "Pending" ? "status active" : "status"}
+            >
+              {x?.status}
+            </div>
+          </div>
+        </td>
+      </tr>
     );
   }
 

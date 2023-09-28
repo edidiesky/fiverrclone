@@ -49,7 +49,8 @@ const GetSellerOrder = async (req, res) => {
   const { userId } = req.user;
   // instantiate the Order variable
   const order = await Order.find({ seller_Id: userId })
-    .populate("seller_Id", "firstname image lastname email address")
+    .populate("seller_Id", "image username email address")
+    .populate("buyer_Id", "image username email address name")
     .populate("cartId", "image title price countInStock deliveryDays");
   res.status(200).json({ order });
 };

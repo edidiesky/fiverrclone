@@ -29,7 +29,7 @@ export default function Message({
       }
     >
       {alertType === "danger" && <CgDanger className="fs-24" />}
-      <div className="flex flex1">{alertText}</div>
+      <div className="flex flex1 fs-10 family2">{alertText}</div>
       <div className="icon" onClick={() => dispatch(handleClearAlert())}>
         <RxCross1 />
       </div>
