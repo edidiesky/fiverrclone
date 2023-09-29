@@ -106,25 +106,25 @@ export default function HeroIndex() {
                 Popular:{" "}
                 <Link
                   to={"/categories/graphics-design/Website Design"}
-                  className="links fs-20 family1"
+                  className="links fs-16 family1"
                 >
                   Website Design
                 </Link>
                 <Link
                   to={"/categories/programming-tech/WordPress"}
-                  className="links fs-20 family1"
+                  className="links fs-16 family1"
                 >
                   WordPress
                 </Link>
                 <Link
                   to={"/categories/cp/ai-services"}
-                  className="links fs-20 family1"
+                  className="links fs-16 family1"
                 >
                   AI Services
                 </Link>
                 <Link
                   to={"/categories/graphics-design/Logo Design"}
-                  className="links fs-20 family1"
+                  className="links fs-16 family1"
                 >
                   Logo Design
                 </Link>

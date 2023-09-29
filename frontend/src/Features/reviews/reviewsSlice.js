@@ -16,13 +16,16 @@ const initialState = {
   reviewLoading: false,
   totalreviews: 0,
   reviews: null,
-  reviewsDetails:null,
+  reviewsDetails: null,
 
   // alert states
   showAlert: false,
   alertText: "",
   alertType: "",
   noOfPages: 0,
+
+  errorAlert: false,
+  errorText: "",
 
   // req queries
   search: "",
@@ -86,9 +89,9 @@ const reviewsSlice = createSlice({
     },
     [createReviews.rejected]: (state, action) => {
       state.reviewLoading = false;
-      state.showAlert = true;
+      state.errorAlert = true;
       state.reviewError = true;
-      state.alertText = action.payload;
+      state.errorText = action.payload;
       state.alertType = "danger";
     },
 

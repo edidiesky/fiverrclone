@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { RxCross1 } from "react-icons/rx";
 import { CgDanger } from "react-icons/cg";
 import { AiFillCheckCircle } from "react-icons/ai";
-export default function Message({
+export default function ErrorMessage({
   showAlert,
   alertText,
   alertType,
@@ -20,57 +20,50 @@ export default function Message({
   // }, []);
 
   return (
-    <MessageContent
+    <ErrorMessageContent
       className={
         showAlert
-          ? "gap-1 flex item-center justify-space active"
-          : "gap-1 flex item-center justify-space"
+          ? "gap-1 flex fs-18 item-center justify-space active"
+          : "gap-1 flex fs-18 item-center justify-space"
       }
     >
-      {alertType === "danger" ? (
-        <CgDanger fontSize={"20px"} color="red" />
-      ) : (
-        <AiFillCheckCircle fontSize={"20px"} color="green" />
-      )}
+      <CgDanger fontSize={"20px"} color="red" />
 
       <h5
         className={
           alertType === "danger"
-            ? "flex flex1 text-extra-bold activered"
-            : "flex flex1 text-extra-bold text-dark"
+            ? "flex flex1 fs-18 text-extra-bold activered"
+            : "flex flex1 fs-18 text-extra-bold"
         }
       >
         {alertText}
       </h5>
-      <div className="icon" onClick={handleClearAlert}>
+      {/* <div className="icon" onClick={handleClearAlert}>
         <RxCross1 />
-      </div>
-    </MessageContent>
+      </div> */}
+    </ErrorMessageContent>
   );
 }
 
-const MessageContent = styled.div`
+const ErrorMessageContent = styled.div`
   min-width: 200px;
   padding: 1.4rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  position: fixed;
+  background-color: #fbd8d857;
+  color: #e50b0b;
   z-index: 10000;
   left: 2%;
   border-radius: 8px;
-  font-size: 12px;
   font-weight: 600;
-  color: var(--dark-1);
   transition: all 0.6s;
-  top: 2%;
-  left: 50%;
-  transform: translate(-50%, -1000%);
-
-  top: -5%;
-
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+  transform: translate3d(0, 100px, 0);
   &.active {
-    top: 5%;
-    transform: translateX(-50%);
+    transform: translate3d(0, 0px, 0);
+    visibility: visible;
+    opacity: 1;
+    display: flex;
   }
   h5 {
     font-size: inherit;

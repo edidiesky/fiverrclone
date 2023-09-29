@@ -57,7 +57,7 @@ export const Table = styled.div`
            .tableWrapper {
              border-collapse: collapse;
              width: 100%;
-             min-width: 1200px;
+             min-width: 1100px;
              /* table-layout: fixed; */
 
              /* @media (max-width: 1080px) {
@@ -70,11 +70,12 @@ export const Table = styled.div`
                  z-index: 200;
                  text-align: center;
                  th {
-                   font-size: 11.8px;
+                   font-size: 16px;
                    font-weight: 700;
                    text-align: start;
                    color: #5c5c5c;
                    font-family: "Montserrat", sans-serif;
+                   font-family: "Big Shoulders Text", cursive;
 
                    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
                    padding: 0 10px;

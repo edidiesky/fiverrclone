@@ -6,8 +6,10 @@ import {
   createReviewGigs,
   createReviews,
 } from "../../../../Features";
-import Message from "../../../loaders/Message";
 import SelectReview from "./SelectReview";
+import ErrorMessage from "../../../loaders/Message";
+import Message from "../../../modals/Message";
+import LoaderIndex from "../../../loaders";
 
 const Form = ({ id }) => {
 const [communicationreview, setCommunicationReview] = useState(0)
@@ -24,6 +26,9 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
     showAlert,
     alertText,
     alertType,
+    errorAlert,
+    errorText,
+    reviewLoading
   } = useSelector((store) => store.reviews);
   const dispatch = useDispatch();
 
@@ -54,8 +59,14 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
         alertType={alertType}
         showAlert={showAlert}
         alertText={alertText}
-        handleClearAlert={dispatch(clearReviewsAlert())}
       />
+      <div className="w-100 hidden">
+        <ErrorMessage
+          alertType={alertType}
+          showAlert={errorAlert}
+          alertText={errorText}
+        />
+      </div>
       <h3 className="fs-24 text-extra-bold text-grey">
         Share your experience with the community, to help them make better
         decisions
@@ -124,7 +135,14 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
           style={{ padding: "1.5rem 3rem" }}
           onClick={handleReview}
         >
-          Create review
+          {reviewLoading ? (
+            <div className="w-100 gap-2 flex item-center justify-space">
+              <span>Processing</span>
+              <LoaderIndex type="dots" color={"#fff"} />
+            </div>
+          ) : (
+            "Create review"
+          )}
         </button>
       </div>
     </FormWrapper>

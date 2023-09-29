@@ -1,9 +1,24 @@
 import React, { useState } from "react";
+import { ThreeDots } from "react-loader-spinner";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-export default function LoaderIndex({ loading, type }) {
+export default function LoaderIndex({ loading, type, color }) {
   const [open, setOpen] = useState(true);
+  if (type === "dots") {
+    return (
+      <ThreeDots
+        height="27"
+        width="27"
+        radius="9"
+        color={color}
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClassName=""
+        visible={true}
+      />
+    );
+  }
   if (type === "small") {
     return (
       <Box

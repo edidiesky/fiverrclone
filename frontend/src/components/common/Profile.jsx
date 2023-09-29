@@ -12,7 +12,7 @@ export default function Profile({ profile }) {
     {
       id: 1,
       title: "Profile",
-      path: `/profile/${userInfo?.username}?sellerId=${userInfo?._id}`,
+      path: `/profile/${userInfo?.name}?sellerId=${userInfo?._id}`,
     },
     { id: 2, title: "Dashboard", path: "/dashboard" },
     { id: 3, title: "Refer a friend", path: "/" },

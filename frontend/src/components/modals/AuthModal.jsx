@@ -273,16 +273,16 @@ export default function AuthModal() {
                 className="authContentFormWrapper w-100 flex column gap-2"
                 onSubmit={handleSubmit}
               >
-                <h3 className="fs-30 family1">
+                <h3 className="fs-35 family1">
                   {auth ? "Create a new account" : "Sign in to your account"}
 
-                  <span className="block flex item-center gap-1 fs-18 py-1 text-light text-grey">
+                  <span className="block flex item-center gap-1 fs-14 family2  text-light text-grey">
                     {auth
                       ? "Already have an account?"
                       : "Don’t have an account?"}
                     <span
                       onClick={() => setAuth(!auth)}
-                      className="text-dark text-light"
+                      className="text-dark fs-14 family2 text-light"
                       style={{
                         textDecoration: "underline",
                         cursor: "pointer",
@@ -343,7 +343,7 @@ export default function AuthModal() {
                   >
                     {" Continue"}
                   </button>
-                  <h5 className="fs-14 text-grey text-light">
+                  <h5 className="fs-12 family2 text-grey text-bold">
                     By joining, you agree to the Fiverr Terms of Service and to
                     occasionally receive emails from us. Please read our Privacy
                     Policy to learn how we use your personal data.

@@ -56,12 +56,12 @@ export default function Order() {
           </div>
         ) : (
           <div className="w-100">
-            <h3
+            <h2
               className="py-2 w-90 auto family1 text-bold text-dark"
               style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
             >
               Transaction
-            </h3>
+            </h2>
             <div className="flex item-center w-90 auto flex item-start justify-space">
               <Table>
                 <div className="TableContainer">
@@ -113,11 +113,11 @@ border-radius:20px;
     background-color: #f7faf7 !important;
     color: var(--dark-1);
   }
-  h3 {
-    font-size: 30px;
+  h2 {
+    font-size: 50px;
 
     @media (max-width: 680px) {
-      font-size: 2.4rem !important;
+      font-size: 3rem !important;
     }
   }
 `;

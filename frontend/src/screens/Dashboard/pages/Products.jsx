@@ -55,8 +55,8 @@ export default function Products() {
         alertType={"success"}
       />
 
-      <ProductsContainer className="flex column gap-3 ">
-        <div className="w-100 flex column gap-3">
+      <ProductsContainer className="flex w-90 auto column gap-3 ">
+        <div className="w-90 auto flex column gap-3">
           <div className="flex w-100 item-center justify-space gap-2">
             <h2 className="family1 flex-1 fs-30 text-dark">Gigs</h2>
             <Link
@@ -98,8 +98,6 @@ export default function Products() {
 }
 
 const ProductsContainer = styled.div`
-  width: 90%;
-  margin: 0 auto;
   padding-top: 3rem;
   .headBtn {
     border: 1px solid rgba(0, 0, 0, 0.4);

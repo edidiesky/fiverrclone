@@ -113,7 +113,7 @@ export default function TableCards({ x, type }) {
             <tr key={gig?._id}>
               <td>
                 <div
-                  style={{ width: "11rem", borderRadius: "10px" }}
+                  style={{ width: "7rem", borderRadius: "10px" }}
                   className="flex detailsImageWrapper justify-center "
                 >
                   <div className="image">
@@ -136,12 +136,30 @@ export default function TableCards({ x, type }) {
                   <h4 className="fs-14 text-bold text-dark">{createddate}</h4>
                 </div>
               </td>
-              <td>{x?.isPaid === true ? "Paid" : "Not paid"}</td>
+              <td>
+                <div className="flex fs-14 item-center">
+                  <div
+                    className={x?.isPaid === false ? "status active" : "status"}
+                  >
+                    {x?.isPaid === true ? "Paid" : "Not paid"}
+                  </div>
+                </div>
+              </td>
               <td>
                 <h4 className="fs-16 text-extra-bold">${gig?.price}</h4>
               </td>
               <td>${x?.estimatedTax}</td>
-              <td>{x?.status}</td>
+              <td>
+                <div className="flex fs-14 item-center">
+                  <div
+                    className={
+                      x?.status === "Pending" ? "status active" : "status"
+                    }
+                  >
+                    {x?.status}
+                  </div>
+                </div>
+              </td>
             </tr>
           );
         })}

@@ -47,7 +47,7 @@ export default function Widget() {
   ];
 
   return (
-    <WidgetWrapper>
+    <WidgetWrapper className="w-90 auto">
       {WidgetData.map((x, index) => {
         return (
           <div
@@ -60,7 +60,7 @@ export default function Widget() {
             <div className="Icons">{x.icon}</div>
             <h2>
               {x.qty}
-              <span className="span1">{x.title}</span>
+              <span className="span1 family2">{x.title}</span>
             </h2>
           </div>
         );
@@ -70,8 +70,6 @@ export default function Widget() {
 }
 
 const WidgetWrapper = styled.div`
-  width: 90%;
-  margin: 0 auto;
   display: grid;
 
   grid-gap: 2rem;
@@ -88,7 +86,7 @@ const WidgetWrapper = styled.div`
     background: var(--white);
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 2rem;
     border: 1px solid rgba(0,0,0,.2);
     width: 100%;
     border-radius: 10px;
@@ -103,12 +101,12 @@ const WidgetWrapper = styled.div`
     }
 
     h2 {
-      font-size: 5rem;
+      font-size: 6rem;
       color: var(--text-color);
       font-weight: 600;
       text-transform: uppercase;
       @media (max-width:780px) {
-        font-size: 2.5rem;
+        font-size: 5rem;
       }
       .span1 {
         display: block;

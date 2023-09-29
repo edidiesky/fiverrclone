@@ -154,7 +154,7 @@ export default function Register() {
                   </p>
                 </div>
               </form>
-              <h5 className="fs-14 py-2 text-grey text-light">
+              <h5 className="fs-12 family2 py-2 text-grey text-light">
                 By joining, you agree to the Fiverr Terms of Service and to
                 occasionally receive emails from us. Please read our Privacy
                 Policy to learn how we use your personal data.

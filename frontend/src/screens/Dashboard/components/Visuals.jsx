@@ -76,7 +76,7 @@ const VisualChart = ({type}) => {
         options={chartOptions}
         series={chartOptions.series}
         type={type}
-        height={450}
+        height={350}
       />
     </VisualsWrapper>
   );
@@ -84,7 +84,7 @@ const VisualChart = ({type}) => {
 
 const VisualsWrapper = styled.div`
   width: 100%;
-  padding: 2rem 1.5rem;
+  padding: 0rem 1.5rem;
   background: var(--white);
   display: flex;
   border-radius: 6px;
