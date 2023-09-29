@@ -13,14 +13,14 @@ export default function Home() {
   // actions
   const dispatch = useDispatch()
   return (
-    <>
-     <Meta/>
-     <Header/>
-    <HomeContainer>
-     <HomeIndex/>
-    </HomeContainer>
-    </>
-  )
+    <div style={{ minHeight: "100vh" }}>
+      <Meta />
+      <Header />
+      <HomeContainer>
+        <HomeIndex />
+      </HomeContainer>
+    </div>
+  );
 }
 
 

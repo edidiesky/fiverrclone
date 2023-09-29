@@ -37,8 +37,8 @@ export default function UserBottomInfo() {
       {/* bottom */}
       <div className="w-100 py-2 flex column gap-3">
         {/* description */}
-        <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
-          <span className="flex family1 fs-20 text-bold justify-space item-center gap-2">
+        <div className="flex bottom w-100 fs-18 text-dark text-bold column gap-2">
+          <span className="flex fs-18 text-bold justify-space item-center gap-2">
             Description
             {!ondesc && checkUser && (
               <div
@@ -67,8 +67,8 @@ export default function UserBottomInfo() {
           )}
         </div>
         {/* languages */}
-        <div className="flex family1 bottom w-100 fs-20 text-dark text-bold column gap-2">
-          <span className="flex family1 flex fs-20 justify-space item-center gap-2">
+        <div className="flex bottom w-100 fs-18 text-dark text-bold column gap-2">
+          <span className="flex flex fs-18 justify-space item-center gap-2">
             Languages
             {checkUser && (
               <span
@@ -94,10 +94,7 @@ export default function UserBottomInfo() {
             <div className="list_1 w-100">
               {language?.map((x) => {
                 return (
-                  <span
-                    style={{ margin: ".3rem" }}
-                    className="fs-16 skills family1"
-                  >
+                  <span style={{ margin: ".3rem" }} className="fs-16 skills">
                     {x}
                   </span>
                 );
@@ -111,8 +108,8 @@ export default function UserBottomInfo() {
           </span> */}
         </div>
         {/* skills section */}
-        <div className="flex family1 bottom w-100 fs-20 text-dark column gap-2 text-bold gap-2">
-          <span className="flex family1 flex fs-20 justify-space item-center gap-2">
+        <div className="flex bottom w-100 fs-18 text-dark column gap-2 text-bold gap-2">
+          <span className="flex flex fs-18 justify-space item-center gap-2">
             Skills
             {checkUser && (
               <div
@@ -136,10 +133,7 @@ export default function UserBottomInfo() {
             <div className="list_1 flex w-100">
               {skill?.map((x) => {
                 return (
-                  <span
-                    style={{ margin: ".3rem" }}
-                    className="fs-16 skills family1"
-                  >
+                  <span style={{ margin: ".3rem" }} className="fs-16 skills">
                     {x}
                   </span>
                 );

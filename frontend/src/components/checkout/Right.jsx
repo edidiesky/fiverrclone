@@ -77,9 +77,9 @@ export default function CheckoutRight() {
           <div className="w-100 flex column gap-1 p2">
             {/* price */}
             <div className="w-100 family1 flex item-center justify-space">
-              <h4 className="fs-18 text-light text-dark">Basic</h4>
+              <h4 className="fs-18 family3 text-light text-dark">Basic</h4>
               {/* price */}
-              <h4 className="fs-18 text-light text-grey text-light">
+              <h4 className="fs-24 family2 text-light text-dark text-light">
                 ${cartDetails?.gigId?.price}
               </h4>
             </div>

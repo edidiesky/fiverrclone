@@ -174,7 +174,7 @@ export default function Header() {
                   />
                 ) : (
                   <div className="avatar grey fs-20 family2 text-white flex item-center justify-center">
-                    {userInfo?.username?.charAt(0)}
+                    {userInfo?.name?.charAt(0)}
                   </div>
                 )}
               </>
@@ -196,15 +196,15 @@ export default function Header() {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-18 family2 text-extra-bold family2 text-dark item-center justify-center active"
-              : "flex links fs-18 family2 text-extra-bold family2 text-dark item-center justify-center"
+              ? "flex links fs-20 family2 text-extra-bold family2 text-dark item-center justify-center active"
+              : "flex links fs-20 family2 text-extra-bold family2 text-dark item-center justify-center"
           }
         >
           Sign In
         </div>
         <div
           onClick={() => dispatch(onAuthModal())}
-          className="flex btn-4 fs-18 family2 text-extra-bold family2 text-dark item-center justify-center"
+          className="flex btn-4 fs-20 family2 text-extra-bold family2 text-dark item-center justify-center"
         >
           Join
         </div>

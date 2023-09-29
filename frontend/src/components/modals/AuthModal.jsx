@@ -204,7 +204,7 @@ export default function AuthModal() {
             <div className="w-100 btnWrapper flex column gap-1">
               <div
                 onClick={HandleUsername}
-                className="btn w-100 family1 fs-16 text-white text-center"
+                className="btn w-100 family3 fs-16 text-white text-center"
               >
                 Join
               </div>
@@ -279,13 +279,13 @@ export default function AuthModal() {
                     {auth ? "Create a new account" : "Sign in to your account"}
                   </span>
 
-                  <span className="block flex item-center gap-1 fs-16 text-light text-grey">
+                  <span className="block family3 flex item-center gap-1 fs-16 text-extra-bold text-grey">
                     {auth
                       ? "Already have an account?"
                       : "Don’t have an account?"}
                     <span
                       onClick={() => setAuth(!auth)}
-                      className="text-dark fs-14 text-light"
+                      className="text-dark fs-16 text-light"
                       style={{
                         textDecoration: "underline",
                         cursor: "pointer",
@@ -341,12 +341,12 @@ export default function AuthModal() {
                 </div>
                 <div className="w-100 flex gap-2 column">
                   <button
-                    className="btn fs-18 w-100 py-2 family1 px-4 text-white text-bold"
-                    style={{ padding: "1.7rem 4rem" }}
+                    className="btn fs-18 w-100 py-2 px-4 text-white text-extra-bold"
+                    style={{ padding: "1.7rem 4rem", fontWeight:"700" }}
                   >
                     {" Continue"}
                   </button>
-                  <h5 className="fs-12 family2 text-grey text-bold">
+                  <h5 className="fs-14 family3 text-grey text-bold">
                     By joining, you agree to the Fiverr Terms of Service and to
                     occasionally receive emails from us. Please read our Privacy
                     Policy to learn how we use your personal data.
@@ -375,7 +375,6 @@ const AuthModalContainer = styled(motion.div)`
   top: 0;
   .authCenter {
     padding: 1rem 0;
-    font-family: "Roboto Condensed", sans-serif;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
   .btn {
@@ -415,6 +414,7 @@ const AuthModalContainer = styled(motion.div)`
     justify-content: center;
     @media (max-width: 780px) {
       width: 100%;
+      border-radius: 15px;
     }
   }
 
@@ -480,12 +480,12 @@ const AuthModalContainer = styled(motion.div)`
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     @media (max-width: 780px) {
-      width: 100vw;
-      height: 100vh;
+      width: 90%;
+      height: 70vh;
       max-width: 100vw;
       justify-content: center;
       align-items: center;
-      border-radius: 0 !important;
+      border-radius: 5px !important;
     }
     position: relative;
     &.usernameModal {

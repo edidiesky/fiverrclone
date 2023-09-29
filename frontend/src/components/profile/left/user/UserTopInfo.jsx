@@ -25,7 +25,7 @@ export default function UserTopInfo({ image, setImage }) {
     {
       icons: <FaLocationArrow />,
       text: "from",
-      subtext: `${userDetails?.about?.from}`,
+      subtext: `${userDetails?.about?.from && userDetails?.about?.from}`,
     },
     {
       icons: <FaUser />,
@@ -99,7 +99,7 @@ export default function UserTopInfo({ image, setImage }) {
                 <img src={userDetails?.image} alt="" className="image" />
               ) : (
                 <div className="image grey fs-45 text-white flex item-center justify-center">
-                  {userDetails?.username.charAt(0)}
+                  {userDetails?.name?.charAt(0)}
                 </div>
               )}
             </div>
@@ -122,7 +122,7 @@ export default function UserTopInfo({ image, setImage }) {
               <img src={userDetails?.image} alt="" className="image" />
             ) : (
               <div className="image grey fs-45 text-white flex item-center justify-center">
-                {userDetails?.username.charAt(0)}
+                {userDetails?.name?.charAt(0)}
               </div>
             )}
           </div>
@@ -133,11 +133,11 @@ export default function UserTopInfo({ image, setImage }) {
           {/* name */}
           {userDetails?.name}
           <span className="fs-18 block text-center text-light text-grey">
-            @{userDetails?.username}
+            {userDetails?.username && userDetails?.username}
           </span>
 
           {/* role */}
-          <span className="block text-grey py-1 text-light fs-18">
+          <span className="block text-grey text-light fs-18">
             {userDetails?.about.occupation
               ? userDetails?.about.occupation
               : "Please add a short description of yourself"}
@@ -152,7 +152,7 @@ export default function UserTopInfo({ image, setImage }) {
                 color="var(--grey-1)"
               />
             </div>
-            <Link className="contactBtn family1">Preview Fiverr Profile</Link>
+            <Link className="contactBtn w-90 auto">Preview Fiverr Profile</Link>
           </>
         )}
       </div>
@@ -170,7 +170,7 @@ export default function UserTopInfo({ image, setImage }) {
           return (
             <li
               key={index}
-              className="flex family1 w-100 fs-16 text-grey text-light justify-space item-center"
+              className="flex w-100 fs-16 text-grey text-light justify-space item-center"
             >
               <span className="flex item-center gap-2">
                 {x.icons} {x.text}

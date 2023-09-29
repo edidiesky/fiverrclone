@@ -5,9 +5,9 @@ import UserTopInfo from "./UserTopInfo";
 import { AnimatePresence } from "framer-motion";
 import Profileform from "../../../modals/Profileform";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../../../loaders/Message";
 import { clearUserAlertError } from "../../../../Features";
 import LoaderIndex from "../../../loaders";
+import Message from "../../../modals/Message";
 export default function UserIndex() {
   const {
     userInfo,
@@ -43,12 +43,7 @@ export default function UserIndex() {
       {
         isLoading && <LoaderIndex/>
       }
-      <Message
-        showAlert={showAlert}
-        alertText={alertText}
-        alertType={alertType}
-        // handleClearAlert={dispatch(clearUserAlertError())}
-      />
+     
       <UserTopInfo image={image} setImage={setImage} />
       <UserInfo />
       <Shared />

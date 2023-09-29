@@ -20,64 +20,70 @@ export default function Orders() {
   let createddate = moment(order?.updatedAt);
   createddate = createddate.format("MMMM Do YYYY");
   return (
-    <>
+    <div className="w-100" style={{ minHeight: "100vh" }}>
       <Meta title={"My Orders"} />
       {/* <Banner1/> */}
       {/* <Banner title="Orders Success" /> */}
       <Header />
       {}
 
-      <OrderWrapper
-        className="py-2 w-90 auto flex column gap-1"
-        style={{ border: "1px solid rgba(0,0,0,.1)", margin: "2rem auto" }}
-      >
-        {order?.length === 0 ? (
-          <div className="w-90 auto flex item-center justify-space">
-            <h3 className="py-2 family1 text-bold text-dark">
-              You have no orders
-            </h3>
-            <Link to={'/'} className="btn fs-18 text-dark">Go Back</Link>
-          </div>
-        ) : (
-          <div className="w-100">
-            <h3
-              className="py-2 w-90 auto family1 text-bold text-dark"
-              style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
-            >
-              Transaction Historys.
-            </h3>
-            <div className="flex item-center w-90 auto flex item-start justify-space">
-              <Table>
-                <div className="TableContainer">
-                  <div className="flex column gap-2 justify-space w-100 flex-wrap">
-                    {/* <h3 className="fs-24 text-bold">Transaction History</h3> */}
-                  </div>
-                  <table className="tableWrapper">
-                    <thead>
-                      <tr>
-                        <th>Gig Image</th>
-                        <th>Gig Name</th>
-                        <th>Date</th>
-                        <th>Paid</th>
-                        <th>Price</th>
-                        <th>Estimated Tax</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {order?.map((x) => {
-                        return <TableCards type={"order"} x={x} key={x?._id} />;
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-                {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
-              </Table>
+      <div style={{ minHeight: "100vh" }} className="w-100">
+        <OrderWrapper
+          className="py-2 w-90 auto flex column gap-1"
+          style={{ border: "1px solid rgba(0,0,0,.1)", margin: "2rem auto" }}
+        >
+          {order?.length === 0 ? (
+            <div className="w-90 auto flex item-center justify-space">
+              <h3 className="py-2 family1 text-bold text-dark">
+                You have no orders
+              </h3>
+              <Link to={"/"} className="btn fs-18 text-dark">
+                Go Back
+              </Link>
             </div>
-          </div>
-        )}
-      </OrderWrapper>
-    </>
+          ) : (
+            <div className="w-100">
+              <h3
+                className="py-2 w-90 auto family1 text-bold text-dark"
+                style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
+              >
+                Transaction Historys.
+              </h3>
+              <div className="flex item-center w-90 auto flex item-start justify-space">
+                <Table>
+                  <div className="TableContainer">
+                    <div className="flex column gap-2 justify-space w-100 flex-wrap">
+                      {/* <h3 className="fs-24 text-bold">Transaction History</h3> */}
+                    </div>
+                    <table className="tableWrapper">
+                      <thead>
+                        <tr>
+                          <th>Gig Image</th>
+                          <th>Gig Name</th>
+                          <th>Date</th>
+                          <th>Paid</th>
+                          <th>Price</th>
+                          <th>Estimated Tax</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {order?.map((x) => {
+                          return (
+                            <TableCards type={"order"} x={x} key={x?._id} />
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  {/* {usernoOfpage > 0 && <Pagination type="users" />} */}
+                </Table>
+              </div>
+            </div>
+          )}
+        </OrderWrapper>
+      </div>
+    </div>
   );
 }
 

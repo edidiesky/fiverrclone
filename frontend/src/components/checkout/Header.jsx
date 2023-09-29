@@ -33,21 +33,21 @@ export default function Header() {
           className="w-100 flex item-center gap-1"
           style={{ flexWrap: "wrap" }}
         >
-          <div className="flex fs-18 family1 text-green item-center gap-1">
+          <div className="flex fs-18  text-green item-center gap-1">
             <div className="avatar flex item-center justify-center fs-18 text-white">
               <BiChevronRight className="fs-24" />
             </div>
             Order Details
           </div>
-          <BiChevronRight className="fs-30 text-grey" />
-          <div className="flex fs-18 family1 text-green item-center gap-1">
+          <BiChevronRight className="fs-16 text-grey" />
+          <div className="flex fs-18  text-green item-center gap-1">
             <div className="avatar flex item-center justify-center fs-18 text-white">
               2
             </div>
             Confirm & Pay
           </div>
-          <BiChevronRight className="fs-30 text-grey" />
-          <div className="flex fs-18 family1 text-green item-center gap-1">
+          <BiChevronRight className="fs-16 text-grey" />
+          <div className="flex fs-18  text-green item-center gap-1">
             <div className="avatar flex item-center justify-center fs-18 text-white">
               3
             </div>
