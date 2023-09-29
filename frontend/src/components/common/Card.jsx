@@ -10,7 +10,7 @@ import { FaHeart, FaStar } from "react-icons/fa";
 
 export default function Card({ x, index, type }) {
   const { gigsIsError, gigsIsLoading } = useSelector((store) => store.gigs);
-  const [tabindex, setTabIndex] = useState(0);
+  const [tabindex, setTabIndex] = useState(-1);
 
   // const gigsIsLoading = true;
 

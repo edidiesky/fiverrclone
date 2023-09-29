@@ -1,5 +1,160 @@
- const gigData = [
+const gigData = [
   // Design Logo Design
+
+  // Voice over
+  // modified
+  {
+    shortDescription:
+      "1 STANDARD QUALITY IMAGE from ONE PROMPT. Custom aspect ratio.",
+    title: "I will be the british voice of your project",
+    countInStock: 10,
+    price: 50,
+    sellerId: "64e7d9e532313d417c25cdf7",
+    deliveryDays: 5,
+    description:
+      "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
+    username: "mathias_gr",
+    category: ["Video & Animation", "Voice Over"],
+    subInfo: ["HQ audio file (WAV format)"],
+    image: [
+      "https://fiverr-res.cloudinary.com/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/9008167/original/2a9944459dadc7c77370887c29284f45ef0047df.png",
+      "https://fiverr-res.cloudinary.com/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/9008167/original/2a9944459dadc7c77370887c29284f45ef0047df.png",
+      "https://fiverr-res.cloudinary.com/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/9008167/original/2a9944459dadc7c77370887c29284f45ef0047df.png",
+      "https://fiverr-res.cloudinary.com/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/9008167/original/2a9944459dadc7c77370887c29284f45ef0047df.png",
+    ],
+  },
+  // Design Logo Design
+  {
+    shortDescription:
+      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
+    title: "I will design or redesign 3d and minimalist business logo design",
+    sellerId: "64e7d9e532313d417c25cdf8",
+    countInStock: 3,
+    category: ["Graphics-Design", "Logo Design"],
+    price: 15,
+    deliveryDays: 12,
+    subInfo: [
+      "Logo transparency",
+      "Vector file",
+      "Printable file",
+      "Include source file",
+      "1 concept included",
+      "Printable file",
+      "Include 3D mockup",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125595779/original/6c5bcaa59692ab691312b869a92a0aa3e5faab0b.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/125595779/original/cfef2fa0f3de4605bbe6c58215fe40702c651696.jpg",
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/125595779/original/6947406b2d721f9b47771018a15d1ff6ec9b0ed4.jpg",
+    ],
+  },
+  // Design website
+  // modified
+  {
+    shortDescription:
+      "A basic quality custom made website based on your requirements.",
+    title:
+      "I will do website and landing page UI UX design in figma, xd format",
+    sellerId: "64e7d9e532313d417c25cdf8",
+    countInStock: 3,
+    category: ["Graphics-Design", "Website Design"],
+    price: 85,
+    deliveryDays: 12,
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/309241563/original/875df0a0da51a1229e2e657b5c8c168171a7f72d/design-figma-website-ui-ux-and-landing-page-ui.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/b061e370b39edde8398c590f2cbf4f3c-1695439334/Save%20Our%20Children/design-figma-website-ui-ux-and-landing-page-ui.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/29128b9c06bb2adb77b59dab796ab398-1695304084/Membership%20Page/design-figma-website-ui-ux-and-landing-page-ui.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/6490729500dd8dca4a6b4007645ff9c0-1695227852/Apple%20iPhone%2015%20Blue/design-figma-website-ui-ux-and-landing-page-ui.jpg",
+    ],
+  },
+  // Design Logo Design
+  //  modified
+  {
+    shortDescription:
+      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
+    title: "I will do professional business logo design and branding",
+    sellerId: "64e7d9e532313d417c25cdf6",
+    countInStock: 3,
+    category: ["Graphics-Design", "Logo Design"],
+    price: 15,
+    deliveryDays: 12,
+    subInfo: [
+      "Logo transparency",
+      "Vector file",
+      "Printable file",
+      "Include source file",
+      "1 concept included",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/139691333/original/2bb7494a868b120003a326e855649afa9b49af19/design-cartoon-logo-mascot-character.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/139691333/original/dee8f459176b2ca98ea16f42aab4efcb3d02cc62/design-cartoon-logo-mascot-character.jpg",
+      ,
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/139691333/original/4958467c75285da7d6f2a72e7f775da41fef7c60/design-cartoon-logo-mascot-character.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/9c3fc11206b2e1a53977944595a75639-1693682934/3d/design-cartoon-logo-mascot-character.jpg",
+    ],
+  },
+  // Design Logo Design
+  // modified
+  {
+    shortDescription:
+      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
+    title: "I will do a modern minimalist logo design",
+    sellerId: "64e7d9e532313d417c25cdf8",
+    countInStock: 3,
+    category: ["Graphics-Design", "Logo Design"],
+    price: 15,
+    deliveryDays: 12,
+    subInfo: [
+      "Logo transparency",
+      "Vector file",
+      "Printable file",
+      "Include source file",
+      "1 concept included",
+    ],
+    description:
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
+    image: [
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/309241563/original/875df0a0da51a1229e2e657b5c8c168171a7f72d/design-figma-website-ui-ux-and-landing-page-ui.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/b061e370b39edde8398c590f2cbf4f3c-1695439334/Save%20Our%20Children/design-figma-website-ui-ux-and-landing-page-ui.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/29128b9c06bb2adb77b59dab796ab398-1695304084/Membership%20Page/design-figma-website-ui-ux-and-landing-page-ui.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/6490729500dd8dca4a6b4007645ff9c0-1695227852/Apple%20iPhone%2015%20Blue/design-figma-website-ui-ux-and-landing-page-ui.jpg",
+    ],
+  },
+  // writing
+  {
+    shortDescription: "EDIT AND REWRITE COVER LETTER ONLY.",
+    title: "I will provide web design for you",
+    countInStock: 10,
+    price: 50,
+    sellerId: "64e7d9e532313d417c25cdf7",
+    deliveryDays: 5,
+    description:
+      "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
+    username: "mathias_gr",
+    category: ["Graphics-Design", "Web Design"],
+    subInfo: ["HQ audio file (WAV format)"],
+    image: [
+      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/235896714/original/9948fcf62c9338a5feb31c0caa99c584440b1480.png",
+    ],
+  },
   {
     shortDescription:
       "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
@@ -54,135 +209,13 @@
       "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/attachments/delivery/asset/3b6ca7fe9e68002c2c41e51521a6f228-1688036825/logo%20concept%201_4x-100.jpg",
     ],
   },
-  // Design Logo Design
-  {
-    shortDescription:
-      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
-    title: "I will design or redesign 3d and minimalist business logo design",
-    sellerId: "64e7d9e532313d417c25cdf8",
-    countInStock: 3,
-    category: ["Graphics-Design", "Logo Design"],
-    price: 15,
-    deliveryDays: 12,
-    subInfo: [
-      "Logo transparency",
-      "Vector file",
-      "Printable file",
-      "Include source file",
-      "1 concept included",
-      "Printable file",
-      "Include 3D mockup",
-    ],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
-    image: [
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/125595779/original/6c5bcaa59692ab691312b869a92a0aa3e5faab0b.jpg",
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/125595779/original/cfef2fa0f3de4605bbe6c58215fe40702c651696.jpg",
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/125595779/original/6947406b2d721f9b47771018a15d1ff6ec9b0ed4.jpg",
-    ],
-  },
-  // Design Logo Design
-  {
-    shortDescription:
-      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
-    title: "I will draw a unique logo for your enterprise",
-    sellerId: "64e7d9e532313d417c25cdf6",
-    countInStock: 3,
-    category: ["Graphics-Design", "Logo Design"],
-    price: 15,
-    deliveryDays: 12,
-    subInfo: [
-      "Logo transparency",
-      "Vector file",
-      "Printable file",
-      "Include source file",
-      "1 concept included",
-    ],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
-
-    image: [
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/303878159/original/bd022441f67bcdb5790dfe57a90a6c9439c30f67/design-or-redesign-3d-and-minimalist-business-logo-design.jpg",
-    ],
-  }, // Design Logo Design
-  {
-    shortDescription:
-      "4 logo options to chose from: Logo branding guideline & Transfer of Copyright Document (TOC)",
-    title: "I will do a modern minimalist logo design",
-    sellerId: "64e7d9e532313d417c25cdf8",
-    countInStock: 3,
-    category: ["Graphics-Design", "Logo Design"],
-    price: 15,
-    deliveryDays: 12,
-    subInfo: [
-      "Logo transparency",
-      "Vector file",
-      "Printable file",
-      "Include source file",
-      "1 concept included",
-    ],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
-
-    image: [
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/109611151/original/f8a0dca284ffd4c5be5e16b8ef49247cd32b54d7.jpg",
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/109611151/original/42d4814c676b9f4320152d541bb6c8be7cd83d39.jpg",
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/109611151/original/fb62237b2a79e0cddbd306921aea85d8dde19247.jpg",
-    ],
-  },
-  // writing
-  {
-    shortDescription: "EDIT AND REWRITE COVER LETTER ONLY.",
-    title: "I will provide web design for you",
-    countInStock: 10,
-    price: 50,
-    sellerId: "64e7d9e532313d417c25cdf7",
-    deliveryDays: 5,
-    description:
-      "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
-    username: "mathias_gr",
-    category: ["Graphics-Design", "Web Design"],
-    subInfo: ["HQ audio file (WAV format)"],
-    image: [
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/235896714/original/9948fcf62c9338a5feb31c0caa99c584440b1480.png",
-    ],
-  },
   // Design website
+  // modified
   {
     shortDescription:
       "A basic quality custom made website based on your requirements.",
-    title:
-      "I will do website and landing page UI UX design in figma, xd format",
-    sellerId: "64e7d9e532313d417c25cdf8",
-    countInStock: 3,
-    category: ["Graphics-Design", "Website Design"],
-    price: 85,
-    deliveryDays: 12,
-    subInfo: [
-      "Convert to HTML/CSS",
-      "Responsive design",
-      "Source file",
-      "Printable file",
-      "Include 3D mockup",
-      "Include source file",
-    ],
-    description:
-      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
-
-    image: [
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/309241563/original/875df0a0da51a1229e2e657b5c8c168171a7f72d.jpg",
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/301357002/original/574e420ac96b45b4d0452bd310959dff7e1808ba.png",
-    ],
-  }, // Design website
-  {
-    shortDescription:
-      "A basic quality custom made website based on your requirements.",
-    title:
-      "I will do website in figma, xd format",
+    title: "I will do website in figma, xd format",
     sellerId: "64e7d9e532313d417c25cdf7",
     countInStock: 3,
     category: ["Graphics-Design", "Website Design"],
@@ -200,10 +233,9 @@
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
 
     image: [
-      'https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/315225510/original/746862c5155c0c96d40bfdc3fb2cd7b815ffea8f.png',
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs3/301357002/original/491da5db870750f6c4cb65c954fe402a8c68f828.png",
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs/309241563/original/875df0a0da51a1229e2e657b5c8c168171a7f72d.jpg",
-      "https://fiverr-res.cloudinary.com/t_gig_cards_web,q_auto,f_auto/gigs2/301357002/original/574e420ac96b45b4d0452bd310959dff7e1808ba.png",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/155755051/original/f174f4534dd66ff58bc6060735c9ea7ec37b2b1f/create-modern-and-unique-ui-ux-design.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/155755051/original/bc5f61b658a448183315cde7891784de7b140389/create-modern-and-unique-ui-ux-design.png",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/155755051/original/a80a664a28bc1aad9fe9769fca2b7a0f9af619b5/create-modern-and-unique-ui-ux-design.png",
     ],
   },
   // 3d modelling user2
@@ -225,11 +257,12 @@
     ],
   },
   // Social Media Design
+  // modified
   {
     shortDescription: "Choose this option if you want to release a basic track",
     title: "I will design top notch social media content",
     countInStock: 10,
-    price: 20,
+    price: 210,
     sellerId: "64e7d9e532313d417c25cdf6",
     deliveryDays: 5,
     description:
@@ -238,8 +271,9 @@
     category: ["Graphics-Design", "Social Media Design"],
     subInfo: ["Project file delivery"],
     image: [
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615084/fernandobengua.png",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/176241231/original/b1af0a69350dc78bdb9b66a2604f1aebfa98b314/design-amazing-social-media-content-for-your-business.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/176241231/original/b1af0a69350dc78bdb9b66a2604f1aebfa98b314/design-amazing-social-media-content-for-your-business.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/176241231/original/23a70ed8c205dd4962e035ce8d99f53ce2dc874d/design-amazing-social-media-content-for-your-business.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/176241231/original/0cff69a73bcd2952d040f81b9d37d41ffc822849/design-amazing-social-media-content-for-your-business.jpg",
     ],
   },
   // Book Design
@@ -311,40 +345,34 @@
       "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615069/noneyn.png",
     ],
   },
-  // video editing seller8
+  // web design
+  // modified
   {
-    title: "I will make a professional video with vfx",
-    countInStock: 10,
-    price: 45,
+    shortDescription: "2 Mobile app screen",
+    title: "I will create mobile app UI UX design",
     sellerId: "64e7d9e532313d417c25cdf8",
-    deliveryDays: 5,
+    countInStock: 4,
+    category: ["Graphics-Design", "Website Design"],
+    price: 85,
+    deliveryDays: 12,
+    subInfo: [
+      "Convert to HTML/CSS",
+      "Responsive design",
+      "Source file",
+      "Printable file",
+      "Include 3D mockup",
+      "Include source file",
+    ],
     description:
-      "Many of you already know about me because i've been doing this for quite some time now with 250 plus 5⭐ reviews! ( Check my profile ) but for the people Who don't i'll line up a brief run down!        ",
-    username: "super_gx",
-    category: ["Photography", "Product Photographers"],
+      "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
+
     image: [
-      "https://fiverr-res.cloudinary.com/videos/so_19.834244,t_main1,q_auto,f_auto/eomkzz6tyksjpmzizbak/make-a-professional-video-with-vfx.png",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/297038214/original/ed4e01ee79e836e176e21e57b5c0b3c3a82edf0a/make-a-professional-video-with-vfx.png",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/167172451/original/d65792611d7436cfa5eeeb92f6bf518307afbf6f/create-mobile-app-ui-design.png",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/167172451/original/64adf39d3e3e37f44e224f12790d477fd860cb25/create-mobile-app-ui-design.png",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/167172451/original/64adf39d3e3e37f44e224f12790d477fd860cb25/create-mobile-app-ui-design.png",
     ],
   },
-  // Voice over
-  {
-    shortDescription:
-      "1 STANDARD QUALITY IMAGE from ONE PROMPT. Custom aspect ratio.",
-    title: "I will do a french voice over, be your french voice",
-    countInStock: 10,
-    price: 50,
-    sellerId: "64e7d9e532313d417c25cdf7",
-    deliveryDays: 5,
-    description:
-      "I will perform the recording based on your direction but I might allow myself to propose alternate takes if my feelings comands it... Feeling and sensitivity are key to my interpretation of a script.",
-    username: "mathias_gr",
-    category: ["Video & Animation", "Voice Over"],
-    subInfo: ["HQ audio file (WAV format)"],
-    image: [
-      "https://fiverr-res.cloudinary.com/q_auto,f_auto,w_320,dpr_1.0/v1/attachments/generic_asset/asset/f23a46693ef0e611430e232cbc989e2b-1617004615096/passionshake.jpeg",
-    ],
-  },
+
   // programming tech website
   {
     shortDescription:
@@ -374,6 +402,7 @@
     ],
   },
   // programming tech website
+  // modified
   {
     shortDescription:
       "Silver Include 5 pages, SEO optimized, Portfolio, Landing page, Responsive website.",
@@ -395,8 +424,9 @@
       "I serve my expertise for your business effective worldwide Internet exposure at low prices. I will deliver professional and modern web designs that will promote your brand frequently. I complete all my project with absolute devotion and perfection. I customize WIX sites on a regular basis and can help customize yours, so you can get your site up and running.",
     username: "willllli",
     image: [
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs/89030431/original/0272a30137eee42234b9facb859744af240197f7/design-a-professional-wix-website.jpg",
-      "https://fiverr-res.cloudinary.com/images/t_thumbnail3_3,q_auto,f_auto/gigs2/89030431/original/5952e2fbe7b6ecb903acde5bf78db47a6bf5a3b7/design-a-professional-wix-website.png",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/132069918/original/a721755c508fcbd8929f5f106a186ad9bcbd9582/design-photoshop-web-template-psd-website-psd-to-wordpress.png",
+      "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/132069918/original/92ba06cc0358488206e24243c420c1be92f7553e/design-photoshop-web-template-psd-website-psd-to-wordpress.jpg",
+      "https://fiverr-res.cloudinary.com/images/t_smartwm/t_main1,q_auto,f_auto,q_auto,f_auto/attachments/delivery/asset/2c926c5f68901aacd00bad5d6816c0e0-1693863060/screencapture-meek-chaja-3413f4-netlify-app-2023-09-05-03_30_22/design-photoshop-web-template-psd-website-psd-to-wordpress.png",
     ],
   },
   // Design website
@@ -604,6 +634,5 @@
     ],
   },
 ];
-
 
 export default gigData;

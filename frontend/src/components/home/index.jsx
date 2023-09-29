@@ -13,6 +13,7 @@ import GigsIndex from "./gigs";
 import { useDispatch } from "react-redux";
 import { clearGigsAlert, getAllGigs } from "../../Features";
 import { clearGigs } from "../../Features/gigs/gigsSlice";
+import { Footer } from "../common";
 export default function HomeIndex() {
   const dispatch = useDispatch();
 
@@ -33,6 +34,7 @@ export default function HomeIndex() {
       <Features1Index />
       <Features2Index />
       <Talent />
+      <Footer/>
     </HomeIndexContainer>
   );
 }

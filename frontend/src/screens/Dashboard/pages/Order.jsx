@@ -6,6 +6,7 @@ import { Table } from "./styles";
 import { getSellerOrder } from "../../../Features/order/orderReducer";
 import TableCards from "../components/TableCard";
 import LoaderIndex from "../../../components/loaders";
+import { Link } from "react-router-dom";
 
 export default function Order() {
   const dispatch = useDispatch();
@@ -47,9 +48,9 @@ export default function Order() {
       >
         {order?.length === 0 ? (
           <div className="w-90 auto flex item-center justify-space">
-            <h3 className="py-2 family1 text-bold text-dark">
+            <h2 className="py-2 family1 text-bold text-dark">
               You have no orders
-            </h3>
+            </h2>
             <Link to={"/"} className="btn fs-18 text-dark">
               Go Back
             </Link>

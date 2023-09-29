@@ -38,11 +38,19 @@ export default function LoaderIndex({ loading, type, color }) {
         height: "100vh",
         top: 0,
         left: 0,
-        background: "rgba(0,0,0,.3)",
+        background: "rgba(255, 255, 255, 0.435)",
       }}
     >
-      <div className="loading"></div>
-      <div className="text-center w-100 text-bold fs-18">Loading ...</div>
+      <ThreeDots
+        height="50"
+        width="50"
+        radius="10"
+        color={'var(--blue-1)'}
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClassName=""
+        visible={true}
+      />
     </div>
   );
 }

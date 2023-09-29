@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import SingleLeftIndex from "./left";
 import RightIndex from "./right";
 import styled from "styled-components";
-import { Header } from "../common";
+import { Footer, Header } from "../common";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleGigsDetails } from "../../Features";
@@ -37,7 +37,7 @@ export default function SingleIndex() {
         </div>
       ) : (
         <div className="w-100">
-          <div className="messageBtn flex item-start gap-2 fs-16">
+          {/* <div className="messageBtn flex item-start gap-2 fs-16">
             <img
               src="https://fiverr-res.cloudinary.com/image/upload/t_profile_small,q_auto,f_auto/v1/attachments/profile/photo/ed16a994fb873e0815435aa19250a098-1663604096116/614b9a69-0365-4a0e-a076-f47392dd383b.jpg"
               alt=""
@@ -53,17 +53,18 @@ export default function SingleIndex() {
                 <span className="fs-14 text-extra-bold text-grey">1hr</span>
               </div>
             </h4>
-          </div>
+          </div> */}
           {gigsIsLoading ? (
             <LoaderIndex />
           ) : (
-            <>
+            <div className="w-100">
               <Header />
               <div className="w-90 auto py-4 grid grid-auto grid-gap4">
                 <SingleLeftIndex id={id} />
                 <RightIndex />
               </div>
-            </>
+              <Footer />
+            </div>
           )}
         </div>
       )}

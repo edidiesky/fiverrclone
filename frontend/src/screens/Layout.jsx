@@ -31,7 +31,6 @@ export default function Layout() {
       <Outlet />
       <Message/>
       <Sidebar/>
-      <Footer />
       <CartSidebar/>
       <Copyright />
     </LayoutContainer>
