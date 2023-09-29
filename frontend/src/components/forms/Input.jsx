@@ -35,10 +35,11 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     color: "var(--dark-1)",
   },
   "& .MuiInputLabel-root": {
-    fontSize: "14px",
+    fontSize: "16px",
     fontWeight: "light",
     color: "var(--grey-1)",
     textTransform: "capitalize",
+    fontFamily: "Nunito, sans-serif",
   },
   "& .MuiInputLabel-root.Mui-focused": {
     // Styles when the form is focused
