@@ -228,11 +228,11 @@ export default function AuthModal() {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
-      <Message
+      {/* <Message
         showAlert={showAlert}
         alertText={alertText}
         handleClearAlert={clearUserAlertError}
-      />
+      /> */}
       {isLoading && <LoaderIndex />}
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
       <motion.div
@@ -273,16 +273,19 @@ export default function AuthModal() {
                 className="authContentFormWrapper w-100 flex column gap-2"
                 onSubmit={handleSubmit}
               >
-                <h3 className="fs-35 family1">
-                  {auth ? "Create a new account" : "Sign in to your account"}
+                <h3 className="fs-35">
+                  <span className="family2">
+                    {" "}
+                    {auth ? "Create a new account" : "Sign in to your account"}
+                  </span>
 
-                  <span className="block flex item-center gap-1 fs-14 family2  text-light text-grey">
+                  <span className="block flex item-center gap-1 fs-16 text-light text-grey">
                     {auth
                       ? "Already have an account?"
                       : "Don’t have an account?"}
                     <span
                       onClick={() => setAuth(!auth)}
-                      className="text-dark fs-14 family2 text-light"
+                      className="text-dark fs-14 text-light"
                       style={{
                         textDecoration: "underline",
                         cursor: "pointer",
@@ -398,6 +401,9 @@ const AuthModalContainer = styled(motion.div)`
   .rightwrapper {
     overflow: hidden;
     background: #fff;
+    @media (max-width: 780px) {
+      justify-content: center;
+    }
   }
   .right {
     background-color: #fff;
@@ -407,6 +413,9 @@ const AuthModalContainer = styled(motion.div)`
     border-bottom-right-radius: 15px;
     min-height: 60rem;
     justify-content: center;
+    @media (max-width: 780px) {
+      width: 100%;
+    }
   }
 
   .card_auth_wrapper {
@@ -423,6 +432,9 @@ const AuthModalContainer = styled(motion.div)`
       border-top-left-radius: 15px;
       border-bottom-left-radius: 15px;
       background-color: transparent;
+      @media (max-width: 780px) {
+        display: none;
+      }
       .left_content {
         position: absolute;
         z-index: 30;
@@ -467,6 +479,14 @@ const AuthModalContainer = styled(motion.div)`
     gap: 2rem;
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
+    @media (max-width: 780px) {
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 !important;
+    }
     position: relative;
     &.usernameModal {
       width: 400px;

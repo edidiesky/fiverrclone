@@ -53,7 +53,7 @@ export default function Statistics() {
     <>
       <StatisticsWrapper>
         <div className="w-90 auto">
-          <h2 className="family1 w-90 text-bold auto flex-1 fs-30 text-dark">
+          <h2 className="family1 w-90 text-bold auto flex-1 text-dark">
             Your Sales Balance is
             <span className="block family2 text-grey3 text-bold w-50">
               $400,4000

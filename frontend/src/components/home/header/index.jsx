@@ -13,15 +13,17 @@ import Logo from "../../common/svg/Logo";
 
 const options2 = {
   items: 8,
-  nav: true,
   dots: false,
   margin: 4,
-  navText: ["<", ">"],
   width: "100%",
   slideBy: 2,
   responsive: {
     0: {
       items: 2,
+      margin: 0,
+    },
+    380: {
+      items: 3,
       margin: 0,
     },
     480: {
@@ -102,7 +104,7 @@ export default function Header() {
           </Slider>
         </div>
         <div
-          className="w-90 auto flex item-center justify-space"
+          className="w-90 auto flex bottom1 bottomWrapper2 item-center justify-space"
           style={{ flexWrap: "wrap" }}
         >
           {headerBottomData.map((x, index) => {

@@ -100,11 +100,11 @@ const ServicesIndexContainer = styled.div`
       position: absolute;
       border-radius: 50%;
       transition: all 0.4s;
-      font-size: 30px;
+      font-size: 20px;
       @media (max-width: 780px) {
-        width: 40px;
-        height: 40px;
-        font-size: 24px;
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
       }
     }
     button.owl-next {
@@ -132,10 +132,10 @@ const ServicesIndexContainer = styled.div`
       }
     }
     button.owl-prev {
-      left: -2%;
+      left: -4%;
     }
     button.owl-next {
-      right: -2%;
+      right: -4%;
     }
   }
   h4 {

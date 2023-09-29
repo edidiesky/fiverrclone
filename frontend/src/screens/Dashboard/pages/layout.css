@@ -552,7 +552,7 @@ p {
 .auto {
   margin: 0 auto;
 }
-@media (max-width: 980px) {
+@media (max-width: 780px) {
   html {
     font-size: 50%;
   }
@@ -566,12 +566,7 @@ p {
   .fs-35 {
     font-size: 28px;
   }
-   .fs-30 {
-    font-size: 25px;
-  }
-  .fs-45 {
-    font-size: 30px;
-  }
+  
 }
 
 @media (max-width: 480px) {
