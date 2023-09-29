@@ -105,7 +105,7 @@ export const ExploreIcon = styled.div`
          grid-row-gap: 5rem;
 
          @media (max-width: 580px) {
-           grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+           grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
            grid-row-gap: 4rem;
            .card {
              h4 {

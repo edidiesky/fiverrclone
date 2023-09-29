@@ -86,10 +86,11 @@ export default function Header({ type }) {
             {headerBottomData.map((x, index) => {
               return (
                 <NavLink
+                style={{fontWeight:"500"}}
                   className={({ isActive }) =>
                     isActive
-                      ? "nav-links fs-24 family2 text-extra-bold family2 text-grey active"
-                      : "nav-links fs-24 family2 text-extra-bold family2 text-grey"
+                      ? "nav-links fs-18 text-extra-bold text-grey active"
+                      : "nav-links fs-18 text-extra-bold text-grey"
                   }
                   to={`${x}`}
                   key={index}
@@ -121,10 +122,11 @@ export default function Header({ type }) {
           {headerBottomData.map((x, index) => {
             return (
               <NavLink
+                style={{ fontWeight: "500" }}
                 className={({ isActive }) =>
                   isActive
-                    ? "nav-links fs-24 family2 text-light family2 text-grey active"
-                    : "nav-links fs-24 family2 text-light family2 text-grey"
+                    ? "nav-links fs-18 text-bold text-grey active"
+                    : "nav-links fs-18 text-bold text-grey"
                 }
                 to={`${x}`}
                 key={index}
@@ -163,11 +165,11 @@ export default function Header({ type }) {
     if (userInfo) {
       return (
         <div className={"headerTopCenter flex item-center gap-2"}>
-          <Link to={'/order'} className="family1 fs-20 family2 text-dark">Orders</Link>
+          <Link to={'/order'} className="family1 fs-18 text-dark">Orders</Link>
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}
-              className="avatar family2 text-white fs-24 family2 text-extra-bold uppercase family1 flex item-center justify-center"
+              className="18 text-white fs-18 text-extra-bold uppercase family1 flex item-center justify-center"
             >
               E
             </div> */}
@@ -180,7 +182,7 @@ export default function Header({ type }) {
                     className="avatar flex item-center justify-center"
                   />
                 ) : (
-                  <div className="avatar grey fs-20 family2 text-white flex item-center justify-center">
+                  <div className="avatar grey fs-18 text-white flex item-center justify-center">
                     {userInfo?.name?.charAt(0)}
                   </div>
                 )}
@@ -203,15 +205,15 @@ export default function Header({ type }) {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-24 family2 text-extra-bold family2 text-dark item-center justify-center active"
-              : "flex links fs-24 family2 text-extra-bold family2 text-dark item-center justify-center"
+              ? "flex links fs-18 text-extra-18 text-dark item-center justify-center active"
+              : "flex links fs-18 text-extra-18 text-dark item-center justify-center"
           }
         >
           Sign In
         </div>
         <div
           onClick={() => dispatch(onAuthModal())}
-          className="flex btn-4 fs-24 family2 text-extra-bold family2 text-dark item-center justify-center"
+          className="flex btn-4 fs-18 text-extra-18 text-dark item-center justify-center"
         >
           Join
         </div>
@@ -242,8 +244,8 @@ export default function Header({ type }) {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "nav-link fs-18 family2 text-light active"
-                  : "nav-link fs-18 family2 text-light"
+                  ? "nav-link fs-18 text-light active"
+                  : "nav-link fs-18 text-light"
               }
               to={`${x.path}`}
               key={x.id}

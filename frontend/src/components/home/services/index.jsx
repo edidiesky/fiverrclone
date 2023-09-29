@@ -132,10 +132,10 @@ const ServicesIndexContainer = styled.div`
       }
     }
     button.owl-prev {
-      left: -4%;
+      left: -2%;
     }
     button.owl-next {
-      right: -4%;
+      right: -2%;
     }
   }
   h4 {

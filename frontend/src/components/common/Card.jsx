@@ -58,10 +58,10 @@ export default function Card({ x, index, type }) {
                 }}
               />
               <div className="flex  column">
-                <h4 className="fs-18 family1 text-dark text-extra-bold">
+                <h4 className="fs-20 family1 text-dark text-extra-bold">
                   {x?.category[0]}
                 </h4>
-                <h5 className="fs-12 family2 text-bold text-grey">
+                <h5 className="fs-16 text-bold text-grey">
                   by {x?.sellerId?.username}
                 </h5>
               </div>

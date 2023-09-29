@@ -89,10 +89,11 @@ export default function Header() {
             {headerBottomData.map((x, index) => {
               return (
                 <NavLink
+                  style={{ fontWeight: "500" }}
                   className={({ isActive }) =>
                     isActive
-                      ? "nav-links w-100 fs-20 family2 text-light text-grey text-center active"
-                      : "nav-links w-100 fs-20 family2 text-light text-grey text-center"
+                      ? "nav-links w-100 fs-18 text-light text-grey text-center active"
+                      : "nav-links w-100 fs-18 text-light text-grey text-center"
                   }
                   to={`${x}`}
                   key={index}
@@ -110,10 +111,11 @@ export default function Header() {
           {headerBottomData.map((x, index) => {
             return (
               <NavLink
+                style={{ fontWeight: "500" }}
                 className={({ isActive }) =>
                   isActive
-                    ? "nav-links fs-24 family2 text-light family2 text-grey active"
-                    : "nav-links fs-24 family2 text-light family2 text-grey"
+                    ? "nav-links fs-18 text-light text-grey active"
+                    : "nav-links fs-18 text-light text-grey"
                 }
                 to={`${x}`}
                 key={index}
@@ -152,15 +154,15 @@ export default function Header() {
         <div
           className={
             !active
-              ? "headerTopCenter family2 text-dark flex item-center gap-2"
-              : "headerTopCenter family2 text-white flex item-center gap-2"
+              ? "headerTopCenter text-dark flex item-center gap-2"
+              : "headerTopCenter text-white flex item-center gap-2"
           }
         >
-          <Link to={'/order'} className="family1 fs-20">Orders</Link>
+          <Link to={'/order'} className="fs-18">Orders</Link>
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}
-              className="avatar family2 text-white fs-24 family2 text-extra-bold uppercase family1 flex item-center justify-center"
+              className="avatar text-white fs-24 text-extra-bold uppercase family1 flex item-center justify-center"
             >
               E
             </div> */}
@@ -173,7 +175,7 @@ export default function Header() {
                     className="avatar flex item-center justify-center"
                   />
                 ) : (
-                  <div className="avatar grey fs-20 family2 text-white flex item-center justify-center">
+                  <div className="avatar grey fs-18 text-white flex item-center justify-center">
                     {userInfo?.name?.charAt(0)}
                   </div>
                 )}
@@ -196,15 +198,15 @@ export default function Header() {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-20 family2 text-extra-bold family2 text-dark item-center justify-center active"
-              : "flex links fs-20 family2 text-extra-bold family2 text-dark item-center justify-center"
+              ? "flex links fs-18 text-extra-bold text-dark item-center justify-center active"
+              : "flex links fs-18 text-extra-bold text-dark item-center justify-center"
           }
         >
           Sign In
         </div>
         <div
           onClick={() => dispatch(onAuthModal())}
-          className="flex btn-4 fs-20 family2 text-extra-bold family2 text-dark item-center justify-center"
+          className="flex btn-4 fs-18 text-extra-bold text-dark item-center justify-center"
         >
           Join
         </div>
@@ -217,8 +219,8 @@ export default function Header() {
         <div
           className={
             !active
-              ? "headerTopCenter family2 text-grey flex item-center gap-2"
-              : "headerTopCenter family2 text-white flex item-center gap-2"
+              ? "headerTopCenter text-grey flex item-center gap-2"
+              : "headerTopCenter text-white flex item-center gap-2"
           }
         >
           <div className="icon">
@@ -244,10 +246,11 @@ export default function Header() {
         {data.map((x) => {
           return (
             <NavLink
+              style={{ fontWeight: "700",fontSize:"18px" }}
               className={({ isActive }) =>
                 isActive
-                  ? "nav-link fs-20 family2 text-extra-bold active"
-                  : "nav-link fs-20 family2 text-extra-bold"
+                  ? "nav-link text-extra-bold active"
+                  : "nav-link text-extra-bold"
               }
               to={`${x.path}`}
               key={x.id}
@@ -340,7 +343,7 @@ const HeaderTopContainer = styled.div`
   padding: 1.5rem 0;
   transition: all 0.6s ease;
   .nav-links,
-  .fs-20,
+  .fs-18,
   h4 {
     @media (max-width: 480px) {
       font-size: 17px !important;
@@ -523,7 +526,7 @@ const HeaderWrapper = styled.div`
   top: 0;
   z-index: 5000;
   .nav-links,
-  .fs-20,
+  .fs-18,
   h4 {
     @media (max-width: 480px) {
       font-size: 17px !important;

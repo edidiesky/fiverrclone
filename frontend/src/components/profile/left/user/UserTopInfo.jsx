@@ -103,9 +103,9 @@ export default function UserTopInfo({ image, setImage }) {
                 </div>
               )}
             </div>
-            <div className="image grey flex item-center justify-center">
+            {/* <div className="image grey flex item-center justify-center">
               <Camera />
-            </div>
+            </div> */}
             <input
               type="file"
               id="upload"
@@ -209,7 +209,7 @@ const UserTopInfoContent = styled.div`
     border-radius: 50%;
     z-index: 300;
     object-fit: cover;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.2);
 
     &:hover .image {
       &.dark,
@@ -237,7 +237,7 @@ const UserTopInfoContent = styled.div`
     justify-content: center;
 
     &.grey {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.2);
       z-index: 300;
       opacity: 0;
       visibility: hidden;
