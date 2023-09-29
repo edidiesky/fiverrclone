@@ -43,7 +43,7 @@ const ProfileIndexContent = styled.div`
     display: grid;
     place-items: start;
     grid-gap: 5rem;
-    grid-template-columns: 30vw 1fr;
+    grid-template-columns: 33.33% 1fr;
     @media (max-width: 980px) {
       grid-gap: 3rem;
     }

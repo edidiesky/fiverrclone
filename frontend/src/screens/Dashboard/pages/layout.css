@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,300;1,400;1,500&family=Nunito:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,300;1,400;1,500&family=Nunito:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600&family=Nunito:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Text:wght@100;200;300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,700&family=Nunito:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
 
 
@@ -62,7 +62,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff;
-   font-family: 'Big Shoulders Text', cursive;
+   font-family: 'Nunito', sans-serif;
 
   line-height: 1.4;
   font-weight: 600;
@@ -115,7 +115,7 @@ body {
   transition: all 0.2s;
   height:18rem;
   color: var(--dark-1);
-   font-family: 'Big Shoulders Text', cursive;
+   font-family: 'Nunito', cursive;
 
 }
 .textarea::placeholder {
@@ -133,7 +133,7 @@ color:var(--grey-2);
   color: var(--dark-1);
   font-weight: 600;
   text-transform: capitalize;
-   font-family: 'Big Shoulders Text', cursive;
+   font-family: 'Nunito', cursive;
 
 }
 
@@ -156,7 +156,7 @@ html {
 }
 
 .family2 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 .family3 {
   font-family: "Nunito", sans-serif;
@@ -164,7 +164,7 @@ html {
 
 
 .family1 {
-  font-family: 'Big Shoulders Text', cursive;
+  font-family: 'Nunito', cursive;
 }
 .shadow {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -239,7 +239,7 @@ button {
   outline: none;
   font-family: inherit;
   background-color: transparent;
-   font-family: 'Big Shoulders Text', cursive;
+   font-family: 'Nunito', cursive;
 
   font-weight: normal;
 }
@@ -270,7 +270,7 @@ button {
   font-size: 1.6rem;
   font-weight: 400;
   transition: all 0.2s;
-   font-family: 'Big Shoulders Text', cursive;
+   font-family: 'Nunito', cursive;
 
   color: var(--dark-1);
 }
@@ -304,7 +304,7 @@ h1 {
 }
 
 p {
-   font-family: 'Big Shoulders Text', cursive;
+   font-family: 'Nunito', cursive;
 
 }
 
