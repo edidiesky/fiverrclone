@@ -79,22 +79,18 @@ export default function Header() {
         }
         style={{
           borderBottom: "1px solid rgba(0,0,0,.06)",
-          padding: "1rem 0",
-          flexWrap: "wrap",
+          padding: "1.2rem 0",
         }}
       >
-        <div
-          className="w-90 auto flex bottom1 item-center"
-         
-        >
+        <div className="w-90 auto flex bottom1 bottomWrapper1 item-center">
           <Slider className="owl-theme" options={options2}>
             {headerBottomData.map((x, index) => {
               return (
                 <NavLink
                   className={({ isActive }) =>
                     isActive
-                      ? "nav-links w-100 fs-20 text-light text-grey text-center active"
-                      : "nav-links w-100 fs-20 text-light text-grey text-center"
+                      ? "nav-links w-100 fs-20 family2 text-light text-grey text-center active"
+                      : "nav-links w-100 fs-20 family2 text-light text-grey text-center"
                   }
                   to={`${x}`}
                   key={index}
@@ -104,6 +100,26 @@ export default function Header() {
               );
             })}
           </Slider>
+        </div>
+        <div
+          className="w-90 auto flex item-center justify-space"
+          style={{ flexWrap: "wrap" }}
+        >
+          {headerBottomData.map((x, index) => {
+            return (
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "nav-links fs-24 family2 text-light family2 text-grey active"
+                    : "nav-links fs-24 family2 text-light family2 text-grey"
+                }
+                to={`${x}`}
+                key={index}
+              >
+                {x}
+              </NavLink>
+            );
+          })}
         </div>
       </HeaderTopWrapper>
     );
@@ -134,15 +150,15 @@ export default function Header() {
         <div
           className={
             !active
-              ? "headerTopCenter text-dark flex item-center gap-2"
-              : "headerTopCenter text-white flex item-center gap-2"
+              ? "headerTopCenter family2 text-dark flex item-center gap-2"
+              : "headerTopCenter family2 text-white flex item-center gap-2"
           }
         >
           <Link to={'/order'} className="family1 fs-20">Orders</Link>
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}
-              className="avatar text-white fs-24 text-extra-bold uppercase family1 flex item-center justify-center"
+              className="avatar family2 text-white fs-24 family2 text-extra-bold uppercase family1 flex item-center justify-center"
             >
               E
             </div> */}
@@ -155,7 +171,7 @@ export default function Header() {
                     className="avatar flex item-center justify-center"
                   />
                 ) : (
-                  <div className="avatar grey fs-20 text-white flex item-center justify-center">
+                  <div className="avatar grey fs-20 family2 text-white flex item-center justify-center">
                     {userInfo?.username?.charAt(0)}
                   </div>
                 )}
@@ -178,15 +194,15 @@ export default function Header() {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-18 text-extra-bold text-dark item-center justify-center active"
-              : "flex links fs-18 text-extra-bold text-dark item-center justify-center"
+              ? "flex links fs-18 family2 text-extra-bold family2 text-dark item-center justify-center active"
+              : "flex links fs-18 family2 text-extra-bold family2 text-dark item-center justify-center"
           }
         >
           Sign In
         </div>
         <div
           onClick={() => dispatch(onAuthModal())}
-          className="flex btn-4 fs-18 text-extra-bold text-dark item-center justify-center"
+          className="flex btn-4 fs-18 family2 text-extra-bold family2 text-dark item-center justify-center"
         >
           Join
         </div>
@@ -199,8 +215,8 @@ export default function Header() {
         <div
           className={
             !active
-              ? "headerTopCenter text-grey flex item-center gap-2"
-              : "headerTopCenter text-white flex item-center gap-2"
+              ? "headerTopCenter family2 text-grey flex item-center gap-2"
+              : "headerTopCenter family2 text-white flex item-center gap-2"
           }
         >
           <div className="icon">
@@ -228,8 +244,8 @@ export default function Header() {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "nav-link fs-20 text-extra-bold active"
-                  : "nav-link fs-20 text-extra-bold"
+                  ? "nav-link fs-20 family2 text-extra-bold active"
+                  : "nav-link fs-20 family2 text-extra-bold"
               }
               to={`${x.path}`}
               key={x.id}
@@ -243,7 +259,7 @@ export default function Header() {
   };
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper className="w-100">
       <HeaderTopContainer
         className={
           active
@@ -290,6 +306,21 @@ const HeaderTopWrapper = styled.div`
     @media (max-width: 980px) {
       justify-content: flex-start;
       gap: 1.4rem;
+    }
+    &.bottomWrapper2 {
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: 1080px) {
+        display: none;
+      }
+    }
+    &.bottomWrapper1 {
+      display: none;
+
+      @media (max-width: 1080px) {
+        display: flex;
+      }
     }
   }
   h5 {
@@ -520,7 +551,6 @@ const HeaderWrapper = styled.div`
   }
   .nav-links {
     /* min-width: 5rem; */
-    flex: 1;
-    width: 100%;
+    /* flex: 1; */
   }
 `;

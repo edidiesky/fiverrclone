@@ -54,12 +54,12 @@ export default function ServicesIndex() {
                     <img src={x.image} alt="" className="w-100" />
                     <div className="backdrop"></div>
                   </div>
-                  <div className="bottom w-100 back-white py-2 flex item-center gap-1"> 
+                  <div className="bottom w-100 back-white py-2 flex item-center gap-1">
                     <div className="flex column">
-                      <h5 className="fs-16 family2 text-bold text-white">
+                      <h5 className="fs-16 text-bold text-white">
                         {x.authorName}
                       </h5>
-                      <h4 className="fs-30 text-light text-white">
+                      <h4 className="fs-30 family2 text-light text-white">
                         {x.subName}
                       </h4>
                     </div>

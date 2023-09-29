@@ -174,7 +174,7 @@ export default function Card({ x, index, type }) {
                 </div>
               </div>
               <div className="w-85 auto card_center flex  column gap-1">
-                <div className="flex  item-center w-100 justify-space">
+                <div className="flex item-center w-100 justify-space">
                   <div className="flex  gap-1 item-center">
                     <img
                       src={x?.sellerId?.image}
@@ -265,7 +265,7 @@ export default function Card({ x, index, type }) {
             className="w-100 cards gap-1 flex  column"
             key={x?.id}
           >
-            <div style={{zIndex:"300"}} className="w-100 abolute hidden">
+            <div style={{ zIndex: "300" }} className="w-100 abolute hidden">
               {x?.image?.length >= 2 && (
                 <div className="flex  hidden">
                   {tabindex > 0 && (
@@ -318,49 +318,49 @@ export default function Card({ x, index, type }) {
                 })}
               </div>
             </div>
-            <div className="w-100 flex  column py-1 gap-1">
-              <div className="flex  item-center w-100 justify-space">
-                <div className="flex  gap-1 item-center">
-                  <img
-                    src={x?.sellerId?.image}
-                    style={{
-                      width: "3rem",
-                      height: "3rem",
-                      borderRadius: "50%",
-                    }}
-                  />
-                  <h5 className="fs-16 text-dark text-bold">
-                    {x?.sellerId?.username}
+            <div className="w-100 flex column py-1 gap-1">
+              <div style={{ gap: ".6rem" }} className="flex w-100 column">
+                <div className="flex  item-center w-100 justify-space">
+                  <div className="flex  gap-1 item-center">
+                    <img
+                      src={x?.sellerId?.image}
+                      style={{
+                        width: "3rem",
+                        height: "3rem",
+                        borderRadius: "50%",
+                      }}
+                    />
+                    <h5 className="fs-16 text-dark text-bold">
+                      {x?.sellerId?.username}
+                    </h5>
+                  </div>
+                  <h5 className="fs-16 text-grey text-bold">
+                    {x?.sellerId?.level}
                   </h5>
                 </div>
-                <h5 className="fs-16 text-grey text-bold">
-                  {x?.sellerId?.level}
-                </h5>
-              </div>
-              <h4
-                className="desc fs-14 family2 text-grey text-extra-bold"
-              >
-                {x?.title.substring(0, 50)}
-              </h4>
-              <div
-                style={{ gap: ".3rem", padding: ".3rem 0" }}
-                className="w-100 flex  text-dark text-bold item-center fs-18"
-              >
-                <Star />
-                <span style={{ marginTop: ".3rem" }}>4.9</span>
-                <span
-                  style={{ marginTop: ".3rem" }}
-                  className="text-grey text-light"
+                <h4 className="desc fs-18 text-grey text-extra-bold">
+                  {x?.title.substring(0, 50)}
+                </h4>
+                <div
+                  style={{ gap: ".1rem", padding: ".3rem 0" }}
+                  className="w-100 flex  text-dark text-bold item-center fs-18"
                 >
-                  (1K+)
-                </span>
-              </div>
+                  <Star />
+                  <span style={{ marginTop: ".3rem" }}>4.9</span>
+                  <span
+                    style={{ marginTop: ".3rem" }}
+                    className="text-grey text-light"
+                  >
+                    (1K+)
+                  </span>
+                </div>
 
-              <div
-                style={{ marginTop: ".6rem" }}
-                className="w-100 fs-18 text-dark"
-              >
-                From <span className="fs-18">${x?.price}</span>
+                <div
+                  style={{ marginTop: ".6rem" }}
+                  className="w-100 fs-18 text-dark"
+                >
+                  From <span className="fs-24 family2">${x?.price}</span>
+                </div>
               </div>
             </div>
           </Link>

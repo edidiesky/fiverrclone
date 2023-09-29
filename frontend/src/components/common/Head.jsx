@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function Head({ text, subtext, para }) {
   return (
     <HeadWrapper className="hidden">
-      <h3 className="text-extra-bold fs-24 item-start">
+      <h3 className="text-extra-bold family2 fs-24 item-start">
         {text}
       </h3>
     </HeadWrapper>

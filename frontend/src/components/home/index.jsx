@@ -23,7 +23,7 @@ export default function HomeIndex() {
     dispatch(getAllGigs());
   }, []);
   return (
-    <HomeIndexContainer className="flex column ">
+    <HomeIndexContainer className="flex column w-100">
       <HeroIndex />
       <GigsIndex />
       <ServicesIndex />

@@ -21,17 +21,16 @@ export default function Layout() {
 
   return (
     <LayoutContainer className="layout" style={{ height }}>
-       <AnimatePresence
+      <AnimatePresence
         initial="false"
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {authmodal && <AuthModal/>}
+        {authmodal && <AuthModal />}
       </AnimatePresence>
       <Outlet />
-      <Message/>
-      <Sidebar/>
-      <CartSidebar/>
+      <Sidebar />
+      <CartSidebar />
       <Copyright />
     </LayoutContainer>
   );
