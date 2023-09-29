@@ -70,13 +70,11 @@ export const Table = styled.div`
                  z-index: 200;
                  text-align: center;
                  th {
-                   font-size: 16px;
+                   font-size: 13px;
                    font-weight: 700;
                    text-align: start;
                    color: #5c5c5c;
-                   font-family: "Montserrat", sans-serif;
-                   font-family: "Big Shoulders Text", cursive;
-
+                   text-align: center;
                    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
                    padding: 0 10px;
                    padding-bottom: 14px;
@@ -117,7 +115,7 @@ export const Table = styled.div`
                    color: #222;
                    min-width: 0;
                    /* flex: 1; */
-                   font-family: "Big Shoulders Text", cursive;
+                     
 
                    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 
@@ -127,7 +125,7 @@ export const Table = styled.div`
                    .tablespan {
                      display: block;
                      padding: 2px;
-                     font-size: 12px;
+                     font-size: 14px;
                      font-weight: 600;
                      /* width: 100%; */
                      /* display: block; */
@@ -181,12 +179,12 @@ export const Table = styled.div`
                    flex-direction: column;
                    gap: 7px;
                    h3 {
-                     font-size: 12px;
+                     font-size: 13px;
                      color: #777;
                      font-weight: 600;
                    }
                    p {
-                     font-size: 12px;
+                     font-size: 13px;
                      color: 16px;
                      font-weight: 600;
                      width: 80%;

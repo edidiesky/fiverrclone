@@ -100,31 +100,31 @@ export default function HeroIndex() {
                 </div>
               </form>
               <div
-                className="w-100 flex item-center gap-1 text-white fs-20 family1 text-white"
+                className="w-100 flex item-center gap-1 text-white fs-20  text-white"
                 style={{ flexWrap: "wrap" }}
               >
                 Popular:{" "}
                 <Link
                   to={"/categories/graphics-design/Website Design"}
-                  className="links fs-16 family1"
+                  className="links fs-16 "
                 >
                   Website Design
                 </Link>
                 <Link
                   to={"/categories/programming-tech/WordPress"}
-                  className="links fs-16 family1"
+                  className="links fs-16 "
                 >
                   WordPress
                 </Link>
                 <Link
                   to={"/categories/cp/ai-services"}
-                  className="links fs-16 family1"
+                  className="links fs-16 "
                 >
                   AI Services
                 </Link>
                 <Link
                   to={"/categories/graphics-design/Logo Design"}
-                  className="links fs-16 family1"
+                  className="links fs-16 "
                 >
                   Logo Design
                 </Link>

@@ -76,8 +76,8 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
           <h4 className="fs-20 text-extra-bold text-grey">
             Communication with seller
             <span
-              style={{ fontSize: "13px" }}
-              className="block family2 text-light"
+              style={{ fontSize: "16px" }}
+              className="block text-light"
             >
               How responsive was the seller during this process?
             </span>
@@ -92,8 +92,8 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
           <h4 className="fs-20 text-extra-bold text-grey">
             Service as described
             <span
-              style={{ fontSize: "13px" }}
-              className="block family2 text-light"
+              style={{ fontSize: "16px" }}
+              className="block text-light"
             >
               Did the result match the gig description?
             </span>
@@ -105,8 +105,8 @@ const avaerageRating = ((communicationreview + servicereview + recommendreview) 
           <h4 className="fs-20 text-extra-bold text-grey">
             Buy Again or Recommend
             <span
-              style={{ fontSize: "13px" }}
-              className="block family2 text-light"
+              style={{ fontSize: "16px" }}
+              className="block text-light"
             >
               Would you recomend buying this Gig?
             </span>

@@ -70,7 +70,7 @@ export default function CartSidebar() {
       {cartIsLoading && <LoaderIndex />}
       <div className="cartSidebarWrapper">
         <div className="cartSidebarTop flex item-center justify-space w-100">
-          <h4 className="fs-16 family1 ">Order options</h4>
+          <h4 className="fs-18 ">Order options</h4>
           <div className="icon" onClick={() => dispatch(offCartSidebar())}>
             <RxCross2 />
           </div>
@@ -82,13 +82,13 @@ export default function CartSidebar() {
             style={{ padding: "2rem", border: "2px solid rgba(0,0,0,.2)" }}
           >
             {/* price and gig info */}
-            <h4 className="flex family1 w-100 justify-space item-center fs-18 text-">
+            <h4 className="flex family2 w-100 justify-space item-center fs-24 text-">
               Basic{" "}
               <span className="text-light text-grey2">
                 ${GigsDetails?.price}
               </span>
             </h4>
-            <h5 className="text-grey text-light fs-16">
+            <h5 className="text-grey text-light fs-18">
               <strong className="text-bold">Basic</strong>{" "}
               {GigsDetails?.shortDescription}
             </h5>
@@ -122,7 +122,7 @@ export default function CartSidebar() {
             {/* gig qty end */}
           </div>
           <div className="w-100 summary flex column gap-2">
-            <h3 className="fs-30 family1 text-dark">
+            <h3 className="fs-30 text-dark">
               ${GigsDetails?.price}
               <span className="block text-grey text-light fs-14">
                 Single order
@@ -162,10 +162,10 @@ export default function CartSidebar() {
           handleClearAlert={clearCartAlert}
         />
         <div className="cartSidebarBottom flex column gap-1">
-          <div className="w-100 auto column item-center gap-1 justify-center flex">
+          <div className="w-90 auto column item-center gap-1 justify-center flex">
             <div
               onClick={handleAddToCart}
-              className={"cartBtn py-1 fs-20 text-dark family1"}
+              className={"cartBtn w-90 auto py-1 fs-20 text-dark family1"}
             >
               Continue (${GigsDetails?.price})
             </div>

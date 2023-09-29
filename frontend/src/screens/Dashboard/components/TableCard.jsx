@@ -125,19 +125,19 @@ export default function TableCards({ x, type }) {
                 </div>
               </td>
               <td>
-                <h4 className="fs-16 text-center text-bold text-dark">
+                <h4 className="fs-18 text-center text-bold text-dark">
                   {gig?.title}
-                  <span className="block fs-14 text-grey">{gig?._id}</span>
+                  <span className="block fs-16 text-grey">{gig?._id}</span>
                 </h4>
               </td>
 
               <td>
                 <div className="flex column">
-                  <h4 className="fs-14 text-bold text-dark">{createddate}</h4>
+                  <h4 className="fs-18 text-bold text-dark">{createddate}</h4>
                 </div>
               </td>
               <td>
-                <div className="flex fs-14 item-center">
+                <div className="flex fs-16 item-center">
                   <div
                     className={x?.isPaid === false ? "status active" : "status"}
                   >
@@ -146,11 +146,11 @@ export default function TableCards({ x, type }) {
                 </div>
               </td>
               <td>
-                <h4 className="fs-16 text-extra-bold">${gig?.price}</h4>
+                <h4 className="fs-18 text-extra-bold">${gig?.price}</h4>
               </td>
               <td>${x?.estimatedTax}</td>
               <td>
-                <div className="flex fs-14 item-center">
+                <div className="flex fs-16 item-center">
                   <div
                     className={
                       x?.status === "Pending" ? "status active" : "status"
@@ -186,7 +186,7 @@ export default function TableCards({ x, type }) {
                 />
               </div>
             </div>
-            <h4 className="fs-16 text-start text-extra-bold">
+            <h4 className="fs-18 text-start text-extra-bold">
               {x?.buyer_Id?.name}
               <span className="block text-bold fs-12 text-grey family2">
                 {x?.buyer_Id?.email.substring(0, 24)} ....
@@ -212,30 +212,30 @@ export default function TableCards({ x, type }) {
           </div>
         </td>
         <td>
-          <h4 className="fs-16 text-start text-bold text-dark">
+          <h4 className="fs-18 text-start text-bold text-dark">
             {x?.cart_items[0]?.title?.substring(0, 36)} ...
-            <span className="block fs-12 family2 text-grey">{x?._id}</span>
+            <span className="block fs-16 family2 text-grey">{x?._id}</span>
           </h4>
         </td>
 
         <td>
           <div className="flex column">
-            <h4 className="fs-14 text-bold text-dark">{createddate}</h4>
+            <h4 className="fs-18 text-bold text-dark">{createddate}</h4>
           </div>
         </td>
         <td>
-          <div className="flex fs-14 item-center">
+          <div className="flex fs-16 item-center">
             <div className={x?.isPaid === false ? "status active" : "status"}>
               {x?.isPaid === true ? "Paid" : "Not paid"}
             </div>
           </div>
         </td>
         <td>
-          <h4 className="fs-16 text-extra-bold">${x?.cart_items[0]?.price}</h4>
+          <h4 className="fs-18 text-extra-bold">${x?.cart_items[0]?.price}</h4>
         </td>
         <td>${x?.estimatedTax}</td>
         <td>
-          <div className="flex fs-14 item-center">
+          <div className="flex fs-16 item-center">
             <div
               className={x?.status === "Pending" ? "status active" : "status"}
             >

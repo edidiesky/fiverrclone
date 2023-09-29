@@ -26,5 +26,6 @@ export default function Home() {
 
 const HomeContainer = styled.div`
 width:100%;
+min-height: 100vh;
 overflow:hidden;
 `

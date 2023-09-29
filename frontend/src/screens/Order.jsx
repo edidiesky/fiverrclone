@@ -72,6 +72,8 @@ const { id } = useParams();
 }
 
 const OrderWrapper = styled.div`
+  border-radius: 20px;
+
   .py-3 {
     padding: 0;
     @media (max-width: 480px) {

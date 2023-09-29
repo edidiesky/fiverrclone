@@ -47,14 +47,16 @@ export default function Features2Index() {
         <OwlCarousel className="owl-theme" {...options2}>
           {FeatData.map((x) => {
             return (
-              <Link to={'/'} className="w-100 flex column gap-2" key={x.id}>
+              <Link to={"/"} className="w-100 flex column gap-2" key={x.id}>
                 <div className="w-100 card">
                   <img src={x.image} alt="" className="radius1 w-100" />
                   <div className="backdrop"></div>
                 </div>
                 <div className="w-100 flex column">
-                  <h3 className="fs-24 text-extra-bold text-dark">{x.text}</h3>
-                  <h4 className="fs-14 family2 text-bold text-grey">{x.desc}</h4>
+                  <h3 className="fs-24 family2 text-extra-bold text-dark">
+                    {x.text}
+                  </h3>
+                  <h4 className="fs-16 text-bold text-grey">{x.desc}</h4>
                 </div>
               </Link>
             );

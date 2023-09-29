@@ -80,10 +80,10 @@ body {
   border-radius: 6px;
   background: #fff;
   padding: 2.4rem;
+  height: 18rem;
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  /* outline: none; */
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: 500;
   transition: all 0.2s;
   font-family: "Nunito", sans-serif;
