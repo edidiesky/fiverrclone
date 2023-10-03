@@ -29,9 +29,7 @@ app.use("/api/v1/review", reviewRoute);
 app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/cart", cartRoute);
-// app.use("/api/v1/chat", chatRoute);
 
-// console.log((path.join(__dirname, '/public/uploads')))
 
 mongoose.connect(
   process.env.MONGO_URl,

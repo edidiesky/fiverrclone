@@ -529,7 +529,7 @@ const HeaderWrapper = styled.div`
   .fs-18,
   h4 {
     @media (max-width: 480px) {
-      font-size: 17px !important;
+      font-size: 15px !important;
     }
   }
   .headerTopContainer {
