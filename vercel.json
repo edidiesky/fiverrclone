@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd frontend && npm i --legacy-peer-deps && ./node_modules/vite/bin/vite.js build",
+  "buildCommand": "cd frontend && npm i --legacy-peer-deps && vite build",
   "outputDirectory": "frontend/dist",
   "framework": "vite",
   "rewrites": [
