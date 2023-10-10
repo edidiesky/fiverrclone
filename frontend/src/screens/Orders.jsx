@@ -100,7 +100,7 @@ border-radius: 20px;
     background-color: #f7faf7 !important;
     color: var(--dark-1);
   } h3 {
-    font-size: 30px;
+    font-size: 40px;
 
     @media (max-width: 680px) {
       font-size: 2.4rem !important;

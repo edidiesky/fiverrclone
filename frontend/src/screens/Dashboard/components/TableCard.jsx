@@ -125,15 +125,15 @@ export default function TableCards({ x, type }) {
                 </div>
               </td>
               <td>
-                <h4 className="fs-18 text-center text-bold text-dark">
+                <h4 className="fs-16 text-center text-bold text-dark">
                   {gig?.title}
-                  <span className="block fs-16 text-grey">{gig?._id}</span>
+                  <span className="block fs-15 text-grey">{gig?._id}</span>
                 </h4>
               </td>
 
               <td>
                 <div className="flex column">
-                  <h4 className="fs-18 text-bold text-dark">{createddate}</h4>
+                  <h4 className="fs-16 text-bold text-dark">{createddate}</h4>
                 </div>
               </td>
               <td>
@@ -146,7 +146,7 @@ export default function TableCards({ x, type }) {
                 </div>
               </td>
               <td>
-                <h4 className="fs-18 text-extra-bold">${gig?.price}</h4>
+                <h4 className="fs-16 text-extra-bold">${gig?.price}</h4>
               </td>
               <td>${x?.estimatedTax}</td>
               <td>
@@ -186,7 +186,7 @@ export default function TableCards({ x, type }) {
                 />
               </div>
             </div>
-            <h4 className="fs-18 text-start text-extra-bold">
+            <h4 className="fs-16 text-start text-extra-bold">
               {x?.buyer_Id?.name}
               <span className="block text-bold fs-12 text-grey family2">
                 {x?.buyer_Id?.email.substring(0, 24)} ....
@@ -212,7 +212,7 @@ export default function TableCards({ x, type }) {
           </div>
         </td>
         <td>
-          <h4 className="fs-18 text-start text-bold text-dark">
+          <h4 className="fs-16 text-start text-bold text-dark">
             {x?.cart_items[0]?.title?.substring(0, 36)} ...
             <span className="block fs-16 family2 text-grey">{x?._id}</span>
           </h4>
@@ -220,7 +220,7 @@ export default function TableCards({ x, type }) {
 
         <td>
           <div className="flex column">
-            <h4 className="fs-18 text-bold text-dark">{createddate}</h4>
+            <h4 className="fs-16 text-bold text-dark">{createddate}</h4>
           </div>
         </td>
         <td>
@@ -231,7 +231,7 @@ export default function TableCards({ x, type }) {
           </div>
         </td>
         <td>
-          <h4 className="fs-18 text-extra-bold">${x?.cart_items[0]?.price}</h4>
+          <h4 className="fs-16 text-extra-bold">${x?.cart_items[0]?.price}</h4>
         </td>
         <td>${x?.estimatedTax}</td>
         <td>

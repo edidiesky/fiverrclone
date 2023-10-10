@@ -81,7 +81,7 @@ const OrderWrapper = styled.div`
     }
   }
   h3 {
-    font-size: 24px;
+    font-size: 35px;
 
     @media (max-width: 680px) {
       font-size: 2.4rem !important;
