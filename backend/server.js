@@ -61,6 +61,8 @@ const __dirname = path.resolve()
 app.use(NotFound);
 app.use(errorHandler);
 
-app.listen(5000, () => {
-  console.log("server is listening on port 4000");
+app.listen("https://eddy-fiverr-clone.vercel.app/", () => {
+  console.log(
+    "server is listening on port https://eddy-fiverr-clone.vercel.app/"
+  );
 });
