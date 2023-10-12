@@ -35,7 +35,7 @@ import LoaderIndex from "./components/loaders";
 import Order from "./screens/Order";
 import Orders from "./screens/Orders";
 
-axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URLS;
+// axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URLS;
 //
 const HomeImport = React.lazy(() => import("./screens/Home"));
 const SingleImport = React.lazy(() => import("./screens/Single"));
