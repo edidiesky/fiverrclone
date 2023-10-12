@@ -56,17 +56,27 @@ export default function HeroIndex() {
                 Find the right <span className="span1">freelance</span> service
                 right away
               </h2>
-              <form className={"w-100 forms py-2 flex column gap-2"}>
+              <form
+                onSubmit={(e) => handleSearch(e)}
+                className={"w-100 forms py-2 flex column gap-2"}
+              >
                 <div className="w-100 h-100 item-center formWrapper flex">
                   <input
                     type="text"
+                    value={search}
+                    name="search"
+                    onChange={(e) => setSearch(e.target.value)}
                     placeholder="Search for any service"
                     className="input fs-16"
                   />
                 </div>
-                <div className="buttons w-100 fs-20 text-bold text-white flex item-center justify-center">
+                <button
+                  disabled={search === ""}
+                  onClick={(e) => handleSearch(e)}
+                  className="buttons w-100 fs-20 text-bold text-white flex item-center justify-center"
+                >
                   <BiSearch className="fs-24 text-white" />
-                </div>
+                </button>
               </form>
             </div>
           </div>
@@ -107,12 +117,13 @@ export default function HeroIndex() {
                     className="input"
                   />
                 </div>
-                <div
+                <button
+                  disabled={search === ""}
                   onClick={(e) => handleSearch(e)}
                   className="button fs-20 text-bold text-white flex item-center justify-center"
                 >
                   Search
-                </div>
+                </button>
               </form>
               <div
                 className="w-100 flex item-center gap-1 text-white fs-20  text-white"
@@ -209,6 +220,12 @@ const HeroIndexContent = styled.div`
     background-color: #1dbf73 !important;
     height: 6rem;
     padding: 1.5rem 2rem;
+    border: none;
+    outline: none;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
   }
   &.content2 {
     background-color: #0a4226;
@@ -330,6 +347,12 @@ const HeroIndexContent = styled.div`
       padding: 0 2rem;
       display: flex;
       align-items: center;
+      border: none;
+      outline: none;
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
       svg {
         font-size: 24px;
       }
