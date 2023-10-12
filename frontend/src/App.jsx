@@ -83,6 +83,7 @@ export default function App() {
               element={<Services />}
             />
             <Route path="categories/:category1" element={<Services />} />
+            <Route path="search/:search" element={<Services />} />
             <Route
               path="profile/:username"
               element={

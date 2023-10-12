@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { BiBell, BiHeart, BiMessage, BiSearch } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
 import Profile from "./Profile";
@@ -56,9 +56,16 @@ const headerBottomData = [
 
 export default function Header({ type }) {
   const [active, setActive] = useState(true);
+   const [search, setSearch] = useState("");
   const [profile, setProfile] = useState(false);
   const { userInfo } = useSelector((store) => store.user);
   const dispatch = useDispatch();
+
+    const navigate = useNavigate();
+    const handleSearch = (e) => {
+      e.preventDefault();
+      navigate(`/search/${search}`);
+    };
 
   const isActive = () => {
     window.scrollY > 200 ? setActive(false) : setActive(true);
@@ -146,13 +153,19 @@ export default function Header({ type }) {
           <Logo active={active} />
         </Link>
         {type !== "seller" && (
-          <form className={active ? "w-100 py-2 active" : "w-100 py-2"}>
+          <form
+            onSubmit={(e) => handleSearch(e)}
+            className={active ? "w-100 py-2 active" : "w-100 py-2"}
+          >
             <input
+              value={search}
+              name="search"
+              onChange={(e) => setSearch(e.target.value)}
               type="text"
               placeholder="What service are you looking for today"
               className="input"
             />
-            <div className="button flex item-center justify-center">
+            <div onClick={(e) => handleSearch(e)} className="button flex item-center justify-center">
               <BiSearch />
             </div>
           </form>
@@ -271,7 +284,30 @@ export default function Header({ type }) {
           <div className="icons">
             <Bar />
           </div>
-          <HeaderTopLeft />
+          {/* <HeaderTopLeft /> */}
+           <div className="headerTopLeft flex item-center gap-2">
+        <Link to={"/"}>
+          <Logo active={active} />
+        </Link>
+        {type !== "seller" && (
+          <form
+            onSubmit={(e) => handleSearch(e)}
+            className={active ? "w-100 py-2 active" : "w-100 py-2"}
+          >
+            <input
+              value={search}
+              name="search"
+              onChange={(e) => setSearch(e.target.value)}
+              type="text"
+              placeholder="What service are you looking for today"
+              className="input"
+            />
+            <div onClick={(e) => handleSearch(e)} className="button flex item-center justify-center">
+              <BiSearch />
+            </div>
+          </form>
+        )}
+      </div>
           {type !== "seller" && (
             <>
               <HeaderTopCenter />

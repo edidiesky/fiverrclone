@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const heroBackgroundData = [
@@ -32,6 +32,7 @@ const heroBackgroundData = [
 
 export default function HeroIndex() {
   const [tabindex, setTabIndex] = useState(0);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,6 +40,11 @@ export default function HeroIndex() {
     }, 6000);
     return () => clearInterval(interval);
   }, [setTabIndex, tabindex]);
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/search/${search}`);
+  };
 
   return (
     <>
@@ -86,16 +92,25 @@ export default function HeroIndex() {
                 Find the right <span className="span1">freelance</span> service
                 right away
               </h2>
-              <form className={"w-100 form py-2"}>
+              <form
+                onSubmit={(e) => handleSearch(e)}
+                className={"w-100 form py-2"}
+              >
                 <div className="w-100 h-100 item-center formWrapper flex">
                   <BiSearch className="fs-24 text-grey" />
                   <input
                     type="text"
+                    value={search}
+                    name="search"
+                    onChange={(e) => setSearch(e.target.value)}
                     placeholder="Try Graphic Designer"
                     className="input"
                   />
                 </div>
-                <div className="button fs-20 text-bold text-white flex item-center justify-center">
+                <div
+                  onClick={(e) => handleSearch(e)}
+                  className="button fs-20 text-bold text-white flex item-center justify-center"
+                >
                   Search
                 </div>
               </form>
@@ -302,8 +317,9 @@ const HeroIndexContent = styled.div`
         height: 100%;
         padding: 1rem 2rem;
         font-size: 1.6rem;
-        font-weight: 700;
+        font-weight: 600;
         font-family: "Montserrat", sans-serif;
+        color: var(--grey-1);
       }
     }
 
@@ -323,6 +339,5 @@ const HeroIndexContent = styled.div`
     }
   }
   .bottoms {
-    
   }
 `;

@@ -19,8 +19,20 @@ const GetAllGig = asyncHandler(async (req, res) => {
 
   // search
   if (search) {
-    queryObject.title = { $regex: search, options: "i" };
+    queryObject.title = { $regex: search, $options: "i" };
   }
+  // if (search) {
+  //   queryObject = {
+  //     $or: [
+  //       {
+  //         title: { $regex: search, $options: "i" },
+  //       },
+  //       {
+  //         price: { $gt: search },
+  //       },
+  //     ],
+  //   };
+  // }
   // minimum price
   if (minprice) {
     queryObject.price = { $gt: minprice };
@@ -204,7 +216,6 @@ const DeleteGig = asyncHandler(async (req, res) => {
   // res.status(200).json({ gig});
 
   // console.log('Helolo world');
-
 });
 
 const GetTopRatedGig = asyncHandler(async (req, res) => {

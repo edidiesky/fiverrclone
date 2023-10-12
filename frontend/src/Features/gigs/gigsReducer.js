@@ -35,6 +35,11 @@ export const getAllGigs = createAsyncThunk(
         const { data } = await axios.get(GigsUrl);
         return data;
       }
+       if (search) {
+         GigsUrl = GigsUrl + `?search=${search}`;
+         const { data } = await axios.get(GigsUrl);
+         return data;
+       }
       if (category || minprice || maxprice) {
         GigsUrl =
           GigsUrl +
