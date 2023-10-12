@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-
+import axios from 'axios'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {
@@ -35,6 +35,7 @@ import LoaderIndex from "./components/loaders";
 import Order from "./screens/Order";
 import Orders from "./screens/Orders";
 
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
 //
 const HomeImport = React.lazy(() => import("./screens/Home"));
 const SingleImport = React.lazy(() => import("./screens/Single"));
