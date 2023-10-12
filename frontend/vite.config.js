@@ -5,7 +5,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/v1": {
-        target: "https://eddy-fiverr-clone.vercel.app/",
+        target: "http://localhost:5000/",
       },
     },
   },
