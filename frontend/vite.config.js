@@ -5,7 +5,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/v1": {
-        target: import.meta.env.VITE_API_BASE_URLS,
+        target: "https://eddy-fiverr-clone.vercel.app/",
       },
     },
   },
