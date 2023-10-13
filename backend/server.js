@@ -98,9 +98,13 @@ app.use(express.json());
 // );
 
 
+
 app.get("/", (req, res) => {
   res.json("Hello Edidiong Essien");
 });
+
+app.use(NotFound);
+app.use(errorHandler);
 app.listen(5000, () => {
   console.log("Server is Running");
 });
