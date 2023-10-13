@@ -1,7 +1,6 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
-import cors from "cors";
 dotenv.config();
 const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
