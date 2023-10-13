@@ -47,10 +47,6 @@ const createReviews = asyncHandler(async (req, res) => {
   //   }
   //   // destructure the data and then create it
   //   const review = await Reviews.create({ ...data });
-
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');//   
-  res.status(200).json({ review });
   // } else {
   //   res.status(404);
   //   throw new Error("You are not authorized to perform this action");
