@@ -38,10 +38,6 @@
     {
       "src": "/api/v1/cart/(.*)",
       "dest": "server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "server.js"
     }
   ]
 }

@@ -105,7 +105,8 @@ const registerUser = asyncHandler(async (req, res) => {
     { expiresIn: "2d" }
   );
 
-  res.setHeader('Content-Type', 'text/html');
+res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ user, token });
 });
 
@@ -142,7 +143,8 @@ const LoginUser = asyncHandler(async (req, res) => {
     { expiresIn: "2d" }
   );
 
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ user, token });
 });
 

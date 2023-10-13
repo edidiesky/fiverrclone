@@ -30,6 +30,8 @@ router.post("/", upload.array("files", 4), async (req, res) => {
     }
 
     // Optionally, you can respond with the URLs of the uploaded images
+    res.setHeader("Content-Type", "text/html");
+    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     res.json({ success: true, message: "Images uploaded successfully", urls });
   } catch (error) {
     console.error("Error uploading images:", error);
@@ -43,6 +45,8 @@ router.post("/single", upload.single("file"), async (req, res) => {
   try {
     // Optionally, you can respond with the URLs of the uploaded images
     const result = await cloudinaryModule.uploader.upload(req.file.path);
+    res.setHeader("Content-Type", "text/html");
+    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     res.json({
       success: true,
       message: "Images uploaded successfully",
