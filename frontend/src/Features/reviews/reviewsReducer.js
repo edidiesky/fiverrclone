@@ -6,7 +6,7 @@ export const getAllReviews = createAsyncThunk(
   "/fetch/allreviews",
   async (name, thunkAPI) => {
     try {
-      let reviewUrl = `/api/v1/review`;
+      let reviewUrl = `https://fiverrclone-api.vercel.app/api/v1/review`;
       const { data } = await axios.get(reviewUrl);
       return data;
     } catch (error) {
@@ -24,7 +24,7 @@ export const getSellerReviews = createAsyncThunk(
   "review/getSellerReviews",
   async (name, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/v1/review/${name}`);
+      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/review/${name}`);
 
       return data.reviews;
     } catch (error) {
@@ -50,7 +50,7 @@ export const UpdateReviews = createAsyncThunk(
       };
       const { _id } = state.Review.reviewsDetails;
       const { data } = await axios.put(
-        `/api/v1/review/admin/${_id}`,
+        `https://fiverrclone-api.vercel.app/api/v1/review/admin/${_id}`,
         reviewsData,
         config
       );
@@ -78,7 +78,7 @@ export const DeleteReviews = createAsyncThunk(
         },
       };
       const { data } = await axios.delete(
-        `/api/v1/review/admin/${reviewsid}`,
+        `https://fiverrclone-api.vercel.app/api/v1/review/admin/${reviewsid}`,
         config
       );
       return reviewsid;
@@ -104,7 +104,7 @@ export const createReviews = createAsyncThunk(
         },
       };
       const { data } = await axios.post(
-        `/api/v1/review/${id}`,
+        `https://fiverrclone-api.vercel.app/api/v1/review/${id}`,
         Reviewdata,
         config
       );
