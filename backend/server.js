@@ -94,7 +94,7 @@ import chatRoute from "./routes/chatRoutes.js";
 
 // app.use("/api/v1/auth", authRoute);
 // app.use("/api/v1/user", userRoute);
-app.use("/api/v1/gig", gigRoute);
+// app.use("/api/v1/gig", gigRoute);
 // app.use("/api/v1/review", reviewRoute);
 // app.use("/api/v1/order", orderRoute);
 // app.use("/api/v1/upload", uploadRoute);
