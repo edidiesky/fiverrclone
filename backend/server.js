@@ -86,16 +86,16 @@ import mongoose from "mongoose";
 // );
 app.use(express.json());
 
-mongoose.connect(
-  process.env.MONGO_URl,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  () => {
-    console.log("mongo has been connected");
-  }
-);
+// mongoose.connect(
+//   process.env.MONGO_URl,
+//   {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   },
+//   () => {
+//     console.log("mongo has been connected");
+//   }
+// );
 
 
 app.get("/", (req, res) => {
