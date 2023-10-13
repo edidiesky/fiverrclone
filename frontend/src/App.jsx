@@ -41,6 +41,7 @@ const HomeImport = React.lazy(() => import("./screens/Home"));
 const SingleImport = React.lazy(() => import("./screens/Single"));
 const ProfileImport = React.lazy(() => import("./screens/Profile"));
 
+axios.defaults.withCredentials = true;
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
