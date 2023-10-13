@@ -12,13 +12,28 @@ import mongoose from "mongoose";
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: "https://fiverrclone-client.vercel.app",
-    methods: ["POST", "PUT", "DELETE", "GET"],
-    credentials: "true",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://fiverrclone-client.vercel.app",
+//     methods: ["POST", "PUT", "DELETE", "GET"],
+//     credentials: "true",
+//   })
+// );
+
+const allowedOrigins = ["https://fiverrclone-client.vercel.app"];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
 // // // routes
 import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
