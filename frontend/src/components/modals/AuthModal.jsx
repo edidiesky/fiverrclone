@@ -248,6 +248,7 @@ export default function AuthModal() {
               height={"60rem"}
               style={{ position: "absolute" }}
               src="https://npm-assets.fiverrcdn.com/assets/@fiverr-private/user_session/standard.7691fcf.png"
+              placeholderSrc="https://npm-assets.fiverrcdn.com/assets/@fiverr-private/user_session/standard.7691fcf.png"
               alt=""
               effect="blur"
               className="w-100 h-100"

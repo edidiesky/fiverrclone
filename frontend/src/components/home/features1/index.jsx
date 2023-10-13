@@ -68,6 +68,9 @@ const Features1IndexContainer = styled.div`
   .owl-carousel .owl-stage-outer {
     overflow: hidden;
     min-height: 340px !important;
+    @media (max-width: 480px) {
+      min-height: 240px !important;
+    }
   }
   .owl-nav {
     position: absolute;

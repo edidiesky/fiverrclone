@@ -89,10 +89,11 @@ export default function HeroIndex() {
             {heroBackgroundData.map((x, index) => {
               return (
                 <LazyLoadImage
-                effect="blur"
-                height={'100%'}
+                  effect="blur"
+                  height={"100%"}
                   key={index}
                   src={x.backgroundImage}
+                  placeholderSrc={x.backgroundImage}
                   alt=""
                   className={index === tabindex ? "images active" : "images"}
                 />
