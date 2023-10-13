@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -87,7 +88,9 @@ export default function HeroIndex() {
           <div style={{ position: "absolute" }} className="w-100 h-100">
             {heroBackgroundData.map((x, index) => {
               return (
-                <img
+                <LazyLoadImage
+                effect="blur"
+                height={'100%'}
                   key={index}
                   src={x.backgroundImage}
                   alt=""

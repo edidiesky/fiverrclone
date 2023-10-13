@@ -26,7 +26,7 @@ import LoaderIndex from "../loaders";
 import { googleAuth } from "../../Features/user/userReducer";
 import Message from "../loaders/Message";
 import { BiCheck } from "react-icons/bi";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function AuthModal() {
   // swtich login and register tab
   const [auth, setAuth] = useState(false);
@@ -244,10 +244,13 @@ export default function AuthModal() {
       >
         <div className="py-3 flex card_auth_wrapper item-center">
           <div className="left h-100 flex-1">
-            <img
+            <LazyLoadImage
+              height={"60rem"}
+              style={{ position: "absolute" }}
               src="https://npm-assets.fiverrcdn.com/assets/@fiverr-private/user_session/standard.7691fcf.png"
               alt=""
-              className="w-100"
+              effect="blur"
+              className="w-100 h-100"
             />
             <div className="flex column left_content gap-2">
               <div className="w-85 auto flex column gap-2">
@@ -342,7 +345,7 @@ export default function AuthModal() {
                 <div className="w-100 flex gap-2 column">
                   <button
                     className="btn fs-18 w-100 py-2 px-4 text-white text-extra-bold"
-                    style={{ padding: "1.7rem 4rem", fontWeight:"700" }}
+                    style={{ padding: "1.7rem 4rem", fontWeight: "700" }}
                   >
                     {" Continue"}
                   </button>
