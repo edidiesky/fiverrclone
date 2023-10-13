@@ -1,8 +1,7 @@
-
-
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
@@ -13,6 +12,13 @@ import mongoose from "mongoose";
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: ["fiverrclone-client.vercel.app"],
+    methods: ["POST", "PUT", "DELETE", "GET"],
+    credentials: "true",
+  })
+);
 // // // routes
 import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
@@ -43,12 +49,8 @@ mongoose.connect(
   }
 );
 
-
 app.use(NotFound);
 app.use(errorHandler);
 app.listen(3001, () => {
   console.log("Server is Running");
 });
-
-
-
