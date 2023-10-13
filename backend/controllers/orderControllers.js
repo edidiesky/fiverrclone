@@ -25,6 +25,8 @@ const GetAllOrder = async (req, res) => {
 
   const noOfPages = Math.ceil(totalOrder / limit);
 
+ res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ order, noOfPages, totalOrder });
 };
 
@@ -39,7 +41,9 @@ const GetCustomerOrder = async (req, res) => {
   const order = await Order.find({ buyer_Id: userId })
     .populate("buyer_Id", "firstname lastname email address")
     .populate("cartId", "image title price countInStock deliveryDays");
-  res.status(200).json({ order });
+ res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    res.status(200).json({ order });
 };
 
 // GET
@@ -52,7 +56,9 @@ const GetSellerOrder = async (req, res) => {
     .populate("seller_Id", "image username email address")
     .populate("buyer_Id", "image username email address name")
     .populate("cartId", "image title price countInStock deliveryDays");
-  res.status(200).json({ order });
+ res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    res.status(200).json({ order });
 };
 
 
@@ -65,6 +71,8 @@ const GetOrderById = async (req, res) => {
     "buyer_Id",
     "firstname lastname email address"
   );
+ res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ order });
 };
 
@@ -109,6 +117,8 @@ const CreateOrder = async (req, res) => {
     cancel_url: `http://localhost:5173/checkout?gigid=${cartId}`,
   });
 
+ res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ order, url: session.url });
 };
 
@@ -135,6 +145,8 @@ const UpdateOrderToPaid = async (req, res) => {
   // clear the buyer cart
   await Cart.findByIdAndDelete({ _id: req.params.id });
 
+ res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ order });
 };
 
@@ -159,6 +171,8 @@ const UpdateOrderToIsDelivered = async (req, res) => {
     },
     { new: true }
   );
+ res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ updatedOrder });
 };
 
@@ -201,6 +215,8 @@ const AggregateUserOrderStats = asyncHandler(async (req, res) => {
     return { date, totalQuantity, averageOrderQuantity };
   });
 
+ res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ totalOrder });
 });
 

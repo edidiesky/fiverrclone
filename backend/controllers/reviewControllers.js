@@ -48,7 +48,9 @@ const createReviews = asyncHandler(async (req, res) => {
   //   // destructure the data and then create it
   //   const review = await Reviews.create({ ...data });
 
-  //   res.status(200).json({ review });
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');//   
+  res.status(200).json({ review });
   // } else {
   //   res.status(404);
   //   throw new Error("You are not authorized to perform this action");
@@ -75,6 +77,8 @@ const createReviews = asyncHandler(async (req, res) => {
    // destructure the data and then create it
    const review = await Reviews.create({ ...data });
 
+   res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
    res.status(200).json({ review });
 });
 
@@ -104,6 +108,8 @@ const getSellerReviews = asyncHandler(async (req, res) => {
   // get the review length
   // get the total rating
 
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ reviews });
 });
 
@@ -121,6 +127,8 @@ const getAllReviews = asyncHandler(async (req, res) => {
     throw new Error("Gig not found");
   }
 
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ reviews });
 });
 
@@ -138,12 +146,16 @@ const LikeReviews = asyncHandler(async (req, res) => {
     throw new Error("Gig not found");
   }
 
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ reviews });
 });
 
 // GET All Gig
 //  Public
 const DeleteReviews = asyncHandler(async (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ msg: "delete review controller" });
 });
 

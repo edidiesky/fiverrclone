@@ -18,6 +18,8 @@ const GetAllBuyerCart = asyncHandler(async (req, res) => {
   const totalCart = await Cart.countDocuments({});
 
   const cart = await result;
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ cart, totalCart });
 });
 
@@ -37,6 +39,8 @@ const GetSingleBuyerCart = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Cart Item not found");
   }
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ cart });
 });
 
@@ -88,6 +92,8 @@ const UpdateBuyerCart = asyncHandler(async (req, res) => {
       { ...data },
       { new: true }
     );
+    res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(200).json({ updatedGig });
   } else {
     res.status(404);
@@ -126,6 +132,8 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
       {gigQuantity: qty },
       { new: true }
     );
+    res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(200).json({ cart });
   } else {
     // "countInStock": 10,
@@ -155,6 +163,8 @@ const CreateBuyerCart = asyncHandler(async (req, res) => {
       sellerId: gig.sellerId ? gig.sellerId : gig.user,
     });
 
+    res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(200).json({ cart });
   }
 });
@@ -176,6 +186,8 @@ const DeleteBuyerCart = asyncHandler(async (req, res) => {
   // check if the user is the seller or is admin
   if (gig.user.toString() === userId || role === "admin") {
     await Cart.findByIdAndDelete({ _id: req.params.id });
+    res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
     res.status(200).json({ message: "The Cart has been successfully deleted" });
   } else {
     res.status(404);
@@ -186,6 +198,8 @@ const DeleteBuyerCart = asyncHandler(async (req, res) => {
 const GetTopRatedBuyerCart = asyncHandler(async (req, res) => {
   // get the Cart but based on the rating and then send 4 Cart
   const toprated = await Cart.find({}).sort({ rating: -1 }).limit(3);
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
   res.status(200).json({ toprated });
 });
 
