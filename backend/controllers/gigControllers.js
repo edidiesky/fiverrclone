@@ -72,10 +72,9 @@ const GetAllGig = asyncHandler(async (req, res) => {
   const totalGig = await Gig.countDocuments({});
   const noOfPages = Math.ceil(totalGig / limit);
 
-  
   const gig = await result;
-   res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ gig, totalGig, noOfPages });
 });
 //
@@ -92,8 +91,8 @@ const GetSingleGig = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Gig not found");
   }
-   res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ gig });
 });
 
@@ -137,8 +136,8 @@ const CreateSingleGig = asyncHandler(async (req, res) => {
     subInfo,
   });
 
-   res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ gig });
 });
 
@@ -190,8 +189,8 @@ const UpdateGig = asyncHandler(async (req, res) => {
       { ...data },
       { new: true }
     );
-     res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     res.status(200).json({ updatedGig });
   } else {
     res.status(404);
@@ -216,16 +215,16 @@ const DeleteGig = asyncHandler(async (req, res) => {
   // check if the user is the seller or is admin
   if (gig.sellerId.toString() === userId || role === "admin") {
     await Gig.findByIdAndDelete({ _id: req.params.id });
-     res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
     res.status(200).json({ message: "The Gig has been successfully deleted" });
   } else {
     res.status(404);
     throw new Error("You are not authorized to perform this action");
   }
   // console.log(gig);
-   res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');// 
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");// 
   res.status(200).json({ gig});
 
   // console.log('Helolo world');
@@ -234,8 +233,8 @@ const DeleteGig = asyncHandler(async (req, res) => {
 const GetTopRatedGig = asyncHandler(async (req, res) => {
   // get the Gig but based on the rating and then send 4 Gig
   const toprated = await Gig.find({}).sort({ rating: -1 }).limit(3);
-   res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+  res.setHeader("Content-Type", "text/html");
+res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.status(200).json({ toprated });
 });
 
