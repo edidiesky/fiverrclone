@@ -6,7 +6,7 @@ export const GetAllBuyerCart = createAsyncThunk(
   "/cart/allBuyerCart",
   async (id, thunkAPI) => {
     try {
-      let cartUrl = `https://fiverrclone-api.vercel.app/api/v1/cart/${id}`;
+      let cartUrl = `/api/v1/cart/${id}`;
       const { data } = await axios.get(cartUrl);
       return data.cart;
     } catch (error) {
@@ -30,7 +30,7 @@ export const GetSingleBuyerCart = createAsyncThunk(
       },
     };
     try {
-      let cartUrl = `https://fiverrclone-api.vercel.app/api/v1/cart/buyer/${name}`;
+      let cartUrl = `/api/v1/cart/buyer/${name}`;
       const { data } = await axios.get(cartUrl, config);
       return data.cart;
     } catch (error) {
@@ -54,7 +54,7 @@ export const CreateBuyerCart = createAsyncThunk(
         },
       };
       const { data } = await axios.post(
-        `https://fiverrclone-api.vercel.app/api/v1/cart/${state.gigs.GigsDetails._id}`,
+        `/api/v1/cart/${state.gigs.GigsDetails._id}`,
         { qty },
         config
       );
@@ -83,7 +83,7 @@ export const UpdateBuyerCart = createAsyncThunk(
       };
       const { _id } = state.Gigs.GigsDetails;
       const { data } = await axios.put(
-        `https://fiverrclone-api.vercel.app/api/v1/gig/admin/${_id}`,
+        `/api/v1/gig/admin/${_id}`,
         GigsData,
         config
       );
@@ -111,7 +111,7 @@ export const DeleteBuyerCart = createAsyncThunk(
         },
       };
       const { data } = await axios.delete(
-        `https://fiverrclone-api.vercel.app/api/v1/gig/admin/${cartid}`,
+        `/api/v1/gig/admin/${cartid}`,
         config
       );
       return cartid;
@@ -136,7 +136,7 @@ export const getTopRatedGigs = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/gig/rated`, config);
+      const { data } = await axios.get(`/api/v1/gig/rated`, config);
       return data.toprated;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -159,7 +159,7 @@ export const GetTopRatedBuyerCart = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/gig/stats`, config);
+      const { data } = await axios.get(`/api/v1/gig/stats`, config);
       return data.stats;
     } catch (error) {
       return thunkAPI.rejectWithValue(
