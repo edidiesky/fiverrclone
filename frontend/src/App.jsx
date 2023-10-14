@@ -30,7 +30,6 @@ import {
   CreateProductIndex,
   Statistics,
 } from "./screens/Dashboard/pages";
-import { useDispatch, useSelector } from "react-redux";
 import LoaderIndex from "./components/loaders";
 import Order from "./screens/Order";
 import Orders from "./screens/Orders";
