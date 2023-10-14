@@ -1,9 +1,46 @@
 import React, { Suspense, useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import axios from 'axios'
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {
+  Layout,
+  Business,
+  Services,
+  Explore,
+  Error,
+  Checkout,
+  Chat,
+  SellerPage1,
+  SellerPage2,
+  SellerLayout,
+  Personal1,
+  Professional,
+  ProtectRoute,
+} from "./screens";
+
+import {
+  LayoutList,
+  // Statistics,
+  AdminProductList,
+  ProfileList,
+  Customers,
+  // EditUser,
+  OrderList,
+  CreateProductIndex,
+  Statistics,
+} from "./screens/Dashboard/pages";
+import { useDispatch, useSelector } from "react-redux";
+import LoaderIndex from "./components/loaders";
+import Order from "./screens/Order";
+import Orders from "./screens/Orders";
+
+// axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URLS;
+//
 const HomeImport = React.lazy(() => import("./screens/Home"));
 const SingleImport = React.lazy(() => import("./screens/Single"));
 const ProfileImport = React.lazy(() => import("./screens/Profile"));
 export default function App() {
-  const dispatch = useDispatch();
   useEffect(() => {
     AOS.init();
     const container = document.querySelector(".based");
