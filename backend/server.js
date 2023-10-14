@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import dotenv from "dotenv";
+import cors from "cors";
 dotenv.config();
 const app = express();
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
@@ -10,6 +11,15 @@ import mongoose from "mongoose";
 // middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "https://fiverrclone-client.vercel.app",
+    methods: ["POST", "PUT", "DELETE", "GET"],
+    credentials: "true",
+  })
+);
+
 
 
 // // // routes
