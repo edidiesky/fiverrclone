@@ -6,6 +6,9 @@ export default defineConfig({
     proxy: {
       "/api/v1": {
         target: "https://fiverrclone-api.vercel.app/",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/v1, "")
       },
     },
   },
