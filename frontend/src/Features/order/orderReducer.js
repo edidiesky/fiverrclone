@@ -11,7 +11,7 @@ export const createCustomersOrder = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.post("/api/v1/order", orderData, config);
+      const { data } = await axios.post("https://fiverrclone-api.vercel.app/api/v1/order", orderData, config);
 
       return data;
     } catch (error) {
@@ -34,7 +34,7 @@ export const getCustomerOrderById = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/order/${id}`, config);
+      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/order/${id}`, config);
 
       return data.order;
     } catch (error) {
@@ -57,7 +57,7 @@ export const getCustomerOrderStats = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/order/stats`, config);
+      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/order/stats`, config);
 
       return data.totalOrder;
     } catch (error) {
@@ -80,7 +80,7 @@ export const getCustomerOrder = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/order/customer/order`, config);
+      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/order/customer/order`, config);
 
       return data.order;
     } catch (error) {
@@ -103,7 +103,7 @@ export const getSellerOrder = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/order/seller/order`, config);
+      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/order/seller/order`, config);
 
       return data.order;
     } catch (error) {
@@ -127,7 +127,7 @@ export const getAllCustomersOrder = createAsyncThunk(
       };
       const { orderpage } = state.order;
       const { data } = await axios.get(
-        `/api/v1/order?page=${orderpage}`,
+        `https://fiverrclone-api.vercel.app/api/v1/order?page=${orderpage}`,
         config
       );
 
@@ -153,11 +153,11 @@ export const updateCustomersOrderToPaid = createAsyncThunk(
         },
       };
       const { data } = await axios.put(
-        `/api/v1/order/${details}/pay`, 
+        `https://fiverrclone-api.vercel.app/api/v1/order/${details}/pay`, 
         null,
         config
       );
-      await axios.get(`/api/v1/order/customer/order`, config);
+      await axios.get(`https://fiverrclone-api.vercel.app/api/v1/order/customer/order`, config);
 
       return data.order;
     } catch (error) {
@@ -183,7 +183,7 @@ export const updateCustomersOrderToIsDelivered = createAsyncThunk(
       };
       const { _id } = state.order.order;
       const { data } = await axios.put(
-        `/api/v1/order/${_id}/delivered`,
+        `https://fiverrclone-api.vercel.app/api/v1/order/${_id}/delivered`,
         name,
         config
       );
@@ -209,7 +209,7 @@ export const handlePaypalKey = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get("/api/v1/config/paypal", config);
+      const { data } = await axios.get("https://fiverrclone-api.vercel.app/api/v1/config/paypal", config);
 
       return data;
     } catch (error) {
