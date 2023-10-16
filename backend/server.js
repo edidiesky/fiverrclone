@@ -51,6 +51,7 @@ mongoose.connect(
     console.log("mongo has been connected");
   }
 );
+const __dirname = path.resolve();
 
 
 if (process.env.NODE_ENV === "production") {
