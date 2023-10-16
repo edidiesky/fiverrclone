@@ -5,7 +5,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api/v1": {
-        target: "http://fiverrclone-api.vercel.app",
+        target: "https://fiverrclone-api.vercel.app/",
         changeOrigin: true,
         secure: false,
       },
