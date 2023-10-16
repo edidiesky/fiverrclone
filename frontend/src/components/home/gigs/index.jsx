@@ -32,6 +32,7 @@ const options2 = {
 
 export default function GigsIndex() {
   const { Gigs, gigsIsLoading } = useSelector((store) => store.gigs);
+  console.log(Gigs);
   return (
     <GigsIndexContainer>
       <div className="w-90 auto py-6  flex column gap-2">
