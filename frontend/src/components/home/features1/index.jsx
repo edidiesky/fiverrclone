@@ -6,6 +6,7 @@ import { BiChevronRight } from "react-icons/bi";
 import { Card, Slider } from "../../common";
 import { projectData } from "../../../data";
 import { useSelector } from "react-redux";
+import CardSkeleton from "../../common/cardskeleton";
 const options2 = {
   items: 4,
   stagePadding: 10,
@@ -37,21 +38,34 @@ export default function Features1Index() {
   return (
     <Features1IndexContainer>
       <div className="w-90 auto column">
-        <div className="w-100 Heades flex item-center justify-space">
-          <Head text={"Inspiring work made on Fiverr"} />
-          <Link to={""} className="link fs-20 text-light flex item-center gap-1">
-            See More Projects <BiChevronRight />
-          </Link>
-        </div>
-        <div className="w-100 project">
-          <div className="w-100 grid grid-auto grid-gap1">
-            <Slider options={options2}>
-              {Gigs?.map((x) => {
-                return <Card type={"features"} x={x} />;
-              })}
-            </Slider>
+        {gigsIsLoading ? (
+          <div className="w-100 grid-auto">
+            {new Array(5).fill("").map((x) => {
+              return <CardSkeleton />;
+            })}
           </div>
-        </div>
+        ) : (
+          <div className="w-100">
+            <div className="w-100 Heades flex item-center justify-space">
+              <Head text={"Inspiring work made on Fiverr"} />
+              <Link
+                to={""}
+                className="link fs-20 text-light flex item-center gap-1"
+              >
+                See More Projects <BiChevronRight />
+              </Link>
+            </div>
+            <div className="w-100 project">
+              <div className="w-100 grid grid-auto grid-gap1">
+                <Slider options={options2}>
+                  {Gigs?.map((x) => {
+                    return <Card type={"features"} x={x} />;
+                  })}
+                </Slider>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Features1IndexContainer>
   );

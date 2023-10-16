@@ -33,14 +33,14 @@ const options2 = {
 
 export default function GigsIndex() {
   const { Gigs, gigsIsLoading } = useSelector((store) => store.gigs);
-  console.log(Gigs);
+  // console.log(Gigs);
   return (
     <GigsIndexContainer>
       <div className="w-90 auto py-6  flex column gap-2">
         {gigsIsLoading ? (
-          <div className="w-100">
-          {  new Array(5).fill('').map(x=> {
-              return  <CardSkeleton />
+          <div className="w-100 grid-auto">
+            {new Array(5).fill("").map((x) => {
+              return <CardSkeleton />;
             })}
           </div>
         ) : (
