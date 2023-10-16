@@ -4,6 +4,7 @@ import { projectData } from "../../../data";
 import { Head, Slider } from "../../common";
 import Card from "../../common/Card";
 import { useSelector } from "react-redux";
+import CardSkeleton from "../../common/cardskeleton";
 
 const options2 = {
   items: 5,
