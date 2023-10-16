@@ -16,7 +16,7 @@ export const getAllGigs = createAsyncThunk(
         maxprice,
         sellerId,
       } = thunkAPI.getState().gigs;
-      let GigsUrl = `/api/v1/gig`;
+      let GigsUrl = `https://fiverrclone-api.vercel.app/api/v1/gig`;
       if (sort) {
         productUrl = productUrl + `?sort=${sort}`;
       }
@@ -69,7 +69,7 @@ export const getSingleGigsDetails = createAsyncThunk(
   "Gigs/getGigsDetails",
   async (name, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/v1/gig/${name}`);
+      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/gig/${name}`);
 
       return data.gig;
     } catch (error) {
@@ -93,7 +93,7 @@ export const CreateSingleGig = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.post(`/api/v1/gig`, GigsData, config);
+      const { data } = await axios.post(`https://fiverrclone-api.vercel.app/api/v1/gig`, GigsData, config);
 
       return data.gig;
     } catch (error) {
@@ -118,7 +118,7 @@ export const UpdateGig = createAsyncThunk(
         },
       };
       const { _id } = state.gigs.GigsDetails;
-      const { data } = await axios.put(`/api/v1/gig/${_id}`, GigsData, config);
+      const { data } = await axios.put(`https://fiverrclone-api.vercel.app/api/v1/gig/${_id}`, GigsData, config);
       // console.log(GigsData)
       return data.updatedGig;
     } catch (error) {
@@ -142,7 +142,7 @@ export const DeleteGig = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.delete(`/api/v1/gig/${Gigsid}`, config);
+      const { data } = await axios.delete(`https://fiverrclone-api.vercel.app/api/v1/gig/${Gigsid}`, config);
       return Gigsid;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -166,7 +166,7 @@ export const createReviewGigs = createAsyncThunk(
         },
       };
       const { data } = await axios.post(
-        `/api/v1/gig/review/${id}`,
+        `https://fiverrclone-api.vercel.app/api/v1/gig/review/${id}`,
         Reviewdata,
         config
       );
@@ -192,7 +192,7 @@ export const getTopRatedGigs = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/gig/rated`, config);
+      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/gig/rated`, config);
       return data.toprated;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -215,7 +215,7 @@ export const getGigsStats = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/v1/gig/stats`, config);
+      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/gig/stats`, config);
       return data.stats;
     } catch (error) {
       return thunkAPI.rejectWithValue(
