@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://fiverrclone-client.vercel.app/",
+    origin: "https://fiverrclone-client.vercel.app",
     methods: ["POST", "PUT", "DELETE", "GET"],
     credentials: true,
   })
