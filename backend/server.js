@@ -64,7 +64,7 @@ const __dirname = path.resolve();
 //   app.get("/", (req, res) => {
 //     res.send("API is running....");
 //   });
-}
+// }
 
 app.use(NotFound);
 app.use(errorHandler);
