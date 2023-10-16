@@ -36,18 +36,28 @@ export default function GigsIndex() {
   return (
     <GigsIndexContainer>
       <div className="w-90 auto py-6  flex column gap-2">
-        <div className="w-100 Heades flex item-start justify-space">
-          <Head text={"Recently Viewed & More"} />
-        </div>
-        <div className="w-100 project">
+        {gigsIsLoading ? (
           <div className="w-100">
-            <Slider className="owl-theme" options={options2}>
-              {Gigs?.map((x, index) => {
-                return <Card x={x} index={index} />;
-              })}
-            </Slider>
+          {  new Array(5).fill('').map(x=> {
+              return  <CardSkeleton />
+            })}
           </div>
-        </div>
+        ) : (
+          <div className="w-100">
+            <div className="w-100 Heades flex item-start justify-space">
+              <Head text={"Recently Viewed & More"} />
+            </div>
+            <div className="w-100 project">
+              <div className="w-100">
+                <Slider className="owl-theme" options={options2}>
+                  {Gigs?.map((x, index) => {
+                    return <Card x={x} index={index} />;
+                  })}
+                </Slider>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </GigsIndexContainer>
   );
