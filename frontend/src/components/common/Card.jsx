@@ -28,7 +28,7 @@ export default function Card({ x, index, type }) {
     return (
       <Link
         to={`/gigs/${cardid}`}
-        style={{ boxShadow: "var(--shadow)",background:"#fff", borderRadius: "5px", minHeight:"40rem" }}
+        style={{ boxShadow: "var(--shadow)",background:"#fff", borderRadius: "5px"}}
         className="w-100 MainCard flex  column"
         key={cardid}
       >

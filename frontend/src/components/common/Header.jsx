@@ -342,6 +342,12 @@ const HeaderTopContainer = styled.div`
   align-items: center;
   background: #fff;
   padding: 1.5rem 0;
+  @media (max-width: 480px) {
+    min-height: 8rem;
+    padding: 4rem 0;
+    position: sticky;
+    top: 0;
+  }
 
   .icon {
     width: 3rem;

@@ -50,7 +50,7 @@ export default function Features1Index() {
               <Head text={"Inspiring work made on Fiverr"} />
               <Link
                 to={""}
-                className="link fs-20 text-light flex item-center gap-1"
+                className="link fs-18 text-light flex item-center gap-1"
               >
                 See More Projects <BiChevronRight />
               </Link>

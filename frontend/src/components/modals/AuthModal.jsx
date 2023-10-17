@@ -10,7 +10,7 @@ import { FaFacebook, FaGithub } from "react-icons/fa";
 //   adminDeleteCustomer,
 //   clearUserAlertError,
 // } from "../../../Features";
-import { RxCross2 } from "react-icons/rx";
+import { RxCross1, RxCross2 } from "react-icons/rx";
 import {
   clearUserAlertError,
   offAuthModal,
@@ -242,6 +242,12 @@ export default function AuthModal() {
         exit={"exit"}
         className={"deleteCard family1 shadow"}
       >
+        <div
+          onClick={() => dispatch(offAuthModal())}
+          className="cross item-center justify-center"
+        >
+          <RxCross1 fontSize={"20px"} />
+        </div>
         <div className="py-3 flex card_auth_wrapper item-center">
           <div className="left h-100 flex-1">
             <LazyLoadImage
@@ -377,6 +383,15 @@ const AuthModalContainer = styled(motion.div)`
   align-items: center;
   justify-content: center;
   top: 0;
+  .cross {
+    display: none;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    @media (max-width: 780px) {
+      display: flex;
+    }
+  }
   .authCenter {
     padding: 1rem 0;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
@@ -418,7 +433,7 @@ const AuthModalContainer = styled(motion.div)`
     justify-content: center;
     @media (max-width: 780px) {
       width: 100%;
-      border-radius: 15px;
+      border-radius: 0px;
     }
   }
 
@@ -484,12 +499,12 @@ const AuthModalContainer = styled(motion.div)`
     border-radius: 5px;
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.1);
     @media (max-width: 780px) {
-      width: 90%;
-      height: 70vh;
+      width: 100%;
+      height: 100vh;
       max-width: 100vw;
       justify-content: center;
       align-items: center;
-      border-radius: 5px !important;
+      border-radius: 0px !important;
     }
     position: relative;
     &.usernameModal {
@@ -503,13 +518,20 @@ const AuthModalContainer = styled(motion.div)`
       position: absolute;
       right: 10px;
       top: 20px;
-      width: 3rem;
-      height: 3rem;
+      width: 4rem;
+      height: 4rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      display: none;
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      @media (max-width: 780px) {
+        display: flex;
+      }
       &:hover {
         background: var(--grey-4);
       }

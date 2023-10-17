@@ -6,10 +6,7 @@ import { testimonialData } from "../../data/testimonial";
 
 const options2 = {
   items: 1,
-  dots: true,
   margin: 30,
-  dotsClass: "owl-dots custom-dots",
-  dotClass: "owl-dot custom-dot",
   responsive: {
     0: {
       items: 1,
@@ -44,7 +41,7 @@ export default function MapIndex() {
                         />
                       </div>
                     </h4>
-                    <p className="para">"{x.desc}"</p>
+                    <p className="para w-100">"{x.desc}"</p>
                   </div>
                 </div>
               );
@@ -90,15 +87,6 @@ const MapIndexWrapper = styled.div`
       color: rgb(0, 57, 18);
       font-family: serif;
       line-height: 1.2;
-      @media (max-width: 1080px) {
-        font-size: 3rem;
-      }
-      @media (max-width: 780px) {
-        font-size: 3rem;
-      }
-      @media (max-width: 780px) {
-        font-size: 3rem;
-      }
     }
 
     .textTop {

@@ -39,7 +39,7 @@ export default function Features2Index() {
       <div className="features1wrapper w-90 py-6 auto flex column gap-2">
         <div className="w-100 Heades flex item-center justify-space">
           <Head text={"Fiverr guides"} />
-          <Link to={""} className="link fs-18 flex item-center gap-1">
+          <Link to={""} className="link fs-16 flex item-center gap-1">
             See More Guides <BiChevronRight />
           </Link>
         </div>
@@ -75,15 +75,6 @@ const Features2IndexContainer = styled.div`
     @media (max-width:780px) {
       flex-direction: column;
       justify-content: flex-start;
-    }
-  }
-  h3 {
-    @media (max-width:980px) {
-      font-size: 2rem;
-    }
-  }h4 {
-    @media (max-width:980px) {
-      font-size: 1.7rem;
     }
   }
   .card {
