@@ -30,9 +30,10 @@ import {
   CreateProductIndex,
   Statistics,
 } from "./screens/Dashboard/pages";
-import LoaderIndex from "./components/loaders";
+import LazyLoad from "./components/loaders";
 import Order from "./screens/Order";
 import Orders from "./screens/Orders";
+import LazyLoad from "./components/loaders/LazyLoad";
 
 // axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URLS;
 //
@@ -60,7 +61,7 @@ export default function App() {
             <Route
               index
               element={
-                <Suspense fallback={<LoaderIndex />}>
+                <Suspense fallback={<LazyLoad />}>
                   <HomeImport />
                 </Suspense>
               }
@@ -68,7 +69,7 @@ export default function App() {
             <Route
               path="gigs/:id"
               element={
-                <Suspense fallback={<LoaderIndex />}>
+                <Suspense fallback={<LazyLoad />}>
                   <SingleImport />
                 </Suspense>
               }
@@ -86,7 +87,7 @@ export default function App() {
               path="profile/:username"
               element={
                 <ProtectRoute>
-                  <Suspense fallback={<LoaderIndex />}>
+                  <Suspense fallback={<LazyLoad />}>
                     <ProfileImport />
                   </Suspense>
                 </ProtectRoute>

@@ -38,13 +38,15 @@ export default function GigsIndex() {
     <GigsIndexContainer>
       <div className="w-90 auto py-6  flex column gap-2">
         {gigsIsLoading ? (
-          <div className="w-100 grid-auto">
-            {new Array(5).fill("").map((x) => {
-              return <CardSkeleton />;
-            })}
+          <div className="w-100">
+            <Slider className="owl-theme" options={options2}>
+              {new Array(5).fill("").map((x) => {
+                return <CardSkeleton />;
+              })}
+            </Slider>
           </div>
         ) : (
-          <div className="w-100">
+          <div className="w-100 flex column gap-2">
             <div className="w-100 Heades flex item-start justify-space">
               <Head text={"Recently Viewed & More"} />
             </div>
@@ -69,6 +71,7 @@ const GigsIndexContainer = styled.div`
   position: relative;
   .grid-auto {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
   }
   .owl-nav {
     position: absolute;
