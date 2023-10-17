@@ -56,16 +56,16 @@ const headerBottomData = [
 
 export default function Header({ type }) {
   const [active, setActive] = useState(true);
-   const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");
   const [profile, setProfile] = useState(false);
   const { userInfo } = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
-    const navigate = useNavigate();
-    const handleSearch = (e) => {
-      e.preventDefault();
-      navigate(`/search/${search}`);
-    };
+  const navigate = useNavigate();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/search/${search}`);
+  };
 
   const isActive = () => {
     window.scrollY > 200 ? setActive(false) : setActive(true);
@@ -93,7 +93,7 @@ export default function Header({ type }) {
             {headerBottomData.map((x, index) => {
               return (
                 <NavLink
-                style={{fontWeight:"500"}}
+                  style={{ fontWeight: "500" }}
                   className={({ isActive }) =>
                     isActive
                       ? "nav-links fs-18 text-extra-bold text-grey active"
@@ -165,7 +165,10 @@ export default function Header({ type }) {
               placeholder="What service are you looking for today"
               className="input"
             />
-            <div onClick={(e) => handleSearch(e)} className="button flex item-center justify-center">
+            <div
+              onClick={(e) => handleSearch(e)}
+              className="button flex item-center justify-center"
+            >
               <BiSearch />
             </div>
           </form>
@@ -178,7 +181,9 @@ export default function Header({ type }) {
     if (userInfo) {
       return (
         <div className={"headerTopCenter flex item-center gap-2"}>
-          <Link to={'/order'} className="family1 fs-18 text-dark">Orders</Link>
+          <Link to={"/order"} className="family1 fs-18 text-dark">
+            Orders
+          </Link>
           <div className="profile" onClick={() => setProfile(!profile)}>
             {/* <div
               style={{ background: "#25A1B0" }}
@@ -285,29 +290,32 @@ export default function Header({ type }) {
             <Bar />
           </div>
           {/* <HeaderTopLeft /> */}
-           <div className="headerTopLeft flex item-center gap-2">
-        <Link to={"/"}>
-          <Logo active={active} />
-        </Link>
-        {type !== "seller" && (
-          <form
-            onSubmit={(e) => handleSearch(e)}
-            className={active ? "w-100 py-2 active" : "w-100 py-2"}
-          >
-            <input
-              value={search}
-              name="search"
-              onChange={(e) => setSearch(e.target.value)}
-              type="text"
-              placeholder="What service are you looking for today"
-              className="input"
-            />
-            <div onClick={(e) => handleSearch(e)} className="button flex item-center justify-center">
-              <BiSearch />
-            </div>
-          </form>
-        )}
-      </div>
+          <div className="headerTopLeft flex item-center gap-2">
+            <Link to={"/"}>
+              <Logo active={active} />
+            </Link>
+            {type !== "seller" && (
+              <form
+                onSubmit={(e) => handleSearch(e)}
+                className={active ? "w-100 py-2 active" : "w-100 py-2"}
+              >
+                <input
+                  value={search}
+                  name="search"
+                  onChange={(e) => setSearch(e.target.value)}
+                  type="text"
+                  placeholder="What service are you looking for today"
+                  className="input"
+                />
+                <div
+                  onClick={(e) => handleSearch(e)}
+                  className="button flex item-center justify-center"
+                >
+                  <BiSearch />
+                </div>
+              </form>
+            )}
+          </div>
           {type !== "seller" && (
             <>
               <HeaderTopCenter />
@@ -512,7 +520,7 @@ const HeaderWrapper = styled.div`
     width: 100%;
     z-index: 5000;
     background-color: #fff;
-    @media (max-width:780px) {
+    @media (max-width: 780px) {
       display: none;
     }
   }

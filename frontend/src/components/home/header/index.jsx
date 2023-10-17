@@ -258,7 +258,7 @@ export default function Header() {
             : "w-100 headerTopContainer"
         }
       >
-        <div className="headerTopWrapperContainer flex item-center w-85 auto">
+        <div className="headerTopWrapperContainer flex item-center w-90 auto">
           <div className="icons">
             <Bar />
           </div>
@@ -535,6 +535,9 @@ const HeaderTopContainer = styled.div`
     gap: 5rem;
     @media (max-width: 1080px) {
       gap: 2rem;
+    }
+    @media (max-width: 680px) {
+      padding: 0 1.5rem;
     }
   }
 `;
