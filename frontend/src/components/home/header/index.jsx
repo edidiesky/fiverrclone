@@ -40,10 +40,10 @@ const options2 = {
 };
 
 const data = [
-  { id: 1, title: "Fiverr Business", path: "/business" },
-  { id: 2, title: "Explore", path: "/explore" },
-  { id: 3, title: "English", path: "/product" },
-  { id: 5, title: "Become a Seller", path: "/seller" },
+  { id: 1, title: "Fiverr Business", path: "/" },
+  { id: 2, title: "Explore", path: "/" },
+  { id: 3, title: "English", path: "/" },
+  { id: 5, title: "Become a Seller", path: "/" },
 ];
 
 const headerBottomData = [
@@ -90,7 +90,7 @@ export default function Header() {
           padding: "1.2rem 0",
         }}
       >
-        <div className="w-90 auto flex bottom1 bottomWrapper1 item-center">
+        <div className="w-85 auto flex bottom1 bottomWrapper1 item-center">
           <Slider className="owl-theme" options={options2}>
             {headerBottomData.map((x, index) => {
               return (
@@ -134,35 +134,6 @@ export default function Header() {
       </HeaderTopWrapper>
     );
   };
-  const HeaderTopLeft = () => {
-    return (
-      <div className="headerTopLeft flex-1 flex item-center gap-2">
-        <Link to={"/"}>
-          <Logo active={active} />
-        </Link>
-        <form
-          onSubmit={(e) => handleSearch(e)}
-          className={active ? "w-100 py-2 active" : "w-100 py-2"}
-        >
-          <input
-            type="text"
-            placeholder="What service are you looking for today"
-            className="input"
-            value={search}
-            name="search"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <div
-            onClick={(e) => handleSearch(e)}
-            className="button flex item-center justify-center"
-          >
-            <BiSearch />
-          </div>
-        </form>
-      </div>
-    );
-  };
-
   const HeaderTopRight = () => {
     if (userInfo) {
       return (
@@ -213,8 +184,8 @@ export default function Header() {
           onClick={() => dispatch(onAuthModal())}
           className={
             active
-              ? "flex links fs-18 text-extra-bold text-dark item-center justify-center active"
-              : "flex links fs-18 text-extra-bold text-dark item-center justify-center"
+              ? "flex links signin fs-18 text-extra-bold text-dark item-center justify-center active"
+              : "flex links signin fs-18 text-extra-bold text-dark item-center justify-center"
           }
         >
           Sign In
@@ -287,7 +258,7 @@ export default function Header() {
             : "w-100 headerTopContainer"
         }
       >
-        <div className="headerTopWrapperContainer flex item-center w-90 auto">
+        <div className="headerTopWrapperContainer flex item-center w-85 auto">
           <div className="icons">
             <Bar />
           </div>
@@ -381,6 +352,10 @@ const HeaderTopContainer = styled.div`
   background: #fff;
   padding: 1.5rem 0;
   transition: all 0.6s ease;
+  @media (max-width: 480px) {
+    min-height: 8rem;
+    padding: 4rem 0;
+  }
   .nav-links,
   .fs-18,
   h4 {
@@ -493,6 +468,11 @@ const HeaderTopContainer = styled.div`
     }
   }
   .Right {
+    .signin {
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
     .btn-4 {
       border: 1.5px solid var(--green);
       color: var(--green);
@@ -590,6 +570,9 @@ const HeaderWrapper = styled.div`
     background-color: #fff;
     transition: all 0.6s ease;
     &.active {
+      display: none;
+    }
+    @media (max-width: 480px) {
       display: none;
     }
   }

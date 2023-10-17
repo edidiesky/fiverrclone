@@ -33,7 +33,6 @@ import {
 import LazyLoad from "./components/loaders";
 import Order from "./screens/Order";
 import Orders from "./screens/Orders";
-import LazyLoad from "./components/loaders/LazyLoad";
 
 // axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URLS;
 //

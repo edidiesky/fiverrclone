@@ -76,7 +76,7 @@ export default function HeroIndex() {
                   onClick={(e) => handleSearch(e)}
                   className="buttons w-100 fs-20 text-bold text-white flex item-center justify-center"
                 >
-                  <BiSearch className="fs-24 text-white" />
+                  <BiSearch className="fs-24 text-white" color="#fff" />
                 </button>
               </form>
             </div>
@@ -170,32 +170,32 @@ export default function HeroIndex() {
             flexWrap: "wrap",
           }}
         >
-          <div className="fs-24 text-grey2">Trusted by :</div>
+          <div className="fs-24 trust text-grey2">Trusted by :</div>
           <img
             src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/meta2x.b364aec.png"
             alt=""
-            style={{ height: "6rem" }}
+            className="company"
           />
           <img
             src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/google2x.4fa6c20.png"
             alt=""
-            style={{ height: "6rem" }}
+            className="company"
           />
           <img
             src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/netflix2x.6b36ad6.png"
             alt=""
-            style={{ height: "6rem" }}
+            className="company"
           />
 
           <img
             src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/pandg2x.0d06f7b.png"
             alt=""
-            style={{ height: "6rem" }}
+            className="company"
           />
           <img
             src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/paypal2x.d2fa54d.png"
             alt=""
-            style={{ height: "6rem" }}
+            className="company company1"
           />
         </HeroBottomIndexContent>
       </div>
@@ -207,6 +207,22 @@ const HeroBottomIndexContent = styled.div`
   gap: 2.5rem;
   @media (max-width: 480px) {
     gap: 1.3rem;
+  }
+  .company {
+    height: 7rem;
+    @media (max-width: 480px) {
+      height: 9rem;
+    }
+    &.company1 {
+      @media (max-width: 480px) {
+        display: none;
+      }
+    }
+  }
+  .trust {
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
 `;
 const HeroIndexContent = styled.div`
@@ -246,11 +262,24 @@ const HeroIndexContent = styled.div`
           height: 6rem;
           padding: 0 2rem;
           border-radius: 4px !important;
+          font-size: 17px;
+          @media (max-width: 480px) {
+            height: 8rem;
+            &::placeholder {
+              font-size: 18px;
+            }
+          }
         }
       }
       .buttons {
         background-color: #1dbf73 !important;
         height: 6rem;
+        svg {
+          color: #fff;
+        }
+        @media (max-width: 480px) {
+          height: 8rem;
+        }
       }
     }
   }

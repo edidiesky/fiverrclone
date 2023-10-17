@@ -132,10 +132,10 @@ const ServicesIndexContainer = styled.div`
       }
     }
     button.owl-prev {
-      left: -2%;
+      left: -3%;
     }
     button.owl-next {
-      right: -2%;
+      right: -3%;
     }
   }
   h4 {
@@ -171,7 +171,10 @@ const ServicesIndexContainer = styled.div`
   .card {
     position: relative;
     overflow: hidden;
-    height: 40rem;
+    min-height: 40rem;
+    @media (max-width: 480px) {
+      min-height: 50rem;
+    }
 
     &:hover {
       .backdrop {

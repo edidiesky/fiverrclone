@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ThreeDots } from "react-loader-spinner";
+import { RotatingLines } from "react-loader-spinner";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
@@ -7,14 +7,11 @@ export default function LoaderIndex({ loading, type, color }) {
   const [open, setOpen] = useState(true);
   if (type === "dots") {
     return (
-      <ThreeDots
-        height="27"
-        width="27"
-        radius="9"
-        color={color}
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClassName=""
+      <RotatingLines
+        strokeColor="var(--grey-1)"
+        strokeWidth="5"
+        animationDuration="0.75"
+        width="39"
         visible={true}
       />
     );
@@ -41,14 +38,11 @@ export default function LoaderIndex({ loading, type, color }) {
         background: "rgba(255, 255, 255, 0.435)",
       }}
     >
-      <ThreeDots
-        height="50"
-        width="50"
-        radius="10"
-        color={'var(--blue-1)'}
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClassName=""
+      <RotatingLines
+        strokeColor="var(--grey-1)"
+        strokeWidth="5"
+        animationDuration="0.75"
+        width="39"
         visible={true}
       />
     </div>

@@ -26,347 +26,323 @@ export default function Card({ x, index, type }) {
 
   if (type === "features") {
     return (
-      <>
-        {gigsIsLoading ? (
-          <CardSkeleton />
-        ) : (
-          <Link
-            to={`/gigs/${cardid}`}
-            style={{ boxShadow: "var(--shadow)", borderRadius: "5px" }}
-            className="w-100 MainCard flex  column"
-            key={cardid}
-          >
-            <div className="w-100 card">
-              <img src={x?.image[0]} alt="" className="w-100" />
-              {/* <div className="backdrop"></div> */}
-            </div>
-            <div
-              style={{
-                borderBottomLeftRadius: "5px",
-                borderBottomRightRadius: "5px",
-              }}
-              className="bottom w-100 back-white py-2 flex  item-center gap-1"
-            >
-              <img
-                src={x?.sellerId?.image}
-                alt=""
-                className="image"
-                style={{
-                  width: "5rem",
-                  height: "5rem",
-                  borderRadius: "50%",
-                }}
-              />
-              <div className="flex  column">
-                <h4 className="fs-20 family1 text-dark text-extra-bold">
-                  {x?.category[0]}
-                </h4>
-                <h5 className="fs-16 text-bold text-grey">
-                  by {x?.sellerId?.username}
-                </h5>
-              </div>
-            </div>
-          </Link>
-        )}
-      </>
+      <Link
+        to={`/gigs/${cardid}`}
+        style={{ boxShadow: "var(--shadow)",background:"#fff", borderRadius: "5px", minHeight:"40rem" }}
+        className="w-100 MainCard flex  column"
+        key={cardid}
+      >
+        <div className="w-100 card h-100">
+          <img src={x?.image[0]} alt="" className="w-100" />
+          {/* <div className="backdrop"></div> */}
+        </div>
+        <div
+          style={{
+            borderBottomLeftRadius: "5px",
+            borderBottomRightRadius: "5px",
+          }}
+          className="bottom w-100 back-white py-2 flex  item-center gap-1"
+        >
+          <img
+            src={x?.sellerId?.image}
+            alt=""
+            className="image"
+            style={{
+              width: "5rem",
+              height: "5rem",
+              borderRadius: "50%",
+            }}
+          />
+          <div className="flex  column">
+            <h4 className="fs-20 family1 text-dark text-extra-bold">
+              {x?.category[0]}
+            </h4>
+            <h5 className="fs-16 text-bold text-grey">
+              by {x?.sellerId?.username}
+            </h5>
+          </div>
+        </div>
+      </Link>
     );
   }
   if (type === "dashboard") {
     return (
-      <>
-        {gigsIsLoading ? (
-          <CardSkeleton />
-        ) : (
-          <CardContent>
-            <Link
-              to={`/dashboard/create-gig/${cardid}`}
-              className="w-100 cards flex  column"
-              key={x?.id}
-            >
-              <div className="detailsImageContainer">
-                <div className="detailsImageWrapper">
-                  {x?.image?.map((x) => {
-                    return (
-                      <Link
-                        to={`/gigs/${cardid}`}
-                        style={{ transform: `translateX(-${tabindex * 100}%)` }}
-                        className="w-100 card"
-                      >
-                        <img src={x} alt="" className="w-100" />
-                        <div className="backdrop"></div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className="w-100 flex  column py-1 gap-1">
-                <div className="flex  item-center w-100 justify-space">
-                  <div className="flex  gap-1 item-center">
-                    <img
-                      src="./images/johanna-richardson.jpg"
-                      style={{
-                        width: "3rem",
-                        height: "3rem",
-                        borderRadius: "50%",
-                      }}
-                    />
-                    <h5 className="fs-16 text-dark text-bold">Luckyash</h5>
-                  </div>
-                  <h5 className="fs-16 text-grey text-bold">Luckyash</h5>
-                </div>
-                <h4 className="desc fs-20 text-dark text-light">
-                  {x?.title.substring(0, 44)}....
-                </h4>
-                <div
-                  style={{ gap: ".3rem", padding: ".3rem 0" }}
-                  className="w-100 flex  text-dark text-bold item-center fs-18"
-                >
-                  <Star />
-                  <span style={{ marginTop: ".3rem" }}>4.9</span>
-                  <span
-                    style={{ marginTop: ".3rem" }}
-                    className="text-grey text-light"
+      <CardContent>
+        <Link
+          to={`/dashboard/create-gig/${cardid}`}
+          className="w-100 cards flex  column"
+          key={x?.id}
+        >
+          <div className="detailsImageContainer">
+            <div className="detailsImageWrapper">
+              {x?.image?.map((x) => {
+                return (
+                  <Link
+                    to={`/gigs/${cardid}`}
+                    style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                    className="w-100 card"
                   >
-                    (1K+)
-                  </span>
-                </div>
-
-                <div className="w-100 flex  item-center gap-1 fs-20 text-dark">
-                  From
-                  <span className="fs-18">${x?.price}</span>
-                </div>
+                    <img src={x} alt="" className="w-100" />
+                    <div className="backdrop"></div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+          <div className="w-100 flex  column py-1 gap-1">
+            <div className="flex  item-center w-100 justify-space">
+              <div className="flex  gap-1 item-center">
+                <img
+                  src="./images/johanna-richardson.jpg"
+                  style={{
+                    width: "3rem",
+                    height: "3rem",
+                    borderRadius: "50%",
+                  }}
+                />
+                <h5 className="fs-16 text-dark text-bold">Luckyash</h5>
               </div>
-            </Link>
-          </CardContent>
-        )}
-      </>
+              <h5 className="fs-16 text-grey text-bold">Luckyash</h5>
+            </div>
+            <h4 className="desc fs-20 text-dark text-light">
+              {x?.title.substring(0, 44)}....
+            </h4>
+            <div
+              style={{ gap: ".3rem", padding: ".3rem 0" }}
+              className="w-100 flex  text-dark text-bold item-center fs-18"
+            >
+              <Star />
+              <span style={{ marginTop: ".3rem" }}>4.9</span>
+              <span
+                style={{ marginTop: ".3rem" }}
+                className="text-grey text-light"
+              >
+                (1K+)
+              </span>
+            </div>
+
+            <div className="w-100 flex  item-center gap-1 fs-20 text-dark">
+              From
+              <span className="fs-18">${x?.price}</span>
+            </div>
+          </div>
+        </Link>
+      </CardContent>
     );
   }
   // card for profile
   if (type === "profile") {
     return (
-      <>
-        {gigsIsLoading ? (
-          <CardSkeleton />
-        ) : (
-          <CardContent className="profile">
-            <Link
-              to={`/gigs/${cardid}`}
-              className="w-100 cards profile gap-1 flex  column"
-              key={x?.id}
-            >
-              <div className="detailsImageContainer profile">
-                {/* button  */}
+      <CardContent className="profile">
+        <Link
+          to={`/gigs/${cardid}`}
+          className="w-100 cards profile gap-1 flex  column"
+          key={x?.id}
+        >
+          <div className="detailsImageContainer profile">
+            {/* button  */}
 
-                <div className="detailsImageWrapper">
-                  {x?.image?.map((x) => {
-                    return (
-                      <Link
-                        to={`/gigs/${cardid}`}
-                        style={{ transform: `translateX(-${tabindex * 100}%)` }}
-                        className="w-100 card"
-                      >
-                        <img src={x} alt="" className="w-100" />
-                        <div className="backdrop"></div>
-                      </Link>
-                    );
-                  })}
-                </div>
+            <div className="detailsImageWrapper">
+              {x?.image?.map((x) => {
+                return (
+                  <Link
+                    to={`/gigs/${cardid}`}
+                    style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                    className="w-100 card"
+                  >
+                    <img src={x} alt="" className="w-100" />
+                    <div className="backdrop"></div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+          <div className="w-85 auto card_center flex  column gap-1">
+            <div className="flex item-center w-100 justify-space">
+              <div className="flex  gap-1 item-center">
+                <img
+                  src={x?.sellerId?.image}
+                  style={{
+                    width: "3rem",
+                    height: "3rem",
+                    borderRadius: "50%",
+                  }}
+                />
+                <h5 className="fs-18 text-dark text-bold">
+                  {x?.sellerId?.username}
+                </h5>
               </div>
-              <div className="w-85 auto card_center flex  column gap-1">
-                <div className="flex item-center w-100 justify-space">
-                  <div className="flex  gap-1 item-center">
-                    <img
-                      src={x?.sellerId?.image}
-                      style={{
-                        width: "3rem",
-                        height: "3rem",
-                        borderRadius: "50%",
-                      }}
-                    />
-                    <h5 className="fs-18 text-dark text-bold">
-                      {x?.sellerId?.username}
-                    </h5>
-                  </div>
-                </div>
-                <h4
-                  style={{ fontWeight: "400" }}
-                  className="desc fs-18 text-dark text-bold"
+            </div>
+            <h4
+              style={{ fontWeight: "400" }}
+              className="desc fs-18 text-dark text-bold"
+            >
+              {x?.title.substring(0, 50)}
+            </h4>
+            <div
+              style={{ gap: ".3rem", padding: ".3rem 0" }}
+              className="w-100 flex  text-dark justify-space text-bold item-center fs-16"
+            >
+              <div style={{ gap: ".5rem" }} className="flex  item-center">
+                {" "}
+                <FaStar fontSize={"15px"} />
+                <span style={{ marginTop: ".3rem" }}>4.9</span>
+                <span
+                  style={{ marginTop: ".3rem" }}
+                  className="text-grey text-light"
                 >
-                  {x?.title.substring(0, 50)}
-                </h4>
-                <div
-                  style={{ gap: ".3rem", padding: ".3rem 0" }}
-                  className="w-100 flex  text-dark justify-space text-bold item-center fs-16"
-                >
-                  <div style={{ gap: ".5rem" }} className="flex  item-center">
-                    {" "}
-                    <FaStar fontSize={"15px"} />
-                    <span style={{ marginTop: ".3rem" }}>4.9</span>
-                    <span
-                      style={{ marginTop: ".3rem" }}
-                      className="text-grey text-light"
-                    >
-                      (1K+)
-                    </span>
-                  </div>
-                  <span className="text-light fs-18 text-grey">
-                    {x?.sellerId?.level}
-                  </span>
-                </div>
+                  (1K+)
+                </span>
+              </div>
+              <span className="text-light fs-18 text-grey">
+                {x?.sellerId?.level}
+              </span>
+            </div>
 
-                {/* <div
+            {/* <div
                   style={{ marginTop: ".6rem" }}
                   className="w-100 fs-18 text-dark"
                 >
                   From <span className="fs-18">${x?.price}</span>
                 </div> */}
+          </div>
+          <div className="w-100 card_bottom flex  justify-space item-center">
+            <div className="w-85 auto flex  item-center justify-space">
+              <div style={{ gap: ".5rem" }} className="flex  item-center">
+                <FaHeart fontSize={"20px"} color="var(--grey-2)" />
               </div>
-              <div className="w-100 card_bottom flex  justify-space item-center">
-                <div className="w-85 auto flex  item-center justify-space">
-                  <div style={{ gap: ".5rem" }} className="flex  item-center">
-                    <FaHeart fontSize={"20px"} color="var(--grey-2)" />
-                  </div>
-                  <div
-                    style={{ gap: ".5rem" }}
-                    className="flex  item-center fs-20 text-bold text-dark"
-                  >
-                    <span
-                      style={{ letterSpacing: "2px" }}
-                      className="fs-14 text-bold text-grey"
-                    >
-                      STARTING AT
-                    </span>
-                    ${x?.price}
-                  </div>
-                </div>
+              <div
+                style={{ gap: ".5rem" }}
+                className="flex  item-center fs-20 text-bold text-dark"
+              >
+                <span
+                  style={{ letterSpacing: "2px" }}
+                  className="fs-14 text-bold text-grey"
+                >
+                  STARTING AT
+                </span>
+                ${x?.price}
               </div>
-            </Link>
-          </CardContent>
-        )}
-      </>
+            </div>
+          </div>
+        </Link>
+      </CardContent>
     );
   }
 
   // generic card
 
   return (
-    <>
-      {gigsIsLoading ? (
-        <CardSkeleton />
-      ) : (
-        <CardContent>
-          <div className="icon">
-            <Heart />
-          </div>
+    <CardContent>
+      <div className="icon">
+        <Heart />
+      </div>
 
-          <Link
-            to={`/gigs/${cardid}`}
-            className="w-100 cards gap-1 flex  column"
-            key={x?.id}
-          >
-            <div style={{ zIndex: "300" }} className="w-100 abolute hidden">
-              {x?.image?.length >= 2 && (
-                <div className="flex  hidden">
-                  {tabindex > 0 && (
-                    <div
-                      className="btnArrow shadow left"
-                      onClick={() => handleImagePosition("left")}
-                    >
-                      <BiChevronLeft />
-                    </div>
-                  )}
-                  <div
-                    className="btnArrow shadow right"
-                    onClick={() => handleImagePosition("right")}
-                  >
-                    <BiChevronRight />
-                  </div>
+      <Link
+        to={`/gigs/${cardid}`}
+        className="w-100 cards gap-1 flex  column"
+        key={x?.id}
+      >
+        <div style={{ zIndex: "300" }} className="w-100 abolute hidden">
+          {x?.image?.length >= 2 && (
+            <div className="flex  hidden">
+              {tabindex > 0 && (
+                <div
+                  className="btnArrow shadow left"
+                  onClick={() => handleImagePosition("left")}
+                >
+                  <BiChevronLeft />
                 </div>
               )}
+              <div
+                className="btnArrow shadow right"
+                onClick={() => handleImagePosition("right")}
+              >
+                <BiChevronRight />
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div
+          style={{ gap: "5px" }}
+          className="custom_nav_wrapper flex  item-center justify-center"
+        >
+          {new Array(x?.image?.length).fill("").map((x, index) => {
+            const active = tabindex === index;
+            return (
+              <div
+                key={index}
+                className={active ? "cutom_nav active" : "cutom_nav"}
+              ></div>
+            );
+          })}
+        </div>
+        <div className="detailsImageContainer">
+          {/* button  */}
+
+          <div className="detailsImageWrapper">
+            {x?.image?.map((x) => {
+              return (
+                <Link
+                  to={`/gigs/${cardid}`}
+                  style={{ transform: `translateX(-${tabindex * 100}%)` }}
+                  className="w-100 card"
+                >
+                  <img src={x} alt="" className="w-100" />
+                  <div className="backdrop"></div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+        <div className="w-100 flex column py-1 gap-1">
+          <div style={{ gap: ".6rem" }} className="flex w-100 column">
+            <div className="flex  item-center w-100 justify-space">
+              <div className="flex  gap-1 item-center">
+                <img
+                  src={x?.sellerId?.image}
+                  style={{
+                    width: "3rem",
+                    height: "3rem",
+                    borderRadius: "50%",
+                  }}
+                />
+                <h5 className="fs-16 text-dark text-bold">
+                  {x?.sellerId?.username}
+                </h5>
+              </div>
+              <h5 className="fs-16 text-grey text-bold">
+                {x?.sellerId?.level}
+              </h5>
+            </div>
+            <h4 className="desc fs-18 text-grey text-extra-bold">
+              {x?.title.substring(0, 50)}
+            </h4>
+            <div
+              style={{ gap: ".1rem", padding: ".3rem 0" }}
+              className="w-100 flex  text-dark text-bold item-center fs-18"
+            >
+              <Star />
+              <span style={{ marginTop: ".3rem" }}>4.9</span>
+              <span
+                style={{ marginTop: ".3rem" }}
+                className="text-grey text-light"
+              >
+                (1K+)
+              </span>
             </div>
 
             <div
-              style={{ gap: "5px" }}
-              className="custom_nav_wrapper flex  item-center justify-center"
+              style={{ marginTop: ".6rem" }}
+              className="w-100 fs-18 text-dark"
             >
-              {new Array(x?.image?.length).fill("").map((x, index) => {
-                const active = tabindex === index;
-                return (
-                  <div
-                    key={index}
-                    className={active ? "cutom_nav active" : "cutom_nav"}
-                  ></div>
-                );
-              })}
+              From <span className="fs-18">${x?.price}</span>
             </div>
-            <div className="detailsImageContainer">
-              {/* button  */}
-
-              <div className="detailsImageWrapper">
-                {x?.image?.map((x) => {
-                  return (
-                    <Link
-                      to={`/gigs/${cardid}`}
-                      style={{ transform: `translateX(-${tabindex * 100}%)` }}
-                      className="w-100 card"
-                    >
-                      <img src={x} alt="" className="w-100" />
-                      <div className="backdrop"></div>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="w-100 flex column py-1 gap-1">
-              <div style={{ gap: ".6rem" }} className="flex w-100 column">
-                <div className="flex  item-center w-100 justify-space">
-                  <div className="flex  gap-1 item-center">
-                    <img
-                      src={x?.sellerId?.image}
-                      style={{
-                        width: "3rem",
-                        height: "3rem",
-                        borderRadius: "50%",
-                      }}
-                    />
-                    <h5 className="fs-16 text-dark text-bold">
-                      {x?.sellerId?.username}
-                    </h5>
-                  </div>
-                  <h5 className="fs-16 text-grey text-bold">
-                    {x?.sellerId?.level}
-                  </h5>
-                </div>
-                <h4 className="desc fs-18 text-grey text-extra-bold">
-                  {x?.title.substring(0, 50)}
-                </h4>
-                <div
-                  style={{ gap: ".1rem", padding: ".3rem 0" }}
-                  className="w-100 flex  text-dark text-bold item-center fs-18"
-                >
-                  <Star />
-                  <span style={{ marginTop: ".3rem" }}>4.9</span>
-                  <span
-                    style={{ marginTop: ".3rem" }}
-                    className="text-grey text-light"
-                  >
-                    (1K+)
-                  </span>
-                </div>
-
-                <div
-                  style={{ marginTop: ".6rem" }}
-                  className="w-100 fs-18 text-dark"
-                >
-                  From <span className="fs-24 family2">${x?.price}</span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </CardContent>
-      )}
-    </>
+          </div>
+        </div>
+      </Link>
+    </CardContent>
   );
 }
 
@@ -374,6 +350,15 @@ const CardContent = styled.div`
   width: 100%;
   overflow: hidden;
   &.profile {
+  }
+  .MainCard {
+    min-height: 30rem;
+    @media (max-width: 480px) {
+      min-height: 50rem;
+    }
+    .card {
+      height: 100%;
+    }
   }
   .cards {
     min-height: 34rem;
