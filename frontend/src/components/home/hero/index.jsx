@@ -210,17 +210,17 @@ const HeroBottomIndexContent = styled.div`
   }
   .company {
     height: 7rem;
-    @media (max-width: 480px) {
+    @media (max-width: 780px) {
       height: 9rem;
     }
     &.company1 {
-      @media (max-width: 480px) {
+      @media (max-width: 780px) {
         display: none;
       }
     }
   }
   .trust {
-    @media (max-width: 480px) {
+    @media (max-width: 780px) {
       display: none;
     }
   }

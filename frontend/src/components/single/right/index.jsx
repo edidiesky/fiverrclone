@@ -100,6 +100,9 @@ const RightIndexContent = styled.div`
   .tab {
     padding: 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    @media (max-width: 580px) {
+      padding:3rem 2rem;
+    }
     &.tab2,
     &.tab3 {
       background: rgba(0, 0, 0, 0.03);
@@ -120,5 +123,8 @@ const RightIndexContent = styled.div`
   }
   .border {
     border: 1px solid rgba(0, 0, 0, 0.2);
+    @media (max-width: 580px) {
+      border: none;
+    }
   }
 `;

@@ -572,7 +572,7 @@ const HeaderWrapper = styled.div`
     &.active {
       display: none;
     }
-    @media (max-width: 480px) {
+    @media (max-width: 780px) {
       display: none;
     }
   }

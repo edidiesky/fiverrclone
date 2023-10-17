@@ -512,7 +512,7 @@ const HeaderWrapper = styled.div`
     width: 100%;
     z-index: 5000;
     background-color: #fff;
-    @media (max-width:480px) {
+    @media (max-width:780px) {
       display: none;
     }
   }
