@@ -47,6 +47,7 @@ export default function App() {
     setHeight(height);
   }, []);
   const [height, setHeight] = useState(0);
+  // console.log(import.meta.env.VITE_API_BASE_URLS);
   return (
     <>
       <div className="based" style={{ height }}>

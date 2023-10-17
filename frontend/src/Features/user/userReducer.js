@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-const Registerurl = "https://fiverrclone-api.vercel.app/api/v1/auth/register";
-const Loginurl = "https://fiverrclone-api.vercel.app/api/v1/auth/login";
+// https://fiverrclone-api.vercel.app
+const Registerurl = `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/register`;
+const Loginurl = `${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/login`;
 
 export const registerCustomer = createAsyncThunk(
   "registerUser",
@@ -28,7 +28,7 @@ export const googleAuth = createAsyncThunk(
   async (registerData, thunkAPI) => {
     try {
       // console.log(registerData);
-      const { data } = await axios.get("https://fiverrclone-api.vercel.app/api/v1/auth/goggle", registerData);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/auth/goggle`, registerData);
       // localStorage.setItem("customer", JSON.stringify(data.user));
       // localStorage.setItem("customertoken", data.token);
       return data;
@@ -98,7 +98,7 @@ export const getUserStats = createAsyncThunk(
           authorization: `Bearer ${state.user.token}`,
         },
       };
-      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/user/stats`, config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/user/stats`, config);
       return data.usersStats;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -116,7 +116,7 @@ export const getSingleCustomer = createAsyncThunk(
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axios.get(`https://fiverrclone-api.vercel.app/api/v1/user/profile/${name}`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/user/profile/${name}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
@@ -141,7 +141,7 @@ export const adminUpdateCustomer = createAsyncThunk(
       };
       const { _id } = state.user.userDetails;
       const { data } = await axios.put(
-        `https://fiverrclone-api.vercel.app/api/v1/user/admin/profile/${_id}`,
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/user/admin/profile/${_id}`,
         Userformdata,
         config
       );
@@ -171,7 +171,7 @@ export const UpdateProfile = createAsyncThunk(
       };
       const { _id } = state.user.userInfo;
       const { data } = await axios.put(
-        `https://fiverrclone-api.vercel.app/api/v1/user/profile/${_id}`,
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/user/profile/${_id}`,
         profiledata,
         config
       );
@@ -200,7 +200,7 @@ export const adminDeleteCustomer = createAsyncThunk(
       };
 
       const { data } = await axios.delete(
-        `https://fiverrclone-api.vercel.app/api/v1/user/admin/profile/${name}`,
+        `${import.meta.env.VITE_API_BASE_URLS}/api/v1/user/admin/profile/${name}`,
         config
       );
       return name;
