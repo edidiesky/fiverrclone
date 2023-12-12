@@ -245,11 +245,11 @@ export default function AuthModal() {
       exit={{ opacity: 0, visibility: "hidden", duration: 0.6 }}
       animate={{ opacity: 1, visibility: "visible", duration: 0.6 }}
     >
-      {/* <Message
+      <Message
         showAlert={showAlert}
         alertText={alertText}
         handleClearAlert={clearUserAlertError}
-      /> */}
+      />
       {isLoading && <LoaderIndex />}
       <div className="backdrop" onClick={() => dispatch(offAuthModal())}></div>
       <motion.div

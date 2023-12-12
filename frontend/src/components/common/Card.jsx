@@ -24,214 +24,6 @@ export default function Card({ x, index, type }) {
   };
   const cardid = x?._id;
 
-  if (type === "features") {
-    return (
-      <Link
-        to={`/gigs/${cardid}`}
-        style={{ boxShadow: "var(--shadow)",background:"#fff", borderRadius: "5px"}}
-        className="w-100 MainCard flex  column"
-        key={cardid}
-      >
-        <div className="w-100 card h-100">
-          <img src={x?.image[0]} alt="" className="w-100" />
-          {/* <div className="backdrop"></div> */}
-        </div>
-        <div
-          style={{
-            borderBottomLeftRadius: "5px",
-            borderBottomRightRadius: "5px",
-          }}
-          className="bottom w-100 back-white py-2 flex  item-center gap-1"
-        >
-          <img
-            src={x?.sellerId?.image}
-            alt=""
-            className="image"
-            style={{
-              width: "5rem",
-              height: "5rem",
-              borderRadius: "50%",
-            }}
-          />
-          <div className="flex  column">
-            <h4 className="fs-20 family1 text-dark text-extra-bold">
-              {x?.category[0]}
-            </h4>
-            <h5 className="fs-16 text-bold text-grey">
-              by {x?.sellerId?.username}
-            </h5>
-          </div>
-        </div>
-      </Link>
-    );
-  }
-  if (type === "dashboard") {
-    return (
-      <CardContent>
-        <Link
-          to={`/dashboard/create-gig/${cardid}`}
-          className="w-100 cards flex  column"
-          key={x?.id}
-        >
-          <div className="detailsImageContainer">
-            <div className="detailsImageWrapper">
-              {x?.image?.map((x) => {
-                return (
-                  <Link
-                    to={`/gigs/${cardid}`}
-                    style={{ transform: `translateX(-${tabindex * 100}%)` }}
-                    className="w-100 card"
-                  >
-                    <img src={x} alt="" className="w-100" />
-                    <div className="backdrop"></div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-          <div className="w-100 flex  column py-1 gap-1">
-            <div className="flex  item-center w-100 justify-space">
-              <div className="flex  gap-1 item-center">
-                <img
-                  src="./images/johanna-richardson.jpg"
-                  style={{
-                    width: "3rem",
-                    height: "3rem",
-                    borderRadius: "50%",
-                  }}
-                />
-                <h5 className="fs-16 text-dark text-bold">Luckyash</h5>
-              </div>
-              <h5 className="fs-16 text-grey text-bold">Luckyash</h5>
-            </div>
-            <h4 className="desc fs-20 text-dark text-light">
-              {x?.title.substring(0, 44)}....
-            </h4>
-            <div
-              style={{ gap: ".3rem", padding: ".3rem 0" }}
-              className="w-100 flex  text-dark text-bold item-center fs-18"
-            >
-              <Star />
-              <span style={{ marginTop: ".3rem" }}>4.9</span>
-              <span
-                style={{ marginTop: ".3rem" }}
-                className="text-grey text-light"
-              >
-                (1K+)
-              </span>
-            </div>
-
-            <div className="w-100 flex  item-center gap-1 fs-20 text-dark">
-              From
-              <span className="fs-18">${x?.price}</span>
-            </div>
-          </div>
-        </Link>
-      </CardContent>
-    );
-  }
-  // card for profile
-  if (type === "profile") {
-    return (
-      <CardContent className="profile">
-        <Link
-          to={`/gigs/${cardid}`}
-          className="w-100 cards profile gap-1 flex  column"
-          key={x?.id}
-        >
-          <div className="detailsImageContainer profile">
-            {/* button  */}
-
-            <div className="detailsImageWrapper">
-              {x?.image?.map((x) => {
-                return (
-                  <Link
-                    to={`/gigs/${cardid}`}
-                    style={{ transform: `translateX(-${tabindex * 100}%)` }}
-                    className="w-100 card"
-                  >
-                    <img src={x} alt="" className="w-100" />
-                    <div className="backdrop"></div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-          <div className="w-85 auto card_center flex  column gap-1">
-            <div className="flex item-center w-100 justify-space">
-              <div className="flex  gap-1 item-center">
-                <img
-                  src={x?.sellerId?.image}
-                  style={{
-                    width: "3rem",
-                    height: "3rem",
-                    borderRadius: "50%",
-                  }}
-                />
-                <h5 className="fs-18 text-dark text-bold">
-                  {x?.sellerId?.username}
-                </h5>
-              </div>
-            </div>
-            <h4
-              style={{ fontWeight: "400" }}
-              className="desc fs-18 text-dark text-bold"
-            >
-              {x?.title.substring(0, 50)}
-            </h4>
-            <div
-              style={{ gap: ".3rem", padding: ".3rem 0" }}
-              className="w-100 flex  text-dark justify-space text-bold item-center fs-16"
-            >
-              <div style={{ gap: ".5rem" }} className="flex  item-center">
-                {" "}
-                <FaStar fontSize={"15px"} />
-                <span style={{ marginTop: ".3rem" }}>4.9</span>
-                <span
-                  style={{ marginTop: ".3rem" }}
-                  className="text-grey text-light"
-                >
-                  (1K+)
-                </span>
-              </div>
-              <span className="text-light fs-18 text-grey">
-                {x?.sellerId?.level}
-              </span>
-            </div>
-
-            {/* <div
-                  style={{ marginTop: ".6rem" }}
-                  className="w-100 fs-18 text-dark"
-                >
-                  From <span className="fs-18">${x?.price}</span>
-                </div> */}
-          </div>
-          <div className="w-100 card_bottom flex  justify-space item-center">
-            <div className="w-85 auto flex  item-center justify-space">
-              <div style={{ gap: ".5rem" }} className="flex  item-center">
-                <FaHeart fontSize={"20px"} color="var(--grey-2)" />
-              </div>
-              <div
-                style={{ gap: ".5rem" }}
-                className="flex  item-center fs-16 text-bold text-dark"
-              >
-                <span
-                  style={{ letterSpacing: "2px" }}
-                  className="fs-14 text-bold text-grey"
-                >
-                  STARTING AT
-                </span>
-                ${x?.price}
-              </div>
-            </div>
-          </div>
-        </Link>
-      </CardContent>
-    );
-  }
-
-  // generic card
-
   return (
     <CardContent>
       <div className="icon">
@@ -316,15 +108,18 @@ export default function Card({ x, index, type }) {
                 {x?.sellerId?.level}
               </h5>
             </div>
-            <h4 className="desc fs-18 text-grey text-extra-bold">
+            <h4
+              style={{ fontSize: "1.6rem" }}
+              className="desc text-grey text-bold"
+            >
               {x?.title.substring(0, 50)}
             </h4>
             <div
-              style={{ gap: ".1rem", padding: ".3rem 0" }}
-              className="w-100 flex  text-dark text-bold item-center fs-18"
+              style={{ gap: ".2rem", padding: ".3rem 0", fontSize: "1.6rem" }}
+              className="w-100 flex  text-dark text-bold item-center"
             >
               <Star />
-              <span style={{ marginTop: ".3rem" }}>4.9</span>
+              <span style={{ marginTop: ".1rem" }}>4.9</span>
               <span
                 style={{ marginTop: ".3rem" }}
                 className="text-grey text-light"
@@ -334,10 +129,10 @@ export default function Card({ x, index, type }) {
             </div>
 
             <div
-              style={{ marginTop: ".6rem" }}
-              className="w-100 fs-18 text-dark"
+              style={{ marginTop: ".4rem", fontSize: "1.6rem" }}
+              className="w-100 text-dark"
             >
-              From <span className="fs-18">${x?.price}</span>
+              From <span className="">${x?.price}</span>
             </div>
           </div>
         </div>

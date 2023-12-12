@@ -31,6 +31,7 @@ const InputTextField = styled(TextField)(({ theme }) => ({
     paddingBottom: "12px",
     fontSize: "14px",
     fontWeight: "500",
+    lineHeight:"1.3",
     fontFamily: "Nunito, sans-serif",
     color: "var(--dark-1)",
   },

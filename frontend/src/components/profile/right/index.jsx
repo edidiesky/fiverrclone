@@ -51,7 +51,7 @@ const ProfileRightIndexContent = styled.div`
     width: 100%;
 
   .gigs {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     display: grid;
     width: 100%;
     grid-gap: 3rem;

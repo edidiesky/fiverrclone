@@ -28,9 +28,11 @@ export default function Message({
         initial="hidden"
         animate={showAlert ? "visible" : "exit"}
         exit={"exit"}
-        className={"gap-1 flex item-center justify-space"}
+        className={"gap-1 flex item-center justify-center"}
       >
-        <div className="flex fs-12 flex1 text-extra-bold">{alertText}</div>
+        <div className="flex fs-15 item-center justify-center flex1 text-extra-bold">
+          {alertText}
+        </div>
       </ErrorMessage>
     );
   }
@@ -38,8 +40,8 @@ export default function Message({
     <MessageContent
       className={
         showAlert
-          ? "gap-1 flex item-center justify-space active"
-          : "gap-1 flex item-center justify-space"
+          ? "gap-1 flex item-center justify-center justify-space active"
+          : "gap-1 flex item-center justify-center justify-space"
       }
     >
       <AiFillCheckCircle fontSize={"24px"} color="green" />
@@ -52,8 +54,11 @@ export default function Message({
 }
 const ErrorMessage = styled(motion.div)`
   min-width: 200px;
-  border-radius: 12px;
+  border-radius: 1px;
   padding: 10px 20px;
+  min-height: 6rem;
+  font-size: 15px;
+
   background: #8507071d;
   color: #b80909b1;
 `;

@@ -129,15 +129,17 @@ export default function CreateProductIndex() {
 
   return (
     <div className="w-100">
-      <Message
-        showAlert={showAlert}
-        alertText={alertText}
-        alertType={alertType}
-        handleClearAlert={clearGigsAlert}
-      />
       {gigsIsLoading && <LoaderIndex loading={gigsIsLoading} />}
       <EditProductContainer>
         <div className="EditProductWrapper w-85 auto">
+          <div className="-85 auto flex item-center justify-center">
+            <Message
+              showAlert={showAlert}
+              alertText={alertText}
+              alertType={alertType}
+              handleClearAlert={clearGigsAlert}
+            />
+          </div>
           <div className="EditProductWrapperTop flex item-center justify-space">
             <h2 className="family1 flex-1 fs-30 text-dark">
               {GigsDetails ? "Edit Gigs" : "Create New Gigs"}
@@ -261,7 +263,7 @@ export default function CreateProductIndex() {
                 </div>
                 <h4
                   style={{ fontWeight: "400" }}
-                  className="desc fs-20 text-dark text-bold"
+                  className="desc fs-16 text-dark text-bold"
                 >
                   {/* {x?.title.substring(0, 50)} */}
                   {formdata2.title}

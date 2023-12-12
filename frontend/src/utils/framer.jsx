@@ -12,7 +12,7 @@ export const errorMessage = {
   visible: {
     scale: 1,
     transform: "translateY(0)",
-    display: "block",
+    display: "flex",
     opacity: 1,
     visibility: "visible",
   },
