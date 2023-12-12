@@ -7,8 +7,8 @@ import { offSidebar } from "../../Features";
 
 const data = [
   { id: 1, title: "Home", path: "/" },
-  { id: 2, title: "Dashboard", path: "/explore" },
-  { id: 3, title: "Inbox", path: "/inbox" },
+  { id: 2, title: "Dashboard", path: "/dashboard" },
+  { id: 3, title: "Inbox", path: "/" },
   // { id: 4, title: "Lists", path: "/" },
   // { id: 5, title: "Explore", path: "/gigs" },
   // { id: 6, title: "English", path: "/" },
