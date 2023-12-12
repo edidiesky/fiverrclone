@@ -165,7 +165,7 @@ const userSlice = createSlice({
       state.userInfo = action.payload.user;
       state.token = action.payload.token;
       state.showAlert = true;
-      state.alertText = "Login successfull.";
+      state.alertText = "Login successfully.";
       state.alertType = "success";
     },
     [loginCustomer.rejected]: (state, action) => {

@@ -9,16 +9,16 @@ import { useSelector } from "react-redux";
 // import Dropdown from "../common/Dropdown";
 
 const sidebarData = [
-  {
-    id: 1,
-    title: "Overview",
-    path: "/dashboard/",
-  },
-  {
-    id: 2,
-    title: "Reviews",
-    path: "/dashboard/Reviews",
-  },
+  // {
+  //   id: 1,
+  //   title: "Overview",
+  //   path: "/dashboard/",
+  // },
+  // {
+  //   id: 2,
+  //   title: "Reviews",
+  //   path: "/dashboard/Reviews",
+  // },
   {
     id: 3,
     title: "Gigs",

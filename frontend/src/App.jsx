@@ -111,9 +111,9 @@ export default function App() {
               </ProtectRoute>
             }
           >
-            <Route exact path="" element={<Statistics />} />
+            {/* <Route exact path="" element={<Statistics />} /> */}
             <Route exact path="profile" element={<ProfileList />} />
-            <Route exact path="gigs" element={<AdminProductList />} />
+            <Route exact path="" element={<AdminProductList />} />
             <Route exact path="users" element={<Customers />} />
 
             <Route path="order" element={<OrderList />} />

@@ -44,7 +44,7 @@ export default function Order() {
       {isLoading && <LoaderIndex loading={isLoading} />}
       <OrderWrapper
         className="py-2 w-90 auto flex column gap-1"
-        style={{ border: "1px solid rgba(0,0,0,.1)", margin: "2rem auto" }}
+        style={{ margin: "2rem auto" }}
       >
         {order?.length === 0 ? (
           <div className="w-90 auto flex item-center justify-space">
@@ -61,7 +61,7 @@ export default function Order() {
               className="py-2 w-90 auto family1 text-bold text-dark"
               style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}
             >
-              Transaction
+              Order History
             </h2>
             <div className="flex item-center w-90 auto flex item-start justify-space">
               <Table>

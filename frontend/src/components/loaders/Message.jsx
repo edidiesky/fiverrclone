@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 import { RxCross1 } from "react-icons/rx";
 import { CgDanger } from "react-icons/cg";
 import { AiFillCheckCircle } from "react-icons/ai";
-export default function ErrorMessage({
+import { motion } from "framer-motion";
+import { errorMessage } from "../../utils/framer";
+export default function Message({
   showAlert,
   alertText,
   alertType,
@@ -18,58 +20,71 @@ export default function ErrorMessage({
   //     dispatch(handleClearAlert())
   //   }, 10000);
   // }, []);
-
+  if (alertType === "danger") {
+    return (
+      <ErrorMessage
+        as={motion.div}
+        variants={errorMessage}
+        initial="hidden"
+        animate={showAlert ? "visible" : "exit"}
+        exit={"exit"}
+        className={"gap-1 flex item-center justify-space"}
+      >
+        <div className="flex fs-12 flex1 text-extra-bold">{alertText}</div>
+      </ErrorMessage>
+    );
+  }
   return (
-    <ErrorMessageContent
+    <MessageContent
       className={
         showAlert
-          ? "gap-1 flex fs-18 item-center justify-space active"
-          : "gap-1 flex fs-18 item-center justify-space"
+          ? "gap-1 flex item-center justify-space active"
+          : "gap-1 flex item-center justify-space"
       }
     >
-      <CgDanger fontSize={"20px"} color="red" />
-
-      <h5
-        className={
-          alertType === "danger"
-            ? "flex flex1 fs-18 text-extra-bold activered"
-            : "flex flex1 fs-18 text-extra-bold"
-        }
-      >
-        {alertText}
-      </h5>
-      {/* <div className="icon" onClick={handleClearAlert}>
+      <AiFillCheckCircle fontSize={"24px"} color="green" />
+      <div className="flex flex1 text-extra-bold text-dark">{alertText}</div>
+      <div className="icon" onClick={handleClearAlert}>
         <RxCross1 />
-      </div> */}
-    </ErrorMessageContent>
+      </div>
+    </MessageContent>
   );
 }
-
-const ErrorMessageContent = styled.div`
+const ErrorMessage = styled(motion.div)`
   min-width: 200px;
-  padding: 1.4rem;
-  background-color: #fbd8d857;
-  color: #e50b0b;
+  border-radius: 12px;
+  padding: 10px 20px;
+  background: #8507071d;
+  color: #b80909b1;
+`;
+
+const MessageContent = styled.div`
+  min-width: 200px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12) !important;
+  background-color: #fff;
+  position: fixed;
   z-index: 10000;
   left: 2%;
-  border-radius: 8px;
+  border-radius: 12px;
+  font-size: 13px;
   font-weight: 600;
+  color: var(--dark-1);
   transition: all 0.6s;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -1000%);
   opacity: 0;
   visibility: hidden;
-  position: relative;
-  transform: translate3d(0, 100px, 0);
+
+  top: -5%;
+
   &.active {
-    transform: translate3d(0, 0px, 0);
-    visibility: visible;
+    top: 5%;
+    transform: translateX(-50%);
     opacity: 1;
-    display: flex;
-  }
-  h5 {
-    font-size: inherit;
-    &.activered {
-      color: var(--red);
-    }
+    visibility: visible;
   }
   &.danger {
     background-color: var(--red);
@@ -77,7 +92,7 @@ const ErrorMessageContent = styled.div`
     border-left: 4px solid var(--red);
   }
   @media (max-width: 780px) {
-    min-width: 300px;
+    min-width: 200px;
     justify-content: flex-start;
   }
   @media (max-width: 480px) {
