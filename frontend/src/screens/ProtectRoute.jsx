@@ -5,11 +5,11 @@ export const ProtectRoute = ({ children, type }) => {
   // const navigate = useNavigate()
   const { userInfo } = useSelector((store) => store.user);
   if (!userInfo) {
-    return <Navigate to="/join/login" />;
+    return <Navigate to="/" />;
   }
   if (type === "dashboard") {
     if (userInfo?.role === "user") {
-      return <Navigate to="/join/login" />;
+      return <Navigate to="/" />;
     }
   }
 

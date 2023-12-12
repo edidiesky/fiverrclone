@@ -83,6 +83,11 @@ export default function AuthModal() {
     name: "",
     username: "",
   });
+
+  const [loginformdata, setLoginFormData] = useState({
+    email: "kazdar1@drupal.org",
+    password: "12345",
+  });
   const { email, username, password, name } = formdata;
 
   // framer motion set variants
@@ -139,7 +144,12 @@ export default function AuthModal() {
       dispatch(registerCustomer({ email, password, name }));
       // console.log("registration");
     } else {
-      dispatch(loginCustomer({ email, password }));
+      dispatch(
+        loginCustomer({
+          email: loginformdata.email,
+          password: loginformdata.password,
+        })
+      );
       // console.log("login");
     }
   };
