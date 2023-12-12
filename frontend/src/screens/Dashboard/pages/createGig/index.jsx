@@ -289,7 +289,7 @@ const EditProductContainer = styled.div`
   .right {
     position: sticky;
     top: 20%;
-     @media (max-width: 780px)  {
+     @media (max-width: 980px)  {
       position: relative;
       position:relative;
      }
