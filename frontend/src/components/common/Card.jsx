@@ -213,7 +213,7 @@ export default function Card({ x, index, type }) {
               </div>
               <div
                 style={{ gap: ".5rem" }}
-                className="flex  item-center fs-20 text-bold text-dark"
+                className="flex  item-center fs-16 text-bold text-dark"
               >
                 <span
                   style={{ letterSpacing: "2px" }}

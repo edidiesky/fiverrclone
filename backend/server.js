@@ -11,7 +11,7 @@ import mongoose from "mongoose";
 // middlewares
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-console.log(process.env.WEB_ORIGIN);
+// console.log(process.env.WEB_ORIGIN);
 app.use(
   cors({
     origin: process.env.WEB_ORIGIN,

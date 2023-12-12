@@ -38,7 +38,7 @@ export default function RightIndex() {
             <div className="w-100 flex item-center justify-space">
               <h4 className="fs-24 family2 text-dark text-bold">INITIAL PACKAGE</h4>
               {/* price */}
-              <h4 className="fs-24 text-dark text-light">
+              <h4 className="fs-20 text-dark text-light">
                 ${GigsDetails?.price}
               </h4>
             </div>

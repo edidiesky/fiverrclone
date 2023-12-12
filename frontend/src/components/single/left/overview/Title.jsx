@@ -30,7 +30,7 @@ export default function Title() {
               to={`/profile/${GigsDetails?.sellerId?.username}?sellerId=${GigsDetails?.sellerId?._id}`}
               className="link text-dark"
             >
-              <h4 className="fs-20  text-dark text-extra-bold">
+              <h4 className="fs-20 text-dark text-extra-bold">
                 <span>{GigsDetails?.sellerId?.name}</span>{" "}
                 <span
                   style={{ marginLeft: "1px" }}
@@ -44,16 +44,16 @@ export default function Title() {
             <div className="flex relative item-center">
               <h4
                 style={{ paddingRight: "1rem", borderRight: "1px solid #777" }}
-                className="fs-14 family2 text-grey text-bold"
+                className="fs-18 family2 text-grey text-bold"
               >
                 {GigsDetails?.sellerId?.level}
               </h4>
               <div
-                className="flex item-center gap-1 fs-16 family2"
+                className="flex item-center gap-1 fs-18 family2"
                 style={{ paddingLeft: "1rem" }}
               >
                 <Rating value={4} /> 5{/* no of reviews */}
-                <h4 className="fs-14 family2 text-grey text-light">(102)</h4>
+                <h4 className="fs-18 family2 text-grey text-light">(102)</h4>
               </div>
             </div>
           </div>

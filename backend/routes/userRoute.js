@@ -22,5 +22,5 @@ router
   .put(authMiddleware, adminMiddleware, AdminUpdateUser);
 
 router.route("/profile/:id").put(authMiddleware, UpdateUser);
-router.route("/profile/:username").get(GetUsersProfile);
+router.route("/profile").get(GetUsersProfile);
 export default router;

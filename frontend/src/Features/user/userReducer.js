@@ -116,7 +116,7 @@ export const getSingleCustomer = createAsyncThunk(
   async (name, thunkAPI) => {
     const state = thunkAPI.getState();
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/user/profile/${name}`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URLS}/api/v1/user/profile/?username=${name}`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(

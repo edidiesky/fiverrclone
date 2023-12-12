@@ -117,9 +117,11 @@ const FooterContainer = styled.div`
   position: relative;
   background-color: #fff;
   padding: 6rem 0;
-  border-top: 1px solid rgba(0,0,0,.09);
-  li,h4 {
-    @media (max-width:480px) {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  @media (max-width: 480px) {
+    display: none;
+  } li, h4 {
+    @media (max-width: 480px) {
       font-size: 18px;
     }
   }
