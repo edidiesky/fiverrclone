@@ -22,7 +22,7 @@ const sidebarData = [
   {
     id: 3,
     title: "Gigs",
-    path: "/dashboard/gigs",
+    path: "/dashboard",
   },
   { id: 4, title: "Orders", path: "/dashboard/order" },
   { id: 6, title: "Profile", path: "/dashboard/Profile" },

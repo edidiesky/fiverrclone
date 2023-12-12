@@ -291,6 +291,7 @@ const EditProductContainer = styled.div`
     top: 20%;
      @media (max-width: 780px)  {
       position: relative;
+      position:relative;
      }
   }
   h2 {
