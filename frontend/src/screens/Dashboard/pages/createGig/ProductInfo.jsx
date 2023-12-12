@@ -88,7 +88,7 @@ const EditGigInfoWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: 2rem;
     padding: 1rem 0;
   }
 `;
