@@ -90,6 +90,13 @@ export default function AuthModal() {
   });
   const { email, username, password, name } = formdata;
 
+  useEffect(() => {
+    setLoginFormData({
+      email: "kazdar1@drupal.org",
+      password: "12345",
+    });
+  }, [setLoginFormData]);
+
   // framer motion set variants
   const dropin = {
     hidden: {
@@ -327,7 +334,7 @@ export default function AuthModal() {
                             placeholder={input.placeholder}
                             type={input.type}
                             name={input.name}
-                            value={formdata[input.name]}
+                            value={loginformdata[input.name]}
                             input={input}
                             key={input.id}
                             required={input.required}
