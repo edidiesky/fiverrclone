@@ -51,6 +51,8 @@ export default function Header({ type }) {
                       activeClassName="active"
                       to={`${x.path}`}
                       key={x.id}
+                      exact={true}
+                      end
                     >
                       <span className="span"> {x.title}</span>
                     </NavLink>
