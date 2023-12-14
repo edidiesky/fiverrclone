@@ -106,7 +106,7 @@ const CreateOrder = async (req, res) => {
             name: items.title,
             images: [items.image[0]],
           },
-          unit_amount: items.price,
+          unit_amount: TotalShoppingPrice * 100,
         },
         quantity: items.quantity,
       };
